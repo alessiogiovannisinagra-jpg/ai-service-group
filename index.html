@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aiservicegroup — Automazione dei Processi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#0A0E14;
+    --paper-card:#121821;
+    --panel-deep:#05070A;
+    --ink:#E7ECF2;
+    --ink-soft:#93A0AF;
+    --steel:#4FD1C5;
+    --steel-light:#82E6DB;
+    --amber:#3D8BFF;
+    --amber-deep:#2569D1;
+    --line:#1B222C;
+    --line-strong:#2B3542;
+    --radius:2px;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* blueprint grid backdrop */
+  .grid-bg{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:0.5;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 40%, transparent 90%);
+  }
+
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.04em;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    font-weight:500;
+    letter-spacing:0.12em;
+    color:var(--steel);
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:18px;
+    height:1px;
+    background:var(--amber);
+    display:inline-block;
+  }
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* corner marks — technical drawing sheet reference */
+  .sheet{
+    position:relative;
+  }
+  .sheet::before, .sheet::after{
+    content:attr(data-ref);
+    position:absolute;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--line-strong);
+    letter-spacing:0.08em;
+  }
+  .sheet::before{ top:0; left:32px; }
+  .sheet::after{ top:0; right:32px; }
+
+  /* NAV */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(10,14,20,0.85);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:72px;
+  }
+  .logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:19px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .logo .dot{
+    width:8px;height:8px;background:var(--amber);
+    display:inline-block;
+    border-radius:1px;
+  }
+  .navlinks{
+    display:flex;
+    gap:36px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.03em;
+  }
+  .navlinks a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    transition:color .2s;
+  }
+  .navlinks a:hover{ color:var(--ink); }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:0.03em;
+    padding:11px 20px;
+    background:var(--ink);
+    color:var(--paper);
+    text-decoration:none;
+    border-radius:var(--radius);
+    border:1px solid var(--ink);
+    transition:transform .15s ease, background .2s ease;
+  }
+  .btn:hover{ background:var(--amber-deep); border-color:var(--amber-deep); transform:translateY(-1px); }
+  .btn.ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--line-strong);
+  }
+  .btn.ghost:hover{ border-color:var(--ink); background:transparent; transform:translateY(-1px); }
+  .btn.amber{
+    background:var(--amber);
+    border-color:var(--amber);
+    color:var(--paper);
+  }
+  .btn.amber:hover{ background:var(--amber-deep); border-color:var(--amber-deep); color:var(--paper); }
+
+  /* HERO */
+  .hero{
+    padding:96px 0 60px;
+  }
+  .hero-grid{
+    max-width:760px;
+  }
+  .hero h1{
+    font-size:clamp(34px, 4.4vw, 54px);
+    line-height:1.08;
+    margin:18px 0 22px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--steel);
+    border-bottom:2px solid var(--amber);
+  }
+  .hero p.lead{
+    font-size:17.5px;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin:0 0 32px;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+  }
+  .hero-meta{
+    display:flex;
+    gap:32px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    border-top:1px solid var(--line);
+    padding-top:18px;
+  }
+  .hero-meta b{ color:var(--ink); display:block; font-size:15px; font-family:'Space Grotesk',sans-serif; }
+
+  /* SECTIONS */
+  section{ padding:88px 0; border-top:1px solid var(--line); }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:48px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{ font-size:clamp(26px,3vw,36px); margin-top:14px; max-width:20ch; }
+  .section-head p{ color:var(--ink-soft); max-width:38ch; font-size:15px; margin:0; }
+
+  /* STAT */
+  .stat-card{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:44px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:40px;
+    align-items:center;
+  }
+  .stat-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:96px;
+    line-height:1;
+    color:var(--steel);
+    position:relative;
+  }
+  .stat-num sup{
+    font-size:28px;
+    color:var(--amber);
+    top:-0.6em;
+  }
+  .stat-copy p{ margin:0 0 10px; color:var(--ink-soft); font-size:16px; max-width:52ch; }
+  .stat-copy .mono{ font-size:12.5px; color:var(--steel); margin-bottom:8px; display:block; }
+
+  /* SERVICES */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--paper-card);
+    padding:32px 26px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    min-height:220px;
+  }
+  .service-card .idx{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--steel-light);
+  }
+  .service-card h3{ font-size:18px; }
+  .service-card p{ color:var(--ink-soft); font-size:14.5px; margin:0; flex-grow:1; }
+  .service-card .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--amber-deep);
+    letter-spacing:0.05em;
+  }
+
+  /* METHOD */
+  .method-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .method-item{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:32px;
+    padding:32px 0;
+    border-top:1px solid var(--line);
+    align-items:start;
+  }
+  .method-item:last-child{ border-bottom:1px solid var(--line); }
+  .method-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--steel);
+    padding-top:4px;
+  }
+  .method-num span{ display:block; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--steel-light); font-weight:400; margin-top:4px; }
+  .method-body h3{ font-size:19px; margin-bottom:8px; }
+  .method-body p{ color:var(--ink-soft); font-size:15px; max-width:60ch; margin:0; }
+
+  /* CTA */
+  .cta-section{
+    background:var(--panel-deep);
+    color:var(--ink);
+    border-top:1px solid var(--line-strong);
+  }
+  .cta-section .eyebrow{ color:var(--amber); }
+  .cta-section .eyebrow::before{ background:var(--steel-light); }
+  .cta-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:center;
+  }
+  .cta-grid h2{ color:var(--ink); font-size:clamp(28px,3.6vw,42px); margin:16px 0 20px; line-height:1.12; }
+  .cta-grid p{ color:#B8BEC9; font-size:16px; max-width:44ch; margin:0 0 28px;}
+  .cta-form{
+    background:var(--paper-card);
+    border:1px solid var(--line-strong);
+    border-radius:var(--radius);
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .cta-form label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:#8891A0;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+  }
+  .cta-form input, .cta-form textarea{
+    background:var(--paper);
+    border:1px solid var(--line-strong);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:14.5px;
+    padding:11px 12px;
+    border-radius:var(--radius);
+    width:100%;
+  }
+  .cta-form input:focus, .cta-form textarea:focus{
+    outline:2px solid var(--amber);
+    outline-offset:1px;
+    border-color:var(--amber);
+  }
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .cta-form button{
+    margin-top:6px;
+    cursor:pointer;
+  }
+
+  /* FOOTER */
+  footer{
+    border-top:1px solid var(--line);
+    padding:36px 0;
+  }
+  .footer-wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  .footer-wrap a{ text-decoration:none; }
+  .footer-wrap a:hover{ color:var(--ink); }
+
+  /* responsive */
+  @media (max-width:900px){
+    .navlinks{ display:none; }
+    .stat-card{ grid-template-columns:1fr; text-align:left; gap:20px; }
+    .stat-num{ font-size:72px; }
+    .services-grid{ grid-template-columns:1fr 1fr; }
+    .method-item{ grid-template-columns:1fr; gap:8px; }
+    .cta-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width:560px){
+    .wrap{ padding:0 20px; }
+    .services-grid{ grid-template-columns:1fr; }
+    .sheet::before,.sheet::after{ display:none; }
+  }
+  /* CHAT WIDGET */
+  .chat-toggle{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:100;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:var(--amber);
+    border:1px solid var(--amber);
+    color:var(--paper);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 6px 20px rgba(0,0,0,0.35);
+    transition:transform .15s ease, background .2s ease;
+  }
+  .chat-toggle:hover{ transform:translateY(-2px); background:var(--amber-deep); }
+  .chat-toggle svg{ width:24px; height:24px; }
+
+  .chat-panel{
+    position:fixed;
+    right:24px;
+    bottom:92px;
+    z-index:100;
+    width:340px;
+    max-width:calc(100vw - 48px);
+    height:460px;
+    max-height:calc(100vh - 140px);
+    background:var(--paper-card);
+    border:1px solid var(--line-strong);
+    border-radius:6px;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    box-shadow:0 12px 40px rgba(0,0,0,0.5);
+    opacity:0;
+    transform:translateY(12px);
+    pointer-events:none;
+    transition:opacity .18s ease, transform .18s ease;
+  }
+  .chat-panel.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+
+  .chat-head{
+    padding:14px 16px;
+    border-bottom:1px solid var(--line-strong);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:var(--panel-deep);
+  }
+  .chat-head .title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.05em;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .chat-head .title .live{
+    width:7px;height:7px;border-radius:50%;background:var(--steel);
+    box-shadow:0 0 0 3px rgba(79,209,197,0.2);
+  }
+  .chat-head button{
+    background:none; border:none; color:var(--ink-soft); cursor:pointer; font-size:16px; line-height:1;
+  }
+
+  .chat-body{
+    flex:1;
+    overflow-y:auto;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .msg{
+    max-width:85%;
+    font-size:13.5px;
+    line-height:1.45;
+    padding:9px 12px;
+    border-radius:4px;
+  }
+  .msg.bot{
+    background:var(--paper);
+    border:1px solid var(--line-strong);
+    color:var(--ink);
+    align-self:flex-start;
+    border-bottom-left-radius:0;
+  }
+  .msg.user{
+    background:var(--amber);
+    color:var(--paper);
+    align-self:flex-end;
+    border-bottom-right-radius:0;
+  }
+
+  .chat-suggestions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    padding:0 16px 12px;
+  }
+  .chat-suggestions button{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--steel-light);
+    background:transparent;
+    border:1px solid var(--line-strong);
+    padding:6px 10px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .chat-suggestions button:hover{ border-color:var(--steel); color:var(--ink); }
+
+  .chat-input{
+    display:flex;
+    gap:8px;
+    padding:12px;
+    border-top:1px solid var(--line-strong);
+  }
+  .chat-input input{
+    flex:1;
+    background:var(--paper);
+    border:1px solid var(--line-strong);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:13.5px;
+    padding:9px 11px;
+    border-radius:4px;
+  }
+  .chat-input input:focus{ outline:2px solid var(--amber); outline-offset:1px; }
+  .chat-input button{
+    background:var(--amber);
+    color:var(--paper);
+    border:1px solid var(--amber);
+    border-radius:4px;
+    padding:0 14px;
+    cursor:pointer;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+  }
+
+  @media (max-width:560px){
+    .chat-panel{ right:12px; bottom:84px; }
+    .chat-toggle{ right:16px; bottom:16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<header>
+  <nav class="wrap">
+    <div class="logo"><span class="dot"></span>aiservicegroup</div>
+    <div class="navlinks">
+      <a href="#servizi">Servizi</a>
+      <a href="#settori">Settori</a>
+      <a href="#metodo">Metodo</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+    <a href="#contatti" class="btn">Richiedi audit</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero sheet" data-ref="FIG. 01 — OVERVIEW" style="border-top:none;">
+    <div class="wrap">
+      <div class="hero-grid">
+        <span class="eyebrow">Automazione dei processi</span>
+        <h1>Automatizziamo i processi che <em>frenano la tua crescita.</em></h1>
+        <p class="lead">Mappiamo, ridisegniamo e automatizziamo i processi operativi della tua azienda — dall'analisi all'integrazione con i sistemi esistenti, senza fermare la produzione.</p>
+        <div class="hero-ctas">
+          <a href="#contatti" class="btn amber">Richiedi un audit gratuito →</a>
+          <a href="#metodo" class="btn ghost">Guarda come lavoriamo</a>
+        </div>
+        <div class="hero-meta">
+          <div><b>15–30%</b>riduzione costi operativi</div>
+          <div><b>0 fermi</b>durante l'implementazione</div>
+          <div><b>3 fasi</b>audit · pilota · scala</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" data-ref="FIG. 02 — CONTESTO">
+    <div class="wrap">
+      <span class="eyebrow">Il problema</span>
+      <div class="stat-card" style="margin-top:20px;">
+        <div class="stat-num">70<sup>%</sup></div>
+        <div class="stat-copy">
+          <span class="mono">AZIENDE MANIFATTURIERE ITALIANE</span>
+          <p>lavora ancora con processi manuali dove potrebbe automatizzare. Il risultato: margini erosi da errori, tempi morti e costi del lavoro che salgono ogni anno.</p>
+          <p>Chi automatizza oggi non taglia solo i costi — costruisce un vantaggio che il concorrente non recupera in un trimestre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servizi" class="sheet" data-ref="FIG. 03 — SERVIZI">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Cosa facciamo</span>
+          <h2>Automazione dei processi, end-to-end</h2>
+        </div>
+        <p>Non vendiamo hardware o software isolati: progettiamo il processo automatizzato nella sua interezza.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="idx">A</span>
+          <h3>Mappatura dei processi</h3>
+          <p>Analizziamo il flusso operativo attuale e individuiamo dove l'automazione ha il maggiore impatto.</p>
+          <span class="tag">ANALISI</span>
+        </div>
+        <div class="service-card">
+          <span class="idx">B</span>
+          <h3>Progettazione del flusso</h3>
+          <p>Ridisegniamo il processo per eliminare passaggi manuali, ridondanze e colli di bottiglia.</p>
+          <span class="tag">PROGETTAZIONE</span>
+        </div>
+        <div class="service-card">
+          <span class="idx">C</span>
+          <h3>Integrazione con i sistemi esistenti</h3>
+          <p>Colleghiamo il nuovo flusso automatizzato a gestionali e strumenti già in uso, senza sostituire tutto.</p>
+          <span class="tag">INTEGRAZIONE</span>
+        </div>
+        <div class="service-card">
+          <span class="idx">D</span>
+          <h3>Monitoraggio e ottimizzazione</h3>
+          <p>Misuriamo i risultati e affiniamo il processo nel tempo, sulla base dei dati reali.</p>
+          <span class="tag">OTTIMIZZAZIONE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="settori" class="sheet" data-ref="FIG. 04 — SETTORI">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Settori in cui operiamo</span>
+          <h2>Chi cerca automazione, trova risposta qui.</h2>
+        </div>
+        <p>Il processo cambia da settore a settore. Il metodo con cui lo automatizziamo, no.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="idx">01</span>
+          <h3>Manifattura</h3>
+          <p>Linee di produzione, controllo qualità, gestione ordini.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">02</span>
+          <h3>Logistica & supply chain</h3>
+          <p>Magazzino, tracciamento merci, gestione dei flussi.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">03</span>
+          <h3>Food & beverage</h3>
+          <p>Tracciabilità, conformità normativa, gestione dei lotti.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">04</span>
+          <h3>Automotive</h3>
+          <p>Componentistica, assemblaggio, controllo qualità.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">05</span>
+          <h3>Packaging</h3>
+          <p>Confezionamento, etichettatura, controllo dei lotti.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">06</span>
+          <h3>Chimico & farmaceutico</h3>
+          <p>Conformità normativa, tracciabilità, sicurezza dei processi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodo" class="sheet" data-ref="FIG. 05 — METODO">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Come lavoriamo</span>
+          <h2>Tre fasi, in quest'ordine — mai al contrario</h2>
+        </div>
+        <p>Non automatizziamo per ipotesi. Ogni fase produce i dati che giustificano la successiva.</p>
+      </div>
+
+      <div class="method-list">
+        <div class="method-item">
+          <div class="method-num">01<span>Diagnosi</span></div>
+          <div class="method-body">
+            <h3>Audit</h3>
+            <p>Analizziamo i processi ad alto impatto e stimiamo il risparmio potenziale, in ore e in euro.</p>
+          </div>
+        </div>
+        <div class="method-item">
+          <div class="method-num">02<span>Verifica</span></div>
+          <div class="method-body">
+            <h3>Pilota</h3>
+            <p>Automatizziamo un'area misurabile, senza fermare la produzione, per validare i numeri sul campo.</p>
+          </div>
+        </div>
+        <div class="method-item">
+          <div class="method-num">03<span>Espansione</span></div>
+          <div class="method-body">
+            <h3>Scala</h3>
+            <p>Estendiamo il sistema sulla base di dati reali raccolti nella fase pilota, non su proiezioni.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contatti" class="cta-section sheet" data-ref="FIG. 06 — CONTATTO">
+    <div class="wrap">
+      <div class="cta-grid">
+        <div>
+          <span class="eyebrow">Prossimo passo</span>
+          <h2>Quanto ti costa non automatizzare?</h2>
+          <p>Analizziamo il tuo processo gratuitamente e ti diciamo, con numeri, dove stai perdendo margine — prima di proporti qualsiasi cosa.</p>
+          <div class="hero-meta" style="border-top:1px solid var(--line-strong);">
+            <div style="color:var(--ink-soft);"><b style="color:var(--ink);">24h</b>tempo di risposta medio</div>
+            <div style="color:var(--ink-soft);"><b style="color:var(--ink);">0€</b>costo dell'audit iniziale</div>
+          </div>
+        </div>
+
+        <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Richiesta inviata ✓'; this.querySelector('button').disabled=true;">
+          <div class="field">
+            <label for="nome">Nome e cognome</label>
+            <input id="nome" type="text" required placeholder="Mario Rossi">
+          </div>
+          <div class="field">
+            <label for="azienda">Azienda</label>
+            <input id="azienda" type="text" required placeholder="Nome azienda">
+          </div>
+          <div class="field">
+            <label for="email">Email aziendale</label>
+            <input id="email" type="email" required placeholder="mario@azienda.it">
+          </div>
+          <div class="field">
+            <label for="msg">Cosa vorresti automatizzare?</label>
+            <textarea id="msg" rows="3" placeholder="Descrivi brevemente il processo..."></textarea>
+          </div>
+          <button type="submit" class="btn amber">Richiedi l'audit gratuito →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-wrap">
+    <span>© 2026 aiservicegroup — Automazione dei processi</span>
+    <div style="display:flex; gap:24px;">
+      <a href="mailto:info@aiservicegroup.it">info@aiservicegroup.it</a>
+    </div>
+  </div>
+</footer>
+
+<button class="chat-toggle" id="chatToggle" aria-label="Apri assistente aiservicegroup">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+</button>
+
+<div class="chat-panel" id="chatPanel" role="dialog" aria-label="Assistente aiservicegroup">
+  <div class="chat-head">
+    <div class="title"><span class="live"></span>ASSISTENTE · aiservicegroup</div>
+    <button id="chatClose" aria-label="Chiudi">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="msg bot">Ciao! Sono l'assistente di aiservicegroup. Chiedimi dei nostri servizi, dei settori in cui operiamo o di come iniziare un audit.</div>
+  </div>
+  <div class="chat-suggestions" id="chatSuggestions">
+    <button data-q="Cosa fate?">Cosa fate?</button>
+    <button data-q="Settori">Settori</button>
+    <button data-q="Come funziona l'audit?">Come funziona l'audit?</button>
+    <button data-q="Contatti">Contatti</button>
+  </div>
+  <form class="chat-input" id="chatForm">
+    <input id="chatInput" type="text" placeholder="Scrivi la tua domanda..." autocomplete="off">
+    <button type="submit">Invia</button>
+  </form>
+</div>
+
+<script>
+(function(){
+  const toggle = document.getElementById('chatToggle');
+  const panel = document.getElementById('chatPanel');
+  const closeBtn = document.getElementById('chatClose');
+  const body = document.getElementById('chatBody');
+  const form = document.getElementById('chatForm');
+  const input = document.getElementById('chatInput');
+  const suggestions = document.getElementById('chatSuggestions');
+
+  function openPanel(){ panel.classList.add('open'); input.focus(); }
+  function closePanel(){ panel.classList.remove('open'); }
+
+  toggle.addEventListener('click', () => {
+    panel.classList.contains('open') ? closePanel() : openPanel();
+  });
+  closeBtn.addEventListener('click', closePanel);
+
+  function addMsg(text, who){
+    const el = document.createElement('div');
+    el.className = 'msg ' + who;
+    el.textContent = text;
+    body.appendChild(el);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  const RULES = [
+    { keys: ['cosa fate','servizi','cosa fai','automazione dei processi'],
+      a: "Ci occupiamo di automazione dei processi end-to-end: mappatura del flusso attuale, progettazione del nuovo flusso automatizzato, integrazione con i sistemi che già usate e monitoraggio nel tempo." },
+    { keys: ['settori','settore','industria','industrie'],
+      a: "Operiamo in manifattura, logistica & supply chain, food & beverage, automotive, packaging e chimico-farmaceutico. Se il tuo settore non è in lista, scrivici comunque: il metodo si adatta." },
+    { keys: ['audit','come funziona','come iniziare','metodo','processo'],
+      a: "Si parte con un audit gratuito dei tuoi processi ad alto impatto. Poi automatizziamo un'area pilota misurabile, senza fermare la produzione. Solo dopo, scaliamo sulla base dei dati reali." },
+    { keys: ['prezzo','costo','quanto costa','tariffe'],
+      a: "L'audit iniziale è gratuito. Il costo dell'automazione dipende dal processo e dalla sua complessità: te lo indichiamo con precisione dopo l'audit, non prima." },
+    { keys: ['tempo','tempi','quanto ci vuole','durata'],
+      a: "Rispondiamo entro 24h dalla richiesta. I tempi del progetto variano in base al processo, ma la fase pilota è pensata per essere rapida e misurabile." },
+    { keys: ['contatt','email','telefono','parlare con qualcuno'],
+      a: "Puoi scriverci a info@aiservicegroup.it oppure compilare il form qui sotto nella sezione Contatti — rispondiamo entro 24h." },
+    { keys: ['ciao','salve','buongiorno','buonasera'],
+      a: "Ciao! Come posso aiutarti — vuoi sapere cosa facciamo, in quali settori operiamo o come funziona l'audit gratuito?" },
+  ];
+
+  function respond(question){
+    const q = question.toLowerCase();
+    const match = RULES.find(r => r.keys.some(k => q.includes(k)));
+    if (match) return match.a;
+    return "Non sono sicuro di aver capito bene. Posso parlarti di servizi, settori, metodo o contatti — oppure lascia i tuoi dati nel form qui sotto e ti risponde il team entro 24h.";
+  }
+
+  function handleQuestion(text){
+    if(!text.trim()) return;
+    addMsg(text, 'user');
+    setTimeout(() => addMsg(respond(text), 'bot'), 350);
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = input.value;
+    input.value = '';
+    handleQuestion(text);
+  });
+
+  suggestions.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-q]');
+    if (btn) handleQuestion(btn.dataset.q);
+  });
+})();
+</script>
+
+</body>
+</html>
