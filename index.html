@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>aiservicegroup — Automazione dei Processi</title>
+<title>aiservicegroup — Automazione dei Processi & Ingegneria Industriale</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
     --amber-deep:#2569D1;
     --line:#1B222C;
     --line-strong:#2B3542;
-    --radius:2px;
+    --radius:4px;
     --maxw:1180px;
   }
 
@@ -49,7 +49,7 @@
     mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 40%, transparent 90%);
   }
 
-  h1,h2,h3{
+  h1,h2,h3,h4{
     font-family:'Space Grotesk',sans-serif;
     margin:0;
     color:var(--ink);
@@ -88,7 +88,7 @@
     padding:0 32px;
   }
 
-  /* corner marks — technical drawing sheet reference */
+  /* technical sheet reference */
   .sheet{
     position:relative;
   }
@@ -100,8 +100,8 @@
     color:var(--line-strong);
     letter-spacing:0.08em;
   }
-  .sheet::before{ top:0; left:32px; }
-  .sheet::after{ top:0; right:32px; }
+  .sheet::before{ top:24px; left:32px; }
+  .sheet::after{ top:24px; right:32px; }
 
   /* NAV */
   header{
@@ -109,7 +109,7 @@
     top:0;
     z-index:50;
     background:rgba(10,14,20,0.85);
-    backdrop-filter:blur(6px);
+    backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
   }
   nav.wrap{
@@ -125,6 +125,7 @@
     display:flex;
     align-items:center;
     gap:8px;
+    text-decoration:none;
   }
   .logo .dot{
     width:8px;height:8px;background:var(--amber);
@@ -133,7 +134,7 @@
   }
   .navlinks{
     display:flex;
-    gap:36px;
+    gap:32px;
     font-family:'IBM Plex Mono', monospace;
     font-size:13px;
     letter-spacing:0.03em;
@@ -144,6 +145,7 @@
     transition:color .2s;
   }
   .navlinks a:hover{ color:var(--ink); }
+  
   .btn{
     display:inline-flex;
     align-items:center;
@@ -160,7 +162,7 @@
     border:1px solid var(--ink);
     transition:transform .15s ease, background .2s ease;
   }
-  .btn:hover{ background:var(--amber-deep); border-color:var(--amber-deep); transform:translateY(-1px); }
+  .btn:hover{ background:var(--amber-deep); border-color:var(--amber-deep); color:#fff; transform:translateY(-1px); }
   .btn.ghost{
     background:transparent;
     color:var(--ink);
@@ -170,9 +172,9 @@
   .btn.amber{
     background:var(--amber);
     border-color:var(--amber);
-    color:var(--paper);
+    color:#fff;
   }
-  .btn.amber:hover{ background:var(--amber-deep); border-color:var(--amber-deep); color:var(--paper); }
+  .btn.amber:hover{ background:var(--amber-deep); border-color:var(--amber-deep); }
 
   /* HERO */
   .hero{
@@ -194,7 +196,7 @@
   .hero p.lead{
     font-size:17.5px;
     color:var(--ink-soft);
-    max-width:46ch;
+    max-width:48ch;
     margin:0 0 32px;
   }
   .hero-ctas{
@@ -216,79 +218,234 @@
 
   /* SECTIONS */
   section{ padding:88px 0; border-top:1px solid var(--line); }
-  .section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:24px;
-    margin-bottom:48px;
-    flex-wrap:wrap;
-  }
-  .section-head h2{ font-size:clamp(26px,3vw,36px); margin-top:14px; max-width:20ch; }
-  .section-head p{ color:var(--ink-soft); max-width:38ch; font-size:15px; margin:0; }
 
-  /* STAT */
-  .stat-card{
-    background:var(--paper-card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:44px;
-    display:grid;
-    grid-template-columns:auto 1fr;
-    gap:40px;
-    align-items:center;
+  /* CATALOG SECTION (DARK ADAPTED) */
+  .aisg-catalog-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3.5rem auto;
   }
-  .stat-num{
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;
-    font-size:96px;
-    line-height:1;
-    color:var(--steel);
-    position:relative;
+  .aisg-badge-tag {
+    display: inline-block;
+    background: rgba(79, 209, 197, 0.1);
+    color: var(--steel);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(79, 209, 197, 0.25);
   }
-  .stat-num sup{
-    font-size:28px;
-    color:var(--amber);
-    top:-0.6em;
+  .aisg-catalog-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+    margin-bottom: 0.8rem;
   }
-  .stat-copy p{ margin:0 0 10px; color:var(--ink-soft); font-size:16px; max-width:52ch; }
-  .stat-copy .mono{ font-size:12.5px; color:var(--steel); margin-bottom:8px; display:block; }
+  .aisg-catalog-header p {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .aisg-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .aisg-pillar-card {
+    background: var(--paper-card);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    padding: 2rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .aisg-pillar-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--amber);
+  }
+  .aisg-pillar-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+  .aisg-pillar-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+  .aisg-pillar-desc {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+  .aisg-pillar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .aisg-mini-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.725rem;
+    background: var(--paper);
+    color: var(--steel-light);
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    border: 1px solid var(--line-strong);
+  }
+  .aisg-cta-wrapper {
+    text-align: center;
+    background: var(--paper-card);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .aisg-cta-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
 
-  /* SERVICES */
-  .services-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
+  /* SERVICES SECTION */
+  .aisg-services-section {
+    padding: 88px 0;
   }
-  .service-card{
-    background:var(--paper-card);
-    padding:32px 26px;
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    min-height:220px;
+  .aisg-section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3.5rem auto;
   }
-  .service-card .idx{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    color:var(--steel-light);
+  .aisg-badge {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    color: var(--amber);
+    background-color: rgba(61, 139, 255, 0.12);
+    border: 1px solid rgba(61, 139, 253, 0.3);
   }
-  .service-card h3{ font-size:18px; }
-  .service-card p{ color:var(--ink-soft); font-size:14.5px; margin:0; flex-grow:1; }
-  .service-card .tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
-    color:var(--amber-deep);
-    letter-spacing:0.05em;
+  .aisg-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .aisg-service-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+    background-color: var(--paper-card);
+    border: 1px solid var(--line-strong);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .aisg-service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--amber);
+  }
+  .aisg-card-featured {
+    border-color: rgba(61, 139, 255, 0.5);
+    background: linear-gradient(180deg, var(--paper-card) 0%, rgba(61, 139, 255, 0.05) 100%);
+  }
+  .aisg-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  .aisg-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--amber);
+    background-color: rgba(61, 139, 255, 0.12);
+  }
+  .aisg-step-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 800;
+    opacity: 0.4;
+    color: var(--steel-light);
+  }
+  .aisg-card-body h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .aisg-card-body p {
+    font-size: 0.925rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0 0 1.25rem 0;
+  }
+  .aisg-service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .aisg-service-list li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.875rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  .aisg-service-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: -0.1rem;
+    font-weight: bold;
+    color: var(--steel);
+    font-size: 1.1rem;
+  }
+  .aisg-services-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 2rem 2.5rem;
+    border-radius: var(--radius);
+    background-color: var(--paper-card);
+    border: 1px solid var(--line-strong);
+  }
+  .aisg-cta-text h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+  }
+  .aisg-cta-text p {
+    font-size: 0.925rem;
+    color: var(--ink-soft);
+    margin: 0;
   }
 
   /* METHOD */
-  .method-list{
-    display:flex;
-    flex-direction:column;
-  }
   .method-item{
     display:grid;
     grid-template-columns:110px 1fr;
@@ -309,14 +466,12 @@
   .method-body h3{ font-size:19px; margin-bottom:8px; }
   .method-body p{ color:var(--ink-soft); font-size:15px; max-width:60ch; margin:0; }
 
-  /* CTA */
+  /* CTA SECTION */
   .cta-section{
     background:var(--panel-deep);
     color:var(--ink);
     border-top:1px solid var(--line-strong);
   }
-  .cta-section .eyebrow{ color:var(--amber); }
-  .cta-section .eyebrow::before{ background:var(--steel-light); }
   .cta-grid{
     display:grid;
     grid-template-columns:1.1fr 0.9fr;
@@ -324,7 +479,7 @@
     align-items:center;
   }
   .cta-grid h2{ color:var(--ink); font-size:clamp(28px,3.6vw,42px); margin:16px 0 20px; line-height:1.12; }
-  .cta-grid p{ color:#B8BEC9; font-size:16px; max-width:44ch; margin:0 0 28px;}
+  .cta-grid p{ color:var(--ink-soft); font-size:16px; max-width:44ch; margin:0 0 28px;}
   .cta-form{
     background:var(--paper-card);
     border:1px solid var(--line-strong);
@@ -337,7 +492,7 @@
   .cta-form label{
     font-family:'IBM Plex Mono', monospace;
     font-size:11px;
-    color:#8891A0;
+    color:var(--ink-soft);
     letter-spacing:0.05em;
     text-transform:uppercase;
   }
@@ -357,10 +512,6 @@
     border-color:var(--amber);
   }
   .field{ display:flex; flex-direction:column; gap:6px; }
-  .cta-form button{
-    margin-top:6px;
-    cursor:pointer;
-  }
 
   /* FOOTER */
   footer{
@@ -380,20 +531,6 @@
   .footer-wrap a{ text-decoration:none; }
   .footer-wrap a:hover{ color:var(--ink); }
 
-  /* responsive */
-  @media (max-width:900px){
-    .navlinks{ display:none; }
-    .stat-card{ grid-template-columns:1fr; text-align:left; gap:20px; }
-    .stat-num{ font-size:72px; }
-    .services-grid{ grid-template-columns:1fr 1fr; }
-    .method-item{ grid-template-columns:1fr; gap:8px; }
-    .cta-grid{ grid-template-columns:1fr; }
-  }
-  @media (max-width:560px){
-    .wrap{ padding:0 20px; }
-    .services-grid{ grid-template-columns:1fr; }
-    .sheet::before,.sheet::after{ display:none; }
-  }
   /* CHAT WIDGET */
   .chat-toggle{
     position:fixed;
@@ -405,17 +542,15 @@
     border-radius:50%;
     background:var(--amber);
     border:1px solid var(--amber);
-    color:var(--paper);
+    color:#fff;
     display:flex;
     align-items:center;
     justify-content:center;
     cursor:pointer;
-    box-shadow:0 6px 20px rgba(0,0,0,0.35);
+    box-shadow:0 6px 20px rgba(0,0,0,0.5);
     transition:transform .15s ease, background .2s ease;
   }
   .chat-toggle:hover{ transform:translateY(-2px); background:var(--amber-deep); }
-  .chat-toggle svg{ width:24px; height:24px; }
-
   .chat-panel{
     position:fixed;
     right:24px;
@@ -431,14 +566,13 @@
     display:flex;
     flex-direction:column;
     overflow:hidden;
-    box-shadow:0 12px 40px rgba(0,0,0,0.5);
+    box-shadow:0 12px 40px rgba(0,0,0,0.6);
     opacity:0;
     transform:translateY(12px);
     pointer-events:none;
     transition:opacity .18s ease, transform .18s ease;
   }
   .chat-panel.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
-
   .chat-head{
     padding:14px 16px;
     border-bottom:1px solid var(--line-strong);
@@ -458,47 +592,15 @@
   }
   .chat-head .title .live{
     width:7px;height:7px;border-radius:50%;background:var(--steel);
-    box-shadow:0 0 0 3px rgba(79,209,197,0.2);
   }
-  .chat-head button{
-    background:none; border:none; color:var(--ink-soft); cursor:pointer; font-size:16px; line-height:1;
-  }
-
+  .chat-head button{ background:none; border:none; color:var(--ink-soft); cursor:pointer; font-size:16px; }
   .chat-body{
-    flex:1;
-    overflow-y:auto;
-    padding:16px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
+    flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px;
   }
-  .msg{
-    max-width:85%;
-    font-size:13.5px;
-    line-height:1.45;
-    padding:9px 12px;
-    border-radius:4px;
-  }
-  .msg.bot{
-    background:var(--paper);
-    border:1px solid var(--line-strong);
-    color:var(--ink);
-    align-self:flex-start;
-    border-bottom-left-radius:0;
-  }
-  .msg.user{
-    background:var(--amber);
-    color:var(--paper);
-    align-self:flex-end;
-    border-bottom-right-radius:0;
-  }
-
-  .chat-suggestions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-    padding:0 16px 12px;
-  }
+  .msg{ max-width:85%; font-size:13.5px; line-height:1.45; padding:9px 12px; border-radius:4px; }
+  .msg.bot{ background:var(--paper); border:1px solid var(--line-strong); color:var(--ink); align-self:flex-start; }
+  .msg.user{ background:var(--amber); color:#fff; align-self:flex-end; }
+  .chat-suggestions{ display:flex; flex-wrap:wrap; gap:6px; padding:0 16px 12px; }
   .chat-suggestions button{
     font-family:'IBM Plex Mono', monospace;
     font-size:11px;
@@ -508,41 +610,24 @@
     padding:6px 10px;
     border-radius:20px;
     cursor:pointer;
-    transition:border-color .15s ease, color .15s ease;
   }
-  .chat-suggestions button:hover{ border-color:var(--steel); color:var(--ink); }
-
-  .chat-input{
-    display:flex;
-    gap:8px;
-    padding:12px;
-    border-top:1px solid var(--line-strong);
-  }
+  .chat-input{ display:flex; gap:8px; padding:12px; border-top:1px solid var(--line-strong); }
   .chat-input input{
-    flex:1;
-    background:var(--paper);
-    border:1px solid var(--line-strong);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    font-size:13.5px;
-    padding:9px 11px;
-    border-radius:4px;
+    flex:1; background:var(--paper); border:1px solid var(--line-strong); color:var(--ink); padding:9px 11px; border-radius:4px; font-size:13.5px;
   }
-  .chat-input input:focus{ outline:2px solid var(--amber); outline-offset:1px; }
   .chat-input button{
-    background:var(--amber);
-    color:var(--paper);
-    border:1px solid var(--amber);
-    border-radius:4px;
-    padding:0 14px;
-    cursor:pointer;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
+    background:var(--amber); color:#fff; border:none; border-radius:4px; padding:0 14px; cursor:pointer; font-family:'IBM Plex Mono', monospace; font-size:12px;
   }
 
+  /* RESPONSIVE */
+  @media (max-width:900px){
+    .navlinks{ display:none; }
+    .cta-grid{ grid-template-columns:1fr; }
+    .aisg-services-cta { flex-direction: column; text-align: center; }
+  }
   @media (max-width:560px){
-    .chat-panel{ right:12px; bottom:84px; }
-    .chat-toggle{ right:16px; bottom:16px; }
+    .wrap{ padding:0 20px; }
+    .sheet::before,.sheet::after{ display:none; }
   }
 </style>
 </head>
@@ -550,24 +635,27 @@
 
 <div class="grid-bg"></div>
 
+<!-- HEADER / NAV -->
 <header>
   <nav class="wrap">
-    <div class="logo"><span class="dot"></span>aiservicegroup</div>
+    <a href="#" class="logo"><span class="dot"></span>aiservicegroup</a>
     <div class="navlinks">
-      <a href="#servizi">Servizi</a>
-      <a href="#settori">Settori</a>
+      <a href="#catalogo">Catalogo Prodotti</a>
+      <a href="#servizi">Servizi End-to-End</a>
       <a href="#metodo">Metodo</a>
       <a href="#contatti">Contatti</a>
+    </div>
   </nav>
 </header>
 
 <main>
+  <!-- HERO SECTION -->
   <section class="hero sheet" data-ref="FIG. 01 — OVERVIEW" style="border-top:none;">
     <div class="wrap">
       <div class="hero-grid">
-        <span class="eyebrow">Automazione dei processi</span>
+        <span class="eyebrow">Automazione & Ingegneria Industriale</span>
         <h1>Automatizziamo i processi che <em>frenano la tua crescita.</em></h1>
-        <p class="lead">Mappiamo, ridisegniamo e automatizziamo i processi operativi della tua azienda — dall'analisi all'integrazione con i sistemi esistenti, senza fermare la produzione.</p>
+        <p class="lead">Mappiamo, ridisegniamo e automatizziamo i processi operativi della tua azienda — dall'analisi all'integrazione hardware/software con i sistemi esistenti, senza fermare la produzione.</p>
         <div class="hero-ctas">
           <a href="#contatti" class="btn amber">Richiedi un audit gratuito →</a>
           <a href="#metodo" class="btn ghost">Guarda come lavoriamo</a>
@@ -580,190 +668,22 @@
       </div>
     </div>
   </section>
- <section class="aisg-catalog-section">
-    <style>
-        .aisg-catalog-section {
-            background-color: #f8fafc;
-            padding: 4.5rem 1.5rem;
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: #0f172a;
-        }
 
-        .aisg-catalog-container {
-            max-width: 1240px;
-            margin: 0 auto;
-        }
-
-        .aisg-catalog-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .aisg-badge-tag {
-            display: inline-block;
-            background: #f0f9ff;
-            color: #0284c7;
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 0.35rem 0.9rem;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 1rem;
-            border: 1px solid #bae6fd;
-        }
-
-        .aisg-catalog-header h2 {
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            font-weight: 800;
-            color: #0f172a;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.8rem;
-        }
-
-        .aisg-catalog-header p {
-            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-            color: #64748b;
-            max-width: 720px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .aisg-pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .aisg-pillar-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .aisg-pillar-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.08);
-            border-color: #cbd5e1;
-        }
-
-        .aisg-pillar-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .aisg-pillar-title {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 0.6rem;
-        }
-
-        .aisg-pillar-desc {
-            font-size: 0.875rem;
-            color: #64748b;
-            line-height: 1.5;
-            margin-bottom: 1.25rem;
-            flex: 1;
-        }
-
-        .aisg-pillar-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .aisg-mini-tag {
-            font-size: 0.725rem;
-            font-weight: 700;
-            background: #f1f5f9;
-            color: #334155;
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .aisg-cta-wrapper {
-            text-align: center;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 2.5rem 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.25rem;
-        }
-
-        .aisg-cta-text {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        .aisg-btn-main {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: #0f172a;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 0.9rem 2rem;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 1rem;
-            transition: background 0.2s ease, transform 0.2s ease;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
-        }
-
-        .aisg-btn-main:hover {
-            background: #0284c7;
-            transform: translateY(-2px);
-        }
-
-        .aisg-btn-main svg {
-            transition: transform 0.2s ease;
-        }
-
-        .aisg-btn-main:hover svg {
-            transform: translateX(4px);
-        }
-
-        @media (max-width: 640px) {
-            .aisg-catalog-section {
-                padding: 3rem 1rem;
-            }
-            .aisg-pillars-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-
-    <div class="aisg-catalog-container">
+  <!-- CATALOGO PRODOTTI -->
+  <section id="catalogo" class="aisg-catalog-section sheet" data-ref="FIG. 02 — CATALOGO">
+    <div class="wrap">
+      <div class="aisg-catalog-container">
         
         <div class="aisg-catalog-header">
-            <span class="aisg-badge-tag">Soluzioni Tecnologiche B2B</span>
-            <h2>Catalogo Prodotti & Piattaforme Enterprise</h2>
-            <p>Ecosistema integrato Hardware Edge, Gateway Multi-Vettore e Suite Software Cloud per la Transizione 5.0, la Cybersicurezza OT e l'Efficienza Energetica Industriale.</p>
+          <span class="aisg-badge-tag">Soluzioni Tecnologiche B2B</span>
+          <h2>Catalogo Prodotti & Piattaforme Enterprise</h2>
+          <p>Ecosistema integrato Hardware Edge, Gateway Multi-Vettore e Suite Software Cloud per la Transizione 5.0, la Cybersicurezza OT e l'Efficienza Energetica Industriale.</p>
         </div>
 
         <div class="aisg-pillars-grid">
             
             <div class="aisg-pillar-card">
-                <div class="aisg-pillar-icon" style="background: #e0f2fe; color: #0284c7;">⚡</div>
+                <div class="aisg-pillar-icon" style="background: rgba(61, 139, 255, 0.12); color: var(--amber);">⚡</div>
                 <h3 class="aisg-pillar-title">Energy Management & Audit</h3>
                 <p class="aisg-pillar-desc">Misurazione ad alta frequenza, certificazione dati inviolabile per Transizione 5.0 e gestione dei vettori elettrici, gas e vapore.</p>
                 <div class="aisg-pillar-tags">
@@ -774,7 +694,7 @@
             </div>
 
             <div class="aisg-pillar-card">
-                <div class="aisg-pillar-icon" style="background: #fee2e2; color: #991b1b;">🛡️</div>
+                <div class="aisg-pillar-icon" style="background: rgba(248, 81, 73, 0.12); color: #f85149;">🛡️</div>
                 <h3 class="aisg-pillar-title">OT CyberSecurity & NIS 2</h3>
                 <p class="aisg-pillar-desc">Protezione passiva a zero-latenza delle reti di fabbrica, ispezione profonda dei protocolli industriali e conformità alla Direttiva NIS 2.</p>
                 <div class="aisg-pillar-tags">
@@ -785,7 +705,7 @@
             </div>
 
             <div class="aisg-pillar-card">
-                <div class="aisg-pillar-icon" style="background: #dcfce7; color: #15803d;">⚙️</div>
+                <div class="aisg-pillar-icon" style="background: rgba(79, 209, 197, 0.12); color: var(--steel);">⚙️</div>
                 <h3 class="aisg-pillar-title">Manutenzione & Digital Twin</h3>
                 <p class="aisg-pillar-desc">Edge AI vibrazionale per azzerare i fermi macchina non programmati e simulazione virtuale "What-If" per linee e impianti.</p>
                 <div class="aisg-pillar-tags">
@@ -796,7 +716,7 @@
             </div>
 
             <div class="aisg-pillar-card">
-                <div class="aisg-pillar-icon" style="background: #fef3c7; color: #b45309;">📊</div>
+                <div class="aisg-pillar-icon" style="background: rgba(210, 153, 34, 0.12); color: #d29922;">📊</div>
                 <h3 class="aisg-pillar-title">Energy Analytics & ESG</h3>
                 <p class="aisg-pillar-desc">Calcolo del costo energetico per singolo lotto di produzione, gestione norma ISO 50001 e report automatizzato Scope 1 e Scope 2.</p>
                 <div class="aisg-pillar-tags">
@@ -812,328 +732,161 @@
             <div class="aisg-cta-text">
                 Scopri la gamma completa con schede tecniche, codici SKU e specifiche trasversali.
             </div>
-            <a href="catalogo.html" class="aisg-btn-main">
-                Apri il Catalogo Completo (12 Soluzioni)
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <a href="#contatti" class="btn amber">
+                Richiedi Schede Tecniche Catalogo Completo
             </a>
         </div>
 
-    </div>
-</section>
- 
-
-  <!-- ==========================================================================
-   SEZIONE SERVIZI - AI SERVICE GROUP
-   ========================================================================== -->
-<section id="services" class="aisg-services-section">
-  <div class="aisg-container">
-    
-    <!-- Header Sezione -->
-    <div class="aisg-section-header">
-      <span class="aisg-badge">Soluzioni Industriali End-to-End</span>
-      <h2>Ingegneria, Digitalizzazione & Supporto Operativo</h2>
-      <p>Accompagniamo le aziende lungo tutto il ciclo di vita dell'innovazione: dall'audit di fattibilità al monitoraggio predittivo e all'assistenza sul campo.</p>
-    </div>
-
-    <!-- Griglia dei Servizi -->
-    <div class="aisg-services-grid">
-
-      <!-- Servizio 01 -->
-      <article class="aisg-service-card">
-        <div class="aisg-card-top">
-          <div class="aisg-card-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          </div>
-          <span class="aisg-step-num">01</span>
-        </div>
-        <div class="aisg-card-body">
-          <h3>Audit Tecnico & Analisi ROI</h3>
-          <p>Valutazione preliminare dell'infrastruttura esistente per quantificare l'impatto economico e la fattibilità tecnica prima dell'installazione.</p>
-          <ul class="aisg-service-list">
-            <li>Digital Fleet & Machinery Audit</li>
-            <li>Analisi dell'Ergonomia Operativa</li>
-            <li>Studi di fattibilità e stima del ROI</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- Servizio 02 (Featured) -->
-      <article class="aisg-service-card aisg-card-featured">
-        <div class="aisg-card-top">
-          <div class="aisg-card-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-          </div>
-          <span class="aisg-step-num">02</span>
-        </div>
-        <div class="aisg-card-body">
-          <h3>Ingegneria & System Integration</h3>
-          <p>Sviluppo di soluzioni custom per l'integrazione hardware-software su impianti industriali e macchinari legacy senza blocchi di produzione.</p>
-          <ul class="aisg-service-list">
-            <li>Digital Twin su misura (AI Service Twin)</li>
-            <li>Retrofit sensoriali e protocolli (PLC, OPC UA)</li>
-            <li>Progettazione HMI Custom per l'operatore</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- Servizio 03 -->
-      <article class="aisg-service-card">
-        <div class="aisg-card-top">
-          <div class="aisg-card-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-          <span class="aisg-step-num">03</span>
-        </div>
-        <div class="aisg-card-body">
-          <h3>Managed Analytics & Logging</h3>
-          <p>Monitoraggio remoto continuativo e gestione avanzata delle metriche di funzionamento per azzerare i tempi di fermo macchina imprevisti.</p>
-          <ul class="aisg-service-list">
-            <li>Servizio gestito di Manutenzione Predittiva</li>
-            <li>Logging sicuro e certificato dei dati di processo</li>
-            <li>Tuning periodico degli algoritmi predittivi</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- Servizio 04 -->
-      <article class="aisg-service-card">
-        <div class="aisg-card-top">
-          <div class="aisg-card-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <span class="aisg-step-num">04</span>
-        </div>
-        <div class="aisg-card-body">
-          <h3>Assistenza SLA & Formazione</h3>
-          <p>Affiancamento costante al personale aziendale per garantire autonomia operativa, sicurezza e aggiornamento dei sistemi nel tempo.</p>
-          <ul class="aisg-service-list">
-            <li>Onboarding e training operatori su HMI e allarmi</li>
-            <li>Piani di supporto tecnico dedicati (SLA)</li>
-            <li>Prototipazione ad-hoc e R&D su richiesta</li>
-          </ul>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- Call to Action -->
-    <div class="aisg-services-cta">
-      <div class="aisg-cta-text">
-        <h4>Hai un impianto da ammodernare o un progetto specifico?</h4>
-        <p>Richiedi un primo confronto tecnico con i nostri ingegneri.</p>
       </div>
-      <a href="#contact" class="aisg-btn-primary btn btn-primary">Prenota un Audit Tecnico</a>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- SERVIZI END-TO-END -->
+  <section id="servizi" class="aisg-services-section sheet" data-ref="FIG. 03 — SERVIZI">
+    <div class="wrap">
+      <div class="aisg-container">
+        
+        <div class="aisg-section-header">
+          <span class="aisg-badge">Soluzioni Industriali End-to-End</span>
+          <h2>Ingegneria, Digitalizzazione & Supporto Operativo</h2>
+          <p>Accompagniamo le aziende lungo tutto il ciclo di vita dell'innovazione: dall'audit di fattibilità al monitoraggio predittivo e all'assistenza sul campo.</p>
+        </div>
 
-<!-- STILI CSS (Isolati e integrabili) -->
-<style>
-  .aisg-services-section {
-    padding: 5rem 1.5rem;
-    background-color: var(--bg-primary, var(--bg-body, transparent));
-    color: var(--text-primary, currentColor);
-    box-sizing: border-box;
-  }
+        <div class="aisg-services-grid">
 
-  .aisg-services-section *, 
-  .aisg-services-section *::before, 
-  .aisg-services-section *::after {
-    box-sizing: inherit;
-  }
+          <article class="aisg-service-card">
+            <div class="aisg-card-top">
+              <div class="aisg-card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <span class="aisg-step-num">01</span>
+            </div>
+            <div class="aisg-card-body">
+              <h3>Audit Tecnico & Analisi ROI</h3>
+              <p>Valutazione preliminare dell'infrastruttura esistente per quantificare l'impatto economico e la fattibilità tecnica prima dell'installazione.</p>
+              <ul class="aisg-service-list">
+                <li>Digital Fleet & Machinery Audit</li>
+                <li>Analisi dell'Ergonomia Operativa</li>
+                <li>Studi di fattibilità e stima del ROI</li>
+              </ul>
+            </div>
+          </article>
 
-  .aisg-container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+          <article class="aisg-service-card aisg-card-featured">
+            <div class="aisg-card-top">
+              <div class="aisg-card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              </div>
+              <span class="aisg-step-num">02</span>
+            </div>
+            <div class="aisg-card-body">
+              <h3>Ingegneria & System Integration</h3>
+              <p>Sviluppo di soluzioni custom per l'integrazione hardware-software su impianti industriali e macchinari legacy senza blocchi di produzione.</p>
+              <ul class="aisg-service-list">
+                <li>Digital Twin su misura (AI Service Twin)</li>
+                <li>Retrofit sensoriali e protocolli (PLC, OPC UA)</li>
+                <li>Progettazione HMI Custom per l'operatore</li>
+              </ul>
+            </div>
+          </article>
 
-  .aisg-section-header {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 3.5rem auto;
-  }
+          <article class="aisg-service-card">
+            <div class="aisg-card-top">
+              <div class="aisg-card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+              <span class="aisg-step-num">03</span>
+            </div>
+            <div class="aisg-card-body">
+              <h3>Managed Analytics & Logging</h3>
+              <p>Monitoraggio remoto continuativo e gestione avanzata delle metriche di funzionamento per azzerare i tempi di fermo macchina imprevisti.</p>
+              <ul class="aisg-service-list">
+                <li>Servizio gestito di Manutenzione Predittiva</li>
+                <li>Logging sicuro e certificato dei dati di processo</li>
+                <li>Tuning periodico degli algoritmi predittivi</li>
+              </ul>
+            </div>
+          </article>
 
-  .aisg-badge {
-    display: inline-block;
-    padding: 0.35rem 0.85rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 9999px;
-    margin-bottom: 1rem;
-    color: var(--primary, var(--accent, #388bfd));
-    background-color: var(--badge-bg, rgba(56, 139, 253, 0.12));
-    border: 1px solid var(--badge-border, rgba(56, 139, 253, 0.3));
-  }
+          <article class="aisg-service-card">
+            <div class="aisg-card-top">
+              <div class="aisg-card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <span class="aisg-step-num">04</span>
+            </div>
+            <div class="aisg-card-body">
+              <h3>Assistenza SLA & Formazione</h3>
+              <p>Affiancamento costante al personale aziendale per garantire autonomia operativa, sicurezza e aggiornamento dei sistemi nel tempo.</p>
+              <ul class="aisg-service-list">
+                <li>Onboarding e training operatori su HMI e allarmi</li>
+                <li>Piani di supporto tecnico dedicati (SLA)</li>
+                <li>Prototipazione ad-hoc e R&D su richiesta</li>
+              </ul>
+            </div>
+          </article>
 
-  .aisg-section-header h2 {
-    font-size: clamp(1.8rem, 4vw, 2.3rem);
-    font-weight: 700;
-    margin: 0 0 1rem 0;
-    color: var(--heading-color, var(--text-primary, currentColor));
-    line-height: 1.25;
-  }
+        </div>
 
-  .aisg-section-header p {
-    font-size: 1.05rem;
-    color: var(--text-muted, var(--text-secondary, #8b949e));
-    line-height: 1.6;
-    margin: 0;
-  }
+        <div class="aisg-services-cta">
+          <div class="aisg-cta-text">
+            <h4>Hai un impianto da ammodernare o un progetto specifico?</h4>
+            <p>Richiedi un primo confronto tecnico con i nostri ingegneri.</p>
+          </div>
+          <a href="#contatti" class="btn amber">Prenota un Audit Tecnico →</a>
+        </div>
 
-  .aisg-services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
+      </div>
+    </div>
+  </section>
 
-  .aisg-service-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 1.5rem;
-    border-radius: var(--border-radius, 12px);
-    background-color: var(--card-bg, var(--bg-surface, #161b22));
-    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-  }
+  <!-- METODO DI LAVORO -->
+  <section id="metodo" class="sheet" data-ref="FIG. 04 — METODO">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Il nostro approccio</span>
+          <h2>Un metodo chiaro per risultati misurabili</h2>
+        </div>
+        <p>Zero interruzioni alla produzione e massima trasparenza operativa in ogni fase del progetto.</p>
+      </div>
 
-  .aisg-service-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--primary, var(--accent, #388bfd));
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-  }
+      <div class="method-list">
+        <div class="method-item">
+          <div class="method-num">FASE 01 <span>AUDIT</span></div>
+          <div class="method-body">
+            <h3>Mappatura e Valutazione ROI</h3>
+            <p>Analizziamo l'infrastruttura corrente, i protocolli e i colli di bottiglia operativi per calcolare con precisione il ritorno sull'investimento.</p>
+          </div>
+        </div>
 
-  .aisg-card-featured {
-    border-color: var(--primary, var(--accent, rgba(56, 139, 253, 0.5)));
-    background: linear-gradient(180deg, var(--card-bg, #161b22) 0%, rgba(56, 139, 253, 0.05) 100%);
-  }
+        <div class="method-item">
+          <div class="method-num">FASE 02 <span>PILOTA</span></div>
+          <div class="method-body">
+            <h3>Integrazione & Pilot Test</h3>
+            <p>Implementiamo la soluzione (sensori, Digital Twin o HMI) su un singolo componente o linea campione senza impattare sull'operatività generale.</p>
+          </div>
+        </div>
 
-  .aisg-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-  }
+        <div class="method-item">
+          <div class="method-num">FASE 03 <span>SCALA</span></div>
+          <div class="method-body">
+            <h3>Deploy Completo & SLA</h3>
+            <p>Estendiamo il sistema all'intero impianto, attiviamo il logging certificato dei dati e formiamo gli operatori per la gestione quotidiana.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  .aisg-card-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary, var(--accent, #388bfd));
-    background-color: var(--badge-bg, rgba(56, 139, 253, 0.12));
-  }
-
-  .aisg-step-num {
-    font-size: 1.1rem;
-    font-weight: 800;
-    opacity: 0.35;
-    color: var(--text-muted, currentColor);
-  }
-
-  .aisg-card-body h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0 0 0.75rem 0;
-    color: var(--heading-color, var(--text-primary, currentColor));
-  }
-
-  .aisg-card-body p {
-    font-size: 0.925rem;
-    color: var(--text-muted, var(--text-secondary, #8b949e));
-    line-height: 1.5;
-    margin: 0 0 1.25rem 0;
-  }
-
-  .aisg-service-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .aisg-service-list li {
-    position: relative;
-    padding-left: 1.25rem;
-    font-size: 0.875rem;
-    color: var(--text-primary, currentColor);
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-  }
-
-  .aisg-service-list li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    top: -0.1rem;
-    font-weight: bold;
-    color: var(--primary, var(--accent, #388bfd));
-    font-size: 1.1rem;
-  }
-
-  .aisg-services-cta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 2rem 2.5rem;
-    border-radius: var(--border-radius, 12px);
-    background-color: var(--card-bg, var(--bg-surface, #161b22));
-    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
-  }
-
-  .aisg-cta-text h4 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin: 0 0 0.25rem 0;
-    color: var(--heading-color, var(--text-primary, currentColor));
-  }
-
-  .aisg-cta-text p {
-    font-size: 0.925rem;
-    color: var(--text-muted, var(--text-secondary, #8b949e));
-    margin: 0;
-  }
-
-  .aisg-btn-primary {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    border-radius: var(--btn-radius, 6px);
-    color: #ffffff;
-    background-color: var(--btn-bg, var(--primary, #238636));
-    text-decoration: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .aisg-btn-primary:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-  }
-
-  @media (max-width: 768px) {
-    .aisg-services-cta {
-      flex-direction: column;
-      text-align: center;
-    }
-  }
-</style>
-  <section id="contatti" class="cta-section sheet" data-ref="FIG. 06 — CONTATTO">
+  <!-- CONTATTI -->
+  <section id="contatti" class="cta-section sheet" data-ref="FIG. 05 — CONTATTO">
     <div class="wrap">
       <div class="cta-grid">
         <div>
           <span class="eyebrow">Prossimo passo</span>
           <h2>Quanto ti costa non automatizzare?</h2>
-          <p>Analizziamo il tuo processo gratuitamente e ti diciamo, con numeri, dove stai perdendo margine — prima di proporti qualsiasi cosa.</p>
+          <p>Analizziamo il tuo processo gratuitamente e ti diciamo dove stai perdendo margine — prima di proporti qualsiasi intervento.</p>
           <div class="hero-meta" style="border-top:1px solid var(--line-strong);">
             <div style="color:var(--ink-soft);"><b style="color:var(--ink);">24h</b>tempo di risposta medio</div>
             <div style="color:var(--ink-soft);"><b style="color:var(--ink);">0€</b>costo dell'audit iniziale</div>
@@ -1155,7 +908,7 @@
           </div>
           <div class="field">
             <label for="msg">Cosa vorresti automatizzare?</label>
-            <textarea id="msg" rows="3" placeholder="Descrivi brevemente il processo..."></textarea>
+            <textarea id="msg" rows="3" placeholder="Descrivi brevemente il processo o l'impianto..."></textarea>
           </div>
           <button type="submit" class="btn amber">Richiedi l'audit gratuito →</button>
         </form>
@@ -1164,15 +917,17 @@
   </section>
 </main>
 
+<!-- FOOTER -->
 <footer>
   <div class="wrap footer-wrap">
-    <span>© 2026 aiservicegroup — Automazione dei processi</span>
+    <span>© 2026 aiservicegroup — Automazione dei processi & Ingegneria</span>
     <div style="display:flex; gap:24px;">
       <a href="mailto:info@aiservicegroup.it">info@aiservicegroup.it</a>
     </div>
   </div>
 </footer>
 
+<!-- CHAT WIDGET -->
 <button class="chat-toggle" id="chatToggle" aria-label="Apri assistente aiservicegroup">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
 </button>
@@ -1183,11 +938,11 @@
     <button id="chatClose" aria-label="Chiudi">✕</button>
   </div>
   <div class="chat-body" id="chatBody">
-    <div class="msg bot">Ciao! Sono l'assistente di aiservicegroup. Chiedimi dei nostri servizi, dei settori in cui operiamo o di come iniziare un audit.</div>
+    <div class="msg bot">Ciao! Sono l'assistente di aiservicegroup. Chiedimi dei nostri prodotti, dei servizi end-to-end o di come richiedere un audit.</div>
   </div>
   <div class="chat-suggestions" id="chatSuggestions">
-    <button data-q="Cosa fate?">Cosa fate?</button>
-    <button data-q="Settori">Settori</button>
+    <button data-q="Prodotti">Prodotti</button>
+    <button data-q="Servizi">Servizi</button>
     <button data-q="Come funziona l'audit?">Come funziona l'audit?</button>
     <button data-q="Contatti">Contatti</button>
   </div>
@@ -1224,33 +979,29 @@
   }
 
   const RULES = [
-    { keys: ['cosa fate','servizi','cosa fai','automazione dei processi'],
-      a: "Ci occupiamo di automazione dei processi end-to-end: mappatura del flusso attuale, progettazione del nuovo flusso automatizzato, integrazione con i sistemi che già usate e monitoraggio nel tempo." },
-    { keys: ['settori','settore','industria','industrie'],
-      a: "Operiamo in manifattura, logistica & supply chain, food & beverage, automotive, packaging e chimico-farmaceutico. Se il tuo settore non è in lista, scrivici comunque: il metodo si adatta." },
-    { keys: ['audit','come funziona','come iniziare','metodo','processo'],
-      a: "Si parte con un audit gratuito dei tuoi processi ad alto impatto. Poi automatizziamo un'area pilota misurabile, senza fermare la produzione. Solo dopo, scaliamo sulla base dei dati reali." },
-    { keys: ['prezzo','costo','quanto costa','tariffe'],
-      a: "L'audit iniziale è gratuito. Il costo dell'automazione dipende dal processo e dalla sua complessità: te lo indichiamo con precisione dopo l'audit, non prima." },
-    { keys: ['tempo','tempi','quanto ci vuole','durata'],
-      a: "Rispondiamo entro 24h dalla richiesta. I tempi del progetto variano in base al processo, ma la fase pilota è pensata per essere rapida e misurabile." },
-    { keys: ['contatt','email','telefono','parlare con qualcuno'],
-      a: "Puoi scriverci a info@aiservicegroup.it oppure compilare il form qui sotto nella sezione Contatti — rispondiamo entro 24h." },
-    { keys: ['ciao','salve','buongiorno','buonasera'],
-      a: "Ciao! Come posso aiutarti — vuoi sapere cosa facciamo, in quali settori operiamo o come funziona l'audit gratuito?" },
+    { keys: ['prodotti','catalogo','hardware','software'],
+      a: "Offriamo un ecosistema integrato: Energy Brain per il monitoraggio energetico, OT-Guard per la cybersecurity NIS 2, AISG Sentinel per la manutenzione predittiva e suite EMS 50001." },
+    { keys: ['servizi','cosa fate','cosa fai','automazione'],
+      a: "I nostri servizi coprono l'intero ciclo di vita: Audit Tecnico preliminare, System Integration & Digital Twin su misura, Managed Analytics con data logging e supporto SLA continuativo." },
+    { keys: ['audit','come funziona','metodo','processo'],
+      a: "Iniziamo con un audit gratuito per valutare l'impianto e calcolare il ROI. Successivamente testiamo un pilota a zero-fermi e infine scaliamo sull'intera produzione." },
+    { keys: ['contatt','email','telefono','parlare'],
+      a: "Puoi scriverci a info@aiservicegroup.it oppure compilare il form nella sezione #contatti in fondo alla pagina." },
+    { keys: ['ciao','salve','buongiorno'],
+      a: "Ciao! Vuoi informazioni sui nostri prodotti, sui servizi di integrazione o su come richiedere l'audit gratuito?" }
   ];
 
   function respond(question){
     const q = question.toLowerCase();
     const match = RULES.find(r => r.keys.some(k => q.includes(k)));
     if (match) return match.a;
-    return "Non sono sicuro di aver capito bene. Posso parlarti di servizi, settori, metodo o contatti — oppure lascia i tuoi dati nel form qui sotto e ti risponde il team entro 24h.";
+    return "Posso aiutarti con informazioni su Prodotti, Servizi, Metodo o Contatti. Puoi anche compilare il form in basso per parlare direttamente con i nostri ingegneri.";
   }
 
   function handleQuestion(text){
     if(!text.trim()) return;
     addMsg(text, 'user');
-    setTimeout(() => addMsg(respond(text), 'bot'), 350);
+    setTimeout(() => addMsg(respond(text), 'bot'), 300);
   }
 
   form.addEventListener('submit', (e) => {
