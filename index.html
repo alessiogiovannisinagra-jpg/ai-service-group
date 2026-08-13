@@ -580,6 +580,247 @@
       </div>
     </div>
   </section>
+ <section class="aisg-catalog-section">
+    <style>
+        .aisg-catalog-section {
+            background-color: #f8fafc;
+            padding: 4.5rem 1.5rem;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #0f172a;
+        }
+
+        .aisg-catalog-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .aisg-catalog-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .aisg-badge-tag {
+            display: inline-block;
+            background: #f0f9ff;
+            color: #0284c7;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 1rem;
+            border: 1px solid #bae6fd;
+        }
+
+        .aisg-catalog-header h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.8rem;
+        }
+
+        .aisg-catalog-header p {
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            color: #64748b;
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .aisg-pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .aisg-pillar-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .aisg-pillar-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .aisg-pillar-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .aisg-pillar-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 0.6rem;
+        }
+
+        .aisg-pillar-desc {
+            font-size: 0.875rem;
+            color: #64748b;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+
+        .aisg-pillar-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .aisg-mini-tag {
+            font-size: 0.725rem;
+            font-weight: 700;
+            background: #f1f5f9;
+            color: #334155;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .aisg-cta-wrapper {
+            text-align: center;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .aisg-cta-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .aisg-btn-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #0f172a;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1rem;
+            transition: background 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+
+        .aisg-btn-main:hover {
+            background: #0284c7;
+            transform: translateY(-2px);
+        }
+
+        .aisg-btn-main svg {
+            transition: transform 0.2s ease;
+        }
+
+        .aisg-btn-main:hover svg {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 640px) {
+            .aisg-catalog-section {
+                padding: 3rem 1rem;
+            }
+            .aisg-pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <div class="aisg-catalog-container">
+        
+        <div class="aisg-catalog-header">
+            <span class="aisg-badge-tag">Soluzioni Tecnologiche B2B</span>
+            <h2>Catalogo Prodotti & Piattaforme Enterprise</h2>
+            <p>Ecosistema integrato Hardware Edge, Gateway Multi-Vettore e Suite Software Cloud per la Transizione 5.0, la Cybersicurezza OT e l'Efficienza Energetica Industriale.</p>
+        </div>
+
+        <div class="aisg-pillars-grid">
+            
+            <div class="aisg-pillar-card">
+                <div class="aisg-pillar-icon" style="background: #e0f2fe; color: #0284c7;">⚡</div>
+                <h3 class="aisg-pillar-title">Energy Management & Audit</h3>
+                <p class="aisg-pillar-desc">Misurazione ad alta frequenza, certificazione dati inviolabile per Transizione 5.0 e gestione dei vettori elettrici, gas e vapore.</p>
+                <div class="aisg-pillar-tags">
+                    <span class="aisg-mini-tag">Energy Brain</span>
+                    <span class="aisg-mini-tag">CT Array</span>
+                    <span class="aisg-mini-tag">Multi-Fluid</span>
+                </div>
+            </div>
+
+            <div class="aisg-pillar-card">
+                <div class="aisg-pillar-icon" style="background: #fee2e2; color: #991b1b;">🛡️</div>
+                <h3 class="aisg-pillar-title">OT CyberSecurity & NIS 2</h3>
+                <p class="aisg-pillar-desc">Protezione passiva a zero-latenza delle reti di fabbrica, ispezione profonda dei protocolli industriali e conformità alla Direttiva NIS 2.</p>
+                <div class="aisg-pillar-tags">
+                    <span class="aisg-mini-tag">OT-Guard</span>
+                    <span class="aisg-mini-tag">IEC 62443</span>
+                    <span class="aisg-mini-tag">NIS 2 Ready</span>
+                </div>
+            </div>
+
+            <div class="aisg-pillar-card">
+                <div class="aisg-pillar-icon" style="background: #dcfce7; color: #15803d;">⚙️</div>
+                <h3 class="aisg-pillar-title">Manutenzione & Digital Twin</h3>
+                <p class="aisg-pillar-desc">Edge AI vibrazionale per azzerare i fermi macchina non programmati e simulazione virtuale "What-If" per linee e impianti.</p>
+                <div class="aisg-pillar-tags">
+                    <span class="aisg-mini-tag">AISG Sentinel</span>
+                    <span class="aisg-mini-tag">TwinCore</span>
+                    <span class="aisg-mini-tag">Smart HMI</span>
+                </div>
+            </div>
+
+            <div class="aisg-pillar-card">
+                <div class="aisg-pillar-icon" style="background: #fef3c7; color: #b45309;">📊</div>
+                <h3 class="aisg-pillar-title">Energy Analytics & ESG</h3>
+                <p class="aisg-pillar-desc">Calcolo del costo energetico per singolo lotto di produzione, gestione norma ISO 50001 e report automatizzato Scope 1 e Scope 2.</p>
+                <div class="aisg-pillar-tags">
+                    <span class="aisg-mini-tag">EMS 50001</span>
+                    <span class="aisg-mini-tag">Scope 1-2 CO₂</span>
+                    <span class="aisg-mini-tag">ESG Report</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="aisg-cta-wrapper">
+            <div class="aisg-cta-text">
+                Scopri la gamma completa con schede tecniche, codici SKU e specifiche trasversali.
+            </div>
+            <a href="index.html" class="aisg-btn-main">
+                Apri il Catalogo Completo (12 Soluzioni)
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+
+    </div>
+</section>
+ 
 
   <section id="servizi" class="sheet" data-ref="FIG. 03 — SERVIZI">
     <div class="wrap">
