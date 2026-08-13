@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Service Group - Catalogo Prodotti & Soluzioni</title>
+    <title>AI Service Group - Catalogo Soluzioni Enterprise & Industrial OT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,6 +23,10 @@
             --badge-hw-text: #0369a1;
             --badge-sw-bg: #dcfce7;
             --badge-sw-text: #15803d;
+            --badge-cyber-bg: #fee2e2;
+            --badge-cyber-text: #991b1b;
+            --badge-energy-bg: #fef3c7;
+            --badge-energy-text: #b45309;
             --radius-lg: 16px;
             --radius-md: 10px;
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -135,7 +139,7 @@
         .banner p {
             font-size: clamp(0.95rem, 2vw, 1.15rem);
             color: var(--text-muted);
-            max-width: 720px;
+            max-width: 820px;
             margin: 0 auto;
             line-height: 1.6;
         }
@@ -286,6 +290,11 @@
             color: var(--badge-sw-text);
         }
 
+        .badge-cyber {
+            background: var(--badge-cyber-bg);
+            color: var(--badge-cyber-text);
+        }
+
         .card-body {
             padding: 0 1.25rem 1.25rem;
             flex: 1;
@@ -303,7 +312,7 @@
         }
 
         .product-title {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: var(--primary);
             margin-bottom: 0.65rem;
@@ -311,7 +320,7 @@
         }
 
         .product-desc {
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             color: var(--text-muted);
             margin-bottom: 1.25rem;
             line-height: 1.55;
@@ -486,9 +495,9 @@
     </header>
 
     <section class="banner">
-        <span class="banner-tag">Portafoglio Soluzioni Tecnologiche</span>
-        <h1>Catalogo Prodotti Enterprise</h1>
-        <p>Soluzioni integrate Edge AI, Hardware Industriale e Piattaforme Software Cloud/SaaS per l'efficienza energetica, il monitoraggio predittivo e il Digital Twin.</p>
+        <span class="banner-tag">Portafoglio Soluzioni B2B & Industrial Deep-Tech</span>
+        <h1>Catalogo Soluzioni Enterprise, OT CyberSecurity & Energy</h1>
+        <p>Ecosistema integrato per l'Efficienza Energetica, la Cybersicurezza delle Reti Industriali (OT/NIS2), la Manutenzione Predittiva ed i Report ESG.</p>
     </section>
 
     <main class="main-container">
@@ -498,15 +507,78 @@
                 📊 Seleziona Categoria Soluzioni:
             </div>
             <div class="filter-pills">
-                <button class="filter-btn active" onclick="setCategory('all', this)">Tutti i Prodotti (6)</button>
-                <button class="filter-btn" onclick="setCategory('hw', this)">Hardware & Edge (3)</button>
-                <button class="filter-btn" onclick="setCategory('sw', this)">Software & SaaS (3)</button>
+                <button class="filter-btn active" onclick="setCategory('all', this)">Tutti i Prodotti (12)</button>
+                <button class="filter-btn" onclick="setCategory('energy', this)">Energy Management (6)</button>
+                <button class="filter-btn" onclick="setCategory('cyber', this)">OT CyberSecurity (1)</button>
+                <button class="filter-btn" onclick="setCategory('hw', this)">Hardware & Edge (7)</button>
+                <button class="filter-btn" onclick="setCategory('sw', this)">Software & SaaS (5)</button>
             </div>
         </div>
 
         <div class="product-grid">
 
-            <article class="product-card" data-category="hw">
+            <article class="product-card" data-category="cyber hw">
+                <div class="card-image-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="gradCyber" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#gradCyber)"/>
+                        <path d="M 200 40 L 260 70 V 120 Q 200 170 200 170 Q 200 170 140 120 V 70 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
+                        <path d="M 180 100 L 195 115 L 225 85" stroke="#f8fafc" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <text x="200" y="185" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">OT CYBERSECURITY & NIS 2</text>
+                    </svg>
+                </div>
+                <div class="card-header">
+                    <span class="sku">AISGXA007</span>
+                    <span class="badge badge-cyber">CyberSecurity / OT</span>
+                </div>
+                <div class="card-body">
+                    <div class="sector">OT CyberSecurity & Direttiva NIS 2</div>
+                    <h2 class="product-title">AISG OT-Guard CyberShield</h2>
+                    <p class="product-desc">Appliance Edge IDS/IPS industriale per il rilevamento passivo delle intrusioni, l'ispezione profonda dei protocolli di fabbrica (Modbus, OPC-UA) e la conformità alla Direttiva NIS 2 e norma IEC 62443.</p>
+                    
+                    <div class="specs-box">
+                        <div class="specs-box-title">⚙️ Specifiche Tecniche</div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Standard:</span>
+                                <span class="spec-val">IEC 62443 / NIS 2 Ready</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Ispezione DPI:</span>
+                                <span class="spec-val">Modbus, OPC-UA, BACnet</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Modalità:</span>
+                                <span class="spec-val">Monitoring Passivo Zero-Latency</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">AI Engine:</span>
+                                <span class="spec-val">Anomaly Detection Bordo Rete</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="features-list">
+                        <div class="features-list-title">Vantaggi Chiave:</div>
+                        <li><span class="check-icon">✓</span> Protezione da ransomware e malware sulla rete di fabbrica</li>
+                        <li><span class="check-icon">✓</span> Monitoraggio senza rischio di blocchi per la produzione</li>
+                        <li><span class="check-icon">✓</span> Conformità immediata ai requisiti normativi europei NIS 2</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">
+                        Scheda Prodotto Completa
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="energy hw">
                 <div class="card-image-wrapper">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
                         <defs>
@@ -563,6 +635,253 @@
                 </div>
                 <div class="card-footer">
                     <a href="energy-brain.html" class="btn-details">
+                        Scheda Prodotto Completa
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="energy hw">
+                <div class="card-image-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="gradEX" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0369a1;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#gradEX)"/>
+                        <circle cx="120" cy="100" r="22" stroke="#38bdf8" stroke-width="3" fill="none"/>
+                        <circle cx="200" cy="100" r="22" stroke="#38bdf8" stroke-width="3" fill="none"/>
+                        <circle cx="280" cy="100" r="22" stroke="#38bdf8" stroke-width="3" fill="none"/>
+                        <line x1="80" y1="100" x2="320" y2="100" stroke="#0284c7" stroke-width="2" stroke-dasharray="4,4"/>
+                        <text x="200" y="160" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">CT ARRAY MULTILINEA</text>
+                    </svg>
+                </div>
+                <div class="card-header">
+                    <span class="sku">AISGXA001-EX</span>
+                    <span class="badge badge-hw">Hardware / DIN</span>
+                </div>
+                <div class="card-body">
+                    <div class="sector">Energy Management & Audit</div>
+                    <h2 class="product-title">Energy Brain Probe & CT Array</h2>
+                    <p class="product-desc">Modulo di espansione per monitoraggio ad alta densità fino a 24 linee trifase secondarie tramite TA toroidali e sonde Rogowski ad aggancio rapido.</p>
+                    
+                    <div class="specs-box">
+                        <div class="specs-box-title">⚙️ Specifiche Tecniche</div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Canali Input:</span>
+                                <span class="spec-val">12 - 24 Trifase</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Sonde Compatibili:</span>
+                                <span class="spec-val">TA Toroidali / Rogowski</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Montaggio:</span>
+                                <span class="spec-val">Guida DIN Compatta</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Bus Dati:</span>
+                                <span class="spec-val">Internal High-Speed Bus</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="features-list">
+                        <div class="features-list-title">Vantaggi Chiave:</div>
+                        <li><span class="check-icon">✓</span> Monitoraggio granulare di ogni singola isola di lavoro</li>
+                        <li><span class="check-icon">✓</span> Installazione non invasiva senza interruzione di linea</li>
+                        <li><span class="check-icon">✓</span> Integrazione diretta con l'hub Energy Brain</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">
+                        Scheda Prodotto Completa
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="energy hw">
+                <div class="card-image-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="gradPQ" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#b45309;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#gradPQ)"/>
+                        <path d="M 50 100 Q 100 30, 150 100 T 250 100 T 350 100" fill="none" stroke="#f59e0b" stroke-width="3"/>
+                        <path d="M 50 100 Q 75 120, 100 100 T 150 100" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+                        <text x="200" y="160" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">POWER QUALITY ANALYZER</text>
+                    </svg>
+                </div>
+                <div class="card-header">
+                    <span class="sku">AISGXA004</span>
+                    <span class="badge badge-hw">Hardware / Edge</span>
+                </div>
+                <div class="card-body">
+                    <div class="sector">Qualità della Rete & Protezione</div>
+                    <h2 class="product-title">AISG Power Quality Analyzer</h2>
+                    <p class="product-desc">Analizzatore Edge delle perturbazioni elettriche: armoniche fino al 50° ordine, buchi di tensione, micro-interruzioni e rifasamento ($\cos\varphi$).</p>
+                    
+                    <div class="specs-box">
+                        <div class="specs-box-title">⚙️ Specifiche Tecniche</div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Analisi Armonica:</span>
+                                <span class="spec-val">Fino al 50° Ordine</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Campionamento:</span>
+                                <span class="spec-val">512 Campioni/Ciclo</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Classe Misura:</span>
+                                <span class="spec-val">Classe A (IEC 61000-4-30)</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Protocolli:</span>
+                                <span class="spec-val">Modbus TCP / IEC 61850</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="features-list">
+                        <div class="features-list-title">Vantaggi Chiave:</div>
+                        <li><span class="check-icon">✓</span> Prevenzione penali per energia reattiva ed armoniche</li>
+                        <li><span class="check-icon">✓</span> Protezione apparecchiature elettroniche sensibili</li>
+                        <li><span class="check-icon">✓</span> Log eventi transitori veloci e buchi di tensione</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">
+                        Scheda Prodotto Completa
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="energy hw">
+                <div class="card-image-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="gradMF" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0d9488;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#gradMF)"/>
+                        <rect x="140" y="60" width="120" height="80" rx="8" fill="#1e293b" stroke="#2dd4bf" stroke-width="2"/>
+                        <text x="200" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">GAS / ARIA / ACQUA</text>
+                        <text x="200" y="125" font-family="monospace" font-size="10" fill="#2dd4bf" text-anchor="middle">M-BUS / IMPULSI</text>
+                    </svg>
+                </div>
+                <div class="card-header">
+                    <span class="sku">AISGXA005</span>
+                    <span class="badge badge-hw">Hardware / Gateway</span>
+                </div>
+                <div class="card-body">
+                    <div class="sector">Vettori Energetici Non Elettrici</div>
+                    <h2 class="product-title">AISG Multi-Fluid Gateway</h2>
+                    <p class="product-desc">Gateway I/O multiprotocollo (M-Bus, Modbus, Ingressi Impulsivi) per la misurazione di gas metano, aria compressa, acqua, vapore e vettori termici.</p>
+                    
+                    <div class="specs-box">
+                        <div class="specs-box-title">⚙️ Specifiche Tecniche</div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Interfacce:</span>
+                                <span class="spec-val">M-Bus / Wireless M-Bus</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Ingressi:</span>
+                                <span class="spec-val">8x Impulsivi / 4-20mA</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Diagnosi:</span>
+                                <span class="spec-val">Audit ISO 50001 Multi-Vettore</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Uscita Dati:</span>
+                                <span class="spec-val">MQTT / REST / OPC-UA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="features-list">
+                        <div class="features-list-title">Vantaggi Chiave:</div>
+                        <li><span class="check-icon">✓</span> Integra i consumi di gas e aria compressa in un unico hub</li>
+                        <li><span class="check-icon">✓</span> Rilevamento perdite sulla rete pneumatica ed idrica</li>
+                        <li><span class="check-icon">✓</span> Diagnosi energetica completa dello stabilimento</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">
+                        Scheda Prodotto Completa
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="energy hw">
+                <div class="card-image-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="gradBESS" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#gradBESS)"/>
+                        <rect x="120" y="60" width="70" height="80" rx="6" fill="#1e293b" stroke="#4ade80" stroke-width="2"/>
+                        <rect x="210" y="60" width="70" height="80" rx="6" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+                        <text x="155" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">SOLAR</text>
+                        <text x="245" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">BESS</text>
+                    </svg>
+                </div>
+                <div class="card-header">
+                    <span class="sku">AISGXA006</span>
+                    <span class="badge badge-hw">Hardware / Field</span>
+                </div>
+                <div class="card-body">
+                    <div class="sector">Rinnovabili & Accumulo Industriale</div>
+                    <h2 class="product-title">BESS & Solar Edge Controller</h2>
+                    <p class="product-desc">Controller di campo industriale per l'interfaccia diretta con inverter B2B e batterie di accumulo (BESS) per peak shaving e massimizzazione autoconsumo.</p>
+                    
+                    <div class="specs-box">
+                        <div class="specs-box-title">⚙️ Specifiche Tecniche</div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Target:</span>
+                                <span class="spec-val">Impianti PV Commercial & Ind.</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Funzione:</span>
+                                <span class="spec-val">Peak Shaving & Load Shifting</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Integrazione:</span>
+                                <span class="spec-val">BESS / Inverter Multi-Brand</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Tempo Risposta:</span>
+                                <span class="spec-val">&lt; 100 ms Edge Control</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="features-list">
+                        <div class="features-list-title">Vantaggi Chiave:</div>
+                        <li><span class="check-icon">✓</span> Taglio dei picchi di potenza contrattuale impegnata</li>
+                        <li><span class="check-icon">✓</span> Gestione dinamica delle cariche/scariche batterie</li>
+                        <li><span class="check-icon">✓</span> Massimizzazione della resa energetica solare</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">
                         Scheda Prodotto Completa
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
@@ -626,6 +945,128 @@
                 </div>
                 <div class="card-footer">
                     <a href="aisg-sentinel.html" class="btn-details">
+                        Scheda Prodotto Completa
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="energy sw">
+                <div class="card-image-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="gradEMS" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#gradEMS)"/>
+                        <rect x="100" y="50" width="200" height="100" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+                        <path d="M 120 120 L 160 80 L 200 100 L 240 60 L 280 90" fill="none" stroke="#38bdf8" stroke-width="3"/>
+                        <text x="200" y="135" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">EMS ISO 50001 ANALYTICS</text>
+                    </svg>
+                </div>
+                <div class="card-header">
+                    <span class="sku">AISGXS004</span>
+                    <span class="badge badge-sw">Software / SaaS</span>
+                </div>
+                <div class="card-body">
+                    <div class="sector">Energy Analytics & ISO 50001</div>
+                    <h2 class="product-title">Energy Analytics Suite</h2>
+                    <p class="product-desc">Piattaforma SaaS Enterprise per la gestione dell'energia secondo ISO 50001: calcolo degli indicatori EnPI e ripartizione costi energetici per pezzo.</p>
+                    
+                    <div class="specs-box">
+                        <div class="specs-box-title">⚙️ Specifiche Tecniche</div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Standard:</span>
+                                <span class="spec-val">Conforme ISO 50001</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">KPI Generati:</span>
+                                <span class="spec-val">EnPI / Costo per Lotto</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Integrazione:</span>
+                                <span class="spec-val">ERP / MES / Energy Brain</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Deploy:</span>
+                                <span class="spec-val">Cloud SaaS Enterprise</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="features-list">
+                        <div class="features-list-title">Vantaggi Chiave:</div>
+                        <li><span class="check-icon">✓</span> Trasforma i kWh grezzi in costo industriale del prodotto</li>
+                        <li><span class="check-icon">✓</span> Monitoraggio continuo della baseline energetica</li>
+                        <li><span class="check-icon">✓</span> Report automatici per diagnosi e audit energetici</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">
+                        Scheda Prodotto Completa
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="energy sw">
+                <div class="card-image-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="gradCO2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#gradCO2)"/>
+                        <circle cx="200" cy="90" r="40" fill="none" stroke="#34d399" stroke-width="2.5"/>
+                        <text x="200" y="95" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">CO₂</text>
+                        <text x="200" y="150" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="bold" fill="#34d399" text-anchor="middle">SCOPE 1 & 2 GHG MANAGER</text>
+                    </svg>
+                </div>
+                <div class="card-header">
+                    <span class="sku">AISGXS005</span>
+                    <span class="badge badge-sw">Software / SaaS</span>
+                </div>
+                <div class="card-body">
+                    <div class="sector">Carbon Footprint & Report ESG</div>
+                    <h2 class="product-title">Carbon & Scope 1-2 Manager</h2>
+                    <p class="product-desc">Modulo software per la conversione automatica e certificata dei consumi in emissioni CO₂ equivalente (GHG Protocol Scope 1 e Scope 2) per report ESG e 5.0.</p>
+                    
+                    <div class="specs-box">
+                        <div class="specs-box-title">⚙️ Specifiche Tecniche</div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Protocollo:</span>
+                                <span class="spec-val">GHG Protocol Scope 1-2</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Certificazione:</span>
+                                <span class="spec-val">Output Audit Ready</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Input Dati:</span>
+                                <span class="spec-val">Automatico da Field HW</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Export:</span>
+                                <span class="spec-val">ESG / Bilancio Sostenibilità</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="features-list">
+                        <div class="features-list-title">Vantaggi Chiave:</div>
+                        <li><span class="check-icon">✓</span> Calcolo automatizzato dell'impronta carbonica</li>
+                        <li><span class="check-icon">✓</span> Conformità ai requisiti di incentivo della Transizione 5.0</li>
+                        <li><span class="check-icon">✓</span> Reportistica pronta per il Bilancio di Sostenibilità</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">
                         Scheda Prodotto Completa
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
@@ -820,73 +1261,12 @@
                 </div>
             </article>
 
-            <article class="product-card" data-category="hw">
-                <div class="card-image-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
-                        <defs>
-                            <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect width="100%" height="100%" fill="url(#grad6)"/>
-                        <polygon points="200,50 270,110 250,110 250,150 150,150 150,110 130,110" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
-                        <circle cx="200" cy="115" r="12" fill="#38bdf8"/>
-                        <text x="200" y="175" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">AI HOME SYSTEM</text>
-                    </svg>
-                </div>
-                <div class="card-header">
-                    <span class="sku">AISGXA003</span>
-                    <span class="badge badge-hw">Hardware / Hub</span>
-                </div>
-                <div class="card-body">
-                    <div class="sector">Smart Building Residenziale</div>
-                    <h2 class="product-title">AI Home System</h2>
-                    <p class="product-desc">Centralina ed hub di elaborazione per l'ambito residenziale avanzato. Gestisce le priorità dei carichi, evita i blackout e massimizza l'autoconsumo da fotovoltaico.</p>
-                    
-                    <div class="specs-box">
-                        <div class="specs-box-title">⚙️ Specifiche Tecniche</div>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <span class="spec-label">Funzione Core:</span>
-                                <span class="spec-val">Gestione Carichi Predittiva</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Integrazione:</span>
-                                <span class="spec-val">Inverter PV / Colonnina EV</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Gestione Clima:</span>
-                                <span class="spec-val">Controllo HVAC Adattivo</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Protezione:</span>
-                                <span class="spec-val">Anti-Distacco Contatore</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <ul class="features-list">
-                        <div class="features-list-title">Vantaggi Chiave:</div>
-                        <li><span class="check-icon">✓</span> Prevenzione distacco per sovraccarico contatore</li>
-                        <li><span class="check-icon">✓</span> Massimizzazione autoconsumo fotovoltaico</li>
-                        <li><span class="check-icon">✓</span> Ottimizzazione comfort termico e consumi</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <a href="ai-home-system.html" class="btn-details">
-                        Scheda Prodotto Completa
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-                </div>
-            </article>
-
         </div>
 
     </main>
 
     <footer>
-        &copy; 2026 <strong>AI Service Group</strong> — Dominio: <a href="http://aiservicegroup.it" target="_blank">aiservicegroup.it</a> | Email: <a href="mailto:info@aiservicegroup.it">info@aiservicegroup.it</a>
+        &copy; 2026 <strong>AI Service Group</strong>. All rights reserved. | Email: <a href="mailto:info@aiservicegroup.it">info@aiservicegroup.it</a>
     </footer>
 
     <script>
@@ -896,7 +1276,8 @@
 
             const cards = document.querySelectorAll('.product-card');
             cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
+                const itemCat = card.getAttribute('data-category');
+                if (category === 'all' || itemCat.includes(category)) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
