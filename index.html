@@ -208,7 +208,112 @@
     color:var(--ink-soft);
     margin:0;
   }
-
+  /* SEZIONE OMNIA INTEGRATA (HOME) */
+  .home-omnia-section{
+    padding:90px 0;
+    border-top:1px solid var(--line);
+  }
+  .home-omnia-container{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+    display:grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap:50px;
+    align-items:center;
+  }
+  .home-omnia-img-card{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid var(--line-strong);
+    background:var(--paper-card);
+    box-shadow:0 15px 35px rgba(0, 0, 0, 0.4);
+  }
+  .home-omnia-img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:cover;
+    transition:transform 0.4s ease;
+  }
+  .home-omnia-img-card:hover .home-omnia-img{
+    transform:scale(1.02);
+  }
+  .home-omnia-img-overlay{
+    position:absolute;
+    bottom:0; left:0; right:0;
+    background:linear-gradient(to top, rgba(10,14,20,0.95), transparent);
+    padding:20px;
+  }
+  .home-omnia-tag-overlay{
+    background:rgba(61, 139, 255, 0.15);
+    color:var(--steel-light);
+    border:1px solid var(--line-strong);
+    padding:4px 10px;
+    border-radius:4px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    font-weight:600;
+    text-transform:uppercase;
+  }
+  .home-omnia-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--steel);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:16px;
+  }
+  .home-pulse-dot{
+    width:8px; height:8px;
+    background-color:var(--amber);
+    border-radius:50%;
+    box-shadow:0 0 0 0 rgba(61,139,255,0.7);
+    animation:homePulse 2s infinite;
+  }
+  @keyframes homePulse{
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(61,139,255,0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(61,139,255,0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(61,139,255,0); }
+  }
+  .home-omnia-title{
+    font-size:clamp(1.8rem, 2.5vw, 2.3rem);
+    line-height:1.2;
+    margin-bottom:16px;
+  }
+  .home-omnia-title span{
+    color:var(--steel);
+  }
+  .home-omnia-desc{
+    font-size:0.975rem;
+    color:var(--ink-soft);
+    line-height:1.6;
+    margin-bottom:24px;
+  }
+  .home-omnia-list{
+    list-style:none;
+    padding:0;
+    margin:0 0 30px 0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .home-omnia-list li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:0.9rem;
+    color:var(--ink);
+    font-weight:500;
+  }
+  .home-omnia-list svg{
+    color:var(--steel);
+    flex-shrink:0;
+  }
   /* GRID CARDS (PRODUCTS & SERVICES) */
   .cards-grid{
     display:grid;
@@ -416,6 +521,56 @@
           <div><b>Transizione 5.0</b>Conformità Certificata</div>
         </div>
       </div>
+    </div>
+  </section>
+<!-- SEZIONE OMNIA INTEGRATA CON IMG_7758.png -->
+  <section class="home-omnia-section" id="omniaindustry">
+    <div class="home-omnia-container">
+        
+        <div class="home-omnia-img-column">
+            <div class="home-omnia-img-card">
+                <img src="IMG_7758.png" alt="Piattaforma OMNIA AI - Automazione Industriale" class="home-omnia-img">
+                <div class="home-omnia-img-overlay">
+                    <span class="home-omnia-tag-overlay">Edge AI & Cloud Intelligence</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-omnia-content-column">
+            <div class="home-omnia-badge">
+                <span class="home-pulse-dot"></span> Piattaforma di Punta AISG • Transizione 4.0 & 5.0
+            </div>
+
+            <h2 class="home-omnia-title">
+                Scopri <span>OMNIA AI</span>, il primo sistema AI per l’automazione industriale
+            </h2>
+
+            <p class="home-omnia-desc">
+                Supervisione in tempo reale, Energy Intelligence avanzata, System Integration senza interruzioni e conformità normativa totale. Unisci intelligenza artificiale e hardware edge per trasformare la tua fabbrica in un ecosistema autonomo e sicuro.
+            </p>
+
+            <ul class="home-omnia-list">
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Supervisione & Energy Analytics certificata
+                </li>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Integrazione nativa con macchinari legacy e PLC
+                </li>
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Conformità NIS 2 e incentivi fiscali garantiti
+                </li>
+            </ul>
+
+            <div class="home-omnia-action">
+                <a href="omnia.html" class="btn amber">
+                    Scopri OMNIA 5.0 →
+                </a>
+            </div>
+        </div>
+
     </div>
   </section>
 
