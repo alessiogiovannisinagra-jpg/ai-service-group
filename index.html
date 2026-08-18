@@ -209,113 +209,6 @@
     margin:0;
   }
 
-  /* SEZIONE OMNIA INTEGRATA (HOME) */
-  .home-omnia-section{
-    padding:90px 0;
-    border-top:1px solid var(--line);
-  }
-  .home-omnia-container{
-    max-width:var(--maxw);
-    margin:0 auto;
-    padding:0 32px;
-    display:grid;
-    grid-template-columns: 1fr 1.15fr;
-    gap:50px;
-    align-items:center;
-  }
-  .home-omnia-img-card{
-    position:relative;
-    border-radius:var(--radius);
-    overflow:hidden;
-    border:1px solid var(--line-strong);
-    background:var(--paper-card);
-    box-shadow:0 15px 35px rgba(0, 0, 0, 0.4);
-  }
-  .home-omnia-img{
-    width:100%;
-    height:auto;
-    display:block;
-    object-fit:cover;
-    transition:transform 0.4s ease;
-  }
-  .home-omnia-img-card:hover .home-omnia-img{
-    transform:scale(1.02);
-  }
-  .home-omnia-img-overlay{
-    position:absolute;
-    bottom:0; left:0; right:0;
-    background:linear-gradient(to top, rgba(10,14,20,0.95), transparent);
-    padding:20px;
-  }
-  .home-omnia-tag-overlay{
-    background:rgba(61, 139, 255, 0.15);
-    color:var(--steel-light);
-    border:1px solid var(--line-strong);
-    padding:4px 10px;
-    border-radius:4px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.75rem;
-    font-weight:600;
-    text-transform:uppercase;
-  }
-  .home-omnia-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    color:var(--steel);
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    margin-bottom:16px;
-  }
-  .home-pulse-dot{
-    width:8px; height:8px;
-    background-color:var(--amber);
-    border-radius:50%;
-    box-shadow:0 0 0 0 rgba(61,139,255,0.7);
-    animation:homePulse 2s infinite;
-  }
-  @keyframes homePulse{
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(61,139,255,0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(61,139,255,0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(61,139,255,0); }
-  }
-  .home-omnia-title{
-    font-size:clamp(1.8rem, 2.5vw, 2.3rem);
-    line-height:1.2;
-    margin-bottom:16px;
-  }
-  .home-omnia-title span{
-    color:var(--steel);
-  }
-  .home-omnia-desc{
-    font-size:0.975rem;
-    color:var(--ink-soft);
-    line-height:1.6;
-    margin-bottom:24px;
-  }
-  .home-omnia-list{
-    list-style:none;
-    padding:0;
-    margin:0 0 30px 0;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-  }
-  .home-omnia-list li{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-size:0.9rem;
-    color:var(--ink);
-    font-weight:500;
-  }
-  .home-omnia-list svg{
-    color:var(--steel);
-    flex-shrink:0;
-  }
-
   /* GRID CARDS (PRODUCTS & SERVICES) */
   .cards-grid{
     display:grid;
@@ -485,7 +378,7 @@
 
   @media(max-width:900px){
     .navlinks{ display:none; }
-    .cta-layout, .method-grid, .home-omnia-container{ grid-template-columns:1fr; }
+    .cta-layout, .method-grid{ grid-template-columns:1fr; }
   }
 </style>
 </head>
@@ -498,7 +391,6 @@
     <a href="#" class="logo"><span class="dot"></span>aiservicegroup</a>
     <div class="navlinks">
       <a href="#omniaindustry">OMNIA 5.0</a>
-      <a href="#strutture">Grandi Strutture</a>
       <a href="#servizi">Servizi</a>
       <a href="#metodo">Metodo</a>
       <a href="#contatti">Contatti</a>
@@ -527,160 +419,109 @@
     </div>
   </section>
 
-  <!-- SEZIONE OMNIA INTEGRATA CON IMG_7758.png -->
-  <section class="home-omnia-section" id="omniaindustry">
-    <div class="home-omnia-container">
-        
-        <div class="home-omnia-img-column">
-            <div class="home-omnia-img-card">
-                <img src="IMG_7758.png" alt="Piattaforma OMNIA AI - Automazione Industriale" class="home-omnia-img">
-                <div class="home-omnia-img-overlay">
-                    <span class="home-omnia-tag-overlay">Edge AI & Cloud Intelligence</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="home-omnia-content-column">
-            <div class="home-omnia-badge">
-                <span class="home-pulse-dot"></span> Piattaforma di Punta AISG • Transizione 4.0 & 5.0
-            </div>
-
-            <h2 class="home-omnia-title">
-                Scopri <span>OMNIA AI</span>, il primo sistema AI per l’automazione industriale
-            </h2>
-
-            <p class="home-omnia-desc">
-                Supervisione in tempo reale, Energy Intelligence avanzata, System Integration senza interruzioni e conformità normativa totale. Unisci intelligenza artificiale e hardware edge per trasformare la tua fabbrica in un ecosistema autonomo e sicuro.
-            </p>
-
-            <ul class="home-omnia-list">
-                <li>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                    Supervisione & Energy Analytics certificata
-                </li>
-                <li>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                    Integrazione nativa con macchinari legacy e PLC
-                </li>
-                <li>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                    Conformità NIS 2 e incentivi fiscali garantiti
-                </li>
-            </ul>
-
-            <div class="home-omnia-action">
-                <a href="omnia.html" class="btn amber">
-                    Scopri OMNIA 5.0 →
-                </a>
-            </div>
-        </div>
-
-    </div>
-  </section>
-
-
-  <!-- SEZIONE SERVIZI MIGLIORATA CON TASTO DI REINDIRIZZAMENTO -->
-  <section id="servizi">
+<section id="servizi">
     <div class="wrap">
       <div class="section-header">
-        <span class="eyebrow" style="justify-content:center;">Ingegneria & Supporto</span>
-        <h2>Servizi End-to-End</h2>
-        <p>Dall'analisi di fattibilità preliminare all'installazione sul campo e al monitoraggio SLA continuativo.</p>
+        <span class="eyebrow" style="justify-content:center;">Ingegneria & Meccatronica</span>
+        <h2>Automazione Industriale su Misura</h2>
+        <p>Progettiamo e integriamo sistemi avanzati e personalizzati per rispondere con precisione alle esigenze produttive ed energetiche della tua azienda.</p>
       </div>
-
-      <div class="cards-grid" style="margin-bottom: 50px;">
+      <div class="cards-grid">
+        <!-- Card 1: Retrofit e Aggiornamento Impianti -->
         <div class="card">
-          <div class="card-icon">⚡</div>
-          <h3>Edge Telemetry & Energy Brain</h3>
-          <p>Acquisizione dati ad alta frequenza e certificazione inviolabile dei consumi energetici per accedere agli incentivi di Transizione 4.0 e 5.0.</p>
+          <div class="card-icon">⚙️</div>
+          <h3>Retrofit e Aggiornamento Impianti</h3>
+          <p>Interventi mirati di ammodernamento su macchinari esistenti per estenderne il ciclo di vita, integrarli con i moderni standard di connettività e ridurne i consumi.</p>
           <div class="tags-list">
-            <span class="tag">Modbus / OPC UA</span>
-            <span class="tag">IoT Edge</span>
-            <span class="tag">ISO 50001</span>
+            <span class="tag">Ammodernamento</span>
+            <span class="tag">Connettività</span>
+            <span class="tag">Predictive Kit</span>
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-icon">🤖</div>
-          <h3>Manutenzione Predittiva & Digital Twin</h3>
-          <p>Repliche virtuali dinamiche dei tuoi impianti industriali, integrando la modellazione impiantistica ai dati reali di campo per l'archiviazione e il monitoraggio continuo.</p>
-          <div class="tags-list">
-            <span class="tag">AISG Sentinel</span>
-            <span class="tag">TwinCore SaaS</span>
-            <span class="tag">Zero Latency</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🛡️</div>
-          <h3>Cybersecurity OT & NIS 2</h3>
-          <p>Protezione passiva a zero latenza delle reti di stabilimento e dei sistemi PLC contro minacce informatiche e attacchi ransomware.</p>
-          <div class="tags-list">
-            <span class="tag">OT-Guard Shield</span>
-            <span class="tag">Conformità NIS 2</span>
-            <span class="tag">IEC 62443</span>
-          </div>
-        </div>
-          
+        <!-- Card 2: Sviluppo Interfacce HMI e SCADA -->
         <div class="card">
           <div class="card-icon">🖥️</div>
-          <h3>Sviluppo Software di Automazione</h3>
-          <p>Logiche di controllo avanzate e software applicativi dedicati per la gestione autonoma e intelligente di macchine, linee produttive e sistemi meccatronici.</p>
+          <h3>Sviluppo Interfacce HMI e SCADA</h3>
+          <p>Realizzazione di interfacce utente intuitive e sistemi di supervisione su misura per offrire il controllo totale in tempo reale e una gestione semplificata dei flussi.</p>
           <div class="tags-list">
-            <span class="tag">PLC / Firmware</span>
-            <span class="tag">Motion Control</span>
+            <span class="tag">Human-Machine Interface</span>
+            <span class="tag">Supervisione SCADA</span>
             <span class="tag">Real-Time</span>
           </div>
         </div>
-        
+
+        <!-- Card 3: Digital Twin e Modellazione di Processo -->
         <div class="card">
-          <div class="card-icon">🚧</div>
-          <h3>System Integration & Retrofit</h3>
-          <p>Progettazione e installazione di kit di retrofit non invasivi e connessione dei protocolli di fabbrica per abilitare flussi di dati continui e controllo remoto.</p>
+          <div class="card-icon">🤖</div>
+          <h3>Digital Twin & Modellazione</h3>
+          <p>Creazione di gemelli digitali dei sistemi produttivi per simulare scenari operativi, testare interventi di ottimizzazione in ambiente virtuale e prevenire criticità.</p>
           <div class="tags-list">
-            <span class="tag">Kit Retrofit</span>
-            <span class="tag">Fieldbus</span>
-            <span class="tag">Remote Access</span>
+            <span class="tag">Gemelli Digitali</span>
+            <span class="tag">Simulazione</span>
+            <span class="tag">Zero Latency</span>
+          </div>
+        </div>
+          
+        <!-- Card 4: Log Dati e Monitoraggio Verificabile -->
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3>Log Dati e Monitoraggio Verificabile</h3>
+          <p>Integrazione di architetture dedicate alla raccolta automatica e sicura dei parametri di impianto per dimostrare i reali risparmi energetici e l'efficacia operativa.</p>
+          <div class="tags-list">
+            <span class="tag">Data Logging</span>
+            <span class="tag">Tracciabilità</span>
+            <span class="tag">KPI Efficienza</span>
+          </div>
+        </div>
+        
+        <!-- Card 5: System Integration & Controllo -->
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>System Integration & Controllo</h3>
+          <p>Unione sinergica di hardware meccatronico e intelligenza software per automatizzare i processi e massimizzare le performance globali della linea.</p>
+          <div class="tags-list">
+            <span class="tag">Meccatronica</span>
+            <span class="tag">PLC / Firmware</span>
+            <span class="tag">Chiavi in Mano</span>
           </div>
         </div>
       </div>
-
-      <!-- Tasto di rimando alla pagina servizi.html -->
-      <div style="text-align: center;">
-        <a href="servizi.html" class="btn amber" style="padding: 14px 32px; font-size: 14px;">
-          Esplora tutti i Servizi nel dettaglio →
-        </a>
-      </div>
-
     </div>
   </section>
-
+ 
   <section id="metodo">
     <div class="wrap">
       <div class="section-header">
         <span class="eyebrow" style="justify-content:center;">Il Nostro Metodo</span>
-        <h2>Un approccio strutturato in 3 fasi</h2>
-        <p>Massimi risultati operativi e azzeramento dei rischi di fermo produzione.</p>
+        <h2>Un approccio strutturato in 4 fasi</h2>
+        <p>Dall'analisi tecnica alla messa in servizio per azzerare i tempi di fermo macchina.</p>
       </div>
       <div class="method-grid">
         <div class="method-card">
           <span class="method-num">FASE 01</span>
-          <h3>Audit & Mappatura</h3>
-          <p>Analizziamo lo stato dell'impianto e identifichiamo i colli di bottiglia energetici e produttivi.</p>
+          <h3>Analisi Tecnica & Processo</h3>
+          <p>Valutazione approfondita dell'infrastruttura esistente e dei KPI produttivi da migliorare.</p>
         </div>
         <div class="method-card">
           <span class="method-num">FASE 02</span>
-          <h3>Test Pilota</h3>
-          <p>Installiamo un sistema pilota su una singola linea campione per validare i benefici in ambiente reale.</p>
+          <h3>Progettazione Ingegneristica</h3>
+          <p>Sviluppo coordinato della parte elettrica, meccanica e del software di controllo.</p>
         </div>
         <div class="method-card">
           <span class="method-num">FASE 03</span>
-          <h3>Deploy & Scala</h3>
-          <p>Estendiamo la soluzione all'intero stabilimento, attivando logging certificato e telemetria continua.</p>
+          <h3>Prototipazione & Test</h3>
+          <p>Collaudo in ambiente simulato e validazione sul campo per azzerare i margini di errore.</p>
+        </div>
+        <div class="method-card">
+          <span class="method-num">FASE 04</span>
+          <h3>Integrazione & Assistenza</h3>
+          <p>Messa in servizio chiavi in mano e supporto tecnico continuativo sull'impianto.</p>
         </div>
       </div>
     </div>
   </section>
+
 
   <section id="contatti" class="cta-section">
     <div class="wrap">
