@@ -70,6 +70,16 @@
             gap: 2rem;
         }
 
+        /* MOBILE MENU TOGGLE */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -239,10 +249,17 @@
 
         .grid-sectors {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
+        /* Sector Card Links */
+        .sector-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
         .card {
             background: var(--white);
             padding: 2.5rem;
@@ -251,17 +268,35 @@
             border: 1px solid var(--border);
             border-top: 4px solid var(--accent);
             transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
         }
 
-        .card:hover {
+        .sector-link:hover .card {
             transform: translateY(-5px);
             box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+            border-top-width: 6px;
         }
 
         .card h3 {
             margin-bottom: 1rem;
             color: var(--primary);
             font-size: 1.35rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card h3::after {
+            content: '→';
+            color: var(--accent);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .sector-link:hover .card h3::after {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .card p {
@@ -304,7 +339,7 @@
 
         .control-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
@@ -331,7 +366,7 @@
             background: var(--white);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 4rem;
+            padding: 4rem 2rem;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
@@ -354,6 +389,7 @@
             color: var(--accent);
             font-weight: 700;
             text-decoration: none;
+            word-break: break-all;
         }
 
         .email-link:hover {
@@ -370,19 +406,103 @@
             margin-top: 5rem;
         }
 
-        @media (max-width: 900px) {
+        /* MEDIA QUERIES FOR RESPONSIVENESS */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            .hero h1 {
-                font-size: 2.2rem;
+            .grid-sectors {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-right {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                gap: 1.5rem;
+            }
+            
+            .nav-right.active {
+                left: 0;
+            }
+
             .nav-links {
-                display: none;
+                flex-direction: column;
+                gap: 1.5rem;
+                width: 100%;
+                text-align: center;
             }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                display: block;
+                padding: 0.5rem;
+            }
+            
+            .nav-cta {
+                display: inline-block;
+            }
+
+            .hero {
+                padding: 5rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 3rem 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
             .control-room-section {
                 padding: 3rem 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .control-room-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-section {
+                padding: 3rem 1.5rem;
+            }
+            
+            .email-link {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .grid-sectors {
+                grid-template-columns: 1fr;
+            }
+            .about-card, .feature-box, .card {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -392,12 +512,13 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo">AI SERVICE <span>GROUP</span></a>
-            <div class="nav-right">
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <div class="nav-right" id="navMenu">
                 <ul class="nav-links">
-                    <li><a href="#chisiamo" data-i18n="nav_about">Chi Siamo</a></li>
-                    <li><a href="#settori" data-i18n="nav_sectors">Settori</a></li>
-                    <li><a href="#controlroom" data-i18n="nav_controlroom">Control Room</a></li>
-                    <li><a href="#contatti" class="nav-cta" data-i18n="nav_contact">Contattaci</a></li>
+                    <li><a href="#chisiamo" data-i18n="nav_about" onclick="closeMenu()">Chi Siamo</a></li>
+                    <li><a href="#settori" data-i18n="nav_sectors" onclick="closeMenu()">Settori</a></li>
+                    <li><a href="#controlroom" data-i18n="nav_controlroom" onclick="closeMenu()">Control Room</a></li>
+                    <li><a href="#contatti" class="nav-cta" data-i18n="nav_contact" onclick="closeMenu()">Contattaci</a></li>
                 </ul>
                 <div class="lang-selector">
                     <select id="languageSelect" onchange="changeLanguage(this.value)">
@@ -443,30 +564,44 @@
         <section id="settori">
             <div class="section-header">
                 <h2 data-i18n="sectors_heading">Settori Strategici di Intervento</h2>
-                <p data-i18n="sectors_desc">Soluzioni customizzate e scalabili per ogni dominio della logistica avanzata e del trasporto su larga scala.</p>
+                <p data-i18n="sectors_desc">Soluzioni customizzate e scalabili per ogni dominio dell'industria, della logistica avanzata e della mobilità strutturata.</p>
             </div>
 
             <div class="grid-sectors">
-                <div class="card">
-                    <h3 data-i18n="sec1_title">Infrastrutture di Trasporto e Reti su Rotaia</h3>
-                    <p data-i18n="sec1_desc">Sistemi di segnalamento avanzato, automazione dei nodi di scambio, gestione intelligente dei flussi ferroviari e metropolitani orientati alla massima continuità di servizio.</p>
-                </div>
-                <div class="card">
-                    <h3 data-i18n="sec2_title">Terminal Portuali e Marittimi</h3>
-                    <p data-i18n="sec2_desc">Automazione integrata dei varchi doganali, coordinamento logistico delle banchine, movimentazione dei container e ottimizzazione strutturata dei tempi di attesa operativi.</p>
-                </div>
-                <div class="card">
-                    <h3 data-i18n="sec3_title">Hub Aeroportuali e Logistica di Scala</h3>
-                    <p data-i18n="sec3_desc">Supervisione centralizzata dei flussi passeggeri e bagagli, sistemi di smistamento automatizzato delle merci e coordinamento in tempo reale delle aree di terra.</p>
-                </div>
-                <div class="card">
-                    <h3 data-i18n="sec4_title">Impianti Industriali e Smart Energy</h3>
-                    <p data-i18n="sec4_desc">Automazione di processo, integrazione di reti industriali complesse, telemetria avanzata e tracciamento continuo dei KPI operativi per l'efficienza energetica.</p>
-                </div>
-                <div class="card">
-                    <h3 data-i18n="sec5_title">Infrastrutture Stradali e Smart Cities</h3>
-                    <p data-i18n="sec5_desc">Monitoraggio dinamico dei flussi di traffico veicolare, controllo automatizzato di gallerie, svincoli e attivazione di protocolli di emergenza in tempo reale.</p>
-                </div>
+                <a href="industria.html" class="sector-link">
+                    <div class="card">
+                        <h3 data-i18n="sec1_title">Industria</h3>
+                        <p data-i18n="sec1_desc">Digitalizzazione processi, retrofit per manutenzione predittiva, HMI personalizzati e digital twin delle linee produttive.</p>
+                    </div>
+                </a>
+                
+                <a href="logistica.html" class="sector-link">
+                    <div class="card">
+                        <h3 data-i18n="sec2_title">Logistica</h3>
+                        <p data-i18n="sec2_desc">Automazione dei magazzini, sistemi di tracciamento RFID/Barcode, gestione flotte AGV e ottimizzazione flussi di stoccaggio.</p>
+                    </div>
+                </a>
+                
+                <a href="terminal.html" class="sector-link">
+                    <div class="card">
+                        <h3 data-i18n="sec3_title">Terminal</h3>
+                        <p data-i18n="sec3_desc">Gestione automatizzata dei grandi nodi: operazioni portuali, digitalizzazione gate e sistemi SCADA per infrastrutture critiche.</p>
+                    </div>
+                </a>
+                
+                <a href="smart-mobility.html" class="sector-link">
+                    <div class="card">
+                        <h3 data-i18n="sec4_title">Smart Mobility</h3>
+                        <p data-i18n="sec4_desc">Data logging per traffico ed energia, gestione semaforica intelligente e soluzioni IoT per la mobilità sostenibile cittadina.</p>
+                    </div>
+                </a>
+                
+                <a href="infrastrutture.html" class="sector-link">
+                    <div class="card">
+                        <h3 data-i18n="sec5_title">Infrastrutture</h3>
+                        <p data-i18n="sec5_desc">Automazione reti su larga scala: segnaletica ferroviaria, controllo remoto gallerie autostradali, ponti e reti di distribuzione.</p>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -507,8 +642,21 @@
         <p data-i18n="footer_text">&copy; 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it</p>
     </footer>
 
-    <!-- SCRIPT MULTILINGUA (8 LINGUE PRINCIPALI) -->
+    <!-- SCRIPT MULTILINGUA E MENU MOBILE -->
     <script>
+        // Funzione per il Menu Mobile
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navMenu = document.getElementById('navMenu');
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        }
+
         const translations = {
             it: {
                 title: "AI Service Group | Automazione Infrastrutture e Controllo Flussi",
@@ -528,17 +676,17 @@
                 pillar_3: "Controllo Predittivo e Automazione Varchi",
                 pillar_4: "Supervisione Centralizzata in Real-Time",
                 sectors_heading: "Settori Strategici di Intervento",
-                sectors_desc: "Soluzioni customizzate e scalabili per ogni dominio della logistica avanzata e del trasporto su larga scala.",
-                sec1_title: "Infrastrutture di Trasporto e Reti su Rotaia",
-                sec1_desc: "Sistemi di segnalamento avanzato, automazione dei nodi di scambio, gestione intelligente dei flussi ferroviari e metropolitani orientati alla massima continuità di servizio.",
-                sec2_title: "Terminal Portuali e Marittimi",
-                sec2_desc: "Automazione integrata dei varchi doganali, coordinamento logistico delle banchine, movimentazione dei container e ottimizzazione strutturata dei tempi di attesa operativi.",
-                sec3_title: "Hub Aeroportuali e Logistica di Scala",
-                sec3_desc: "Supervisione centralizzata dei flussi passeggeri e bagagli, sistemi di smistamento automatizzato delle merci e coordinamento in tempo reale delle aree di terra.",
-                sec4_title: "Impianti Industriali e Smart Energy",
-                sec4_desc: "Automazione di processo, integrazione di reti industriali complesse, telemetria avanzata e tracciamento continuo dei KPI operativi per l'efficienza energetica.",
-                sec5_title: "Infrastrutture Stradali e Smart Cities",
-                sec5_desc: "Monitoraggio dinamico dei flussi di traffico veicolare, controllo automatizzato di gallerie, svincoli e attivazione di protocolli di emergenza in tempo reale.",
+                sectors_desc: "Soluzioni customizzate e scalabili per ogni dominio dell'industria, della logistica avanzata e della mobilità strutturata.",
+                sec1_title: "Industria",
+                sec1_desc: "Digitalizzazione processi, retrofit per manutenzione predittiva, HMI personalizzati e digital twin delle linee produttive.",
+                sec2_title: "Logistica",
+                sec2_desc: "Automazione dei magazzini, sistemi di tracciamento RFID/Barcode, gestione flotte AGV e ottimizzazione flussi di stoccaggio.",
+                sec3_title: "Terminal",
+                sec3_desc: "Gestione automatizzata dei grandi nodi: operazioni portuali, digitalizzazione gate e sistemi SCADA per infrastrutture critiche.",
+                sec4_title: "Smart Mobility",
+                sec4_desc: "Data logging per traffico ed energia, gestione semaforica intelligente e soluzioni IoT per la mobilità sostenibile cittadina.",
+                sec5_title: "Infrastrutture",
+                sec5_desc: "Automazione reti su larga scala: segnaletica ferroviaria, controllo remoto gallerie autostradali, ponti e reti di distribuzione.",
                 cr_tag: "Il Cuore del Sistema",
                 cr_heading: "Progettazione di Centrali di Controllo (Control Room)",
                 cr_desc: "Il sistema nervoso centrale dell'infrastruttura: un ambiente unificato da cui monitorare, elaborare enormi moli di dati operativi e intervenire tempestivamente sia in modalità autonoma che guidata.",
@@ -570,17 +718,17 @@
                 pillar_3: "Predictive Control & Gate Automation",
                 pillar_4: "Real-Time Centralized Supervision",
                 sectors_heading: "Strategic Intervention Sectors",
-                sectors_desc: "Customized and scalable solutions for every domain of advanced logistics and large-scale transport.",
-                sec1_title: "Transport Infrastructure & Rail Networks",
-                sec1_desc: "Advanced signaling systems, switching node automation, and intelligent management of railway and subway flows aimed at maximum service continuity.",
-                sec2_title: "Port & Maritime Terminals",
-                sec2_desc: "Integrated automation of customs gates, logistical quay coordination, container handling, and structured optimization of operational wait times.",
-                sec3_title: "Airport Hubs & Scale Logistics",
-                sec3_desc: "Centralized supervision of passenger and baggage flows, automated cargo sorting systems, and real-time ground area coordination.",
-                sec4_title: "Industrial Plants & Smart Energy",
-                sec4_desc: "Process automation, complex industrial network integration, advanced telemetry, and continuous tracking of operational KPIs for energy efficiency.",
-                sec5_title: "Road Infrastructure & Smart Cities",
-                sec5_desc: "Dynamic vehicular traffic flow monitoring, automated control of tunnels and junctions, and real-time emergency protocol activation.",
+                sectors_desc: "Customized and scalable solutions for every domain of industry, advanced logistics, and structured mobility.",
+                sec1_title: "Industry",
+                sec1_desc: "Process digitalization, predictive maintenance retrofits, custom HMIs, and digital twins for production lines.",
+                sec2_title: "Logistics",
+                sec2_desc: "Warehouse automation, RFID/Barcode tracking systems, AGV fleet management, and storage flow optimization.",
+                sec3_title: "Terminals",
+                sec3_desc: "Automated management of major nodes: port operations, gate digitalization, and SCADA systems for critical infrastructure.",
+                sec4_title: "Smart Mobility",
+                sec4_desc: "Data logging for traffic and energy, intelligent traffic light management, and IoT solutions for sustainable urban mobility.",
+                sec5_title: "Infrastructure",
+                sec5_desc: "Large-scale network automation: railway signaling, remote control for highway tunnels, bridges, and distribution grids.",
                 cr_tag: "The Core of the System",
                 cr_heading: "Control Room Design & Engineering",
                 cr_desc: "The central nervous system of the infrastructure: a unified environment to monitor, process massive amounts of operational data, and intervene promptly in autonomous or guided mode.",
@@ -593,270 +741,21 @@
                 contact_heading: "Talk to Our Engineers",
                 contact_desc: "Do you have an automation or complex infrastructure project to develop? Contact us directly to define the ideal architecture.",
                 footer_text: "© 2026 AI Service Group (aisg) - All rights reserved. | aiservicegroup.it"
-            },
-            es: {
-                title: "AI Service Group | Automatización de Infraestructuras y Control de Flujos",
-                nav_about: "Quiénes Somos",
-                nav_sectors: "Sectores",
-                nav_controlroom: "Sala de Control",
-                nav_contact: "Contacto",
-                hero_title: "Automatización de Infraestructuras y Control de Flujos",
-                hero_desc: "Ingeniería de sistemas avanzada, gemelos digitales y centros de operaciones para la gestión inteligente de grandes hubs, redes de transporte y plantas críticas.",
-                hero_btn: "Solicitar Consulta B2B",
-                about_heading: "Ingeniería de Sistemas para la Gestión Operativa",
-                about_p1: "AI Service Group (aisg) combina experiencia en mecatrónica, automatización industrial y TI para diseñar infraestructuras capaces de autorregularse y ofrecer datos verificables en tiempo real.",
-                about_p2: "Cada sistema está diseñado para maximizar la seguridad, optimizar la eficiencia energética y eliminar errores en la gestión de flujos complejos.",
-                pillars_title: "Pilares Tecnológicos",
-                pillar_1: "Arquitecturas SCADA y Telemetría",
-                pillar_2: "Sistemas de Registro y Datos Verificables",
-                pillar_3: "Control Predictivo y Automatización de Accesos",
-                pillar_4: "Supervisión Centralizada en Tiempo Real",
-                sectors_heading: "Sectores Estratégicos de Intervención",
-                sectors_desc: "Soluciones personalizadas y escalables para la logística avanzada y el transporte a gran escala.",
-                sec1_title: "Infraestructuras de Transporte y Redes Ferroviarias",
-                sec1_desc: "Sistemas de señalización avanzada, automatización de nodos y gestión inteligente de flujos ferroviarios y metropolitanos.",
-                sec2_title: "Terminales Portuarias y Marítimas",
-                sec2_desc: "Automatización integrada de controles fronterizos, coordinación de muelles y optimización de tiempos operativos.",
-                sec3_title: "Hubs Aeroportuarios y Logística",
-                sec3_desc: "Supervisión centralizada de flujos de pasajeros, sistemas automatizados de clasificación de carga y coordinación en tierra.",
-                sec4_title: "Plantas Industriales y Smart Energy",
-                sec4_desc: "Automatización de procesos, integración de redes industriales complejas y seguimiento continuo de KPIs para la eficiencia energética.",
-                sec5_title: "Infraestructuras Viales y Smart Cities",
-                sec5_desc: "Monitoreo dinámico del tráfico vehicular, control automatizado de túneles y activación de protocolos de emergencia.",
-                cr_tag: "El Corazón del Sistema",
-                cr_heading: "Diseño de Salas de Control (Control Room)",
-                cr_desc: "El sistema nervioso central: un entorno unificado para monitorear, procesar datos operativos masivos e intervenir de forma autónoma o guiada.",
-                cr_feat1_title: "Monitoreo en Tiempo Real",
-                cr_feat1_desc: "Paneles sinópticos unificados para visualizar el estado de cada activo distribuido en el territorio.",
-                cr_feat2_title: "Automatización y Apoyo a Decisiones",
-                cr_feat2_desc: "Algoritmos inteligentes para análisis predictivo y ejecución automática de procedimientos de seguridad.",
-                cr_feat3_title: "Control Remoto y Override",
-                cr_feat3_desc: "Capacidad de comando directo, anulación manual segura y resolución de emergencias desde la estación central.",
-                contact_heading: "Hable con nuestros ingenieros",
-                contact_desc: "¿Tiene un proyecto de automatización o infraestructura compleja? Contáctenos para definir la arquitectura ideal.",
-                footer_text: "© 2026 AI Service Group (aisg) - Todos los derechos reservados. | aiservicegroup.it"
-            },
-            zh: {
-                title: "AI Service Group | 基础设施自动化与流量控制",
-                nav_about: "关于我们",
-                nav_sectors: "行业领域",
-                nav_controlroom: "控制中心",
-                nav_contact: "联系我们",
-                hero_title: "基础设施自动化与流量控制",
-                hero_desc: "先进的系统工程、数字孪生与中央运营中心，用于智能管理大型枢纽、交通网络和关键厂区。",
-                hero_btn: "申请B2B咨询",
-                about_heading: "面向运营管理的系统工程",
-                about_p1: "AI Service Group (aisg) 结合了机电一体化、工业自动化和信息技术专长，旨在设计具备自我调节能力并能提供实时可验证数据 Infrastructure。",
-                about_p2: "我们设计的每个系统都旨在最大化安全性、优化能效，并消除复杂流量管理中的误差率。",
-                pillars_title: "核心技术支柱",
-                pillar_1: "SCADA架构与远程测控",
-                pillar_2: "可验证日志与数据系统",
-                pillar_3: "预测控制与出入口自动化",
-                pillar_4: "实时集中化监督",
-                sectors_heading: "战略介入领域",
-                sectors_desc: "为高级物流和大规模交通的各个领域提供定制化、可扩展的解决方案。",
-                sec1_title: "交通基础设施与铁路网",
-                sec1_desc: "先进的信号系统、交换节点自动化，以及旨在实现最大服务连续性的铁路线路智能管理。",
-                sec2_title: "港口与海运码头",
-                sec2_desc: "海关卡口集成自动化、码头物流协调、集装箱装卸以及运营等待时间的结构化优化。",
-                sec3_title: "机场枢纽与大规模物流",
-                sec3_desc: "集中监督客流与行李流、自动化货物分拣系统以及地面区域的实时协调。",
-                sec4_title: "工业厂房与智能能源",
-                sec4_desc: "过程自动化、复杂工业网络集成、先进测控以及用于能效的运营KPI持续跟踪。",
-                sec5_title: "公路基础设施与智慧城市",
-                sec5_desc: "动态车辆交通流监测、隧道和交叉口的自动化控制以及实时紧急协议的激活。",
-                cr_tag: "系统核心",
-                cr_heading: "控制中心（Control Room）设计",
-                cr_desc: "基础设施的中枢神经系统：一个统一的环境，用于监控、处理海量运营数据，并能自主或引导式地迅速介入。",
-                cr_feat1_title: "实时监控",
-                cr_feat1_desc: "统一的综合仪表盘，可即时查看分布在各地的每一个资产的状态。",
-                cr_feat2_title: "自动化与决策支持",
-                cr_feat2_desc: "用于预测分析、安全程序自动执行及关键疏散管理的智能算法。",
-                cr_feat3_title: "远程控制与手动超控",
-                cr_feat3_desc: "具备直接指挥能力、安全的手动超控功能，可直接从统一中央工作站解决紧急情况。",
-                contact_heading: "与我们的工程师沟通",
-                contact_desc: "您有需要开发的自动化或复杂基础设施项目吗？请直接联系我们以确定理想的架构。",
-                footer_text: "© 2026 AI Service Group (aisg) - 保留所有权利。 | aiservicegroup.it"
-            },
-            fr: {
-                title: "AI Service Group | Automatisation des Infrastructures & Contrôle des Flux",
-                nav_about: "À Propos",
-                nav_sectors: "Secteurs",
-                nav_controlroom: "Salle de Contrôle",
-                nav_contact: "Contact",
-                hero_title: "Automatisation des Infrastructures & Contrôle des Flux",
-                hero_desc: "Ingénierie système avancée, jumeaux numériques et salles d'opérations centrales pour la gestion intelligente des grands hubs, réseaux de transport et sites critiques.",
-                hero_btn: "Demander une consultation B2B",
-                about_heading: "Ingénierie des Systèmes pour la Gestion Opérationnelle",
-                about_p1: "AI Service Group (aisg) associe la mécatronique, l'automatisation industrielle et les technologies de l'information pour concevoir des infrastructures capables de s'autoréguler et de fournir des données vérifiables en temps réel.",
-                about_p2: "Chaque système que nous concevons est pensé pour maximiser la sécurité, optimiser l'efficacité énergétique et éliminer toute marge d'erreur dans la gestion des flux complexes.",
-                pillars_title: "Piliers Technologiques",
-                pillar_1: "Architectures SCADA & Télémétrie",
-                pillar_2: "Systèmes de Journaux et Données Vérifiables",
-                pillar_3: "Contrôle Prédictif et Automatisation des Portails",
-                pillar_4: "Supervision Centralisée en Temps Réel",
-                sectors_heading: "Secteurs Stratégiques d'Intervention",
-                sectors_desc: "Solutions sur mesure et évolutives pour tous les domaines de la logistique avancée et du transport à grande échelle.",
-                sec1_title: "Infrastructures de Transport & Réseaux Ferroviaires",
-                sec1_desc: "Systèmes de signalisation avancés, automatisation des nœuds d'échange et gestion intelligente des flux ferroviaires et métropolitains.",
-                sec2_title: "Terminaux Portuaires & Maritimes",
-                sec2_desc: "Automatisation intégrée des portails douaniers, coordination logistique des quais, manutention des conteneurs et optimisation des temps d'attente.",
-                sec3_title: "Hubs Aéroportuaires & Logistique",
-                sec3_desc: "Supervision centralisée des flux de passagers et bagages, systèmes de tri automatisé des marchandises et coordination en temps réel.",
-                sec4_title: "Sites Industriels & Smart Energy",
-                sec4_desc: "Automatisation des processus, intégration de réseaux industriels complexes, télémétrie avancée et suivi continu des KPI énergétiques.",
-                sec5_title: "Infrastructures Routières & Smart Cities",
-                sec5_desc: "Surveillance dynamique du trafic routier, contrôle automatisé des tunnels et activation de protocoles d'urgence en temps réel.",
-                cr_tag: "Le Cœur du Système",
-                cr_heading: "Conception de Salles de Contrôle (Control Room)",
-                cr_desc: "Le système nerveux central de l'infrastructure : un environnement unifié pour surveiller, traiter des masses de données et intervenir rapidement.",
-                cr_feat1_title: "Surveillance en Temps Réel",
-                cr_feat1_desc: "Tableaux de bord unifiés pour une visualisation instantanée de l'état de chaque actif sur le terrain.",
-                cr_feat2_title: "Automatisation & Aide à la Décision",
-                cr_feat2_desc: "Algorithmes intelligents d'analyse prédictive, exécution automatique des procédures de sécurité et gestion des flux critiques.",
-                cr_feat3_title: "Contrôle à Distance & Override",
-                cr_feat3_desc: "Capacités de commande directe, forçage manuel sécurisé et résolution des urgences depuis le poste central unifié.",
-                contact_heading: "Parlez à nos ingénieurs",
-                contact_desc: "Vous avez un projet d'automatisation ou d'infrastructure complexe à développer ? Contactez-nous pour définir l'architecture idéale.",
-                footer_text: "© 2026 AI Service Group (aisg) - Tous droits réservés. | aiservicegroup.it"
-            },
-            de: {
-                title: "AI Service Group | Infrastrukturautomatisierung & Flusssteuerung",
-                nav_about: "Über uns",
-                nav_sectors: "Sektoren",
-                nav_controlroom: "Leitstand",
-                nav_contact: "Kontakt",
-                hero_title: "Infrastrukturautomatisierung & Flusssteuerung",
-                hero_desc: "Fortschrittliche Systemtechnik, digitale Zwillinge und zentrale Leitstände für die intelligente Verwaltung großer Hubs, Verkehrsnetze und kritischer Anlagen.",
-                hero_btn: "B2B-Beratung anfordern",
-                about_heading: "Systemtechnik für das operative Management",
-                about_p1: "AI Service Group (aisg) verbindet Mechatronik, Industrieautomation und Informationstechnologie, um sich selbst regulierende Infrastrukturen zu entwickeln.",
-                about_p2: "Jedes von uns entworfene System maximiert die Sicherheit, optimiert die Energieeffizienz und eliminiert Fehlermöglichkeiten bei komplexen Abläufen.",
-                pillars_title: "Technologische Säulen",
-                pillar_1: "SCADA-Architekturen & Telemetrie",
-                pillar_2: "Verifizierbare Log- & Datensysteme",
-                pillar_3: "Prädiktive Steuerung & Torautomation",
-                pillar_4: "Zentralisierte Echtzeit-Überwachung",
-                sectors_heading: "Strategische Einsatzbereiche",
-                sectors_desc: "Maßgeschneiderte und skalierbare Lösungen für fortgeschrittene Logistik und Großraumtransporte.",
-                sec1_title: "Verkehrsinfrastruktur & Schienennetze",
-                sec1_desc: "Fortschrittliche Signalsysteme, Automatisierung von Weichenknoten und intelligente Steuerung des Bahnverkehrs.",
-                sec2_title: "Hafen- und Schiffsterminals",
-                sec2_desc: "Integrierte Zollzaunautomation, logistische Kaikoordination, Containerhandling und Optimierung der Wartezeiten.",
-                sec3_title: "Flughafen-Hubs & Großlogistik",
-                sec3_desc: "Zentralisierte Überwachung von Passagier- und Gepäckströmen, automatisierte Frachtsortierung und Echtzeit-Vorfeldkoordination.",
-                sec4_title: "Industrieanlagen & Smart Energy",
-                sec4_desc: "Prozessautomatisierung, Integration komplexer Netzwerke, erweiterte Telemetrie und kontinuierliches KPI-Tracking.",
-                sec5_title: "Straßeninfrastruktur & Smart Cities",
-                sec5_desc: "Dynamische Verkehrsflussüberwachung, automatisierte Tunnelsteuerung und Echtzeit-Notfallprotokolle.",
-                cr_tag: "Das Herz des Systems",
-                cr_heading: "Leitstands- und Kontrollraum-Design",
-                cr_desc: "Das zentrale Nervensystem: Eine einheitliche Umgebung zur Überwachung, Verarbeitung großer Datenmengen und schnellen Intervention.",
-                cr_feat1_title: "Echtzeit-Überwachung",
-                cr_feat1_desc: "Einheitliche synoptische Dashboards zur sofortigen Visualisierung des Asset-Status.",
-                cr_feat2_title: "Autom自动化 & Entscheidungsunterstützung",
-                cr_feat2_desc: "Intelligente Algorithmen für prädiktive Analysen und automatische Sicherheitsmaßnahmen.",
-                cr_feat3_title: "Fernsteuerung & Override",
-                cr_feat3_desc: "Direkte Befehlsfunktionen, sicherer manueller Override und Notfalllösung vom zentralen Arbeitsplatz aus.",
-                contact_heading: "Sprechen Sie mit unseren Ingenieuren",
-                contact_desc: "Haben Sie ein komplexes Automatisierungs- oder Infrastrukturprojekt? Kontaktieren Sie uns für die ideale Architektur.",
-                footer_text: "© 2026 AI Service Group (aisg) - Alle Rechte vorbehalten. | aiservicegroup.it"
-            },
-            pt: {
-                title: "AI Service Group | Automação de Infraestruturas e Controlo de Fluxos",
-                nav_about: "Quem Somos",
-                nav_sectors: "Setores",
-                nav_controlroom: "Sala de Controlo",
-                nav_contact: "Contacto",
-                hero_title: "Automação de Infraestruturas & Controlo de Fluxos",
-                hero_desc: "Engenharia de sistemas avançada, gémeos digitais e salas de operações centrais para a gestão inteligente de grandes hubs, redes de transporte e instalações críticas.",
-                hero_btn: "Solicitar Consulta B2B",
-                about_heading: "Engenharia de Sistemas para Gestão Operacional",
-                about_p1: "A AI Service Group (aisg) combina competências em mecatrónica, automação industrial e TI para projetar infraestruturas capazes de se autorregularem e fornecerem dados verificáveis.",
-                about_p2: "Cada sistema é desenhado para maximizar a segurança, otimizar a eficiência energética e eliminar erros na gestão de fluxos complexos.",
-                pillars_title: "Pilares Tecnológicos",
-                pillar_1: "Arquiteturas SCADA & Telemetria",
-                pillar_2: "Sistemas de Registo e Dados Verificáveis",
-                pillar_3: "Controlo Preditivo e Automação de Portas",
-                pillar_4: "Supervisão Centralizada em Tempo Real",
-                sectors_heading: "Setores Estratégicos de Intervenção",
-                sectors_desc: "Soluções personalizadas e escaláveis para a logística avançada e transporte em grande escala.",
-                sec1_title: "Infraestruturas de Transporte e Redes Ferroviárias",
-                sec1_desc: "Sistemas de sinalização avançada, automação de nós e gestão inteligente de fluxos ferroviários e metropolitanos.",
-                sec2_title: "Terminais Portuários e Marítimos",
-                sec2_desc: "Automação integrada de portões alfandegários, coordenação logística de cais e otimização de tempos de espera.",
-                sec3_title: "Hubs Aeroportuários e Logística",
-                sec3_desc: "Supervisão centralizada de fluxos de passageiros e bagagens, sistemas automatizados de triagem e coordenação em terra.",
-                sec4_title: "Instalações Industriais e Smart Energy",
-                sec4_desc: "Automação de processos, integração de redes industriais, telemetria avançada e rastreio de KPIs operacionais.",
-                sec5_title: "Infraestruturas Rodoviárias e Smart Cities",
-                sec5_desc: "Monitorização dinâmica de tráfego, controlo automatizado de túneles e ativação de protocolos de emergência.",
-                cr_tag: "O Coração do Sistema",
-                cr_heading: "Conceção de Salas de Controlo (Control Room)",
-                cr_desc: "O sistema nervoso central da infraestrutura: ambiente unificado para monitorizar, processar dados em massa e intervir rapidamente.",
-                cr_feat1_title: "Monitorização em Tempo Real",
-                cr_feat1_desc: "Painéis unificados para visualização imediata do estado de cada ativo distribuído.",
-                cr_feat2_title: "Automação e Suporte à Decisão",
-                cr_feat2_desc: "Algoritmos inteligentes para análise preditiva e execução automática de procedimentos de segurança.",
-                cr_feat3_title: "Controlo Remoto e Override",
-                cr_feat3_desc: "Capacidade de comando direto, override manual seguro e resolução de emergências a partir do posto central.",
-                contact_heading: "Fale com os nossos engenheiros",
-                contact_desc: "Tem um projeto de automação ou infraestrutura complexa para desenvolver? Contacte-nos para definir a arquitetura ideal.",
-                footer_text: "© 2026 AI Service Group (aisg) - Todos os direitos reservados. | aiservicegroup.it"
-            },
-            ja: {
-                title: "AI Service Group | インフラ自動化 & フロー制御",
-                nav_about: "会社概要",
-                nav_sectors: "事業分野",
-                nav_controlroom: "コントロールルーム",
-                nav_contact: "お問い合わせ",
-                hero_title: "インフラ自動化 & フロー制御",
-                hero_desc: "高度なシステムエンジニアリング、デジタルツイン、中央オペレーションルームを活用し、主要ハブ、交通網、重要プラントをインテリジェントに管理します。",
-                hero_btn: "B2Bコンサルティングを依頼",
-                about_heading: "運用管理のためのシステムエンジニアリング",
-                about_p1: "AI Service Group (aisg) は、メカトロニクス、産業オートメーション、ITの専門知識を融合させ、自己制御が可能でリアルタイムの検証データを備えたインフラストラクチャを設計します。",
-                about_p2: "私たちが設計するすべてのシステムは、安全性の一層の向上、エネルギー効率の最適化、複雑なフロー管理におけるエラーの排除を目的として構築されています。",
-                pillars_title: "技術的柱",
-                pillar_1: "SCADAアーキテクチャ & テレメトリ",
-                pillar_2: "検証可能なログ＆データシステム",
-                pillar_3: "予測制御 & ゲート自動化",
-                pillar_4: "リアルタイム統合監視",
-                sectors_heading: "戦略的介入分野",
-                sectors_desc: "高度な物流および大規模交通のあらゆるドメインに向けた、カスタマイズ可能で拡張性の高いソリューション。",
-                sec1_title: "交通インフラストラクチャ & 鉄道網",
-                sec1_desc: "高度な信号システム、スイッチングノードの自動化、最高レベルのサービス継続性を目指した鉄道・地下鉄フローのインテリジェント管理。",
-                sec2_title: "港湾・海上ターミナル",
-                sec2_desc: "税関ゲートの統合自動化、岸壁の物流調整、コンテナハンドリング、運用待ち時間の構造的最適化。",
-                sec3_title: "空港ハブ & 大規模物流",
-                sec3_desc: "乗客・手荷物フローの集中監視、自動貨物仕分けシステム、地上のリアルタイム調整。",
-                sec4_title: "産業プラント & スマートエネルギー",
-                sec4_desc: "プロセス自動化、複雑な産業ネットワークの統合、高度なテレメトリ、エネルギー効率向上のためのKPI継続的追跡。",
-                sec5_title: "道路インフラストラクチャ & スマートシティ",
-                sec5_desc: "動的な車両交通流監視、トンネルや交差点の自動制御、リアルタイムの緊急時プロトコル起動。",
-                cr_tag: "システムの心臓部",
-                cr_heading: "コントロールルーム設計・エンジニアリング",
-                cr_desc: "インフラの中枢神経：膨大な運用データの監視・処理を行い、自律モードまたは誘導モードで速やかに介入するための統合環境。",
-                cr_feat1_title: "リアルタイム監視",
-                cr_feat1_desc: "全土に分散する各アセットのステータスを瞬時に可視化する統合型システムダッシュボード。",
-                cr_feat2_title: "自動化 & 意思決定支援",
-                cr_feat2_desc: "予測分析、安全手順の自動実行、重要な流出管理を行うインテリジェントアルゴリズム。",
-                cr_feat3_title: "オーバーライド & リモート制御",
-                cr_feat3_desc: "直接指令機能、安全な手動オーバーライド、統合中央ワークステーションからの緊急事態解決。",
-                contact_heading: "エンジニアにご相談ください",
-                contact_desc: "開発すべき自動化や複雑なインフラストラクチャのプロジェクトをお持ちですか？理想的なアーキテクチャを定義するために、直接お問い合わせください。",
-                footer_text: "© 2026 AI Service Group (aisg) - 全著作権所有。 | aiservicegroup.it"
             }
         };
 
         function changeLanguage(lang) {
+            // Se la lingua non è completamente definita nel dizionario, non crashare (fallback a ita/eng)
+            const dictionary = translations[lang] || translations['en'];
+            
             const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
+                if (dictionary[key]) {
                     if (el.tagName === 'TITLE') {
-                        document.title = translations[lang][key];
+                        document.title = dictionary[key];
                     } else {
-                        el.innerHTML = translations[lang][key];
+                        el.innerHTML = dictionary[key];
                     }
                 }
             });
