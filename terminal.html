@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="page_title">Terminal | AI Service Group</title>
+    <title data-i18n="page_title">Terminal Automation | AI Service Group</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,298 +11,103 @@
             --primary-light: #1e293b;
             --accent: #2563eb;
             --accent-hover: #1d4ed8;
-            --accent-glow: rgba(37, 99, 235, 0.2);
             --bg-light: #f8fafc;
+            --bg-dark: #0b1120;
             --text-main: #334155;
             --text-muted: #64748b;
             --white: #ffffff;
             --border: #e2e8f0;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-main); background-color: var(--white); line-height: 1.6; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            background-color: var(--bg-light);
-            line-height: 1.6;
-        }
+        /* HEADER & NAV (Uguale alla Home per coerenza) */
+        header { background: var(--primary); color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--accent); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; color: var(--white); text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-right { display: flex; align-items: center; gap: 2rem; }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--white); }
+        .nav-cta { background: var(--accent); color: var(--white) !important; padding: 0.5rem 1.2rem; border-radius: 4px; transition: background 0.3s; }
+        .nav-cta:hover { background: var(--accent-hover) !important; }
+        .lang-selector select { background: rgba(255, 255, 255, 0.1); color: var(--white); border: 1px solid rgba(255, 255, 255, 0.2); padding: 0.4rem 0.8rem; border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 0.9rem; cursor: pointer; outline: none; }
+        .lang-selector select option { background: var(--primary); color: var(--white); }
 
-        header {
-            background: var(--primary);
+        /* HERO SECTOR (Specifico per Terminal) */
+        .hero-terminal {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px);
+            background-color: var(--primary);
             color: var(--white);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--accent);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 8rem 2rem;
+            text-align: left;
+            border-bottom: 1px solid var(--primary-light);
         }
+        .hero-terminal-inner { max-width: 1200px; margin: 0 auto; }
+        .sector-badge { display: inline-block; background: rgba(37, 99, 235, 0.2); color: #60a5fa; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; border: 1px solid rgba(37, 99, 235, 0.4); }
+        .hero-terminal h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.1; max-width: 900px; }
+        .hero-terminal p { font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin-bottom: 2.5rem; }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* VISION / INTRO */
+        .vision-section { background: var(--bg-light); padding: 5rem 2rem; }
+        .vision-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+        .vision-inner h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 1.5rem; }
+        .vision-inner p { font-size: 1.15rem; color: var(--text-muted); }
+
+        /* CORE SERVICES - ALTERNATING LAYOUT */
+        .services-container { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem; }
+        .service-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 8rem; }
+        .service-row:nth-child(even) { direction: rtl; } /* Inverte l'ordine per le righe pari */
+        .service-row:nth-child(even) > * { direction: ltr; } /* Ripristina la direzione del testo */
+        
+        .service-text h3 { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
+        .service-text p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .service-features { list-style: none; }
+        .service-features li { padding-left: 1.5rem; position: relative; margin-bottom: 0.8rem; font-weight: 500; color: var(--primary-light); }
+        .service-features li::before { content: "✓"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+        
+        .service-graphic { background: var(--bg-light); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; text-align: center; position: relative; overflow: hidden; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); }
+        .service-graphic::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent); }
+        .graphic-label { font-family: monospace; color: var(--accent); background: rgba(37,99,235,0.1); padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.9rem; display: inline-block; margin-bottom: 1rem; }
+
+        /* TECH STACK ARCHITECTURE */
+        .tech-stack { background: var(--bg-dark); color: var(--white); padding: 6rem 2rem; }
+        .tech-inner { max-width: 1200px; margin: 0 auto; }
+        .tech-header { text-align: center; margin-bottom: 4rem; }
+        .tech-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .tech-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 12px; }
+        .tech-card h4 { color: var(--accent); font-size: 1.3rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; }
+        .tech-card ul { list-style: none; }
+        .tech-card ul li { color: #cbd5e1; margin-bottom: 0.8rem; font-size: 0.95rem; }
+        .tech-card ul li span { color: var(--white); font-weight: 600; display: block; }
+
+        /* CONTACT CTA */
+        .contact-cta { background: var(--white); padding: 6rem 2rem; text-align: center; }
+        .contact-box { max-width: 800px; margin: 0 auto; background: var(--bg-light); border: 1px solid var(--border); border-radius: 16px; padding: 4rem 2rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.03); }
+        .contact-box h2 { color: var(--primary); margin-bottom: 1rem; font-size: 2rem; }
+        .contact-box p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; }
+        .btn { display: inline-block; background: var(--accent); color: var(--white); padding: 1rem 2.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background 0.3s; }
+        .btn:hover { background: var(--accent-hover); }
+
+        footer { background: var(--primary); color: #94a3b8; text-align: center; padding: 2rem; border-top: 1px solid #1e293b; font-size: 0.9rem; }
+
+        @media (max-width: 992px) {
+            .service-row { grid-template-columns: 1fr; gap: 3rem; margin-bottom: 5rem; }
+            .service-row:nth-child(even) { direction: ltr; }
+            .hero-terminal h1 { font-size: 2.8rem; }
         }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--white);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--white);
-        }
-
-        .nav-cta {
-            background: var(--accent);
-            color: var(--white) !important;
-            padding: 0.5rem 1.2rem;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-
-        .nav-cta:hover {
-            background: var(--accent-hover) !important;
-        }
-
-        .lang-selector select {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            cursor: pointer;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .lang-selector select option {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .hero-sector {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
-            padding: 5rem 2rem 4rem;
-            text-align: center;
-        }
-
-        .hero-tag {
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            display: inline-block;
-            margin-bottom: 0.8rem;
-        }
-
-        .hero-sector h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1.2rem;
-            font-weight: 700;
-        }
-
-        .hero-sector p {
-            font-size: 1.15rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            color: #94a3b8;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .grid-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .feature-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            border-top: 4px solid var(--accent);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .feature-card h3 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .spec-section {
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 12px;
-            padding: 3.5rem 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .spec-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .spec-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .spec-list li {
-            border-left: 3px solid var(--accent);
-            padding-left: 1rem;
-        }
-
-        .spec-list h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .spec-list p {
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-
-        .contact-cta {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 3.5rem 2rem;
-            text-align: center;
-        }
-
-        .contact-cta h2 {
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-        }
-
-        .contact-cta p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: var(--accent-hover);
-        }
-
-        footer {
-            background: var(--primary);
-            color: #94a3b8;
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #1e293b;
-            font-size: 0.9rem;
-        }
-
         @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            .nav-right {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: var(--primary);
-                flex-direction: column;
-                justify-content: flex-start;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
-                gap: 1.5rem;
-            }
-            .nav-right.active {
-                left: 0;
-            }
-            .nav-links {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            .hero-sector h1 {
-                font-size: 2rem;
-            }
-            .spec-section {
-                padding: 2.5rem 1.5rem;
-            }
+            .mobile-menu-btn { display: block; }
+            .nav-right { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: var(--primary); flex-direction: column; justify-content: flex-start; padding-top: 2rem; transition: left 0.3s ease; gap: 1.5rem; }
+            .nav-right.active { left: 0; }
+            .nav-links { flex-direction: column; gap: 1.5rem; }
+            .hero-terminal h1 { font-size: 2.2rem; }
+            .hero-terminal { padding: 5rem 1.5rem; }
+            .tech-stack { padding: 4rem 1.5rem; }
         }
     </style>
 </head>
@@ -315,7 +120,7 @@
             <div class="nav-right" id="navMenu">
                 <ul class="nav-links">
                     <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-                    <li><a href="index.html#settori" data-i18n="nav_sectors">Tutti i Settori</a></li>
+                    <li><a href="index.html#settori" data-i18n="nav_sectors">Sistemi e Settori</a></li>
                     <li><a href="index.html#controlroom" data-i18n="nav_controlroom">Control Room</a></li>
                     <li><a href="index.html#contatti" class="nav-cta" data-i18n="nav_contact">Contattaci</a></li>
                 </ul>
@@ -323,132 +128,234 @@
                     <select id="languageSelect" onchange="changeLanguage(this.value)">
                         <option value="it">🇮🇹 Italiano</option>
                         <option value="en">🇬🇧 English</option>
-                        <option value="es">🇪🇸 Español</option>
-                        <option value="zh">🇨🇳 中文</option>
-                        <option value="fr">🇫🇷 Français</option>
-                        <option value="de">🇩🇪 Deutsch</option>
-                        <option value="pt">🇵🇹 Português</option>
-                        <option value="ja">🇯🇵 日本語</option>
                     </select>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="hero-sector">
-        <span class="hero-tag" data-i18n="hero_tag">Dominio di Ingegneria</span>
-        <h1 data-i18n="hero_title">Automazione Terminal Portuali & Aeroportuali</h1>
-        <p data-i18n="hero_desc">Architetture SCADA integrate, digitalizzazione varchi doganali e algoritmi predittivi per l'eliminazione dei colli di bottiglia nei grandi nodi intermodali.</p>
-        <a href="index.html#contatti" class="btn" data-i18n="hero_btn">Richiedi Studio di Fattibilità</a>
+    <section class="hero-terminal">
+        <div class="hero-terminal-inner">
+            <span class="sector-badge" data-i18n="hero_tag">Ingegneria dei Sistemi Logistici</span>
+            <h1 data-i18n="hero_title">Automazione Avanzata per Terminal Portuali e Aeroportuali</h1>
+            <p data-i18n="hero_desc">Progettiamo l'architettura neurale dei grandi nodi di scambio. Dai varchi intelligenti al tracciamento AGV, fino all'acquisizione di log operativi a prova di manomissione per azzerare i colli di bottiglia.</p>
+        </div>
     </section>
 
-    <div class="container">
+    <section class="vision-section">
+        <div class="vision-inner">
+            <h2 data-i18n="vision_title">Il Dato come Fondamento dell'Efficienza Intermodale</h2>
+            <p data-i18n="vision_desc">In un terminal moderno, ogni secondo di ritardo si traduce in enormi perdite di carburante e profitto. Il nostro approccio da System Integrator non si limita a installare sensori: creiamo ecosistemi di controllo ad anello chiuso. Ogni container, ogni veicolo pesante e ogni gru STS viene mappato, ottimizzato e loggato in tempo reale.</p>
+        </div>
+    </section>
 
-        <div class="grid-features">
-            <div class="feature-card">
-                <h3 data-i18n="feat1_title">Automazione Operazioni Banchina & Gate</h3>
-                <p data-i18n="feat1_desc">Sistemi di identificazione ottica OCR automatica, controllo accessi veicolari pesanti e sincronizzazione in tempo reale tra gate doganali e piazzali di stoccaggio.</p>
+    <div class="services-container">
+        
+        <!-- SERVIZIO 1 -->
+        <div class="service-row">
+            <div class="service-text">
+                <h3 data-i18n="srv1_title">Smart Gate & Controllo Accessi OCR</h3>
+                <p data-i18n="srv1_desc">Digitalizzazione totale dei varchi terrestri per eliminare le code ai caselli doganali. Integriamo hardware di visione artificiale con l'infrastruttura software del terminal (TOS).</p>
+                <ul class="service-features">
+                    <li data-i18n="srv1_f1">Riconoscimento ottico dei caratteri (OCR) per container e targhe veicoli.</li>
+                    <li data-i18n="srv1_f2">Integrazione con bilance dinamiche (WIM) e scanner a raggi X.</li>
+                    <li data-i18n="srv1_f3">Automazione barriere e chioschi self-service per autisti.</li>
+                </ul>
             </div>
-            <div class="feature-card">
-                <h3 data-i18n="feat2_title">Supervisione SCADA Infrastrutture Critiche</h3>
-                <p data-i18n="feat2_desc">Telemetria continua e controllo ad anello chiuso per gru banchina (STS), sistemi di movimentazione pesante e monitoraggio dell'alimentazione elettrica cold ironing.</p>
-            </div>
-            <div class="feature-card">
-                <h3 data-i18n="feat3_title">Data Logging & Tracciabilità Certificata</h3>
-                <p data-i18n="feat3_desc">Archiviazione continua di log operativi a prova di manomissione per la dimostrazione dei tempi ciclo, certificazione dei flussi e monitoraggio dell'efficienza energetica dei terminal.</p>
+            <div class="service-graphic">
+                <span class="graphic-label">ARCHITETTURA VARCO INGRESSO</span>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem;" data-i18n="srv1_graphic">Input Videocamera → Rete Edge AI → Validazione Database Doganale → Output Azionamento PLC Sbarra. <strong>Tempo di latenza: < 200ms</strong>.</p>
             </div>
         </div>
 
-        <section class="spec-section">
-            <h2 data-i18n="spec_heading">Specifiche Tecniche d'Integrazione</h2>
-            <ul class="spec-list">
-                <li>
-                    <h4 data-i18n="spec1_title">Interfacce Modbus / OPC-UA / MQTT</h4>
-                    <p data-i18n="spec1_desc">Protocolli industriali aperti per la comunicazione ad alta affidabilità con PLC di campo e sottostazioni distribuite.</p>
-                </li>
-                <li>
-                    <h4 data-i18n="spec2_title">Ridondanza & Continuità H24</h4>
-                    <p data-i18n="spec2_desc">Architetture server tolleranti ai guasti con failover automatico per garantire zero downtime operativo.</p>
-                </li>
-                <li>
-                    <h4 data-i18n="spec3_title">Control Room Centralizzata</h4>
-                    <p data-i18n="spec3_desc">Sinottici grafici personalizzati e pannelli HMI dedicati per la gestione remota e l'override manuale di sicurezza.</p>
-                </li>
-            </ul>
-        </section>
+        <!-- SERVIZIO 2 -->
+        <div class="service-row">
+            <div class="service-text">
+                <h3 data-i18n="srv2_title">Supervisione SCADA Banchina e Piazzali</h3>
+                <p data-i18n="srv2_desc">Monitoraggio e telemetria continua dei mezzi di sollevamento pesanti. Trasformiamo le gru STS (Ship-to-Shore) e RTG in asset intelligenti costantemente connessi alla Control Room centrale.</p>
+                <ul class="service-features">
+                    <li data-i18n="srv2_f1">Data logging di vibrazioni, temperature e cicli di lavoro per la manutenzione predittiva.</li>
+                    <li data-i18n="srv2_f2">Gestione HMI personalizzate per gli operatori in cabina.</li>
+                    <li data-i18n="srv2_f3">Ottimizzazione delle traiettorie per la riduzione del consumo energetico.</li>
+                </ul>
+            </div>
+            <div class="service-graphic">
+                <span class="graphic-label">TELEMETRIA CRITICA</span>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem;" data-i18n="srv2_graphic">Dati estratti dai PLC di macchina (Siemens/Allen-Bradley) tramite bus OPC-UA, inviati a server time-series per l'analisi dei transitori di carico in tempo reale.</p>
+            </div>
+        </div>
 
-        <section class="contact-cta">
-            <h2 data-i18n="cta_heading">Pronto a Ottimizzare i Flussi del Tuo Terminal?</h2>
-            <p data-i18n="cta_desc">Definisci l'architettura tecnica ideale insieme al nostro team di ingegneri dell'automazione.</p>
-            <a href="mailto:info@aiservicegroup.it" class="btn" data-i18n="cta_btn">Scrivi a info@aiservicegroup.it</a>
-        </section>
+        <!-- SERVIZIO 3 -->
+        <div class="service-row">
+            <div class="service-text">
+                <h3 data-i18n="srv3_title">Logistica Autonoma (Integrazione Flotte AGV)</h3>
+                <p data-i18n="srv3_desc">Coordinamento del traffico interno al terminal. Gestiamo i livelli di comunicazione tra il sistema centrale e i veicoli a guida autonoma (AGV e AMR) che movimentano la merce dal molo allo stoccaggio.</p>
+                <ul class="service-features">
+                    <li data-i18n="srv3_f1">Algoritmi di instradamento per prevenire i deadlock nei piazzali.</li>
+                    <li data-i18n="srv3_f2">Controllo dello stato di carica (BMS) e invio alle stazioni di ricarica.</li>
+                    <li data-i18n="srv3_f3">Livelli di override di sicurezza per l'arresto d'emergenza remotizzato.</li>
+                </ul>
+            </div>
+            <div class="service-graphic">
+                <span class="graphic-label">CONTROLLO FLUSSI A MATRICE</span>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem;" data-i18n="srv3_graphic">Mappatura del terminal a griglia. Gli algoritmi di navigazione assegnano percorsi esclusivi e dinamicamente aggiornati basati su posizionamento RTK-GPS ad alta precisione.</p>
+            </div>
+        </div>
+
+        <!-- SERVIZIO 4 -->
+        <div class="service-row">
+            <div class="service-text">
+                <h3 data-i18n="srv4_title">Cold Ironing & Smart Energy Logging</h3>
+                <p data-i18n="srv4_desc">Infrastrutture di monitoraggio per l'alimentazione elettrica delle navi ormeggiate. Forniamo sistemi di log inalterabili per certificare l'energia erogata, indispensabili per le verifiche del credito d'imposta e delle normative ambientali.</p>
+                <ul class="service-features">
+                    <li data-i18n="srv4_f1">Salvataggio automatico dei consumi (similmente a log generati su file .csv o DB criptati).</li>
+                    <li data-i18n="srv4_f2">Monitoraggio parametri di rete (sfasamento, picchi di tensione).</li>
+                    <li data-i18n="srv4_f3">Generazione di reportistica automatica per le autorità marittime.</li>
+                </ul>
+            </div>
+            <div class="service-graphic">
+                <span class="graphic-label">ENERGY BRAIN SYSTEM</span>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem;" data-i18n="srv4_graphic">Ogni inserimento in presa genera un log crittografato su cloud con Timestamp, ID Nave, kW/h erogati e drop di tensione. Dati verificabili, sempre.</p>
+            </div>
+        </div>
 
     </div>
+
+    <!-- TECH STACK -->
+    <section class="tech-stack">
+        <div class="tech-inner">
+            <div class="tech-header">
+                <h2 data-i18n="tech_title">Lo Stack Architetturale AISG</h2>
+                <p data-i18n="tech_desc">Non scendiamo a compromessi sulla solidità. Utilizziamo standard industriali consolidati per garantire zero downtime.</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Livello di Campo (Field)</h4>
+                    <ul>
+                        <li><span>Sensori & Attuatori</span> Integrazione hardware industriale.</li>
+                        <li><span>Controllori Logici</span> PLC e microcontrollori real-time per cicli macchina ad alta frequenza.</li>
+                        <li><span>Bus di Campo</span> Modbus RTU/TCP, Profinet, EtherCAT.</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Livello Intermedio (Edge)</h4>
+                    <ul>
+                        <li><span>Edge Computing</span> Elaborazione dati in locale per azzerare la latenza delle operazioni critiche.</li>
+                        <li><span>Protocolli IoT</span> MQTT per trasmissione dati leggeri.</li>
+                        <li><span>OPC-UA</span> Lo standard assoluto per l'interoperabilità tra macchinari di brand diversi.</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Livello Gestionale (Control)</h4>
+                    <ul>
+                        <li><span>Time-Series DB</span> Database progettati specificamente per archiviare milioni di log di sensori.</li>
+                        <li><span>Server Ridondati</span> High Availability (HA) con failover automatico per reti mission-critical.</li>
+                        <li><span>HMI & Dashboarding</span> Interfacce web-based accessibili da Control Room o in mobilità.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="contact-cta">
+        <div class="contact-box">
+            <h2 data-i18n="cta_heading">L'Automazione è il Vero Vantaggio Competitivo</h2>
+            <p data-i18n="cta_desc">Contatta il team di ingegneria di AI Service Group. Analizzeremo i diagrammi di flusso del tuo terminal e progetteremo un'infrastruttura dati pronta per il futuro.</p>
+            <a href="mailto:info@aiservicegroup.it" class="btn" data-i18n="cta_btn">Contatta i nostri Ingegneri</a>
+        </div>
+    </section>
 
     <footer>
         <p data-i18n="footer_text">&copy; 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it</p>
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
 
         const translations = {
             it: {
-                page_title: "Terminal | AI Service Group",
+                page_title: "Terminal Automation | AI Service Group",
                 nav_home: "Home",
-                nav_sectors: "Tutti i Settori",
+                nav_sectors: "Sistemi e Settori",
                 nav_controlroom: "Control Room",
                 nav_contact: "Contattaci",
-                hero_tag: "Dominio di Ingegneria",
-                hero_title: "Automazione Terminal Portuali & Aeroportuali",
-                hero_desc: "Architetture SCADA integrate, digitalizzazione varchi doganali e algoritmi predittivi per l'eliminazione dei colli di bottiglia nei grandi nodi intermodali.",
-                hero_btn: "Richiedi Studio di Fattibilità",
-                feat1_title: "Automazione Operazioni Banchina & Gate",
-                feat1_desc: "Sistemi di identificazione ottica OCR automatica, controllo accessi veicolari pesanti e sincronizzazione in tempo reale tra gate doganali e piazzali di stoccaggio.",
-                feat2_title: "Supervisione SCADA Infrastrutture Critiche",
-                feat2_desc: "Telemetria continua e controllo ad anello chiuso per gru banchina (STS), sistemi di movimentazione pesante e monitoraggio dell'alimentazione elettrica cold ironing.",
-                feat3_title: "Data Logging & Tracciabilità Certificata",
-                feat3_desc: "Archiviazione continua di log operativi a prova di manomissione per la dimostrazione dei tempi ciclo, certificazione dei flussi e monitoraggio dell'efficienza energetica dei terminal.",
-                spec_heading: "Specifiche Tecniche d'Integrazione",
-                spec1_title: "Interfacce Modbus / OPC-UA / MQTT",
-                spec1_desc: "Protocolli industriali aperti per la comunicazione ad alta affidabilità con PLC di campo e sottostazioni distribuite.",
-                spec2_title: "Ridondanza & Continuità H24",
-                spec2_desc: "Architetture server tolleranti ai guasti con failover automatico per garantire zero downtime operativo.",
-                spec3_title: "Control Room Centralizzata",
-                spec3_desc: "Sinottici grafici personalizzati e pannelli HMI dedicati per la gestione remota e l'override manuale di sicurezza.",
-                cta_heading: "Pronto a Ottimizzare i Flussi del Tuo Terminal?",
-                cta_desc: "Definisci l'architettura tecnica ideale insieme al nostro team di ingegneri dell'automazione.",
-                cta_btn: "Scrivi a info@aiservicegroup.it",
+                hero_tag: "Ingegneria dei Sistemi Logistici",
+                hero_title: "Automazione Avanzata per Terminal Portuali e Aeroportuali",
+                hero_desc: "Progettiamo l'architettura neurale dei grandi nodi di scambio. Dai varchi intelligenti al tracciamento AGV, fino all'acquisizione di log operativi a prova di manomissione per azzerare i colli di bottiglia.",
+                vision_title: "Il Dato come Fondamento dell'Efficienza Intermodale",
+                vision_desc: "In un terminal moderno, ogni secondo di ritardo si traduce in enormi perdite di carburante e profitto. Il nostro approccio da System Integrator non si limita a installare sensori: creiamo ecosistemi di controllo ad anello chiuso. Ogni container, ogni veicolo pesante e ogni gru STS viene mappato, ottimizzato e loggato in tempo reale.",
+                srv1_title: "Smart Gate & Controllo Accessi OCR",
+                srv1_desc: "Digitalizzazione totale dei varchi terrestri per eliminare le code ai caselli doganali. Integriamo hardware di visione artificiale con l'infrastruttura software del terminal (TOS).",
+                srv1_f1: "Riconoscimento ottico dei caratteri (OCR) per container e targhe veicoli.",
+                srv1_f2: "Integrazione con bilance dinamiche (WIM) e scanner a raggi X.",
+                srv1_f3: "Automazione barriere e chioschi self-service per autisti.",
+                srv1_graphic: "Input Videocamera → Rete Edge AI → Validazione Database Doganale → Output Azionamento PLC Sbarra. <strong>Tempo di latenza: < 200ms</strong>.",
+                srv2_title: "Supervisione SCADA Banchina e Piazzali",
+                srv2_desc: "Monitoraggio e telemetria continua dei mezzi di sollevamento pesanti. Trasformiamo le gru STS (Ship-to-Shore) e RTG in asset intelligenti costantemente connessi alla Control Room centrale.",
+                srv2_f1: "Data logging di vibrazioni, temperature e cicli di lavoro per la manutenzione predittiva.",
+                srv2_f2: "Gestione HMI personalizzate per gli operatori in cabina.",
+                srv2_f3: "Ottimizzazione delle traiettorie per la riduzione del consumo energetico.",
+                srv2_graphic: "Dati estratti dai PLC di macchina (Siemens/Allen-Bradley) tramite bus OPC-UA, inviati a server time-series per l'analisi dei transitori di carico in tempo reale.",
+                srv3_title: "Logistica Autonoma (Integrazione Flotte AGV)",
+                srv3_desc: "Coordinamento del traffico interno al terminal. Gestiamo i livelli di comunicazione tra il sistema centrale e i veicoli a guida autonoma (AGV e AMR) che movimentano la merce dal molo allo stoccaggio.",
+                srv3_f1: "Algoritmi di instradamento per prevenire i deadlock nei piazzali.",
+                srv3_f2: "Controllo dello stato di carica (BMS) e invio alle stazioni di ricarica.",
+                srv3_f3: "Livelli di override di sicurezza per l'arresto d'emergenza remotizzato.",
+                srv3_graphic: "Mappatura del terminal a griglia. Gli algoritmi di navigazione assegnano percorsi esclusivi e dinamicamente aggiornati basati su posizionamento RTK-GPS ad alta precisione.",
+                srv4_title: "Cold Ironing & Smart Energy Logging",
+                srv4_desc: "Infrastrutture di monitoraggio per l'alimentazione elettrica delle navi ormeggiate. Forniamo sistemi di log inalterabili per certificare l'energia erogata, indispensabili per le verifiche del credito d'imposta e delle normative ambientali.",
+                srv4_f1: "Salvataggio automatico dei consumi (similmente a log generati su file .csv o DB criptati).",
+                srv4_f2: "Monitoraggio parametri di rete (sfasamento, picchi di tensione).",
+                srv4_f3: "Generazione di reportistica automatica per le autorità marittime.",
+                srv4_graphic: "Ogni inserimento in presa genera un log crittografato su cloud con Timestamp, ID Nave, kW/h erogati e drop di tensione. Dati verificabili, sempre.",
+                tech_title: "Lo Stack Architetturale AISG",
+                tech_desc: "Non scendiamo a compromessi sulla solidità. Utilizziamo standard industriali consolidati per garantire zero downtime.",
+                cta_heading: "L'Automazione è il Vero Vantaggio Competitivo",
+                cta_desc: "Contatta il team di ingegneria di AI Service Group. Analizzeremo i diagrammi di flusso del tuo terminal e progetteremo un'infrastruttura dati pronta per il futuro.",
+                cta_btn: "Contatta i nostri Ingegneri",
                 footer_text: "© 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it"
             },
             en: {
-                page_title: "Terminals | AI Service Group",
+                page_title: "Terminal Automation | AI Service Group",
                 nav_home: "Home",
-                nav_sectors: "All Sectors",
+                nav_sectors: "Systems & Sectors",
                 nav_controlroom: "Control Room",
                 nav_contact: "Contact Us",
-                hero_tag: "Engineering Domain",
-                hero_title: "Port & Airport Terminal Automation",
-                hero_desc: "Integrated SCADA architectures, customs gate digitalization, and predictive algorithms to eliminate bottlenecks in major intermodal nodes.",
-                hero_btn: "Request Feasibility Study",
-                feat1_title: "Quay & Gate Operations Automation",
-                feat1_desc: "Automatic OCR identification systems, heavy vehicle access control, and real-time synchronization between customs gates and storage yards.",
-                feat2_title: "Critical Infrastructure SCADA Supervision",
-                feat2_desc: "Continuous telemetry and closed-loop control for ship-to-shore (STS) cranes, heavy handling systems, and cold ironing electrical power monitoring.",
-                feat3_title: "Data Logging & Certified Traceability",
-                feat3_desc: "Tamper-proof operational log archiving for cycle time verification, flow certification, and terminal energy efficiency monitoring.",
-                spec_heading: "Technical Integration Specifications",
-                spec1_title: "Modbus / OPC-UA / MQTT Interfaces",
-                spec1_desc: "Open industrial protocols for high-reliability communication with field PLCs and distributed substations.",
-                spec2_title: "24/7 Redundancy & Continuity",
-                spec2_desc: "Fault-tolerant server architectures with automatic failover to guarantee zero operational downtime.",
-                spec3_title: "Centralized Control Room",
-                spec3_desc: "Customized synoptic dashboards and dedicated HMI panels for remote management and secure manual override.",
-                cta_heading: "Ready to Optimize Your Terminal Flows?",
-                cta_desc: "Define the ideal technical architecture together with our automation engineering team.",
-                cta_btn: "Email info@aiservicegroup.it",
+                hero_tag: "Logistics Systems Engineering",
+                hero_title: "Advanced Automation for Port and Airport Terminals",
+                hero_desc: "We design the neural architecture of major exchange nodes. From smart gates to AGV tracking, up to tamper-proof operational log acquisition to eliminate bottlenecks.",
+                vision_title: "Data as the Foundation of Intermodal Efficiency",
+                vision_desc: "In a modern terminal, every second of delay translates into massive losses of fuel and profit. Our System Integrator approach doesn't just install sensors: we create closed-loop control ecosystems. Every container, heavy vehicle, and STS crane is mapped, optimized, and logged in real-time.",
+                srv1_title: "Smart Gate & OCR Access Control",
+                srv1_desc: "Total digitalization of land gates to eliminate queues at customs booths. We integrate computer vision hardware with the Terminal Operating System (TOS).",
+                srv1_f1: "Optical Character Recognition (OCR) for containers and license plates.",
+                srv1_f2: "Integration with Weigh-In-Motion (WIM) scales and X-ray scanners.",
+                srv1_f3: "Automated barriers and self-service driver kiosks.",
+                srv1_graphic: "Camera Input → Edge AI Network → Customs DB Validation → PLC Barrier Drive Output. <strong>Latency: < 200ms</strong>.",
+                srv2_title: "Quay & Yard SCADA Supervision",
+                srv2_desc: "Continuous monitoring and telemetry of heavy lifting equipment. We turn STS (Ship-to-Shore) and RTG cranes into smart assets constantly connected to the central Control Room.",
+                srv2_f1: "Data logging of vibrations, temperatures, and work cycles for predictive maintenance.",
+                srv2_f2: "Customized HMI management for cabin operators.",
+                srv2_f3: "Trajectory optimization for energy consumption reduction.",
+                srv2_graphic: "Data extracted from machine PLCs (Siemens/Allen-Bradley) via OPC-UA bus, sent to time-series servers for real-time load transient analysis.",
+                srv3_title: "Autonomous Logistics (AGV Fleet Integration)",
+                srv3_desc: "Internal terminal traffic coordination. We manage the communication layers between the central system and the autonomous guided vehicles (AGV and AMR) handling cargo from dock to storage.",
+                srv3_f1: "Routing algorithms to prevent yard deadlocks.",
+                srv3_f2: "State of Charge (BMS) monitoring and dispatch to charging stations.",
+                srv3_f3: "Safety override layers for remote emergency stopping.",
+                srv3_graphic: "Grid terminal mapping. Navigation algorithms assign exclusive, dynamically updated paths based on high-precision RTK-GPS positioning.",
+                srv4_title: "Cold Ironing & Smart Energy Logging",
+                srv4_desc: "Monitoring infrastructures for moored ship electrical power. We provide unalterable log systems to certify supplied energy, essential for tax credit audits and environmental regulations.",
+                srv4_f1: "Automatic saving of consumption (similar to logs generated on .csv files or encrypted DBs).",
+                srv4_f2: "Grid parameter monitoring (phase shift, voltage peaks).",
+                srv4_f3: "Automatic report generation for maritime authorities.",
+                srv4_graphic: "Every plug-in generates an encrypted cloud log with Timestamp, Ship ID, kWh supplied, and voltage drop. Verifiable data, always.",
+                tech_title: "The AISG Architectural Stack",
+                tech_desc: "We don't compromise on solidity. We use consolidated industrial standards to guarantee zero downtime.",
+                cta_heading: "Automation is the True Competitive Advantage",
+                cta_desc: "Contact the AI Service Group engineering team. We will analyze your terminal's flow diagrams and design a future-ready data infrastructure.",
+                cta_btn: "Contact our Engineers",
                 footer_text: "© 2026 AI Service Group (aisg) - All rights reserved. | aiservicegroup.it"
             }
         };
@@ -470,4 +377,3 @@
     </script>
 </body>
 </html>
-
