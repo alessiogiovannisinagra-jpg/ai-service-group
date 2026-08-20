@@ -1,1 +1,473 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title">Terminal | AI Service Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-glow: rgba(37, 99, 235, 0.2);
+            --bg-light: #f8fafc;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--primary);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: var(--white) !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-hover) !important;
+        }
+
+        .lang-selector select {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .lang-selector select option {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .hero-sector {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero-tag {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-sector h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .hero-sector p {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #94a3b8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .spec-section {
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 12px;
+            padding: 3.5rem 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .spec-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .spec-list li {
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+        }
+
+        .spec-list h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .spec-list p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .contact-cta {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3.5rem 2rem;
+            text-align: center;
+        }
+
+        .contact-cta h2 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-cta p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+        }
+
+        footer {
+            background: var(--primary);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #1e293b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            .nav-right {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                gap: 1.5rem;
+            }
+            .nav-right.active {
+                left: 0;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .hero-sector h1 {
+                font-size: 2rem;
+            }
+            .spec-section {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">AI SERVICE <span>GROUP</span></a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <div class="nav-right" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                    <li><a href="index.html#settori" data-i18n="nav_sectors">Tutti i Settori</a></li>
+                    <li><a href="index.html#controlroom" data-i18n="nav_controlroom">Control Room</a></li>
+                    <li><a href="index.html#contatti" class="nav-cta" data-i18n="nav_contact">Contattaci</a></li>
+                </ul>
+                <div class="lang-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="it">🇮🇹 Italiano</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="zh">🇨🇳 中文</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="pt">🇵🇹 Português</option>
+                        <option value="ja">🇯🇵 日本語</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-sector">
+        <span class="hero-tag" data-i18n="hero_tag">Dominio di Ingegneria</span>
+        <h1 data-i18n="hero_title">Automazione Terminal Portuali & Aeroportuali</h1>
+        <p data-i18n="hero_desc">Architetture SCADA integrate, digitalizzazione varchi doganali e algoritmi predittivi per l'eliminazione dei colli di bottiglia nei grandi nodi intermodali.</p>
+        <a href="index.html#contatti" class="btn" data-i18n="hero_btn">Richiedi Studio di Fattibilità</a>
+    </section>
+
+    <div class="container">
+
+        <div class="grid-features">
+            <div class="feature-card">
+                <h3 data-i18n="feat1_title">Automazione Operazioni Banchina & Gate</h3>
+                <p data-i18n="feat1_desc">Sistemi di identificazione ottica OCR automatica, controllo accessi veicolari pesanti e sincronizzazione in tempo reale tra gate doganali e piazzali di stoccaggio.</p>
+            </div>
+            <div class="feature-card">
+                <h3 data-i18n="feat2_title">Supervisione SCADA Infrastrutture Critiche</h3>
+                <p data-i18n="feat2_desc">Telemetria continua e controllo ad anello chiuso per gru banchina (STS), sistemi di movimentazione pesante e monitoraggio dell'alimentazione elettrica cold ironing.</p>
+            </div>
+            <div class="feature-card">
+                <h3 data-i18n="feat3_title">Data Logging & Tracciabilità Certificata</h3>
+                <p data-i18n="feat3_desc">Archiviazione continua di log operativi a prova di manomissione per la dimostrazione dei tempi ciclo, certificazione dei flussi e monitoraggio dell'efficienza energetica dei terminal.</p>
+            </div>
+        </div>
+
+        <section class="spec-section">
+            <h2 data-i18n="spec_heading">Specifiche Tecniche d'Integrazione</h2>
+            <ul class="spec-list">
+                <li>
+                    <h4 data-i18n="spec1_title">Interfacce Modbus / OPC-UA / MQTT</h4>
+                    <p data-i18n="spec1_desc">Protocolli industriali aperti per la comunicazione ad alta affidabilità con PLC di campo e sottostazioni distribuite.</p>
+                </li>
+                <li>
+                    <h4 data-i18n="spec2_title">Ridondanza & Continuità H24</h4>
+                    <p data-i18n="spec2_desc">Architetture server tolleranti ai guasti con failover automatico per garantire zero downtime operativo.</p>
+                </li>
+                <li>
+                    <h4 data-i18n="spec3_title">Control Room Centralizzata</h4>
+                    <p data-i18n="spec3_desc">Sinottici grafici personalizzati e pannelli HMI dedicati per la gestione remota e l'override manuale di sicurezza.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="contact-cta">
+            <h2 data-i18n="cta_heading">Pronto a Ottimizzare i Flussi del Tuo Terminal?</h2>
+            <p data-i18n="cta_desc">Definisci l'architettura tecnica ideale insieme al nostro team di ingegneri dell'automazione.</p>
+            <a href="mailto:info@aiservicegroup.it" class="btn" data-i18n="cta_btn">Scrivi a info@aiservicegroup.it</a>
+        </section>
+
+    </div>
+
+    <footer>
+        <p data-i18n="footer_text">&copy; 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        const translations = {
+            it: {
+                page_title: "Terminal | AI Service Group",
+                nav_home: "Home",
+                nav_sectors: "Tutti i Settori",
+                nav_controlroom: "Control Room",
+                nav_contact: "Contattaci",
+                hero_tag: "Dominio di Ingegneria",
+                hero_title: "Automazione Terminal Portuali & Aeroportuali",
+                hero_desc: "Architetture SCADA integrate, digitalizzazione varchi doganali e algoritmi predittivi per l'eliminazione dei colli di bottiglia nei grandi nodi intermodali.",
+                hero_btn: "Richiedi Studio di Fattibilità",
+                feat1_title: "Automazione Operazioni Banchina & Gate",
+                feat1_desc: "Sistemi di identificazione ottica OCR automatica, controllo accessi veicolari pesanti e sincronizzazione in tempo reale tra gate doganali e piazzali di stoccaggio.",
+                feat2_title: "Supervisione SCADA Infrastrutture Critiche",
+                feat2_desc: "Telemetria continua e controllo ad anello chiuso per gru banchina (STS), sistemi di movimentazione pesante e monitoraggio dell'alimentazione elettrica cold ironing.",
+                feat3_title: "Data Logging & Tracciabilità Certificata",
+                feat3_desc: "Archiviazione continua di log operativi a prova di manomissione per la dimostrazione dei tempi ciclo, certificazione dei flussi e monitoraggio dell'efficienza energetica dei terminal.",
+                spec_heading: "Specifiche Tecniche d'Integrazione",
+                spec1_title: "Interfacce Modbus / OPC-UA / MQTT",
+                spec1_desc: "Protocolli industriali aperti per la comunicazione ad alta affidabilità con PLC di campo e sottostazioni distribuite.",
+                spec2_title: "Ridondanza & Continuità H24",
+                spec2_desc: "Architetture server tolleranti ai guasti con failover automatico per garantire zero downtime operativo.",
+                spec3_title: "Control Room Centralizzata",
+                spec3_desc: "Sinottici grafici personalizzati e pannelli HMI dedicati per la gestione remota e l'override manuale di sicurezza.",
+                cta_heading: "Pronto a Ottimizzare i Flussi del Tuo Terminal?",
+                cta_desc: "Definisci l'architettura tecnica ideale insieme al nostro team di ingegneri dell'automazione.",
+                cta_btn: "Scrivi a info@aiservicegroup.it",
+                footer_text: "© 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it"
+            },
+            en: {
+                page_title: "Terminals | AI Service Group",
+                nav_home: "Home",
+                nav_sectors: "All Sectors",
+                nav_controlroom: "Control Room",
+                nav_contact: "Contact Us",
+                hero_tag: "Engineering Domain",
+                hero_title: "Port & Airport Terminal Automation",
+                hero_desc: "Integrated SCADA architectures, customs gate digitalization, and predictive algorithms to eliminate bottlenecks in major intermodal nodes.",
+                hero_btn: "Request Feasibility Study",
+                feat1_title: "Quay & Gate Operations Automation",
+                feat1_desc: "Automatic OCR identification systems, heavy vehicle access control, and real-time synchronization between customs gates and storage yards.",
+                feat2_title: "Critical Infrastructure SCADA Supervision",
+                feat2_desc: "Continuous telemetry and closed-loop control for ship-to-shore (STS) cranes, heavy handling systems, and cold ironing electrical power monitoring.",
+                feat3_title: "Data Logging & Certified Traceability",
+                feat3_desc: "Tamper-proof operational log archiving for cycle time verification, flow certification, and terminal energy efficiency monitoring.",
+                spec_heading: "Technical Integration Specifications",
+                spec1_title: "Modbus / OPC-UA / MQTT Interfaces",
+                spec1_desc: "Open industrial protocols for high-reliability communication with field PLCs and distributed substations.",
+                spec2_title: "24/7 Redundancy & Continuity",
+                spec2_desc: "Fault-tolerant server architectures with automatic failover to guarantee zero operational downtime.",
+                spec3_title: "Centralized Control Room",
+                spec3_desc: "Customized synoptic dashboards and dedicated HMI panels for remote management and secure manual override.",
+                cta_heading: "Ready to Optimize Your Terminal Flows?",
+                cta_desc: "Define the ideal technical architecture together with our automation engineering team.",
+                cta_btn: "Email info@aiservicegroup.it",
+                footer_text: "© 2026 AI Service Group (aisg) - All rights reserved. | aiservicegroup.it"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const dict = translations[lang] || translations['en'];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    if (el.tagName === 'TITLE') {
+                        document.title = dict[key];
+                    } else {
+                        el.innerHTML = dict[key];
+                    }
+                }
+            });
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>
 
