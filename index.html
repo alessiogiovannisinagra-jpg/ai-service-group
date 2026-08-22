@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title">AI Service Group | Automazione Infrastrutture e Controllo Flussi</title>
+    <title data-i18n="title">AI Service Group | Automazione Industriale, SCADA e Telemetria</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -252,13 +252,6 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
-
-        /* Sector Card Links */
-        .sector-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
         
         .card {
             background: var(--white);
@@ -271,7 +264,7 @@
             height: 100%;
         }
 
-        .sector-link:hover .card {
+        .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
             border-top-width: 6px;
@@ -281,22 +274,6 @@
             margin-bottom: 1rem;
             color: var(--primary);
             font-size: 1.35rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .card h3::after {
-            content: '→';
-            color: var(--accent);
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s ease;
-        }
-        
-        .sector-link:hover .card h3::after {
-            opacity: 1;
-            transform: translateX(0);
         }
 
         .card p {
@@ -517,19 +494,13 @@
                 <ul class="nav-links">
                     <li><a href="#chisiamo" data-i18n="nav_about" onclick="closeMenu()">Chi Siamo</a></li>
                     <li><a href="#settori" data-i18n="nav_sectors" onclick="closeMenu()">Settori</a></li>
-                    <li><a href="#controlroom" data-i18n="nav_controlroom" onclick="closeMenu()">Control Room</a></li>
+                    <li><a href="#controlroom" data-i18n="nav_controlroom" onclick="closeMenu()">Telemetria & SCADA</a></li>
                     <li><a href="#contatti" class="nav-cta" data-i18n="nav_contact" onclick="closeMenu()">Contattaci</a></li>
                 </ul>
                 <div class="lang-selector">
                     <select id="languageSelect" onchange="changeLanguage(this.value)">
                         <option value="it">🇮🇹 Italiano</option>
                         <option value="en">🇬🇧 English</option>
-                        <option value="es">🇪🇸 Español</option>
-                        <option value="zh">🇨🇳 中文</option>
-                        <option value="fr">🇫🇷 Français</option>
-                        <option value="de">🇩🇪 Deutsch</option>
-                        <option value="pt">🇵🇹 Português</option>
-                        <option value="ja">🇯🇵 日本語</option>
                     </select>
                 </div>
             </div>
@@ -537,101 +508,81 @@
     </header>
 
     <section class="hero">
-        <h1 data-i18n="hero_title">Connettere, Monitorare, Ottimizzare: L'Evoluzione Meccatronica delle Infrastrutture   </h1>
-        <p data-i18n="hero_desc">Ingegneria dei sistemi avanzata, digital twins e centrali di operatività centrale per la gestione intelligente dei grandi hub, delle reti di trasporto e degli impianti critici.</p>
-        <a href="#contatti" class="btn" data-i18n="hero_btn">Richiedi una Consulenza B2B</a>
+        <h1 data-i18n="hero_title">Automazione Industriale, SCADA e Telemetria per PMI e Artigiani</h1>
+        <p data-i18n="hero_desc">Trasformiamo macchinari tradizionali in sistemi intelligenti. Retrofitting digitale, acquisizione dati in tempo reale e monitoraggio dei fermi macchina per ottimizzare l'efficienza produttiva.</p>
+        <a href="#contatti" class="btn" data-i18n="hero_btn">Richiedi un Proof of Concept</a>
     </section>
 
     <div class="container">
 
         <section id="chisiamo" class="about-grid">
             <div class="about-text">
-                <h3 data-i18n="about_heading">Ingegneria dei Sistemi per la Gestione Operativa</h3>
-                <p data-i18n="about_p1"><strong>AI Service Group (aisg)</strong> unisce le competenze della meccatronica, dell'automazione industriale e dell'Information Technology per progettare infrastrutture capaci di autoregolarsi e offrire dati verificabili in tempo reale.</p>
-                <p data-i18n="about_p2">Ogni sistema che progettiamo è pensato per massimizzare la sicurezza, ottimizzare l'efficienza energetica e azzerare i margini d'errore nella gestione dei flussi complessi.</p>
+                <h3 data-i18n="about_heading">Ingegneria Applicata alla Produzione Reale</h3>
+                <p data-i18n="about_p1"><strong>AI Service Group (aisg)</strong> unisce l'ingegneria dell'automazione e l'IoT per offrire alle piccole e medie imprese soluzioni di telemetria e controllo solitamente riservate ai grandi impianti industriali.</p>
+                <p data-i18n="about_p2">Progettiamo hardware custom e interfacce HMI/SCADA leggere che si integrano perfettamente sui macchinari esistenti, garantendo dati di produzione certi e verificabili.</p>
             </div>
             <div class="about-card">
                 <h3 data-i18n="pillars_title">Pilastri Tecnologici</h3>
                 <ul>
-                    <li><span>01.</span> <span data-i18n="pillar_1">Architetture SCADA & Telemetria</span></li>
-                    <li><span>02.</span> <span data-i18n="pillar_2">Sistemi di Log e Dati Verificabili</span></li>
-                    <li><span>03.</span> <span data-i18n="pillar_3">Controllo Predittivo e Automazione Varchi</span></li>
-                    <li><span>04.</span> <span data-i18n="pillar_4">Supervisione Centralizzata in Real-Time</span></li>
+                    <li><span>01.</span> <span data-i18n="pillar_1">Retrofitting & HMI Personalizzate</span></li>
+                    <li><span>02.</span> <span data-i18n="pillar_2">Data Logging e Tracciabilità Cicli</span></li>
+                    <li><span>03.</span> <span data-i18n="pillar_3">Monitoraggio Fermi e Assorbimenti</span></li>
+                    <li><span>04.</span> <span data-i18n="pillar_4">Telemetria e Dashboard in Real-Time</span></li>
                 </ul>
             </div>
         </section>
 
         <section id="settori">
             <div class="section-header">
-                <h2 data-i18n="sectors_heading">Settori Strategici di Intervento</h2>
-                <p data-i18n="sectors_desc">Soluzioni customizzate e scalabili per ogni dominio dell'industria, della logistica avanzata e della mobilità strutturata.</p>
+                <h2 data-i18n="sectors_heading">Ambiti di Intervento Specialistico</h2>
+                <p data-i18n="sectors_desc">Soluzioni mirate ad alto ritorno sull'investimento (ROI) per il tessuto produttivo artigianale e manifatturiero.</p>
             </div>
 
             <div class="grid-sectors">
-                <a href="industria.html" class="sector-link">
-                    <div class="card">
-                        <h3 data-i18n="sec1_title">Industria</h3>
-                        <p data-i18n="sec1_desc">Digitalizzazione processi, retrofit per manutenzione predittiva, HMI personalizzati e digital twin delle linee produttive.</p>
-                    </div>
-                </a>
+                <div class="card">
+                    <h3 data-i18n="sec1_title">Officine & Meccanica di Precisione</h3>
+                    <p data-i18n="sec1_desc">Conteggio automatico pezzi, monitoraggio cicli di lavorazione e telemetria delle macchine utensili per azzerare i tempi morti occulti.</p>
+                </div>
                 
-                <a href="logistica.html" class="sector-link">
-                    <div class="card">
-                        <h3 data-i18n="sec2_title">Logistica</h3>
-                        <p data-i18n="sec2_desc">Automazione dei magazzini, sistemi di tracciamento RFID/Barcode, gestione flotte AGV e ottimizzazione flussi di stoccaggio.</p>
-                    </div>
-                </a>
+                <div class="card">
+                    <h3 data-i18n="sec2_title">Trasformazione Alimentare & Cantine</h3>
+                    <p data-i18n="sec2_desc">Controllo di processo, log delle temperature e automazione delle linee di imbottigliamento con interfacce operatore intuitive.</p>
+                </div>
                 
-                <a href="terminal.html" class="sector-link">
-                    <div class="card">
-                        <h3 data-i18n="sec3_title">Terminal</h3>
-                        <p data-i18n="sec3_desc">Gestione automatizzata dei grandi nodi: operazioni doganali, gestione dei flussi (merci/traffico/passegeri), digitalizzazione gate e sistemi SCADA per infrastrutture critiche.</p>
-                    </div>
-                </a>
-                
-                <a href="smart-mobility.html" class="sector-link">
-                    <div class="card">
-                        <h3 data-i18n="sec4_title">Smart Mobility</h3>
-                        <p data-i18n="sec4_desc">Data logging per traffico ed energia, gestione semaforica intelligente e soluzioni IoT per la mobilità sostenibile cittadina.</p>
-                    </div>
-                </a>
-                
-                <a href="infrastrutture.html" class="sector-link">
-                    <div class="card">
-                        <h3 data-i18n="sec5_title">Infrastrutture</h3>
-                        <p data-i18n="sec5_desc">Automazione reti su larga scala: segnaletica ferroviaria, controllo remoto gallerie autostradali, ponti e reti di distribuzione.</p>
-                    </div>
-                </a>
+                <div class="card">
+                    <h3 data-i18n="sec3_title">Smart Farming & Serre</h3>
+                    <p data-i18n="sec3_desc">Monitoraggio microclimatico IoT a basso costo, gestione automatica delle risorse idriche e prevenzione guasti energetici.</p>
+                </div>
             </div>
         </section>
 
         <section id="controlroom" class="control-room-section">
             <div class="control-room-header">
-                <span data-i18n="cr_tag">Il Cuore del Sistema</span>
-                <h2 data-i18n="cr_heading">Progettazione di Centrali di Controllo (Control Room)</h2>
-                <p data-i18n="cr_desc">Il sistema nervoso centrale dell'infrastruttura: un ambiente unificato da cui monitorare, elaborare enormi moli di dati operativi e intervenire tempestivamente sia in modalità autonoma che guidata.</p>
+                <span data-i18n="cr_tag">Tecnologia SCADA & Log</span>
+                <h2 data-i18n="cr_heading">Dati Verificabili e Controllo Centralizzato</h2>
+                <p data-i18n="cr_desc">Un sistema di supervisione leggero e affidabile che raccoglie costantemente i dati dai macchinari, salvandoli in registri sicuri e inviando allerte immediate in caso di anomalie.</p>
             </div>
 
             <div class="control-grid">
                 <div class="feature-box">
-                    <h4 data-i18n="cr_feat1_title">Monitoraggio Real-Time</h4>
-                    <p data-i18n="cr_feat1_desc">Dashboard sinottiche e unificate per la visualizzazione immediata dello stato di ogni singolo asset dislocato sul territorio.</p>
+                    <h4 data-i18n="cr_feat1_title">Acquisizione Dati Locale</h4>
+                    <p data-i18n="cr_feat1_desc">Registrazione automatica di ogni azione e ciclo produttivo su file di log strutturati, garantendo tracciabilità totale e trasparente.</p>
                 </div>
                 <div class="feature-box">
-                    <h4 data-i18n="cr_feat2_title">Automazione & Decision Support</h4>
-                    <p data-i18n="cr_feat2_desc">Algoritmi intelligenti per l'analisi predittiva, l'attuazione automatica di procedure di sicurezza e la gestione dei deflussi critici.</p>
+                    <h4 data-i18n="cr_feat2_title">Allerte in Tempo Reale</h4>
+                    <p data-i18n="cr_feat2_desc">Notifiche istantanee via webhook o sistemi dedicati per blocchi macchina, anomalie termiche o picchi di consumo energetico.</p>
                 </div>
                 <div class="feature-box">
-                    <h4 data-i18n="cr_feat3_title">Override e Controllo Remoto</h4>
-                    <p data-i18n="cr_feat3_desc">Capacità di comando diretto, override manuale sicuro e risoluzione delle emergenze direttamente dalla postazione centrale unificata.</p>
+                    <h4 data-i18n="cr_feat3_title">Interfacce HMI Semplificate</h4>
+                    <p data-i18n="cr_feat3_desc">Pannelli operatore touch o web-app locali progettate su misura per l'operatore, senza complessità superflue.</p>
                 </div>
             </div>
         </section>
 
         <section id="contatti">
             <div class="contact-section">
-                <h2 data-i18n="contact_heading">Parla con i nostri ingegneri</h2>
-                <p data-i18n="contact_desc">Hai un progetto di automazione o infrastruttura complessa da sviluppare? Contattaci direttamente per definire l'architettura ideale.</p>
+                <h2 data-i18n="contact_heading">Ottimizza la tua produzione</h2>
+                <p data-i18n="contact_desc">Vuoi digitalizzare un macchinario o implementare un sistema di telemetria su misura? Contattaci per un'analisi tecnica preliminare.</p>
                 <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>
             </div>
         </section>
@@ -642,9 +593,7 @@
         <p data-i18n="footer_text">&copy; 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it</p>
     </footer>
 
-    <!-- SCRIPT MULTILINGUA E MENU MOBILE -->
     <script>
-        // Funzione per il Menu Mobile
         function toggleMenu() {
             const navMenu = document.getElementById('navMenu');
             navMenu.classList.toggle('active');
@@ -659,93 +608,84 @@
 
         const translations = {
             it: {
-                title: "AI Service Group | Automazione Infrastrutture e Controllo Flussi",
+                title: "AI Service Group | Automazione Industriale, SCADA e Telemetria",
                 nav_about: "Chi Siamo",
                 nav_sectors: "Settori",
-                nav_controlroom: "Control Room",
+                nav_controlroom: "Telemetria & SCADA",
                 nav_contact: "Contattaci",
-                hero_title: "Automazione Infrastrutture & Controllo Flussi",
-                hero_desc: "Ingegneria dei sistemi avanzata, digital twins e centrali di operatività centrale per la gestione intelligente dei grandi hub, delle reti di trasporto e degli impianti critici.",
-                hero_btn: "Richiedi una Consulenza B2B",
-                about_heading: "Ingegneria dei Sistemi per la Gestione Operativa",
-                about_p1: "AI Service Group (aisg) unisce le competenze della meccatronica, dell'automazione industriale e dell'Information Technology per progettare infrastrutture capaci di autoregolarsi e offrire dati verificabili in tempo reale.",
-                about_p2: "Ogni sistema che progettiamo è pensato per massimizzare la sicurezza, ottimizzare l'efficienza energetica e azzerare i margini d'errore nella gestione dei flussi complessi.",
+                hero_title: "Automazione Industriale, SCADA e Telemetria per PMI e Artigiani",
+                hero_desc: "Trasformiamo macchinari tradizionali in sistemi intelligenti. Retrofitting digitale, acquisizione dati in tempo reale e monitoraggio dei fermi macchina per ottimizzare l'efficienza produttiva.",
+                hero_btn: "Richiedi un Proof of Concept",
+                about_heading: "Ingegneria Applicata alla Produzione Reale",
+                about_p1: "AI Service Group (aisg) unisce l'ingegneria dell'automazione e l'IoT per offrire alle piccole e medie imprese soluzioni di telemetria e controllo solitamente riservate ai grandi impianti industriali.",
+                about_p2: "Progettiamo hardware custom e interfacce HMI/SCADA leggere che si integrano perfettamente sui macchinari esistenti, garantendo dati di produzione certi e verificabili.",
                 pillars_title: "Pilastri Tecnologici",
-                pillar_1: "Architetture SCADA & Telemetria",
-                pillar_2: "Sistemi di Log e Dati Verificabili",
-                pillar_3: "Controllo Predittivo e Automazione Varchi",
-                pillar_4: "Supervisione Centralizzata in Real-Time",
-                sectors_heading: "Settori Strategici di Intervento",
-                sectors_desc: "Soluzioni customizzate e scalabili per ogni dominio dell'industria, della logistica avanzata e della mobilità strutturata.",
-                sec1_title: "Industria",
-                sec1_desc: "Digitalizzazione processi, retrofit per manutenzione predittiva, HMI personalizzati e digital twin delle linee produttive.",
-                sec2_title: "Logistica",
-                sec2_desc: "Automazione dei magazzini, sistemi di tracciamento RFID/Barcode, gestione flotte AGV e ottimizzazione flussi di stoccaggio.",
-                sec3_title: "Terminal",
-                sec3_desc: "Gestione automatizzata dei grandi nodi: operazioni portuali, digitalizzazione gate e sistemi SCADA per infrastrutture critiche.",
-                sec4_title: "Smart Mobility",
-                sec4_desc: "Data logging per traffico ed energia, gestione semaforica intelligente e soluzioni IoT per la mobilità sostenibile cittadina.",
-                sec5_title: "Infrastrutture",
-                sec5_desc: "Automazione reti su larga scala: segnaletica ferroviaria, controllo remoto gallerie autostradali, ponti e reti di distribuzione.",
-                cr_tag: "Il Cuore del Sistema",
-                cr_heading: "Progettazione di Centrali di Controllo (Control Room)",
-                cr_desc: "Il sistema nervoso centrale dell'infrastruttura: un ambiente unificato da cui monitorare, elaborare enormi moli di dati operativi e intervenire tempestivamente sia in modalità autonoma che guidata.",
-                cr_feat1_title: "Monitoraggio Real-Time",
-                cr_feat1_desc: "Dashboard sinottiche e unificate per la visualizzazione immediata dello stato di ogni singolo asset dislocato sul territorio.",
-                cr_feat2_title: "Automazione & Decision Support",
-                cr_feat2_desc: "Algoritmi intelligenti per l'analisi predittiva, l'attuazione automatica di procedure di sicurezza e la gestione dei deflussi critici.",
-                cr_feat3_title: "Override e Controllo Remoto",
-                cr_feat3_desc: "Capacità di comando diretto, override manuale sicuro e risoluzione delle emergenze direttamente dalla postazione centrale unificata.",
-                contact_heading: "Parla con i nostri ingegneri",
-                contact_desc: "Hai un progetto di automazione o infrastruttura complessa da sviluppare? Contattaci direttamente per definire l'architettura ideale.",
+                pillar_1: "Retrofitting & HMI Personalizzate",
+                pillar_2: "Data Logging e Tracciabilità Cicli",
+                pillar_3: "Monitoraggio Fermi e Assorbimenti",
+                pillar_4: "Telemetria e Dashboard in Real-Time",
+                sectors_heading: "Ambiti di Intervento Specialistico",
+                sectors_desc: "Soluzioni mirate ad alto ritorno sull'investimento (ROI) per il tessuto produttivo artigianale e manifatturiero.",
+                sec1_title: "Officine & Meccanica di Precisione",
+                sec1_desc: "Conteggio automatico pezzi, monitoraggio cicli di lavorazione e telemetria delle macchine utensili per azzerare i tempi morti occulti.",
+                sec2_title: "Trasformazione Alimentare & Cantine",
+                sec2_desc: "Controllo di processo, log delle temperature e automazione delle linee di imbottigliamento con interfacce operatore intuitive.",
+                sec3_title: "Smart Farming & Serre",
+                sec3_desc: "Monitoraggio microclimatico IoT a basso costo, gestione automatica delle risorse idriche e prevenzione guasti energetici.",
+                cr_tag: "Tecnologia SCADA & Log",
+                cr_heading: "Dati Verificabili e Controllo Centralizzato",
+                cr_desc: "Un sistema di supervisione leggero e affidabile che raccoglie costantemente i dati dai macchinari, salvandoli in registri sicuri e inviando allerte immediate in caso di anomalie.",
+                cr_feat1_title: "Acquisizione Dati Locale",
+                cr_feat1_desc: "Registrazione automatica di ogni azione e ciclo produttivo su file di log strutturati, garantendo tracciabilità totale e trasparente.",
+                cr_feat2_title: "Allerte in Tempo Reale",
+                cr_feat2_desc: "Notifiche istantanee via webhook o sistemi dedicati per blocchi macchina, anomalie termiche o picchi di consumo energetico.",
+                cr_feat3_title: "Interfacce HMI Semplificate",
+                cr_feat3_desc: "Pannelli operatore touch o web-app locali progettate su misura per l'operatore, senza complessità superflue.",
+                contact_heading: "Ottimizza la tua produzione",
+                contact_desc: "Vuoi digitalizzare un macchinario o implementare un sistema di telemetria su misura? Contattaci per un'analisi tecnica preliminare.",
                 footer_text: "© 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it"
             },
             en: {
-                title: "AI Service Group | Infrastructure Automation & Flow Control",
+                title: "AI Service Group | Industrial Automation, SCADA & Telemetry",
                 nav_about: "About Us",
                 nav_sectors: "Sectors",
-                nav_controlroom: "Control Room",
+                nav_controlroom: "Telemetry & SCADA",
                 nav_contact: "Contact Us",
-                hero_title: "Infrastructure Automation & Flow Control",
-                hero_desc: "Advanced systems engineering, digital twins, and central operations rooms for the intelligent management of major hubs, transport networks, and critical plants.",
-                hero_btn: "Request B2B Consultation",
-                about_heading: "Systems Engineering for Operational Management",
-                about_p1: "AI Service Group (aisg) combines mechatronics, industrial automation, and Information Technology expertise to design self-regulating infrastructures providing real-time verifiable data.",
-                about_p2: "Every system we design is built to maximize safety, optimize energy efficiency, and eliminate margin of error in complex flow management.",
+                hero_title: "Industrial Automation, SCADA & Telemetry for SMEs and Artisans",
+                hero_desc: "We turn traditional machinery into smart systems. Digital retrofitting, real-time data acquisition, and downtime monitoring to optimize production efficiency.",
+                hero_btn: "Request a Proof of Concept",
+                about_heading: "Engineering Applied to Real Production",
+                about_p1: "AI Service Group (aisg) combines automation engineering and IoT to offer small and medium-sized enterprises telemetry and control solutions usually reserved for large industrial plants.",
+                about_p2: "We design custom hardware and lightweight HMI/SCADA interfaces that integrate seamlessly into existing machinery, ensuring reliable and verifiable production data.",
                 pillars_title: "Technological Pillars",
-                pillar_1: "SCADA Architectures & Telemetry",
-                pillar_2: "Verifiable Data & Log Systems",
-                pillar_3: "Predictive Control & Gate Automation",
-                pillar_4: "Real-Time Centralized Supervision",
-                sectors_heading: "Strategic Intervention Sectors",
-                sectors_desc: "Customized and scalable solutions for every domain of industry, advanced logistics, and structured mobility.",
-                sec1_title: "Industry",
-                sec1_desc: "Process digitalization, predictive maintenance retrofits, custom HMIs, and digital twins for production lines.",
-                sec2_title: "Logistics",
-                sec2_desc: "Warehouse automation, RFID/Barcode tracking systems, AGV fleet management, and storage flow optimization.",
-                sec3_title: "Terminals",
-                sec3_desc: "Automated management of major nodes: port operations, gate digitalization, and SCADA systems for critical infrastructure.",
-                sec4_title: "Smart Mobility",
-                sec4_desc: "Data logging for traffic and energy, intelligent traffic light management, and IoT solutions for sustainable urban mobility.",
-                sec5_title: "Infrastructure",
-                sec5_desc: "Large-scale network automation: railway signaling, remote control for highway tunnels, bridges, and distribution grids.",
-                cr_tag: "The Core of the System",
-                cr_heading: "Control Room Design & Engineering",
-                cr_desc: "The central nervous system of the infrastructure: a unified environment to monitor, process massive amounts of operational data, and intervene promptly in autonomous or guided mode.",
-                cr_feat1_title: "Real-Time Monitoring",
-                cr_feat1_desc: "Unified synoptic dashboards for instant visualization of the status of every single asset distributed across the territory.",
-                cr_feat2_title: "Automation & Decision Support",
-                cr_feat2_desc: "Intelligent algorithms for predictive analysis, automatic execution of safety procedures, and critical outflow management.",
-                cr_feat3_title: "Override & Remote Control",
-                cr_feat3_desc: "Direct command capabilities, secure manual override, and emergency resolution directly from the unified central workstation.",
-                contact_heading: "Talk to Our Engineers",
-                contact_desc: "Do you have an automation or complex infrastructure project to develop? Contact us directly to define the ideal architecture.",
+                pillar_1: "Retrofitting & Custom HMIs",
+                pillar_2: "Data Logging & Cycle Tracking",
+                pillar_3: "Downtime & Power Monitoring",
+                pillar_4: "Telemetry & Real-Time Dashboards",
+                sectors_heading: "Specialized Intervention Areas",
+                sectors_desc: "Targeted solutions with a high return on investment (ROI) for artisanal and manufacturing business sectors.",
+                sec1_title: "Workshops & Precision Mechanics",
+                sec1_desc: "Automatic part counting, machining cycle monitoring, and machine tool telemetry to eliminate hidden idle times.",
+                sec2_title: "Food Processing & Wineries",
+                sec2_desc: "Process control, temperature logging, and automation of bottling lines with intuitive operator interfaces.",
+                sec3_title: "Smart Farming & Greenhouses",
+                sec3_desc: "Low-cost IoT microclimatic monitoring, automated water resource management, and energy failure prevention.",
+                cr_tag: "SCADA & Log Technology",
+                cr_heading: "Verifiable Data and Centralized Control",
+                cr_desc: "A lightweight and reliable supervision system that continuously collects data from machinery, saving it to secure logs and sending immediate alerts for anomalies.",
+                cr_feat1_title: "Local Data Acquisition",
+                cr_feat1_desc: "Automatic recording of every action and production cycle on structured log files, ensuring total and transparent traceability.",
+                cr_feat2_title: "Real-Time Alerts",
+                cr_feat2_desc: "Instant notifications via webhooks or dedicated systems for machine stalls, thermal anomalies, or energy consumption spikes.",
+                cr_feat3_title: "Simplified HMI Interfaces",
+                cr_feat3_desc: "Touch operator panels or local web apps tailored specifically for the operator, free of unnecessary complexity.",
+                contact_heading: "Optimize Your Production",
+                contact_desc: "Do you want to digitalize a machine or implement a custom telemetry system? Contact us for a preliminary technical analysis.",
                 footer_text: "© 2026 AI Service Group (aisg) - All rights reserved. | aiservicegroup.it"
             }
         };
 
         function changeLanguage(lang) {
-            // Se la lingua non è completamente definita nel dizionario, non crashare (fallback a ita/eng)
             const dictionary = translations[lang] || translations['en'];
             
             const elements = document.querySelectorAll('[data-i18n]');
