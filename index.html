@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title">AI Service Group | Automazione Industriale, SCADA e Telemetria</title>
+    <title data-i18n="title">AI Service Group | Automazione, Efficienza Energetica e Telemetria</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -70,7 +70,6 @@
             gap: 2rem;
         }
 
-        /* MOBILE MENU TOGGLE */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -111,7 +110,6 @@
             background: var(--accent-hover) !important;
         }
 
-        /* LANGUAGE SELECTOR STYLING */
         .lang-selector select {
             background: rgba(255, 255, 255, 0.1);
             color: var(--white);
@@ -163,6 +161,8 @@
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
+            border: none;
+            cursor: pointer;
             box-shadow: 0 4px 14px var(--accent-glow);
             transition: all 0.3s;
         }
@@ -339,34 +339,156 @@
             font-size: 0.95rem;
         }
 
+        /* CONTACT SECTION WITH FORM & AI BOT */
         .contact-section {
             background: var(--white);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 4rem 2rem;
-            text-align: center;
-            max-width: 900px;
+            padding: 4rem 3rem;
+            max-width: 1000px;
             margin: 0 auto;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
         }
 
-        .contact-section h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-top: 2rem;
         }
 
-        .contact-section p {
+        .contact-form-wrapper h3, .ai-bot-wrapper h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .form-success {
+            display: none;
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* AI CHATBOT STYLING */
+        .ai-chat-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .ai-chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .chat-msg {
+            max-width: 85%;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            line-height: 1.4;
+        }
+
+        .chat-msg.bot {
+            background: var(--white);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            align-self: flex-start;
+        }
+
+        .chat-msg.user {
+            background: var(--accent);
+            color: var(--white);
+            align-self: flex-end;
+        }
+
+        .ai-chat-input-area {
+            display: flex;
+            border-top: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        .ai-chat-input-area input {
+            flex: 1;
+            border: none;
+            padding: 0.8rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .ai-chat-input-area button {
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 0 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .ai-chat-input-area button:hover {
+            background: var(--accent-hover);
+        }
+
+        .email-direct {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
         }
 
         .email-link {
-            font-size: 1.5rem;
             color: var(--accent);
-            font-weight: 700;
+            font-weight: 600;
             text-decoration: none;
-            word-break: break-all;
         }
 
         .email-link:hover {
@@ -383,17 +505,14 @@
             margin-top: 5rem;
         }
 
-        /* MEDIA QUERIES FOR RESPONSIVENESS */
+        /* MEDIA QUERIES */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
-            .about-grid {
+            .about-grid, .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-            }
-            .grid-sectors {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
         }
 
@@ -401,7 +520,6 @@
             .mobile-menu-btn {
                 display: block;
             }
-            
             .nav-right {
                 position: fixed;
                 top: 70px;
@@ -415,71 +533,31 @@
                 transition: left 0.3s ease;
                 gap: 1.5rem;
             }
-            
             .nav-right.active {
                 left: 0;
             }
-
             .nav-links {
                 flex-direction: column;
                 gap: 1.5rem;
                 width: 100%;
                 text-align: center;
             }
-            
             .nav-links a {
                 font-size: 1.2rem;
                 display: block;
                 padding: 0.5rem;
             }
-            
-            .nav-cta {
-                display: inline-block;
-            }
-
             .hero {
                 padding: 5rem 1rem;
             }
-
             .hero h1 {
                 font-size: 2rem;
             }
-
             .container {
                 padding: 3rem 1rem;
             }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .control-room-section {
-                padding: 3rem 1.5rem;
-                margin: 2rem 0;
-            }
-
-            .control-room-header h2 {
-                font-size: 1.8rem;
-            }
-
             .contact-section {
-                padding: 3rem 1.5rem;
-            }
-            
-            .email-link {
-                font-size: 1.2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .grid-sectors {
-                grid-template-columns: 1fr;
-            }
-            .about-card, .feature-box, .card {
-                padding: 1.5rem;
+                padding: 2.5rem 1.5rem;
             }
         }
     </style>
@@ -493,7 +571,7 @@
             <div class="nav-right" id="navMenu">
                 <ul class="nav-links">
                     <li><a href="#chisiamo" data-i18n="nav_about" onclick="closeMenu()">Chi Siamo</a></li>
-                    <li><a href="#settori" data-i18n="nav_sectors" onclick="closeMenu()">Settori</a></li>
+                    <li><a href="#ambiti" data-i18n="nav_sectors" onclick="closeMenu()">Ambiti</a></li>
                     <li><a href="#controlroom" data-i18n="nav_controlroom" onclick="closeMenu()">Telemetria & SCADA</a></li>
                     <li><a href="#contatti" class="nav-cta" data-i18n="nav_contact" onclick="closeMenu()">Contattaci</a></li>
                 </ul>
@@ -508,50 +586,50 @@
     </header>
 
     <section class="hero">
-        <h1 data-i18n="hero_title">Automazione Industriale, SCADA e Telemetria per PMI e Artigiani</h1>
-        <p data-i18n="hero_desc">Trasformiamo macchinari tradizionali in sistemi intelligenti. Retrofitting digitale, acquisizione dati in tempo reale e monitoraggio dei fermi macchina per ottimizzare l'efficienza produttiva.</p>
-        <a href="#contatti" class="btn" data-i18n="hero_btn">Richiedi un Proof of Concept</a>
+        <h1 data-i18n="hero_title">Automazione, Efficienza Energetica e Telemetria Avanzata</h1>
+        <p data-i18n="hero_desc">Ingegneria dei sistemi applicata al monitoraggio energetico, al controllo logico di processo e alla certificazione digitale dei dati operativi per impianti complessi.</p>
+        <a href="#contatti" class="btn" data-i18n="hero_btn">Richiedi una Consulenza Tecnica</a>
     </section>
 
     <div class="container">
 
         <section id="chisiamo" class="about-grid">
             <div class="about-text">
-                <h3 data-i18n="about_heading">Ingegneria Applicata alla Produzione Reale</h3>
-                <p data-i18n="about_p1"><strong>AI Service Group (aisg)</strong> unisce l'ingegneria dell'automazione e l'IoT per offrire alle piccole e medie imprese soluzioni di telemetria e controllo solitamente riservate ai grandi impianti industriali.</p>
-                <p data-i18n="about_p2">Progettiamo hardware custom e interfacce HMI/SCADA leggere che si integrano perfettamente sui macchinari esistenti, garantendo dati di produzione certi e verificabili.</p>
+                <h3 data-i18n="about_heading">Ingegneria dei Sistemi per la Gestione Operativa</h3>
+                <p data-i18n="about_p1"><strong>AI Service Group (aisg)</strong> unisce le competenze della meccatronica, dell'automazione industriale e dell'Information Technology per progettare infrastrutture capaci di autoregolarsi e offrire dati verificabili in tempo reale.</p>
+                <p data-i18n="about_p2">Ogni sistema che progettiamo è pensato per massimizzare la sicurezza, ottimizzare l'efficienza energetica e azzerare i margini d'errore nella gestione dei flussi complessi.</p>
             </div>
             <div class="about-card">
                 <h3 data-i18n="pillars_title">Pilastri Tecnologici</h3>
                 <ul>
-                    <li><span>01.</span> <span data-i18n="pillar_1">Retrofitting & HMI Personalizzate</span></li>
-                    <li><span>02.</span> <span data-i18n="pillar_2">Data Logging e Tracciabilità Cicli</span></li>
-                    <li><span>03.</span> <span data-i18n="pillar_3">Monitoraggio Fermi e Assorbimenti</span></li>
-                    <li><span>04.</span> <span data-i18n="pillar_4">Telemetria e Dashboard in Real-Time</span></li>
+                    <li><span>01.</span> <span data-i18n="pillar_1">Architetture SCADA & Telemetria</span></li>
+                    <li><span>02.</span> <span data-i18n="pillar_2">Sistemi di Log e Dati Verificabili</span></li>
+                    <li><span>03.</span> <span data-i18n="pillar_3">Controllo Predittivo e Automazione</span></li>
+                    <li><span>04.</span> <span data-i18n="pillar_4">Supervisione Centralizzata in Real-Time</span></li>
                 </ul>
             </div>
         </section>
 
-        <section id="settori">
+        <section id="ambiti">
             <div class="section-header">
-                <h2 data-i18n="sectors_heading">Ambiti di Intervento Specialistico</h2>
-                <p data-i18n="sectors_desc">Soluzioni mirate ad alto ritorno sull'investimento (ROI) per il tessuto produttivo artigianale e manifatturiero.</p>
+                <h2 data-i18n="sectors_heading">Ambiti di Intervento Impiantistico</h2>
+                <p data-i18n="sectors_desc">Soluzioni ingegneristiche mirate all'efficienza, al controllo dei carichi e alla tracciabilità dei dati industriali ed energetici.</p>
             </div>
 
             <div class="grid-sectors">
                 <div class="card">
-                    <h3 data-i18n="sec1_title">Officine & Meccanica di Precisione</h3>
-                    <p data-i18n="sec1_desc">Conteggio automatico pezzi, monitoraggio cicli di lavorazione e telemetria delle macchine utensili per azzerare i tempi morti occulti.</p>
+                    <h3 data-i18n="sec1_title">Monitoraggio Energetico & Efficienza</h3>
+                    <p data-i18n="sec1_desc">Analisi dettagliata dei carichi, telemetria dei consumi in tempo reale e prevenzione strategica degli sprechi energetici su impianti complessi.</p>
                 </div>
                 
                 <div class="card">
-                    <h3 data-i18n="sec2_title">Trasformazione Alimentare & Cantine</h3>
-                    <p data-i18n="sec2_desc">Controllo di processo, log delle temperature e automazione delle linee di imbottigliamento con interfacce operatore intuitive.</p>
+                    <h3 data-i18n="sec2_title">Automazione di Processo & Impianti</h3>
+                    <p data-i18n="sec2_desc">Controllo logico avanzato di macchinari, linee di pompaggio, valvole e attuatori industriali per una gestione autonoma e sicura dei cicli.</p>
                 </div>
                 
                 <div class="card">
-                    <h3 data-i18n="sec3_title">Smart Farming & Serre</h3>
-                    <p data-i18n="sec3_desc">Monitoraggio microclimatico IoT a basso costo, gestione automatica delle risorse idriche e prevenzione guasti energetici.</p>
+                    <h3 data-i18n="sec3_title">Sistemi di Logging & Certificazione Dati</h3>
+                    <p data-i18n="sec3_desc">Sviluppo di registri digitali automatici per la tracciabilità puntuale e la verifica costante dei parametri operativi sul campo.</p>
                 </div>
             </div>
         </section>
@@ -560,30 +638,73 @@
             <div class="control-room-header">
                 <span data-i18n="cr_tag">Tecnologia SCADA & Log</span>
                 <h2 data-i18n="cr_heading">Dati Verificabili e Controllo Centralizzato</h2>
-                <p data-i18n="cr_desc">Un sistema di supervisione leggero e affidabile che raccoglie costantemente i dati dai macchinari, salvandoli in registri sicuri e inviando allerte immediate in caso di anomalie.</p>
+                <p data-i18n="cr_desc">Un sistema di supervisione leggero e affidabile che raccoglie costantemente i dati dagli impianti, salvandoli in registri sicuri e inviando allerte immediate in caso di anomalie.</p>
             </div>
 
             <div class="control-grid">
                 <div class="feature-box">
                     <h4 data-i18n="cr_feat1_title">Acquisizione Dati Locale</h4>
-                    <p data-i18n="cr_feat1_desc">Registrazione automatica di ogni azione e ciclo produttivo su file di log strutturati, garantendo tracciabilità totale e trasparente.</p>
+                    <p data-i18n="cr_feat1_desc">Registrazione automatica di ogni azione e ciclo operativo su file di log strutturati, garantendo tracciabilità totale e trasparente.</p>
                 </div>
                 <div class="feature-box">
                     <h4 data-i18n="cr_feat2_title">Allerte in Tempo Reale</h4>
-                    <p data-i18n="cr_feat2_desc">Notifiche istantanee via webhook o sistemi dedicati per blocchi macchina, anomalie termiche o picchi di consumo energetico.</p>
+                    <p data-i18n="cr_feat2_desc">Notifiche istantanee via webhook o sistemi dedicati per blocchi impianto, anomalie termiche o picchi di consumo energetico.</p>
                 </div>
                 <div class="feature-box">
                     <h4 data-i18n="cr_feat3_title">Interfacce HMI Semplificate</h4>
-                    <p data-i18n="cr_feat3_desc">Pannelli operatore touch o web-app locali progettate su misura per l'operatore, senza complessità superflue.</p>
+                    <p data-i18n="cr_feat3_desc">Pannelli operatore touch o web-app locali progettate su misura per il controllo diretto, senza complessità superflue.</p>
                 </div>
             </div>
         </section>
 
         <section id="contatti">
             <div class="contact-section">
-                <h2 data-i18n="contact_heading">Ottimizza la tua produzione</h2>
-                <p data-i18n="contact_desc">Vuoi digitalizzare un macchinario o implementare un sistema di telemetria su misura? Contattaci per un'analisi tecnica preliminare.</p>
-                <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>
+                <div class="section-header" style="margin-bottom: 2rem;">
+                    <h2 data-i18n="contact_heading">Parla con i nostri ingegneri o chiedi al nostro Bot AI</h2>
+                    <p data-i18n="contact_desc">Invia una richiesta formale tramite il modulo oppure interagisci con il nostro assistente virtuale per risposte immediate sui nostri servizi.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- FORM DI CONTATTO -->
+                    <div class="contact-form-wrapper">
+                        <h3 data-i18n="form_title">Invia un messaggio</h3>
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <label for="name" data-i18n="form_name">Nome e Cognome / Azienda</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-i18n="form_email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-i18n="form_msg">Messaggio o progetto</label>
+                                <textarea id="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;" data-i18n="form_btn">Invia Richiesta</button>
+                            <div id="formSuccess" class="form-success" data-i18n="form_success">Messaggio inviato con successo! Ti risponderemo presto.</div>
+                        </form>
+                    </div>
+
+                    <!-- BOT AI ASSISTANT -->
+                    <div class="ai-bot-wrapper">
+                        <h3 data-i18n="bot_title">Assistente Virtuale AISG</h3>
+                        <div class="ai-chat-box">
+                            <div class="ai-chat-messages" id="chatMessages">
+                                <div class="chat-msg bot" data-i18n="bot_welcome">Ciao! Sono l'assistente virtuale di AI Service Group. Come posso aiutarti con i nostri sistemi di telemetria, SCADA o efficienza energetica?</div>
+                            </div>
+                            <div class="ai-chat-input-area">
+                                <input type="text" id="chatInput" placeholder="Scrivi una domanda..." data-i18n_placeholder="bot_placeholder" onkeypress="handleChatKey(event)">
+                                <button onclick="sendChatMessage()" data-i18n="bot_send">Invia</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="email-direct">
+                    <span data-i18n="email_direct_text">Preferisci scrivere direttamente? Contattaci via email:</span> 
+                    <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>
+                </div>
             </div>
         </section>
 
@@ -606,81 +727,166 @@
             }
         }
 
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successBox = document.getElementById('formSuccess');
+            successBox.style.display = 'block';
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                successBox.style.display = 'none';
+            }, 5000);
+        }
+
+        // LOGICA BOT AI SEMPLIFICATA
+        function handleChatKey(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        function sendChatMessage() {
+            const inputField = document.getElementById('chatInput');
+            const messageText = inputField.value.trim();
+            if (!messageText) return;
+
+            const chatMessages = document.getElementById('chatMessages');
+
+            // Aggiungi messaggio utente
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-msg user';
+            userMsg.textContent = messageText;
+            chatMessages.appendChild(userMsg);
+
+            inputField.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Simula risposta del Bot AI in base alla lingua corrente
+            setTimeout(() => {
+                const currentLang = document.documentElement.lang || 'it';
+                const botMsg = document.createElement('div');
+                botMsg.className = 'chat-msg bot';
+                
+                const lowerText = messageText.toLowerCase();
+                if (currentLang === 'en') {
+                    if (lowerText.includes('price') || lowerText.includes('cost') || lowerText.includes('quanto')) {
+                        botMsg.textContent = "Our services are modular, starting from custom IoT/telemetry setups to advanced SCADA systems. Contact us for a tailored quote!";
+                    } else if (lowerText.includes('energy') || lowerText.includes('energetica')) {
+                        botMsg.textContent = "We specialize in real-time energy load monitoring, consumption telemetry, and predictive waste prevention.";
+                    } else {
+                        botMsg.textContent = "Thanks for your question! For specific technical architectures, feel free to email our engineering team at info@aiservicegroup.it.";
+                    }
+                } else {
+                    if (lowerText.includes('prezzo') || lowerText.includes('costo') || lowerText.includes('quanto costa')) {
+                        botMsg.textContent = "I nostri interventi partono da soluzioni di telemetria e monitoraggio personalizzate per ogni impianto. Contattaci per un'analisi tecnica e un preventivo mirato!";
+                    } else if (lowerText.includes('energia') || lowerText.includes('efficienza') || lowerText.includes('consumi')) {
+                        botMsg.textContent = "Realizziamo sistemi di monitoraggio energetico in tempo reale e telemetria dei carichi per azzerare gli sprechi su impianti complessi.";
+                    } else {
+                        botMsg.textContent = "Grazie per la domanda! Per progetti di automazione o architetture custom, ti consiglio di compilare il modulo o scriverci a info@aiservicegroup.it.";
+                    }
+                }
+
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 600);
+        }
+
         const translations = {
             it: {
-                title: "AI Service Group | Automazione Industriale, SCADA e Telemetria",
+                title: "AI Service Group | Automazione, Efficienza Energetica e Telemetria",
                 nav_about: "Chi Siamo",
-                nav_sectors: "Settori",
+                nav_sectors: "Ambiti",
                 nav_controlroom: "Telemetria & SCADA",
                 nav_contact: "Contattaci",
-                hero_title: "Automazione Industriale, SCADA e Telemetria per PMI e Artigiani",
-                hero_desc: "Trasformiamo macchinari tradizionali in sistemi intelligenti. Retrofitting digitale, acquisizione dati in tempo reale e monitoraggio dei fermi macchina per ottimizzare l'efficienza produttiva.",
-                hero_btn: "Richiedi un Proof of Concept",
-                about_heading: "Ingegneria Applicata alla Produzione Reale",
-                about_p1: "AI Service Group (aisg) unisce l'ingegneria dell'automazione e l'IoT per offrire alle piccole e medie imprese soluzioni di telemetria e controllo solitamente riservate ai grandi impianti industriali.",
-                about_p2: "Progettiamo hardware custom e interfacce HMI/SCADA leggere che si integrano perfettamente sui macchinari esistenti, garantendo dati di produzione certi e verificabili.",
+                hero_title: "Automazione, Efficienza Energetica e Telemetria Avanzata",
+                hero_desc: "Ingegneria dei sistemi applicata al monitoraggio energetico, al controllo logico di processo e alla certificazione digitale dei dati operativi per impianti complessi.",
+                hero_btn: "Richiedi una Consulenza Tecnica",
+                about_heading: "Ingegneria dei Sistemi per la Gestione Operativa",
+                about_p1: "AI Service Group (aisg) unisce le competenze della meccatronica, dell'automazione industriale e dell'Information Technology per progettare infrastrutture capaci di autoregolarsi e offrire dati verificabili in tempo reale.",
+                about_p2: "Ogni sistema che progettiamo è pensato per massimizzare la sicurezza, ottimizzare l'efficienza energetica e azzerare i margini d'errore nella gestione dei flussi complessi.",
                 pillars_title: "Pilastri Tecnologici",
-                pillar_1: "Retrofitting & HMI Personalizzate",
-                pillar_2: "Data Logging e Tracciabilità Cicli",
-                pillar_3: "Monitoraggio Fermi e Assorbimenti",
-                pillar_4: "Telemetria e Dashboard in Real-Time",
-                sectors_heading: "Ambiti di Intervento Specialistico",
-                sectors_desc: "Soluzioni mirate ad alto ritorno sull'investimento (ROI) per il tessuto produttivo artigianale e manifatturiero.",
-                sec1_title: "Officine & Meccanica di Precisione",
-                sec1_desc: "Conteggio automatico pezzi, monitoraggio cicli di lavorazione e telemetria delle macchine utensili per azzerare i tempi morti occulti.",
-                sec2_title: "Trasformazione Alimentare & Cantine",
-                sec2_desc: "Controllo di processo, log delle temperature e automazione delle linee di imbottigliamento con interfacce operatore intuitive.",
-                sec3_title: "Smart Farming & Serre",
-                sec3_desc: "Monitoraggio microclimatico IoT a basso costo, gestione automatica delle risorse idriche e prevenzione guasti energetici.",
+                pillar_1: "Architetture SCADA & Telemetria",
+                pillar_2: "Sistemi di Log e Dati Verificabili",
+                pillar_3: "Controllo Predittivo e Automazione",
+                pillar_4: "Supervisione Centralizzata in Real-Time",
+                sectors_heading: "Ambiti di Intervento Impiantistico",
+                sectors_desc: "Soluzioni ingegneristiche mirate all'efficienza, al controllo dei carichi e alla tracciabilità dei dati industriali ed energetici.",
+                sec1_title: "Monitoraggio Energetico & Efficienza",
+                sec1_desc: "Analisi dettagliata dei carichi, telemetria dei consumi in tempo reale e prevenzione strategica degli sprechi energetici su impianti complessi.",
+                sec2_title: "Automazione di Processo & Impianti",
+                sec2_desc: "Controllo logico avanzato di macchinari, linee di pompaggio, valvole e attuatori industriali per una gestione autonoma e sicura dei cicli.",
+                sec3_title: "Sistemi di Logging & Certificazione Dati",
+                sec3_desc: "Sviluppo di registri digitali automatici per la tracciabilità puntuale e la verifica costante dei parametri operativi sul campo.",
                 cr_tag: "Tecnologia SCADA & Log",
                 cr_heading: "Dati Verificabili e Controllo Centralizzato",
-                cr_desc: "Un sistema di supervisione leggero e affidabile che raccoglie costantemente i dati dai macchinari, salvandoli in registri sicuri e inviando allerte immediate in caso di anomalie.",
+                cr_desc: "Un sistema di supervisione leggero e affidabile che raccoglie costantemente i dati dagli impianti, salvandoli in registri sicuri e inviando allerte immediate in caso di anomalie.",
                 cr_feat1_title: "Acquisizione Dati Locale",
-                cr_feat1_desc: "Registrazione automatica di ogni azione e ciclo produttivo su file di log strutturati, garantendo tracciabilità totale e trasparente.",
+                cr_feat1_desc: "Registrazione automatica di ogni azione e ciclo operativo su file di log strutturati, garantendo tracciabilità totale e trasparente.",
                 cr_feat2_title: "Allerte in Tempo Reale",
-                cr_feat2_desc: "Notifiche istantanee via webhook o sistemi dedicati per blocchi macchina, anomalie termiche o picchi di consumo energetico.",
+                cr_feat2_desc: "Notifiche istantanee via webhook o sistemi dedicati per blocchi impianto, anomalie termiche o picchi di consumo energetico.",
                 cr_feat3_title: "Interfacce HMI Semplificate",
-                cr_feat3_desc: "Pannelli operatore touch o web-app locali progettate su misura per l'operatore, senza complessità superflue.",
-                contact_heading: "Ottimizza la tua produzione",
-                contact_desc: "Vuoi digitalizzare un macchinario o implementare un sistema di telemetria su misura? Contattaci per un'analisi tecnica preliminare.",
+                cr_feat3_desc: "Pannelli operatore touch o web-app locali progettate su misura per il controllo diretto, senza complessità superflue.",
+                contact_heading: "Parla con i nostri ingegneri o chiedi al nostro Bot AI",
+                contact_desc: "Invia una richiesta formale tramite il modulo oppure interagisci con il nostro assistente virtuale per risposte immediate sui nostri servizi.",
+                form_title: "Invia un messaggio",
+                form_name: "Nome e Cognome / Azienda",
+                form_email: "Email",
+                form_msg: "Messaggio o progetto",
+                form_btn: "Invia Richiesta",
+                form_success: "Messaggio inviato con successo! Ti risponderemo presto.",
+                bot_title: "Assistente Virtuale AISG",
+                bot_welcome: "Ciao! Sono l'assistente virtuale di AI Service Group. Come posso aiutarti con i nostri sistemi di telemetria, SCADA o efficienza energetica?",
+                bot_placeholder: "Scrivi una domanda...",
+                bot_send: "Invia",
+                email_direct_text: "Preferisci scrivere direttamente? Contattaci via email:",
                 footer_text: "© 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it"
             },
             en: {
-                title: "AI Service Group | Industrial Automation, SCADA & Telemetry",
+                title: "AI Service Group | Automation, Energy Efficiency & Telemetry",
                 nav_about: "About Us",
-                nav_sectors: "Sectors",
+                nav_sectors: "Domains",
                 nav_controlroom: "Telemetry & SCADA",
                 nav_contact: "Contact Us",
-                hero_title: "Industrial Automation, SCADA & Telemetry for SMEs and Artisans",
-                hero_desc: "We turn traditional machinery into smart systems. Digital retrofitting, real-time data acquisition, and downtime monitoring to optimize production efficiency.",
-                hero_btn: "Request a Proof of Concept",
-                about_heading: "Engineering Applied to Real Production",
-                about_p1: "AI Service Group (aisg) combines automation engineering and IoT to offer small and medium-sized enterprises telemetry and control solutions usually reserved for large industrial plants.",
-                about_p2: "We design custom hardware and lightweight HMI/SCADA interfaces that integrate seamlessly into existing machinery, ensuring reliable and verifiable production data.",
+                hero_title: "Automation, Energy Efficiency & Advanced Telemetry",
+                hero_desc: "Systems engineering applied to energy monitoring, process logic control, and digital certification of operational data for complex plants.",
+                hero_btn: "Request Technical Consultation",
+                about_heading: "Systems Engineering for Operational Management",
+                about_p1: "AI Service Group (aisg) combines mechatronics, industrial automation, and Information Technology expertise to design self-regulating infrastructures providing real-time verifiable data.",
+                about_p2: "Every system we design is built to maximize safety, optimize energy efficiency, and eliminate margin of error in complex flow management.",
                 pillars_title: "Technological Pillars",
-                pillar_1: "Retrofitting & Custom HMIs",
-                pillar_2: "Data Logging & Cycle Tracking",
-                pillar_3: "Downtime & Power Monitoring",
-                pillar_4: "Telemetry & Real-Time Dashboards",
-                sectors_heading: "Specialized Intervention Areas",
-                sectors_desc: "Targeted solutions with a high return on investment (ROI) for artisanal and manufacturing business sectors.",
-                sec1_title: "Workshops & Precision Mechanics",
-                sec1_desc: "Automatic part counting, machining cycle monitoring, and machine tool telemetry to eliminate hidden idle times.",
-                sec2_title: "Food Processing & Wineries",
-                sec2_desc: "Process control, temperature logging, and automation of bottling lines with intuitive operator interfaces.",
-                sec3_title: "Smart Farming & Greenhouses",
-                sec3_desc: "Low-cost IoT microclimatic monitoring, automated water resource management, and energy failure prevention.",
+                pillar_1: "SCADA Architectures & Telemetry",
+                pillar_2: "Verifiable Data & Log Systems",
+                pillar_3: "Predictive Control & Automation",
+                pillar_4: "Real-Time Centralized Supervision",
+                sectors_heading: "Plant Engineering Intervention Domains",
+                sectors_desc: "Engineering solutions focused on efficiency, load control, and the traceability of industrial and energy data.",
+                sec1_title: "Energy Monitoring & Efficiency",
+                sec1_desc: "Detailed load analysis, real-time consumption telemetry, and strategic prevention of energy waste across complex systems.",
+                sec2_title: "Process Automation & Plants",
+                sec2_desc: "Advanced logic control for machinery, pumping lines, valves, and industrial actuators for autonomous and secure cycle management.",
+                sec3_title: "Logging Systems & Data Certification",
+                sec3_desc: "Development of automatic digital registers for precise traceability and constant verification of operational parameters in the field.",
                 cr_tag: "SCADA & Log Technology",
                 cr_heading: "Verifiable Data and Centralized Control",
-                cr_desc: "A lightweight and reliable supervision system that continuously collects data from machinery, saving it to secure logs and sending immediate alerts for anomalies.",
+                cr_desc: "A lightweight and reliable supervision system that continuously collects plant data, saving it to secure logs and sending immediate alerts for anomalies.",
                 cr_feat1_title: "Local Data Acquisition",
-                cr_feat1_desc: "Automatic recording of every action and production cycle on structured log files, ensuring total and transparent traceability.",
+                cr_feat1_desc: "Automatic recording of every action and operational cycle on structured log files, ensuring total and transparent traceability.",
                 cr_feat2_title: "Real-Time Alerts",
-                cr_feat2_desc: "Instant notifications via webhooks or dedicated systems for machine stalls, thermal anomalies, or energy consumption spikes.",
+                cr_feat2_desc: "Instant notifications via webhooks or dedicated systems for plant stalls, thermal anomalies, or energy consumption spikes.",
                 cr_feat3_title: "Simplified HMI Interfaces",
-                cr_feat3_desc: "Touch operator panels or local web apps tailored specifically for the operator, free of unnecessary complexity.",
-                contact_heading: "Optimize Your Production",
-                contact_desc: "Do you want to digitalize a machine or implement a custom telemetry system? Contact us for a preliminary technical analysis.",
+                cr_feat3_desc: "Touch operator panels or local web apps tailored specifically for direct control, free of unnecessary complexity.",
+                contact_heading: "Talk to Our Engineers or Ask Our AI Bot",
+                contact_desc: "Send a formal request using the form or interact with our virtual assistant for immediate answers regarding our services.",
+                form_title: "Send a Message",
+                form_name: "Full Name / Company",
+                form_email: "Email",
+                form_msg: "Message or Project Details",
+                form_btn: "Send Request",
+                form_success: "Message sent successfully! We will get back to you soon.",
+                bot_title: "AISG Virtual Assistant",
+                bot_welcome: "Hello! I am AI Service Group's virtual assistant. How can I help you with our telemetry, SCADA, or energy efficiency systems?",
+                bot_placeholder: "Type a question...",
+                bot_send: "Send",
+                email_direct_text: "Prefer writing directly? Contact us via email:",
                 footer_text: "© 2026 AI Service Group (aisg) - All rights reserved. | aiservicegroup.it"
             }
         };
@@ -699,6 +905,13 @@
                     }
                 }
             });
+
+            // Gestione placeholder input chat
+            const chatInput = document.getElementById('chatInput');
+            if (dictionary['bot_placeholder']) {
+                chatInput.placeholder = dictionary['bot_placeholder'];
+            }
+
             document.documentElement.lang = lang;
         }
     </script>
