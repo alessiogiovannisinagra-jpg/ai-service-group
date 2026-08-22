@@ -31,6 +31,7 @@
             color: var(--text-main);
             background-color: var(--bg-light);
             line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
         }
 
         header {
@@ -77,6 +78,7 @@
             color: var(--white);
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 0.2rem;
         }
 
         .nav-links {
@@ -140,14 +142,14 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             margin-bottom: 1.2rem;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             max-width: 850px;
             margin: 0 auto 2.5rem;
             color: #94a3b8;
@@ -184,7 +186,7 @@
         }
 
         .section-header h2 {
-            font-size: 2.2rem;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
             color: var(--primary);
             margin-bottom: 1rem;
             font-weight: 700;
@@ -249,7 +251,7 @@
 
         .grid-sectors {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
         
@@ -304,7 +306,7 @@
 
         .control-room-header h2 {
             color: var(--white);
-            font-size: 2.3rem;
+            font-size: clamp(1.8rem, 4vw, 2.3rem);
             margin-top: 0.5rem;
             margin-bottom: 1rem;
         }
@@ -339,7 +341,6 @@
             font-size: 0.95rem;
         }
 
-        /* CONTACT SECTION WITH FORM */
         .contact-section {
             background: var(--white);
             border: 1px solid var(--border);
@@ -372,10 +373,12 @@
             font-size: 0.95rem;
             outline: none;
             transition: border-color 0.3s;
+            background: var(--bg-light);
         }
 
         .form-group input:focus, .form-group textarea:focus {
             border-color: var(--accent);
+            background: var(--white);
         }
 
         .form-group textarea {
@@ -399,6 +402,7 @@
             text-align: center;
             font-size: 0.95rem;
             color: var(--text-muted);
+            word-break: break-word;
         }
 
         .email-link {
@@ -411,140 +415,6 @@
             text-decoration: underline;
         }
 
-        /* FLOATING AI CHATBOT ICON & WIDGET */
-        .ai-float-container {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 9999;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .ai-float-btn {
-            background: var(--accent);
-            color: var(--white);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            cursor: pointer;
-            box-shadow: 0 4px 14px var(--accent-glow);
-            transition: transform 0.3s, background 0.3s;
-        }
-
-        .ai-float-btn:hover {
-            background: var(--accent-hover);
-            transform: scale(1.05);
-        }
-
-        .ai-chat-window {
-            position: absolute;
-            bottom: 75px;
-            right: 0;
-            width: 350px;
-            height: 420px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .ai-chat-window.active {
-            display: flex;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .ai-chat-header {
-            background: var(--primary);
-            color: var(--white);
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .ai-chat-close {
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        .ai-chat-messages {
-            flex: 1;
-            padding: 1rem;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            font-size: 0.9rem;
-            background: var(--bg-light);
-        }
-
-        .chat-msg {
-            max-width: 85%;
-            padding: 0.7rem 1rem;
-            border-radius: 8px;
-            line-height: 1.4;
-        }
-
-        .chat-msg.bot {
-            background: var(--white);
-            color: var(--text-main);
-            border: 1px solid var(--border);
-            align-self: flex-start;
-        }
-
-        .chat-msg.user {
-            background: var(--accent);
-            color: var(--white);
-            align-self: flex-end;
-        }
-
-        .ai-chat-input-area {
-            display: flex;
-            border-top: 1px solid var(--border);
-            background: var(--white);
-        }
-
-        .ai-chat-input-area input {
-            flex: 1;
-            border: none;
-            padding: 0.8rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            outline: none;
-        }
-
-        .ai-chat-input-area button {
-            background: var(--accent);
-            color: var(--white);
-            border: none;
-            padding: 0 1.2rem;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .ai-chat-input-area button:hover {
-            background: var(--accent-hover);
-        }
-
         footer {
             background: var(--primary);
             color: #94a3b8;
@@ -555,11 +425,8 @@
             margin-top: 5rem;
         }
 
-        /* MEDIA QUERIES */
+        /* MEDIA QUERIES PER RESPONSIVITÀ COMPLETA */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -567,51 +434,67 @@
         }
 
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 1.2rem;
+            }
+
             .mobile-menu-btn {
                 display: block;
             }
+            
             .nav-right {
                 position: fixed;
-                top: 70px;
+                top: 65px;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 70px);
+                height: calc(100vh - 65px);
                 background: var(--primary);
                 flex-direction: column;
                 justify-content: flex-start;
-                padding-top: 2rem;
+                padding-top: 2.5rem;
                 transition: left 0.3s ease;
-                gap: 1.5rem;
+                gap: 2rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
             }
+
             .nav-right.active {
                 left: 0;
             }
+
             .nav-links {
                 flex-direction: column;
                 gap: 1.5rem;
                 width: 100%;
                 text-align: center;
             }
+            
             .nav-links a {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
                 display: block;
                 padding: 0.5rem;
             }
+
             .hero {
-                padding: 5rem 1rem;
+                padding: 5rem 1.2rem;
             }
-            .hero h1 {
-                font-size: 2rem;
-            }
+
             .container {
-                padding: 3rem 1rem;
+                padding: 3rem 1.2rem;
             }
+
+            .control-room-section {
+                padding: 3rem 1.5rem;
+                margin: 2rem 0;
+            }
+
             .contact-section {
-                padding: 2.5rem 1.5rem;
+                padding: 2.5rem 1.2rem;
             }
-            .ai-chat-window {
-                width: 300px;
-                right: -10px;
+        }
+        
+        @media (max-width: 480px) {
+            .about-card, .feature-box, .card {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -621,7 +504,7 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo">AI SERVICE <span>GROUP</span></a>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
             <div class="nav-right" id="navMenu">
                 <ul class="nav-links">
                     <li><a href="#chisiamo" data-i18n="nav_about" onclick="closeMenu()">Chi Siamo</a></li>
@@ -630,7 +513,7 @@
                     <li><a href="#contatti" class="nav-cta" data-i18n="nav_contact" onclick="closeMenu()">Contattaci</a></li>
                 </ul>
                 <div class="lang-selector">
-                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)" aria-label="Language Selector">
                         <option value="it">🇮🇹 Italiano</option>
                         <option value="en">🇬🇧 English</option>
                     </select>
@@ -645,7 +528,7 @@
         <a href="#contatti" class="btn" data-i18n="hero_btn">Richiedi una Consulenza Tecnica</a>
     </section>
 
-    <div class="container">
+    <main class="container">
 
         <section id="chisiamo" class="about-grid">
             <div class="about-text">
@@ -742,25 +625,7 @@
             </div>
         </section>
 
-    </div>
-
-    <!-- FLOATING AI CHATBOT WIDGET -->
-    <div class="ai-float-container">
-        <button class="ai-float-btn" onclick="toggleChatWindow()" title="Chatbot AI">🤖</button>
-        <div class="ai-chat-window" id="aiChatWindow">
-            <div class="ai-chat-header">
-                <span data-i18n="bot_title">Assistente Virtuale AISG</span>
-                <button class="ai-chat-close" onclick="toggleChatWindow()">✕</button>
-            </div>
-            <div class="ai-chat-messages" id="chatMessages">
-                <div class="chat-msg bot" data-i18n="bot_welcome">Ciao! Sono l'assistente virtuale di AI Service Group. Come posso aiutarti con i nostri sistemi di telemetria, SCADA o efficienza energetica?</div>
-            </div>
-            <div class="ai-chat-input-area">
-                <input type="text" id="chatInput" placeholder="Scrivi una domanda..." data-i18n_placeholder="bot_placeholder" onkeypress="handleChatKey(event)">
-                <button onclick="sendChatMessage()" data-i18n="bot_send">Invia</button>
-            </div>
-        </div>
-    </div>
+    </main>
 
     <footer>
         <p data-i18n="footer_text">&copy; 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it</p>
@@ -787,62 +652,6 @@
             setTimeout(() => {
                 successBox.style.display = 'none';
             }, 5000);
-        }
-
-        // GESTIONE FINESTRA CHAT FLOTTANTE
-        function toggleChatWindow() {
-            const chatWindow = document.getElementById('aiChatWindow');
-            chatWindow.classList.toggle('active');
-        }
-
-        function handleChatKey(event) {
-            if (event.key === 'Enter') {
-                sendChatMessage();
-            }
-        }
-
-        function sendChatMessage() {
-            const inputField = document.getElementById('chatInput');
-            const messageText = inputField.value.trim();
-            if (!messageText) return;
-
-            const chatMessages = document.getElementById('chatMessages');
-
-            const userMsg = document.createElement('div');
-            userMsg.className = 'chat-msg user';
-            userMsg.textContent = messageText;
-            chatMessages.appendChild(userMsg);
-
-            inputField.value = '';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            setTimeout(() => {
-                const currentLang = document.documentElement.lang || 'it';
-                const botMsg = document.createElement('div');
-                botMsg.className = 'chat-msg bot';
-                
-                const lowerText = messageText.toLowerCase();
-                if (currentLang === 'en') {
-                    if (lowerText.includes('price') || lowerText.includes('cost') || lowerText.includes('quanto')) {
-                        botMsg.textContent = "Our services are modular, starting from custom IoT/telemetry setups to advanced SCADA systems. Contact us for a tailored quote!";
-                    } else if (lowerText.includes('energy') || lowerText.includes('energetica')) {
-                        botMsg.textContent = "We specialize in real-time energy load monitoring, consumption telemetry, and predictive waste prevention.";
-                    } else {
-                        botMsg.textContent = "Thanks for your question! For specific technical architectures, feel free to email our engineering team at info@aiservicegroup.it.";
-                    }
-                } else {
-                    if (lowerText.includes('prezzo') || lowerText.includes('costo') || lowerText.includes('quanto costa')) {
-                        botMsg.textContent = "I nostri interventi partono da soluzioni di telemetria e monitoraggio personalizzate per ogni impianto. Contattaci per un'analisi tecnica e un preventivo mirato!";
-                    } else if (lowerText.includes('energia') || lowerText.includes('efficienza') || lowerText.includes('consumi')) {
-                        botMsg.textContent = "Realizziamo sistemi di monitoraggio energetico in tempo reale e telemetria dei carichi per azzerare gli sprechi su impianti complessi.";
-                    } else {
-                        botMsg.textContent = "Grazie per la domanda! Per progetti di automazione o architetture custom, ti consiglio di compilare il modulo nella sezione contatti o scriverci a info@aiservicegroup.it.";
-                    }
-                }
-
-                chatMessages.appendChild(botMsg);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 600);
         }
 
         const translations = {
@@ -887,10 +696,6 @@
                 form_msg: "Messaggio o progetto",
                 form_btn: "Invia Richiesta",
                 form_success: "Messaggio inviato con successo! Ti risponderemo presto.",
-                bot_title: "Assistente Virtuale AISG",
-                bot_welcome: "Ciao! Sono l'assistente virtuale di AI Service Group. Come posso aiutarti con i nostri sistemi di telemetria, SCADA o efficienza energetica?",
-                bot_placeholder: "Scrivi una domanda...",
-                bot_send: "Invia",
                 email_direct_text: "Preferisci scrivere direttamente? Contattaci via email:",
                 footer_text: "© 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it"
             },
@@ -935,10 +740,6 @@
                 form_msg: "Message or Project Details",
                 form_btn: "Send Request",
                 form_success: "Message sent successfully! We will get back to you soon.",
-                bot_title: "AISG Virtual Assistant",
-                bot_welcome: "Hello! I am AI Service Group's virtual assistant. How can I help you with our telemetry, SCADA, or energy efficiency systems?",
-                bot_placeholder: "Type a question...",
-                bot_send: "Send",
                 email_direct_text: "Prefer writing directly? Contact us via email:",
                 footer_text: "© 2026 AI Service Group (aisg) - All rights reserved. | aiservicegroup.it"
             }
@@ -958,11 +759,6 @@
                     }
                 }
             });
-
-            const chatInput = document.getElementById('chatInput');
-            if (dictionary['bot_placeholder']) {
-                chatInput.placeholder = dictionary['bot_placeholder'];
-            }
 
             document.documentElement.lang = lang;
         }
