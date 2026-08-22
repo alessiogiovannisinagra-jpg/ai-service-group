@@ -339,29 +339,15 @@
             font-size: 0.95rem;
         }
 
-        /* CONTACT SECTION WITH FORM & AI BOT */
+        /* CONTACT SECTION WITH FORM */
         .contact-section {
             background: var(--white);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 4rem 3rem;
-            max-width: 1000px;
+            max-width: 700px;
             margin: 0 auto;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-            margin-top: 2rem;
-        }
-
-        .contact-form-wrapper h3, .ai-bot-wrapper h3 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
         }
 
         .form-group {
@@ -394,7 +380,7 @@
 
         .form-group textarea {
             resize: vertical;
-            height: 100px;
+            height: 120px;
         }
 
         .form-success {
@@ -408,15 +394,95 @@
             text-align: center;
         }
 
-        /* AI CHATBOT STYLING */
-        .ai-chat-box {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 8px;
+        .email-direct {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .email-link {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        /* FLOATING AI CHATBOT ICON & WIDGET */
+        .ai-float-container {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .ai-float-btn {
+            background: var(--accent);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            cursor: pointer;
+            box-shadow: 0 4px 14px var(--accent-glow);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .ai-float-btn:hover {
+            background: var(--accent-hover);
+            transform: scale(1.05);
+        }
+
+        .ai-chat-window {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            width: 350px;
+            height: 420px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+            display: none;
             flex-direction: column;
-            height: 320px;
             overflow: hidden;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .ai-chat-window.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ai-chat-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .ai-chat-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
         }
 
         .ai-chat-messages {
@@ -427,6 +493,7 @@
             flex-direction: column;
             gap: 0.8rem;
             font-size: 0.9rem;
+            background: var(--bg-light);
         }
 
         .chat-msg {
@@ -478,23 +545,6 @@
             background: var(--accent-hover);
         }
 
-        .email-direct {
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        .email-link {
-            color: var(--accent);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .email-link:hover {
-            text-decoration: underline;
-        }
-
         footer {
             background: var(--primary);
             color: #94a3b8;
@@ -510,7 +560,7 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            .about-grid, .contact-grid {
+            .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
@@ -558,6 +608,10 @@
             }
             .contact-section {
                 padding: 2.5rem 1.5rem;
+            }
+            .ai-chat-window {
+                width: 300px;
+                right: -10px;
             }
         }
     </style>
@@ -660,46 +714,26 @@
         <section id="contatti">
             <div class="contact-section">
                 <div class="section-header" style="margin-bottom: 2rem;">
-                    <h2 data-i18n="contact_heading">Parla con i nostri ingegneri o chiedi al nostro Bot AI</h2>
-                    <p data-i18n="contact_desc">Invia una richiesta formale tramite il modulo oppure interagisci con il nostro assistente virtuale per risposte immediate sui nostri servizi.</p>
+                    <h2 data-i18n="contact_heading">Parla con i nostri ingegneri</h2>
+                    <p data-i18n="contact_desc">Hai un progetto di automazione o efficienza energetica da sviluppare? Inviaci una richiesta formale tramite il modulo.</p>
                 </div>
 
-                <div class="contact-grid">
-                    <!-- FORM DI CONTATTO -->
-                    <div class="contact-form-wrapper">
-                        <h3 data-i18n="form_title">Invia un messaggio</h3>
-                        <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                            <div class="form-group">
-                                <label for="name" data-i18n="form_name">Nome e Cognome / Azienda</label>
-                                <input type="text" id="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" data-i18n="form_email">Email</label>
-                                <input type="email" id="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" data-i18n="form_msg">Messaggio o progetto</label>
-                                <textarea id="message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn" style="width: 100%;" data-i18n="form_btn">Invia Richiesta</button>
-                            <div id="formSuccess" class="form-success" data-i18n="form_success">Messaggio inviato con successo! Ti risponderemo presto.</div>
-                        </form>
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="name" data-i18n="form_name">Nome e Cognome / Azienda</label>
+                        <input type="text" id="name" required>
                     </div>
-
-                    <!-- BOT AI ASSISTANT -->
-                    <div class="ai-bot-wrapper">
-                        <h3 data-i18n="bot_title">Assistente Virtuale AISG</h3>
-                        <div class="ai-chat-box">
-                            <div class="ai-chat-messages" id="chatMessages">
-                                <div class="chat-msg bot" data-i18n="bot_welcome">Ciao! Sono l'assistente virtuale di AI Service Group. Come posso aiutarti con i nostri sistemi di telemetria, SCADA o efficienza energetica?</div>
-                            </div>
-                            <div class="ai-chat-input-area">
-                                <input type="text" id="chatInput" placeholder="Scrivi una domanda..." data-i18n_placeholder="bot_placeholder" onkeypress="handleChatKey(event)">
-                                <button onclick="sendChatMessage()" data-i18n="bot_send">Invia</button>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n="form_email">Email</label>
+                        <input type="email" id="email" required>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="form_msg">Messaggio o progetto</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;" data-i18n="form_btn">Invia Richiesta</button>
+                    <div id="formSuccess" class="form-success" data-i18n="form_success">Messaggio inviato con successo! Ti risponderemo presto.</div>
+                </form>
 
                 <div class="email-direct">
                     <span data-i18n="email_direct_text">Preferisci scrivere direttamente? Contattaci via email:</span> 
@@ -708,6 +742,24 @@
             </div>
         </section>
 
+    </div>
+
+    <!-- FLOATING AI CHATBOT WIDGET -->
+    <div class="ai-float-container">
+        <button class="ai-float-btn" onclick="toggleChatWindow()" title="Chatbot AI">🤖</button>
+        <div class="ai-chat-window" id="aiChatWindow">
+            <div class="ai-chat-header">
+                <span data-i18n="bot_title">Assistente Virtuale AISG</span>
+                <button class="ai-chat-close" onclick="toggleChatWindow()">✕</button>
+            </div>
+            <div class="ai-chat-messages" id="chatMessages">
+                <div class="chat-msg bot" data-i18n="bot_welcome">Ciao! Sono l'assistente virtuale di AI Service Group. Come posso aiutarti con i nostri sistemi di telemetria, SCADA o efficienza energetica?</div>
+            </div>
+            <div class="ai-chat-input-area">
+                <input type="text" id="chatInput" placeholder="Scrivi una domanda..." data-i18n_placeholder="bot_placeholder" onkeypress="handleChatKey(event)">
+                <button onclick="sendChatMessage()" data-i18n="bot_send">Invia</button>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -737,7 +789,12 @@
             }, 5000);
         }
 
-        // LOGICA BOT AI SEMPLIFICATA
+        // GESTIONE FINESTRA CHAT FLOTTANTE
+        function toggleChatWindow() {
+            const chatWindow = document.getElementById('aiChatWindow');
+            chatWindow.classList.toggle('active');
+        }
+
         function handleChatKey(event) {
             if (event.key === 'Enter') {
                 sendChatMessage();
@@ -751,7 +808,6 @@
 
             const chatMessages = document.getElementById('chatMessages');
 
-            // Aggiungi messaggio utente
             const userMsg = document.createElement('div');
             userMsg.className = 'chat-msg user';
             userMsg.textContent = messageText;
@@ -760,7 +816,6 @@
             inputField.value = '';
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            // Simula risposta del Bot AI in base alla lingua corrente
             setTimeout(() => {
                 const currentLang = document.documentElement.lang || 'it';
                 const botMsg = document.createElement('div');
@@ -781,7 +836,7 @@
                     } else if (lowerText.includes('energia') || lowerText.includes('efficienza') || lowerText.includes('consumi')) {
                         botMsg.textContent = "Realizziamo sistemi di monitoraggio energetico in tempo reale e telemetria dei carichi per azzerare gli sprechi su impianti complessi.";
                     } else {
-                        botMsg.textContent = "Grazie per la domanda! Per progetti di automazione o architetture custom, ti consiglio di compilare il modulo o scriverci a info@aiservicegroup.it.";
+                        botMsg.textContent = "Grazie per la domanda! Per progetti di automazione o architetture custom, ti consiglio di compilare il modulo nella sezione contatti o scriverci a info@aiservicegroup.it.";
                     }
                 }
 
@@ -825,9 +880,8 @@
                 cr_feat2_desc: "Notifiche istantanee via webhook o sistemi dedicati per blocchi impianto, anomalie termiche o picchi di consumo energetico.",
                 cr_feat3_title: "Interfacce HMI Semplificate",
                 cr_feat3_desc: "Pannelli operatore touch o web-app locali progettate su misura per il controllo diretto, senza complessità superflue.",
-                contact_heading: "Parla con i nostri ingegneri o chiedi al nostro Bot AI",
-                contact_desc: "Invia una richiesta formale tramite il modulo oppure interagisci con il nostro assistente virtuale per risposte immediate sui nostri servizi.",
-                form_title: "Invia un messaggio",
+                contact_heading: "Parla con i nostri ingegneri",
+                contact_desc: "Hai un progetto di automazione o efficienza energetica da sviluppare? Inviaci una richiesta formale tramite il modulo.",
                 form_name: "Nome e Cognome / Azienda",
                 form_email: "Email",
                 form_msg: "Messaggio o progetto",
@@ -874,9 +928,8 @@
                 cr_feat2_desc: "Instant notifications via webhooks or dedicated systems for plant stalls, thermal anomalies, or energy consumption spikes.",
                 cr_feat3_title: "Simplified HMI Interfaces",
                 cr_feat3_desc: "Touch operator panels or local web apps tailored specifically for direct control, free of unnecessary complexity.",
-                contact_heading: "Talk to Our Engineers or Ask Our AI Bot",
-                contact_desc: "Send a formal request using the form or interact with our virtual assistant for immediate answers regarding our services.",
-                form_title: "Send a Message",
+                contact_heading: "Talk to Our Engineers",
+                contact_desc: "Do you have an automation or energy efficiency project to develop? Send us a formal request using the form below.",
                 form_name: "Full Name / Company",
                 form_email: "Email",
                 form_msg: "Message or Project Details",
@@ -906,7 +959,6 @@
                 }
             });
 
-            // Gestione placeholder input chat
             const chatInput = document.getElementById('chatInput');
             if (dictionary['bot_placeholder']) {
                 chatInput.placeholder = dictionary['bot_placeholder'];
