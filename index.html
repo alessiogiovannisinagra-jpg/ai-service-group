@@ -283,64 +283,6 @@
             font-size: 0.95rem;
         }
 
-        .control-room-section {
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 16px;
-            padding: 5rem 3rem;
-            margin: 4rem 0;
-        }
-
-        .control-room-header {
-            max-width: 800px;
-            margin-bottom: 3rem;
-        }
-
-        .control-room-header span {
-            color: var(--accent);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.85rem;
-        }
-
-        .control-room-header h2 {
-            color: var(--white);
-            font-size: clamp(1.8rem, 4vw, 2.3rem);
-            margin-top: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .control-room-header p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-        }
-
-        .control-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .feature-box h4 {
-            color: var(--white);
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .feature-box p {
-            color: #94a3b8;
-            font-size: 0.95rem;
-        }
-
         .contact-section {
             background: var(--white);
             border: 1px solid var(--border);
@@ -482,18 +424,13 @@
                 padding: 3rem 1.2rem;
             }
 
-            .control-room-section {
-                padding: 3rem 1.5rem;
-                margin: 2rem 0;
-            }
-
             .contact-section {
                 padding: 2.5rem 1.2rem;
             }
         }
         
         @media (max-width: 480px) {
-            .about-card, .feature-box, .card {
+            .about-card, .card {
                 padding: 1.5rem;
             }
         }
@@ -509,7 +446,6 @@
                 <ul class="nav-links">
                     <li><a href="#chisiamo" data-i18n="nav_about" onclick="closeMenu()">Chi Siamo</a></li>
                     <li><a href="#ambiti" data-i18n="nav_sectors" onclick="closeMenu()">Ambiti</a></li>
-                    <li><a href="#controlroom" data-i18n="nav_controlroom" onclick="closeMenu()">Telemetria & SCADA</a></li>
                     <li><a href="#contatti" class="nav-cta" data-i18n="nav_contact" onclick="closeMenu()">Contattaci</a></li>
                 </ul>
                 <div class="lang-selector">
@@ -567,29 +503,6 @@
                 <div class="card">
                     <h3 data-i18n="sec3_title">Sistemi di Logging & Certificazione Dati</h3>
                     <p data-i18n="sec3_desc">Sviluppo di registri digitali automatici per la tracciabilità puntuale e la verifica costante dei parametri operativi sul campo.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="controlroom" class="control-room-section">
-            <div class="control-room-header">
-                <span data-i18n="cr_tag">Tecnologia SCADA & Log</span>
-                <h2 data-i18n="cr_heading">Dati Verificabili e Controllo Centralizzato</h2>
-                <p data-i18n="cr_desc">Un sistema di supervisione leggero e affidabile che raccoglie costantemente i dati dagli impianti, salvandoli in registri sicuri e inviando allerte immediate in caso di anomalie.</p>
-            </div>
-
-            <div class="control-grid">
-                <div class="feature-box">
-                    <h4 data-i18n="cr_feat1_title">Acquisizione Dati Locale</h4>
-                    <p data-i18n="cr_feat1_desc">Registrazione automatica di ogni azione e ciclo operativo su file di log strutturati, garantendo tracciabilità totale e trasparente.</p>
-                </div>
-                <div class="feature-box">
-                    <h4 data-i18n="cr_feat2_title">Allerte in Tempo Reale</h4>
-                    <p data-i18n="cr_feat2_desc">Notifiche istantanee via webhook o sistemi dedicati per blocchi impianto, anomalie termiche o picchi di consumo energetico.</p>
-                </div>
-                <div class="feature-box">
-                    <h4 data-i18n="cr_feat3_title">Interfacce HMI Semplificate</h4>
-                    <p data-i18n="cr_feat3_desc">Pannelli operatore touch o web-app locali progettate su misura per il controllo diretto, senza complessità superflue.</p>
                 </div>
             </div>
         </section>
@@ -659,7 +572,6 @@
                 title: "AI Service Group | Automazione, Efficienza Energetica e Telemetria",
                 nav_about: "Chi Siamo",
                 nav_sectors: "Ambiti",
-                nav_controlroom: "Telemetria & SCADA",
                 nav_contact: "Contattaci",
                 hero_title: "Automazione, Efficienza Energetica e Telemetria Avanzata",
                 hero_desc: "Ingegneria dei sistemi applicata al monitoraggio energetico, al controllo logico di processo e alla certificazione digitale dei dati operativi per impianti complessi.",
@@ -680,15 +592,6 @@
                 sec2_desc: "Controllo logico avanzato di macchinari, linee di pompaggio, valvole e attuatori industriali per una gestione autonoma e sicura dei cicli.",
                 sec3_title: "Sistemi di Logging & Certificazione Dati",
                 sec3_desc: "Sviluppo di registri digitali automatici per la tracciabilità puntuale e la verifica costante dei parametri operativi sul campo.",
-                cr_tag: "Tecnologia SCADA & Log",
-                cr_heading: "Dati Verificabili e Controllo Centralizzato",
-                cr_desc: "Un sistema di supervisione leggero e affidabile che raccoglie costantemente i dati dagli impianti, salvandoli in registri sicuri e inviando allerte immediate in caso di anomalie.",
-                cr_feat1_title: "Acquisizione Dati Locale",
-                cr_feat1_desc: "Registrazione automatica di ogni azione e ciclo operativo su file di log strutturati, garantendo tracciabilità totale e trasparente.",
-                cr_feat2_title: "Allerte in Tempo Reale",
-                cr_feat2_desc: "Notifiche istantanee via webhook o sistemi dedicati per blocchi impianto, anomalie termiche o picchi di consumo energetico.",
-                cr_feat3_title: "Interfacce HMI Semplificate",
-                cr_feat3_desc: "Pannelli operatore touch o web-app locali progettate su misura per il controllo diretto, senza complessità superflue.",
                 contact_heading: "Parla con i nostri ingegneri",
                 contact_desc: "Hai un progetto di automazione o efficienza energetica da sviluppare? Inviaci una richiesta formale tramite il modulo.",
                 form_name: "Nome e Cognome / Azienda",
@@ -703,7 +606,6 @@
                 title: "AI Service Group | Automation, Energy Efficiency & Telemetry",
                 nav_about: "About Us",
                 nav_sectors: "Domains",
-                nav_controlroom: "Telemetry & SCADA",
                 nav_contact: "Contact Us",
                 hero_title: "Automation, Energy Efficiency & Advanced Telemetry",
                 hero_desc: "Systems engineering applied to energy monitoring, process logic control, and digital certification of operational data for complex plants.",
@@ -724,15 +626,6 @@
                 sec2_desc: "Advanced logic control for machinery, pumping lines, valves, and industrial actuators for autonomous and secure cycle management.",
                 sec3_title: "Logging Systems & Data Certification",
                 sec3_desc: "Development of automatic digital registers for precise traceability and constant verification of operational parameters in the field.",
-                cr_tag: "SCADA & Log Technology",
-                cr_heading: "Verifiable Data and Centralized Control",
-                cr_desc: "A lightweight and reliable supervision system that continuously collects plant data, saving it to secure logs and sending immediate alerts for anomalies.",
-                cr_feat1_title: "Local Data Acquisition",
-                cr_feat1_desc: "Automatic recording of every action and operational cycle on structured log files, ensuring total and transparent traceability.",
-                cr_feat2_title: "Real-Time Alerts",
-                cr_feat2_desc: "Instant notifications via webhooks or dedicated systems for plant stalls, thermal anomalies, or energy consumption spikes.",
-                cr_feat3_title: "Simplified HMI Interfaces",
-                cr_feat3_desc: "Touch operator panels or local web apps tailored specifically for direct control, free of unnecessary complexity.",
                 contact_heading: "Talk to Our Engineers",
                 contact_desc: "Do you have an automation or energy efficiency project to develop? Send us a formal request using the form below.",
                 form_name: "Full Name / Company",
