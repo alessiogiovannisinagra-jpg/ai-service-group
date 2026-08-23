@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title">AI Service Group | Efficienza Energetica Industriale a Risultato</title>
+    <title>AI Service Group | Efficienza Energetica e Automazione Industriale</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -219,7 +219,6 @@
             margin: 0 auto;
         }
 
-        /* SEZIONE MODELLO A RISULTATO */
         .model-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -258,6 +257,62 @@
         .model-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
+        }
+
+        /* NUOVA SEZIONE: IMPIANTI ESISTENTI VS NUOVI IMPIANTI */
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .scenario-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .scenario-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .scenario-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.98rem;
+        }
+
+        .scenario-card ul {
+            list-style: none;
+        }
+
+        .scenario-card li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .scenario-card li:last-child {
+            border-bottom: none;
+        }
+
+        .scenario-card li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 800;
         }
 
         .about-grid {
@@ -418,6 +473,102 @@
             text-decoration: underline;
         }
 
+        .legal-section {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            text-align: left;
+        }
+
+        .legal-section h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .legal-section h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .legal-section p, .legal-section ul {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .legal-section ul {
+            padding-left: 1.5rem;
+        }
+
+        .legal-section li {
+            margin-bottom: 0.4rem;
+        }
+
+        #cookieBanner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.2rem 2rem;
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            border-top: 2px solid var(--accent);
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+        }
+
+        #cookieBanner p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin: 0;
+        }
+
+        #cookieBanner a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .cookie-btn {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.3s;
+        }
+
+        .cookie-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .cookie-btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .cookie-btn-secondary:hover {
+            border-color: var(--white);
+        }
+
         footer {
             background: var(--primary);
             color: #94a3b8;
@@ -428,11 +579,36 @@
             margin-top: 5rem;
         }
 
-        /* MEDIA QUERIES */
+        .footer-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
         @media (max-width: 992px) {
-            .about-grid {
+            .about-grid, .scenarios-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+            #cookieBanner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .cookie-buttons {
+                width: 100%;
+                justify-content: flex-end;
             }
         }
 
@@ -485,14 +661,8 @@
                 padding: 3rem 1.2rem;
             }
 
-            .contact-section {
+            .contact-section, .legal-section, .scenario-card {
                 padding: 2.5rem 1.2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .about-card, .card, .model-card {
-                padding: 1.5rem;
             }
         }
     </style>
@@ -505,10 +675,11 @@
             <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
             <div class="nav-right" id="navMenu">
                 <ul class="nav-links">
-                    <li><a href="#modello" data-i18n="nav_model" onclick="closeMenu()">Il Modello</a></li>
-                    <li><a href="#chisiamo" data-i18n="nav_about" onclick="closeMenu()">Chi Siamo</a></li>
-                    <li><a href="#ambiti" data-i18n="nav_sectors" onclick="closeMenu()">Ambiti</a></li>
-                    <li><a href="#contatti" class="nav-cta" data-i18n="nav_contact" onclick="closeMenu()">Richiedi Audit</a></li>
+                    <li><a href="#modello">Il Modello</a></li>
+                    <li><a href="#soluzioni">Soluzioni</a></li>
+                    <li><a href="#chisiamo">Chi Siamo</a></li>
+                    <li><a href="#privacy">Privacy & Cookie</a></li>
+                    <li><a href="#contatti" class="nav-cta">Richiedi Audit</a></li>
                 </ul>
                 <div class="lang-selector">
                     <select id="languageSelect" onchange="changeLanguage(this.value)" aria-label="Language Selector">
@@ -521,107 +692,165 @@
     </header>
 
     <section class="hero">
-        <div class="hero-badge" data-i18n="hero_badge">Ottimizzazione Industriale a Rischio Zero</div>
-        <h1 data-i18n="hero_title">Ottimizziamo i tuoi macchinari esistenti.<br><span>Paghi solo sul risparmio generato.</span></h1>
-        <p data-i18n="hero_desc">Nessun costo fisso di consulenza o macchinari nuovi da comprare. Analizziamo i processi produttivi isolati, tracciamo gli sprechi energetici e integriamo logiche di controllo per tagliare i costi in bolletta.</p>
-        <a href="#contatti" class="btn" data-i18n="hero_btn">Analizza il tuo impianto</a>
+        <div class="hero-badge">Ingegneria Industriale a Risultato</div>
+        <h1>Ottimizziamo i tuoi macchinari o progettiamo il tuo nuovo impianto.<br><span>Soluzioni su misura per ogni fase aziendale.</span></h1>
+        <p>Dal revamping energetico di linee esistenti con modello a risultato (paghi solo sul risparmio), allo sviluppo completo dell'automazione e telemetria per nuovi impianti produttivi.</p>
+        <a href="#contatti" class="btn">Parla con i nostri ingegneri</a>
     </section>
 
     <main class="container">
 
-        <!-- SEZIONE MODELLO A RISULTATO -->
+        <!-- MODELLO A RISULTATO -->
         <section id="modello">
             <div class="section-header">
-                <h2 data-i18n="model_heading">Un approccio basato sui fatti</h2>
-                <p data-i18n="model_desc">Non vendiamo promesse o consulenze a scatola chiusa. Lavoriamo sui tuoi impianti attuali con un modello di business trasparente.</p>
+                <h2>Un approccio basato sui fatti</h2>
+                <p>Non vendiamo promesse o consulenze a scatola chiusa. Lavoriamo sui tuoi impianti con un modello di business trasparente.</p>
             </div>
 
             <div class="model-grid">
                 <div class="model-card">
                     <div class="step-num">01</div>
-                    <h3 data-i18n="model_1_title">Zero Costi Fissi</h3>
-                    <p data-i18n="model_1_desc">Non devi investire budget aziendali incerti. Valorizziamo l'infrastruttura e i macchinari che hai già in azienda senza esborsi iniziali.</p>
+                    <h3>Zero Costi Fissi</h3>
+                    <p>Non devi investire budget aziendali incerti. Valorizziamo l'infrastruttura e i macchinari senza esborsi iniziali gravosi.</p>
                 </div>
                 <div class="model-card highlight">
                     <div class="step-num">02</div>
-                    <h3 data-i18n="model_2_title">Pagamento sul Risparmio</h3>
-                    <p data-i18n="model_2_desc">Se a fine mese la bolletta energetica scende grazie al nostro intervento, una quota concordata di quel risparmio è il nostro compenso. Se non risparmi, non ci dai nulla.</p>
+                    <h3>Pagamento sul Risparmio</h3>
+                    <p>Se a fine mese la bolletta energetica scende grazie al nostro intervento, una quota concordata di quel risparmio è il nostro compenso. Se non risparmi, non ci dai nulla.</p>
                 </div>
                 <div class="model-card">
                     <div class="step-num">03</div>
-                    <h3 data-i18n="model_3_title">Dati Verificabili</h3>
-                    <p data-i18n="model_3_desc">Ogni intervento si basa su telemetria e registri automatici dei dati, garantendo la misurabilità matematica del vantaggio economico ottenuto.</p>
+                    <h3>Dati Verificabili</h3>
+                    <p>Ogni intervento si basa su telemetria e registri automatici dei dati, garantendo la misurabilità matematica del vantaggio economico ottenuto.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUOVA SEZIONE: IMPIANTI ESISTENTI VS NUOVA PRODUZIONE -->
+        <section id="soluzioni">
+            <div class="section-header">
+                <h2>In quale fase si trova la tua azienda?</h2>
+                <p>Che tu debba correggere le inefficienze di una linea attiva o progettare un sistema da zero, copriamo l'intero ciclo ingegneristico.</p>
+            </div>
+
+            <div class="scenarios-grid">
+                <div class="scenario-card">
+                    <h3>🏭 Se hai già un impianto produttivo</h3>
+                    <p>Interveniamo sui macchinari attuali per sbloccare il potenziale inespresso e tagliare i costi operativi nascosti.</p>
+                    <ul>
+                        <li>Audit energetico e rilevazione picchi di consumo</li>
+                        <li>Eliminazione dei tempi morti tra cicli di lavoro</li>
+                        <li>Integrazione di telemetria e logica di controllo</li>
+                        <li>Modello di pagamento basato unicamente sul risparmio</li>
+                    </ul>
+                </div>
+
+                <div class="scenario-card">
+                    <h3>🚀 Se vuoi partire da zero</h3>
+                    <p>Progettiamo l'intera architettura di automazione e monitoraggio fin dalla fase di concezione della nuova linea o impianto.</p>
+                    <ul>
+                        <li>Progettazione logica e meccatronica di processo</li>
+                        <li>Sviluppo di sistemi di data logging automatico</li>
+                        <li>Supervisione centralizzata in tempo reale</li>
+                        <li>Infrastruttura nativa orientata all'efficienza</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <section id="chisiamo" class="about-grid">
             <div class="about-text">
-                <h3 data-i18n="about_heading">Ingegneria dei Sistemi per la Produzione</h3>
-                <p data-i18n="about_p1"><strong>AI Service Group (aisg)</strong> nasce per colmare il divario tra i macchinari industriali isolati e la massima efficienza energetica. Uniamo l'automazione, le reti logiche e il monitoraggio dei dati per eliminare i tempi morti e gli sprechi nascosti nei cicli produttivi.</p>
-                <p data-i18n="about_p2">Il nostro obiettivo è fornire a ogni PMI un supporto ingegneristico operativo, concreto e mirato a risultati economici misurabili sin dal primo mese.</p>
+                <h3>Ingegneria dei Sistemi per la Produzione</h3>
+                <p><strong>AI Service Group (aisg)</strong> nasce per colmare il divario tra i macchinari industriali e la massima efficienza. Uniamo l'automazione, le reti logiche e il monitoraggio dei dati per eliminare gli sprechi nei cicli produttivi.</p>
+                <p>Il nostro obiettivo è fornire a ogni PMI un supporto ingegneristico operativo, concreto e mirato a risultati misurabili sin dal primo giorno.</p>
             </div>
             <div class="about-card">
-                <h3 data-i18n="pillars_title">Pilastri dell'Intervento</h3>
+                <h3>Pilastri dell'Intervento</h3>
                 <ul>
-                    <li><span>01.</span> <span data-i18n="pillar_1">Mappatura dei Processi Isolati</span></li>
-                    <li><span>02.</span> <span data-i18n="pillar_2">Telemetria & Data Logging Automatico</span></li>
-                    <li><span>03.</span> <span data-i18n="pillar_3">Eliminazione Picchi Energetici</span></li>
-                    <li><span>04.</span> <span data-i18n="pillar_4">Controllo Logico mirato al Risparmio</span></li>
+                    <li><span>01.</span> Mappatura dei Processi Industriali</li>
+                    <li><span>02.</span> Telemetria & Data Logging Automatico</li>
+                    <li><span>03.</span> Controllo Predittivo e Automazione</li>
+                    <li><span>04.</span> Supervisione Centralizzata in Real-Time</li>
                 </ul>
             </div>
         </section>
 
         <section id="ambiti">
             <div class="section-header">
-                <h2 data-i18n="sectors_heading">Ambiti di Intervento Impiantistico</h2>
-                <p data-i18n="sectors_desc">Soluzioni ingegneristiche mirate a ottimizzare linee di produzione, consumi energetici e flussi operativi.</p>
+                <h2>Ambiti di Intervento Impiantistico</h2>
+                <p>Soluzioni ingegneristiche mirate a ottimizzare linee di produzione, consumi energetici e flussi operativi.</p>
             </div>
 
             <div class="grid-sectors">
                 <div class="card">
-                    <h3 data-i18n="sec1_title">Efficienza Energetica su Macchinari</h3>
-                    <p data-i18n="sec1_desc">Analisi e controllo dei carichi energetici per eliminare i consumi anomali durante i cicli di lavoro e i momenti di fermo.</p>
+                    <h3>Efficienza Energetica su Macchinari</h3>
+                    <p>Analisi e controllo dei carichi energetici per eliminare i consumi anomali durante i cicli di lavoro e i momenti di fermo.</p>
                 </div>
                 
                 <div class="card">
-                    <h3 data-i18n="sec2_title">Automazione di Processi Produttivi</h3>
-                    <p data-i18n="sec2_desc">Integrazione di logiche di controllo per sincronizzare macchinari isolati e ridurre i tempi morti di lavorazione.</p>
+                    <h3>Automazione di Processi Produttivi</h3>
+                    <p>Integrazione di logiche di controllo per sincronizzare macchinari isolati e ridurre i tempi morti di lavorazione.</p>
                 </div>
                 
                 <div class="card">
-                    <h3 data-i18n="sec3_title">Tracciabilità e Telemetria dei Dati</h3>
-                    <p data-i18n="sec3_desc">Sviluppo di sistemi di log automatici per registrare in tempo reale i parametri operativi e verificare l'efficacia del sistema.</p>
+                    <h3>Tracciabilità e Telemetria dei Dati</h3>
+                    <p>Sviluppo di sistemi di log automatici per registrare in tempo reale i parametri operativi e verificare l'efficacia del sistema.</p>
                 </div>
             </div>
         </section>
 
-        <section id="contatti">
+        <section id="privacy" style="margin-top: 5rem;">
+            <div class="section-header">
+                <h2>Informativa Privacy e Cookie Policy</h2>
+                <p>Trasparenza e tutela dei dati personali ai sensi del GDPR (Regolamento UE 2016/679).</p>
+            </div>
+
+            <div class="legal-section">
+                <h3>1. Titolare del Trattamento</h3>
+                <p>Il Titolare del trattamento dei dati è AI Service Group (aisg), contattabile all'indirizzo email: <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>, con dominio di riferimento <strong>aiservicegroup.it</strong>.</p>
+
+                <h3>2. Dati Raccolti e Finalità</h3>
+                <p>I dati personali raccolti tramite il modulo di contatto (Nome, Azienda, Email, Messaggio) vengono trattati esclusivamente per:</p>
+                <ul>
+                    <li>Rispondere alle richieste di analisi tecnica o audit preliminare avanzate dall'utente.</li>
+                    <li>Gestire le comunicazioni commerciali e di consulenza industriale inerenti ai servizi offerti.</li>
+                </ul>
+                <p>I dati non saranno ceduti a terzi né diffusi, e saranno conservati per il tempo strettamente necessario a evadere le richieste.</p>
+
+                <h3>3. Cookie Policy</h3>
+                <p>Questo sito utilizza esclusivamente cookie tecnici necessari al corretto funzionamento della piattaforma (es. preferenza della lingua). Non vengono utilizzati cookie di profilazione o tracciamento pubblicitario di terze parti.</p>
+
+                <h3>4. Diritti dell'Interessato</h3>
+                <p>In qualità di utente, hai il diritto in qualunque momento di ottenere la conferma dell'esistenza dei tuoi dati, conoscerne il contenuto e l'origine, verificarne l'esattezza o chiederne l'integrazione, l'aggiornamento oppure la rettifica o la cancellazione scrivendo a <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>.</p>
+            </div>
+        </section>
+
+        <section id="contatti" style="margin-top: 5rem;">
             <div class="contact-section">
                 <div class="section-header" style="margin-bottom: 2rem;">
-                    <h2 data-i18n="contact_heading">Parla con i nostri ingegneri</h2>
-                    <p data-i18n="contact_desc">Vuoi analizzare le inefficienze della tua produzione a rischio zero? Scrivici per un primo confronto tecnico.</p>
+                    <h2>Parla con i nostri ingegneri</h2>
+                    <p>Hai un impianto da ottimizzare o una nuova linea da progettare? Scrivici per un primo confronto tecnico.</p>
                 </div>
 
                 <form id="contactForm" onsubmit="handleFormSubmit(event)">
                     <div class="form-group">
-                        <label for="name" data-i18n="form_name">Nome e Cognome / Azienda</label>
+                        <label for="name">Nome e Cognome / Azienda</label>
                         <input type="text" id="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email" data-i18n="form_email">Email</label>
+                        <label for="email">Email</label>
                         <input type="email" id="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="message" data-i18n="form_msg">Messaggio o descrizione impianto</label>
+                        <label for="message">Messaggio o descrizione del progetto</label>
                         <textarea id="message" required></textarea>
                     </div>
-                    <button type="submit" class="btn" style="width: 100%;" data-i18n="form_btn">Richiedi Analisi Preliminare</button>
-                    <div id="formSuccess" class="form-success" data-i18n="form_success">Messaggio inviato con successo! Ti risponderemo presto.</div>
+                    <button type="submit" class="btn" style="width: 100%;">Invia Richiesta di Contatto</button>
+                    <div id="formSuccess" class="form-success">Messaggio inviato con successo! Ti risponderemo presto.</div>
                 </form>
 
                 <div class="email-direct">
-                    <span data-i18n="email_direct_text">Preferisci scrivere direttamente? Contattaci via email:</span> 
+                    <span>Preferisci scrivere direttamente? Contattaci via email:</span> 
                     <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>
                 </div>
             </div>
@@ -629,8 +858,19 @@
 
     </main>
 
+    <div id="cookieBanner">
+        <p>Questo sito utilizza solo cookie tecnici per garantire la migliore esperienza di navigazione. <a href="#privacy" onclick="closeMenu()">Leggi l'informativa</a>.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-secondary" onclick="acceptCookies()">Capito</button>
+        </div>
+    </div>
+
     <footer>
-        <p data-i18n="footer_text">&copy; 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it</p>
+        <p>&copy; 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it</p>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#privacy">Cookie Policy</a>
+        </div>
     </footer>
 
     <script>
@@ -646,6 +886,18 @@
             }
         }
 
+        function acceptCookies() {
+            const banner = document.getElementById('cookieBanner');
+            banner.style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                document.getElementById('cookieBanner').style.display = 'none';
+            }
+        });
+
         function handleFormSubmit(event) {
             event.preventDefault();
             const successBox = document.getElementById('formSuccess');
@@ -656,112 +908,7 @@
             }, 5000);
         }
 
-        const translations = {
-            it: {
-                title: "AI Service Group | Efficienza Energetica Industriale a Risultato",
-                nav_model: "Il Modello",
-                nav_about: "Chi Siamo",
-                nav_sectors: "Ambiti",
-                nav_contact: "Richiedi Audit",
-                hero_badge: "Ottimizzazione Industriale a Rischio Zero",
-                hero_title: "Ottimizziamo i tuoi macchinari esistenti.<br><span>Paghi solo sul risparmio generato.</span>",
-                hero_desc: "Nessun costo fisso di consulenza o macchinari nuovi da comprare. Analizziamo i processi produttivi isolati, tracciamo gli sprechi energetici e integriamo logiche di controllo per tagliare i costi in bolletta.",
-                hero_btn: "Analizza il tuo impianto",
-                model_heading: "Un approccio basato sui fatti",
-                model_desc: "Non vendiamo promesse o consulenze a scatola chiusa. Lavoriamo sui tuoi impianti attuali con un modello di business trasparente.",
-                model_1_title: "Zero Costi Fissi",
-                model_1_desc: "Non devi investire budget aziendali incerti. Valorizziamo l'infrastruttura e i macchinari che hai già in azienda senza esborsi iniziali.",
-                model_2_title: "Pagamento sul Risparmio",
-                model_2_desc: "Se a fine mese la bolletta energetica scende grazie al nostro intervento, una quota concordata di quel risparmio è il nostro compenso. Se non risparmi, non ci dai nulla.",
-                model_3_title: "Dati Verificabili",
-                model_3_desc: "Ogni intervento si basa su telemetria e registri automatici dei dati, garantendo la misurabilità matematica del vantaggio economico ottenuto.",
-                about_heading: "Ingegneria dei Sistemi per la Produzione",
-                about_p1: "AI Service Group (aisg) nasce per colmare il divario tra i macchinari industriali isolati e la massima efficienza energetica. Uniamo l'automazione, le reti logiche e il monitoraggio dei dati per eliminare i tempi morti e gli sprechi nascosti nei cicli produttivi.",
-                about_p2: "Il nostro obiettivo è fornire a ogni PMI un supporto ingegneristico operativo, concreto e mirato a risultati economici misurabili sin dal primo mese.",
-                pillars_title: "Pilastri dell'Intervento",
-                pillar_1: "Mappatura dei Processi Isolati",
-                pillar_2: "Telemetria & Data Logging Automatico",
-                pillar_3: "Eliminazione Picchi Energetici",
-                pillar_4: "Controllo Logico mirato al Risparmio",
-                sectors_heading: "Ambiti di Intervento Impiantistico",
-                sectors_desc: "Soluzioni ingegneristiche mirate a ottimizzare linee di produzione, consumi energetici e flussi operativi.",
-                sec1_title: "Efficienza Energetica su Macchinari",
-                sec1_desc: "Analisi e controllo dei carichi energetici per eliminare i consumi anomali durante i cicli di lavoro e i momenti di fermo.",
-                sec2_title: "Automazione di Processi Produttivi",
-                sec2_desc: "Integrazione di logiche di controllo per sincronizzare macchinari isolati e ridurre i tempi morti di lavorazione.",
-                sec3_title: "Tracciabilità e Telemetria dei Dati",
-                sec3_desc: "Sviluppo di sistemi di log automatici per registrare in tempo reale i parametri operativi e verificare l'efficacia del sistema.",
-                contact_heading: "Parla con i nostri ingegneri",
-                contact_desc: "Vuoi analizzare le inefficienze della tua produzione a rischio zero? Scrivici per un primo confronto tecnico.",
-                form_name: "Nome e Cognome / Azienda",
-                form_email: "Email",
-                form_msg: "Messaggio o descrizione impianto",
-                form_btn: "Richiedi Analisi Preliminare",
-                form_success: "Messaggio inviato con successo! Ti risponderemo presto.",
-                email_direct_text: "Preferisci scrivere direttamente? Contattaci via email:",
-                footer_text: "© 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it"
-            },
-            en: {
-                title: "AI Service Group | Performance-Based Industrial Energy Efficiency",
-                nav_model: "The Model",
-                nav_about: "About Us",
-                nav_sectors: "Domains",
-                nav_contact: "Request Audit",
-                hero_badge: "Zero-Risk Industrial Optimization",
-                hero_title: "We optimize your existing machinery.<br><span>You only pay for the savings generated.</span>",
-                hero_desc: "No fixed consultancy costs or new machinery to buy. We analyze isolated production processes, track energy waste, and integrate control logic to cut your utility bills.",
-                hero_btn: "Analyze Your Plant",
-                model_heading: "A Fact-Based Approach",
-                model_desc: "We don't sell empty promises or blind consultancies. We work on your current systems with a transparent business model.",
-                model_1_title: "Zero Fixed Costs",
-                model_1_desc: "No need to risk uncertain corporate budgets. We enhance the infrastructure and machinery you already have with no upfront expenses.",
-                model_2_title: "Pay-for-Savings",
-                model_2_desc: "If your energy bill goes down thanks to our intervention, an agreed share of that savings is our fee. If you don't save, you pay nothing.",
-                model_3_title: "Verifiable Data",
-                model_3_desc: "Every intervention relies on telemetry and automated data logging, ensuring mathematical measurement of the economic benefit.",
-                about_heading: "Systems Engineering for Production",
-                about_p1: "AI Service Group (aisg) bridges the gap between isolated industrial machinery and maximum energy efficiency. We combine automation, logic networks, and data monitoring to eliminate downtime and hidden waste in production cycles.",
-                about_p2: "Our goal is to provide every SME with operational, concrete engineering support focused on measurable economic results from the very first month.",
-                pillars_title: "Intervention Pillars",
-                pillar_1: "Mapping of Isolated Processes",
-                pillar_2: "Telemetry & Automated Data Logging",
-                pillar_3: "Elimination of Energy Peaks",
-                pillar_4: "Savings-Oriented Logic Control",
-                sectors_heading: "Plant Engineering Domains",
-                sectors_desc: "Engineering solutions designed to optimize production lines, energy consumption, and operational flows.",
-                sec1_title: "Machinery Energy Efficiency",
-                sec1_desc: "Analysis and control of energy loads to eliminate abnormal consumption during work cycles and idle states.",
-                sec2_title: "Production Process Automation",
-                sec2_desc: "Integration of control logic to synchronize isolated machinery and reduce processing downtime.",
-                sec3_title: "Data Traceability & Telemetry",
-                sec3_desc: "Development of automated log systems to record real-time operational parameters and verify system effectiveness.",
-                contact_heading: "Talk to Our Engineers",
-                contact_desc: "Want to analyze your production inefficiencies at zero risk? Write to us for an initial technical consultation.",
-                form_name: "Full Name / Company",
-                form_email: "Email",
-                form_msg: "Message or plant description",
-                form_btn: "Request Preliminary Analysis",
-                form_success: "Message sent successfully! We will get back to you soon.",
-                email_direct_text: "Prefer writing directly? Contact us via email:",
-                footer_text: "© 2026 AI Service Group (aisg) - All rights reserved. | aiservicegroup.it"
-            }
-        };
-
         function changeLanguage(lang) {
-            const dictionary = translations[lang] || translations['en'];
-            
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (dictionary[key]) {
-                    if (el.tagName === 'TITLE') {
-                        document.title = dictionary[key];
-                    } else {
-                        el.innerHTML = dictionary[key];
-                    }
-                }
-            });
-
             document.documentElement.lang = lang;
         }
     </script>
