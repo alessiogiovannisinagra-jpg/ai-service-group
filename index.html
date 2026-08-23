@@ -314,6 +314,71 @@
             font-weight: 800;
         }
 
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            border-left: 6px solid var(--accent);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.3rem 0.9rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-col h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-col p {
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -472,7 +537,6 @@
             text-decoration: underline;
         }
 
-        /* TENDINA PRIVACY (ACCORDION) */
         .dropdown-container {
             max-width: 900px;
             margin: 4rem auto 0 auto;
@@ -690,7 +754,7 @@
                 padding: 3rem 1.2rem;
             }
 
-            .contact-section, .scenario-card {
+            .contact-section, .scenario-card, .project-card {
                 padding: 2.5rem 1.2rem;
             }
         }
@@ -706,6 +770,7 @@
                 <ul class="nav-links">
                     <li><a href="#modello" onclick="closeMenu()">Il Modello</a></li>
                     <li><a href="#soluzioni" onclick="closeMenu()">Soluzioni</a></li>
+                    <li><a href="#progetti" onclick="closeMenu()">Progetti</a></li>
                     <li><a href="#chisiamo" onclick="closeMenu()">Chi Siamo</a></li>
                     <li><a href="#contatti" class="nav-cta" onclick="closeMenu()">Richiedi Audit</a></li>
                 </ul>
@@ -720,6 +785,7 @@
     </header>
 
     <section class="hero">
+        <div class="hero-badge">Ingegneria Industriale a Risultato</div>
         <h1>Ottimizziamo i tuoi macchinari o progettiamo il tuo nuovo impianto.<br><span>Soluzioni su misura per ogni fase aziendale.</span></h1>
         <p>Dal revamping energetico di linee esistenti con modello a risultato (paghi solo sul risparmio), allo sviluppo completo dell'automazione e telemetria per nuovi impianti produttivi.</p>
         <a href="#contatti" class="btn">Parla con i nostri ingegneri</a>
@@ -781,6 +847,40 @@
                         <li>Supervisione centralizzata in tempo reale</li>
                         <li>Infrastruttura nativa orientata all'efficienza</li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE PROGETTI & CASI STUDIO -->
+        <section id="progetti">
+            <div class="section-header">
+                <h2>Progetti & Casi Studio</h2>
+                <p>La dimostrazione concreta di come l'ingegneria dei sistemi trasforma le inefficienze in risparmio reale misurabile.</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <span class="project-tag">Settore Imballaggi & Plastica</span>
+                            <h3>Ottimizzazione Energetica Linea Estrusione</h3>
+                        </div>
+                    </div>
+                    <p>Intervento mirato su macchinari industriali ad alto consumo energetico per ridurre i picchi operativi e azzerare i consumi anomali nei momenti di fermo temporaneo.</p>
+                    <div class="project-details">
+                        <div class="project-col">
+                            <h4>Il Problema</h4>
+                            <p>Consumi elevati e costanti sugli estrusori e tempi morti non tracciati durante i cambi formato.</p>
+                        </div>
+                        <div class="project-col">
+                            <h4>L'Intervento</h4>
+                            <p>Integrazione di moduli di telemetria e logiche di controllo intelligenti sui carichi esistenti.</p>
+                        </div>
+                        <div class="project-col">
+                            <h4>Il Risultato</h4>
+                            <p>Taglio netto dei costi in bolletta gestito con modello a risultato, zero costi fissi per l'azienda.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
