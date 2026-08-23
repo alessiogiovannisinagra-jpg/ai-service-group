@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title">AI Service Group | Automazione, Efficienza Energetica e Telemetria</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title data-i18n="title">AI Service Group | Efficienza Energetica Industriale a Risultato</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0f172a;
             --primary-light: #1e293b;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --accent-glow: rgba(37, 99, 235, 0.2);
+            --accent: #10b981;
+            --accent-hover: #059669;
+            --accent-glow: rgba(16, 185, 129, 0.2);
             --bg-light: #f8fafc;
             --text-main: #334155;
             --text-muted: #64748b;
@@ -102,7 +102,8 @@
 
         .nav-cta {
             background: var(--accent);
-            color: var(--white) !important;
+            color: var(--primary) !important;
+            font-weight: 700 !important;
             padding: 0.5rem 1.2rem;
             border-radius: 4px;
             transition: background 0.3s;
@@ -141,11 +142,30 @@
             text-align: center;
         }
 
+        .hero-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
             margin-bottom: 1.2rem;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
         }
 
         .hero p {
@@ -158,11 +178,11 @@
         .btn {
             display: inline-block;
             background: var(--accent);
-            color: var(--white);
+            color: var(--primary);
             padding: 0.9rem 2.2rem;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 14px var(--accent-glow);
@@ -186,7 +206,7 @@
         }
 
         .section-header h2 {
-            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
             color: var(--primary);
             margin-bottom: 1rem;
             font-weight: 700;
@@ -197,6 +217,47 @@
             font-size: 1.1rem;
             max-width: 700px;
             margin: 0 auto;
+        }
+
+        /* SEZIONE MODELLO A RISULTATO */
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .model-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        .model-card.highlight {
+            border: 2px solid var(--accent);
+            box-shadow: 0 10px 25px -5px var(--accent-glow);
+        }
+
+        .model-card .step-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .model-card h3 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .model-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         .about-grid {
@@ -367,7 +428,7 @@
             margin-top: 5rem;
         }
 
-        /* MEDIA QUERIES PER RESPONSIVITÀ COMPLETA */
+        /* MEDIA QUERIES */
         @media (max-width: 992px) {
             .about-grid {
                 grid-template-columns: 1fr;
@@ -430,7 +491,7 @@
         }
         
         @media (max-width: 480px) {
-            .about-card, .card {
+            .about-card, .card, .model-card {
                 padding: 1.5rem;
             }
         }
@@ -444,9 +505,10 @@
             <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
             <div class="nav-right" id="navMenu">
                 <ul class="nav-links">
+                    <li><a href="#modello" data-i18n="nav_model" onclick="closeMenu()">Il Modello</a></li>
                     <li><a href="#chisiamo" data-i18n="nav_about" onclick="closeMenu()">Chi Siamo</a></li>
                     <li><a href="#ambiti" data-i18n="nav_sectors" onclick="closeMenu()">Ambiti</a></li>
-                    <li><a href="#contatti" class="nav-cta" data-i18n="nav_contact" onclick="closeMenu()">Contattaci</a></li>
+                    <li><a href="#contatti" class="nav-cta" data-i18n="nav_contact" onclick="closeMenu()">Richiedi Audit</a></li>
                 </ul>
                 <div class="lang-selector">
                     <select id="languageSelect" onchange="changeLanguage(this.value)" aria-label="Language Selector">
@@ -459,26 +521,53 @@
     </header>
 
     <section class="hero">
-        <h1 data-i18n="hero_title">Automazione, Efficienza Energetica e Telemetria Avanzata</h1>
-        <p data-i18n="hero_desc">Ingegneria dei sistemi applicata al monitoraggio energetico, al controllo logico di processo e alla certificazione digitale dei dati operativi per impianti complessi.</p>
-        <a href="#contatti" class="btn" data-i18n="hero_btn">Richiedi una Consulenza Tecnica</a>
+        <div class="hero-badge" data-i18n="hero_badge">Ottimizzazione Industriale a Rischio Zero</div>
+        <h1 data-i18n="hero_title">Ottimizziamo i tuoi macchinari esistenti.<br><span>Paghi solo sul risparmio generato.</span></h1>
+        <p data-i18n="hero_desc">Nessun costo fisso di consulenza o macchinari nuovi da comprare. Analizziamo i processi produttivi isolati, tracciamo gli sprechi energetici e integriamo logiche di controllo per tagliare i costi in bolletta.</p>
+        <a href="#contatti" class="btn" data-i18n="hero_btn">Analizza il tuo impianto</a>
     </section>
 
     <main class="container">
 
+        <!-- SEZIONE MODELLO A RISULTATO -->
+        <section id="modello">
+            <div class="section-header">
+                <h2 data-i18n="model_heading">Un approccio basato sui fatti</h2>
+                <p data-i18n="model_desc">Non vendiamo promesse o consulenze a scatola chiusa. Lavoriamo sui tuoi impianti attuali con un modello di business trasparente.</p>
+            </div>
+
+            <div class="model-grid">
+                <div class="model-card">
+                    <div class="step-num">01</div>
+                    <h3 data-i18n="model_1_title">Zero Costi Fissi</h3>
+                    <p data-i18n="model_1_desc">Non devi investire budget aziendali incerti. Valorizziamo l'infrastruttura e i macchinari che hai già in azienda senza esborsi iniziali.</p>
+                </div>
+                <div class="model-card highlight">
+                    <div class="step-num">02</div>
+                    <h3 data-i18n="model_2_title">Pagamento sul Risparmio</h3>
+                    <p data-i18n="model_2_desc">Se a fine mese la bolletta energetica scende grazie al nostro intervento, una quota concordata di quel risparmio è il nostro compenso. Se non risparmi, non ci dai nulla.</p>
+                </div>
+                <div class="model-card">
+                    <div class="step-num">03</div>
+                    <h3 data-i18n="model_3_title">Dati Verificabili</h3>
+                    <p data-i18n="model_3_desc">Ogni intervento si basa su telemetria e registri automatici dei dati, garantendo la misurabilità matematica del vantaggio economico ottenuto.</p>
+                </div>
+            </div>
+        </section>
+
         <section id="chisiamo" class="about-grid">
             <div class="about-text">
-                <h3 data-i18n="about_heading">Ingegneria dei Sistemi per la Gestione Operativa</h3>
-                <p data-i18n="about_p1"><strong>AI Service Group (aisg)</strong> unisce le competenze della meccatronica, dell'automazione industriale e dell'Information Technology per progettare infrastrutture capaci di autoregolarsi e offrire dati verificabili in tempo reale.</p>
-                <p data-i18n="about_p2">Ogni sistema che progettiamo è pensato per massimizzare la sicurezza, ottimizzare l'efficienza energetica e azzerare i margini d'errore nella gestione dei flussi complessi.</p>
+                <h3 data-i18n="about_heading">Ingegneria dei Sistemi per la Produzione</h3>
+                <p data-i18n="about_p1"><strong>AI Service Group (aisg)</strong> nasce per colmare il divario tra i macchinari industriali isolati e la massima efficienza energetica. Uniamo l'automazione, le reti logiche e il monitoraggio dei dati per eliminare i tempi morti e gli sprechi nascosti nei cicli produttivi.</p>
+                <p data-i18n="about_p2">Il nostro obiettivo è fornire a ogni PMI un supporto ingegneristico operativo, concreto e mirato a risultati economici misurabili sin dal primo mese.</p>
             </div>
             <div class="about-card">
-                <h3 data-i18n="pillars_title">Pilastri Tecnologici</h3>
+                <h3 data-i18n="pillars_title">Pilastri dell'Intervento</h3>
                 <ul>
-                    <li><span>01.</span> <span data-i18n="pillar_1">Architetture SCADA & Telemetria</span></li>
-                    <li><span>02.</span> <span data-i18n="pillar_2">Sistemi di Log e Dati Verificabili</span></li>
-                    <li><span>03.</span> <span data-i18n="pillar_3">Controllo Predittivo e Automazione</span></li>
-                    <li><span>04.</span> <span data-i18n="pillar_4">Supervisione Centralizzata in Real-Time</span></li>
+                    <li><span>01.</span> <span data-i18n="pillar_1">Mappatura dei Processi Isolati</span></li>
+                    <li><span>02.</span> <span data-i18n="pillar_2">Telemetria & Data Logging Automatico</span></li>
+                    <li><span>03.</span> <span data-i18n="pillar_3">Eliminazione Picchi Energetici</span></li>
+                    <li><span>04.</span> <span data-i18n="pillar_4">Controllo Logico mirato al Risparmio</span></li>
                 </ul>
             </div>
         </section>
@@ -486,23 +575,23 @@
         <section id="ambiti">
             <div class="section-header">
                 <h2 data-i18n="sectors_heading">Ambiti di Intervento Impiantistico</h2>
-                <p data-i18n="sectors_desc">Soluzioni ingegneristiche mirate all'efficienza, al controllo dei carichi e alla tracciabilità dei dati industriali ed energetici.</p>
+                <p data-i18n="sectors_desc">Soluzioni ingegneristiche mirate a ottimizzare linee di produzione, consumi energetici e flussi operativi.</p>
             </div>
 
             <div class="grid-sectors">
                 <div class="card">
-                    <h3 data-i18n="sec1_title">Monitoraggio Energetico & Efficienza</h3>
-                    <p data-i18n="sec1_desc">Analisi dettagliata dei carichi, telemetria dei consumi in tempo reale e prevenzione strategica degli sprechi energetici su impianti complessi.</p>
+                    <h3 data-i18n="sec1_title">Efficienza Energetica su Macchinari</h3>
+                    <p data-i18n="sec1_desc">Analisi e controllo dei carichi energetici per eliminare i consumi anomali durante i cicli di lavoro e i momenti di fermo.</p>
                 </div>
                 
                 <div class="card">
-                    <h3 data-i18n="sec2_title">Automazione di Processo & Impianti</h3>
-                    <p data-i18n="sec2_desc">Controllo logico avanzato di macchinari, linee di pompaggio, valvole e attuatori industriali per una gestione autonoma e sicura dei cicli.</p>
+                    <h3 data-i18n="sec2_title">Automazione di Processi Produttivi</h3>
+                    <p data-i18n="sec2_desc">Integrazione di logiche di controllo per sincronizzare macchinari isolati e ridurre i tempi morti di lavorazione.</p>
                 </div>
                 
                 <div class="card">
-                    <h3 data-i18n="sec3_title">Sistemi di Logging & Certificazione Dati</h3>
-                    <p data-i18n="sec3_desc">Sviluppo di registri digitali automatici per la tracciabilità puntuale e la verifica costante dei parametri operativi sul campo.</p>
+                    <h3 data-i18n="sec3_title">Tracciabilità e Telemetria dei Dati</h3>
+                    <p data-i18n="sec3_desc">Sviluppo di sistemi di log automatici per registrare in tempo reale i parametri operativi e verificare l'efficacia del sistema.</p>
                 </div>
             </div>
         </section>
@@ -511,7 +600,7 @@
             <div class="contact-section">
                 <div class="section-header" style="margin-bottom: 2rem;">
                     <h2 data-i18n="contact_heading">Parla con i nostri ingegneri</h2>
-                    <p data-i18n="contact_desc">Hai un progetto di automazione o efficienza energetica da sviluppare? Inviaci una richiesta formale tramite il modulo.</p>
+                    <p data-i18n="contact_desc">Vuoi analizzare le inefficienze della tua produzione a rischio zero? Scrivici per un primo confronto tecnico.</p>
                 </div>
 
                 <form id="contactForm" onsubmit="handleFormSubmit(event)">
@@ -524,10 +613,10 @@
                         <input type="email" id="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="message" data-i18n="form_msg">Messaggio o progetto</label>
+                        <label for="message" data-i18n="form_msg">Messaggio o descrizione impianto</label>
                         <textarea id="message" required></textarea>
                     </div>
-                    <button type="submit" class="btn" style="width: 100%;" data-i18n="form_btn">Invia Richiesta</button>
+                    <button type="submit" class="btn" style="width: 100%;" data-i18n="form_btn">Richiedi Analisi Preliminare</button>
                     <div id="formSuccess" class="form-success" data-i18n="form_success">Messaggio inviato con successo! Ti risponderemo presto.</div>
                 </form>
 
@@ -569,69 +658,89 @@
 
         const translations = {
             it: {
-                title: "AI Service Group | Automazione, Efficienza Energetica e Telemetria",
+                title: "AI Service Group | Efficienza Energetica Industriale a Risultato",
+                nav_model: "Il Modello",
                 nav_about: "Chi Siamo",
                 nav_sectors: "Ambiti",
-                nav_contact: "Contattaci",
-                hero_title: "Automazione, Efficienza Energetica e Telemetria Avanzata",
-                hero_desc: "Ingegneria dei sistemi applicata al monitoraggio energetico, al controllo logico di processo e alla certificazione digitale dei dati operativi per impianti complessi.",
-                hero_btn: "Richiedi una Consulenza Tecnica",
-                about_heading: "Ingegneria dei Sistemi per la Gestione Operativa",
-                about_p1: "AI Service Group (aisg) unisce le competenze della meccatronica, dell'automazione industriale e dell'Information Technology per progettare infrastrutture capaci di autoregolarsi e offrire dati verificabili in tempo reale.",
-                about_p2: "Ogni sistema che progettiamo è pensato per massimizzare la sicurezza, ottimizzare l'efficienza energetica e azzerare i margini d'errore nella gestione dei flussi complessi.",
-                pillars_title: "Pilastri Tecnologici",
-                pillar_1: "Architetture SCADA & Telemetria",
-                pillar_2: "Sistemi di Log e Dati Verificabili",
-                pillar_3: "Controllo Predittivo e Automazione",
-                pillar_4: "Supervisione Centralizzata in Real-Time",
+                nav_contact: "Richiedi Audit",
+                hero_badge: "Ottimizzazione Industriale a Rischio Zero",
+                hero_title: "Ottimizziamo i tuoi macchinari esistenti.<br><span>Paghi solo sul risparmio generato.</span>",
+                hero_desc: "Nessun costo fisso di consulenza o macchinari nuovi da comprare. Analizziamo i processi produttivi isolati, tracciamo gli sprechi energetici e integriamo logiche di controllo per tagliare i costi in bolletta.",
+                hero_btn: "Analizza il tuo impianto",
+                model_heading: "Un approccio basato sui fatti",
+                model_desc: "Non vendiamo promesse o consulenze a scatola chiusa. Lavoriamo sui tuoi impianti attuali con un modello di business trasparente.",
+                model_1_title: "Zero Costi Fissi",
+                model_1_desc: "Non devi investire budget aziendali incerti. Valorizziamo l'infrastruttura e i macchinari che hai già in azienda senza esborsi iniziali.",
+                model_2_title: "Pagamento sul Risparmio",
+                model_2_desc: "Se a fine mese la bolletta energetica scende grazie al nostro intervento, una quota concordata di quel risparmio è il nostro compenso. Se non risparmi, non ci dai nulla.",
+                model_3_title: "Dati Verificabili",
+                model_3_desc: "Ogni intervento si basa su telemetria e registri automatici dei dati, garantendo la misurabilità matematica del vantaggio economico ottenuto.",
+                about_heading: "Ingegneria dei Sistemi per la Produzione",
+                about_p1: "AI Service Group (aisg) nasce per colmare il divario tra i macchinari industriali isolati e la massima efficienza energetica. Uniamo l'automazione, le reti logiche e il monitoraggio dei dati per eliminare i tempi morti e gli sprechi nascosti nei cicli produttivi.",
+                about_p2: "Il nostro obiettivo è fornire a ogni PMI un supporto ingegneristico operativo, concreto e mirato a risultati economici misurabili sin dal primo mese.",
+                pillars_title: "Pilastri dell'Intervento",
+                pillar_1: "Mappatura dei Processi Isolati",
+                pillar_2: "Telemetria & Data Logging Automatico",
+                pillar_3: "Eliminazione Picchi Energetici",
+                pillar_4: "Controllo Logico mirato al Risparmio",
                 sectors_heading: "Ambiti di Intervento Impiantistico",
-                sectors_desc: "Soluzioni ingegneristiche mirate all'efficienza, al controllo dei carichi e alla tracciabilità dei dati industriali ed energetici.",
-                sec1_title: "Monitoraggio Energetico & Efficienza",
-                sec1_desc: "Analisi dettagliata dei carichi, telemetria dei consumi in tempo reale e prevenzione strategica degli sprechi energetici su impianti complessi.",
-                sec2_title: "Automazione di Processo & Impianti",
-                sec2_desc: "Controllo logico avanzato di macchinari, linee di pompaggio, valvole e attuatori industriali per una gestione autonoma e sicura dei cicli.",
-                sec3_title: "Sistemi di Logging & Certificazione Dati",
-                sec3_desc: "Sviluppo di registri digitali automatici per la tracciabilità puntuale e la verifica costante dei parametri operativi sul campo.",
+                sectors_desc: "Soluzioni ingegneristiche mirate a ottimizzare linee di produzione, consumi energetici e flussi operativi.",
+                sec1_title: "Efficienza Energetica su Macchinari",
+                sec1_desc: "Analisi e controllo dei carichi energetici per eliminare i consumi anomali durante i cicli di lavoro e i momenti di fermo.",
+                sec2_title: "Automazione di Processi Produttivi",
+                sec2_desc: "Integrazione di logiche di controllo per sincronizzare macchinari isolati e ridurre i tempi morti di lavorazione.",
+                sec3_title: "Tracciabilità e Telemetria dei Dati",
+                sec3_desc: "Sviluppo di sistemi di log automatici per registrare in tempo reale i parametri operativi e verificare l'efficacia del sistema.",
                 contact_heading: "Parla con i nostri ingegneri",
-                contact_desc: "Hai un progetto di automazione o efficienza energetica da sviluppare? Inviaci una richiesta formale tramite il modulo.",
+                contact_desc: "Vuoi analizzare le inefficienze della tua produzione a rischio zero? Scrivici per un primo confronto tecnico.",
                 form_name: "Nome e Cognome / Azienda",
                 form_email: "Email",
-                form_msg: "Messaggio o progetto",
-                form_btn: "Invia Richiesta",
+                form_msg: "Messaggio o descrizione impianto",
+                form_btn: "Richiedi Analisi Preliminare",
                 form_success: "Messaggio inviato con successo! Ti risponderemo presto.",
                 email_direct_text: "Preferisci scrivere direttamente? Contattaci via email:",
                 footer_text: "© 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it"
             },
             en: {
-                title: "AI Service Group | Automation, Energy Efficiency & Telemetry",
+                title: "AI Service Group | Performance-Based Industrial Energy Efficiency",
+                nav_model: "The Model",
                 nav_about: "About Us",
                 nav_sectors: "Domains",
-                nav_contact: "Contact Us",
-                hero_title: "Automation, Energy Efficiency & Advanced Telemetry",
-                hero_desc: "Systems engineering applied to energy monitoring, process logic control, and digital certification of operational data for complex plants.",
-                hero_btn: "Request Technical Consultation",
-                about_heading: "Systems Engineering for Operational Management",
-                about_p1: "AI Service Group (aisg) combines mechatronics, industrial automation, and Information Technology expertise to design self-regulating infrastructures providing real-time verifiable data.",
-                about_p2: "Every system we design is built to maximize safety, optimize energy efficiency, and eliminate margin of error in complex flow management.",
-                pillars_title: "Technological Pillars",
-                pillar_1: "SCADA Architectures & Telemetry",
-                pillar_2: "Verifiable Data & Log Systems",
-                pillar_3: "Predictive Control & Automation",
-                pillar_4: "Real-Time Centralized Supervision",
-                sectors_heading: "Plant Engineering Intervention Domains",
-                sectors_desc: "Engineering solutions focused on efficiency, load control, and the traceability of industrial and energy data.",
-                sec1_title: "Energy Monitoring & Efficiency",
-                sec1_desc: "Detailed load analysis, real-time consumption telemetry, and strategic prevention of energy waste across complex systems.",
-                sec2_title: "Process Automation & Plants",
-                sec2_desc: "Advanced logic control for machinery, pumping lines, valves, and industrial actuators for autonomous and secure cycle management.",
-                sec3_title: "Logging Systems & Data Certification",
-                sec3_desc: "Development of automatic digital registers for precise traceability and constant verification of operational parameters in the field.",
+                nav_contact: "Request Audit",
+                hero_badge: "Zero-Risk Industrial Optimization",
+                hero_title: "We optimize your existing machinery.<br><span>You only pay for the savings generated.</span>",
+                hero_desc: "No fixed consultancy costs or new machinery to buy. We analyze isolated production processes, track energy waste, and integrate control logic to cut your utility bills.",
+                hero_btn: "Analyze Your Plant",
+                model_heading: "A Fact-Based Approach",
+                model_desc: "We don't sell empty promises or blind consultancies. We work on your current systems with a transparent business model.",
+                model_1_title: "Zero Fixed Costs",
+                model_1_desc: "No need to risk uncertain corporate budgets. We enhance the infrastructure and machinery you already have with no upfront expenses.",
+                model_2_title: "Pay-for-Savings",
+                model_2_desc: "If your energy bill goes down thanks to our intervention, an agreed share of that savings is our fee. If you don't save, you pay nothing.",
+                model_3_title: "Verifiable Data",
+                model_3_desc: "Every intervention relies on telemetry and automated data logging, ensuring mathematical measurement of the economic benefit.",
+                about_heading: "Systems Engineering for Production",
+                about_p1: "AI Service Group (aisg) bridges the gap between isolated industrial machinery and maximum energy efficiency. We combine automation, logic networks, and data monitoring to eliminate downtime and hidden waste in production cycles.",
+                about_p2: "Our goal is to provide every SME with operational, concrete engineering support focused on measurable economic results from the very first month.",
+                pillars_title: "Intervention Pillars",
+                pillar_1: "Mapping of Isolated Processes",
+                pillar_2: "Telemetry & Automated Data Logging",
+                pillar_3: "Elimination of Energy Peaks",
+                pillar_4: "Savings-Oriented Logic Control",
+                sectors_heading: "Plant Engineering Domains",
+                sectors_desc: "Engineering solutions designed to optimize production lines, energy consumption, and operational flows.",
+                sec1_title: "Machinery Energy Efficiency",
+                sec1_desc: "Analysis and control of energy loads to eliminate abnormal consumption during work cycles and idle states.",
+                sec2_title: "Production Process Automation",
+                sec2_desc: "Integration of control logic to synchronize isolated machinery and reduce processing downtime.",
+                sec3_title: "Data Traceability & Telemetry",
+                sec3_desc: "Development of automated log systems to record real-time operational parameters and verify system effectiveness.",
                 contact_heading: "Talk to Our Engineers",
-                contact_desc: "Do you have an automation or energy efficiency project to develop? Send us a formal request using the form below.",
+                contact_desc: "Want to analyze your production inefficiencies at zero risk? Write to us for an initial technical consultation.",
                 form_name: "Full Name / Company",
                 form_email: "Email",
-                form_msg: "Message or Project Details",
-                form_btn: "Send Request",
+                form_msg: "Message or plant description",
+                form_btn: "Request Preliminary Analysis",
                 form_success: "Message sent successfully! We will get back to you soon.",
                 email_direct_text: "Prefer writing directly? Contact us via email:",
                 footer_text: "© 2026 AI Service Group (aisg) - All rights reserved. | aiservicegroup.it"
