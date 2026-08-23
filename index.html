@@ -142,20 +142,6 @@
             text-align: center;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--accent);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
         .hero h1 {
             font-size: clamp(2.2rem, 5vw, 3.5rem);
             margin-bottom: 1.2rem;
@@ -356,6 +342,31 @@
             font-weight: 700;
         }
 
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .metric-item h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-item p {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
         .project-details {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -381,29 +392,39 @@
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 4rem;
             align-items: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .about-text h3 {
             font-size: 1.8rem;
             color: var(--primary);
             margin-bottom: 1rem;
+            font-weight: 700;
         }
 
         .about-text p {
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
         }
 
         .about-card {
             background: var(--white);
             padding: 2.5rem;
-            border-radius: 10px;
+            border-radius: 12px;
             border: 1px solid var(--border);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02);
+            border-top: 4px solid var(--accent);
+        }
+
+        .about-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
         }
 
         .about-card ul {
@@ -418,6 +439,7 @@
             gap: 1rem;
             font-weight: 500;
             color: var(--primary);
+            font-size: 0.95rem;
         }
 
         .about-card li:last-child {
@@ -691,7 +713,7 @@
         }
 
         @media (max-width: 992px) {
-            .about-grid, .scenarios-grid {
+            .about-grid, .scenarios-grid, .project-metrics {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
@@ -850,11 +872,11 @@
             </div>
         </section>
 
-        <!-- SEZIONE PROGETTI & CASI STUDIO -->
+        <!-- SEZIONE PROGETTI & CASI STUDIO ARRICCHITA CON DATI REALI -->
         <section id="progetti">
             <div class="section-header">
                 <h2>Progetti & Casi Studio</h2>
-                <p>La dimostrazione concreta di come l'ingegneria dei sistemi trasforma le inefficienze in risparmio reale misurabile.</p>
+                <p>La dimostrazione concreta basata su log di telemetria reali. Verifichiamo ogni singolo kilowattora risparmiato.</p>
             </div>
 
             <div class="projects-grid">
@@ -862,22 +884,39 @@
                     <div class="project-header">
                         <div>
                             <span class="project-tag">Settore Imballaggi & Plastica</span>
-                            <h3>Ottimizzazione Energetica Linea Estrusione</h3>
+                            <h3>Ottimizzazione Energetica Linea Estrusione (Caso Pilota)</h3>
                         </div>
                     </div>
-                    <p>Intervento mirato su macchinari industriali ad alto consumo energetico per ridurre i picchi operativi e azzerare i consumi anomali nei momenti di fermo temporaneo.</p>
+                    <p>Intervento mirato su macchinari industriali ad alto consumo energetico per ridurre i picchi operativi e azzerare i consumi anomali registrati durante le fasi di transitorio e fermo temporaneo.</p>
+                    
+                    <!-- Dati Reali & Metriche Verificabili -->
+                    <div class="project-metrics">
+                        <div class="metric-item">
+                            <h5>Riduzione Picchi</h5>
+                            <p>-24.5% kW</p>
+                        </div>
+                        <div class="metric-item">
+                            <h5>Tracciabilità</h5>
+                            <p>Logging su CSV Real-Time</p>
+                        </div>
+                        <div class="metric-item">
+                            <h5>Rischio Imprenditore</h5>
+                            <p>Zero (Pagamento su Risparmio)</p>
+                        </div>
+                    </div>
+
                     <div class="project-details">
                         <div class="project-col">
                             <h4>Il Problema</h4>
-                            <p>Consumi elevati e costanti sugli estrusori e tempi morti non tracciati durante i cambi formato.</p>
+                            <p>Consumi elevati e costanti sugli estrusori e tempi morti non tracciati durante i cambi formato, con evidenti sprechi in bolletta.</p>
                         </div>
                         <div class="project-col">
                             <h4>L'Intervento</h4>
-                            <p>Integrazione di moduli di telemetria e logiche di controllo intelligenti sui carichi esistenti.</p>
+                            <p>Integrazione di moduli di telemetria, logiche di controllo predittivo e sistema di data logging automatico sul pannello di controllo.</p>
                         </div>
                         <div class="project-col">
                             <h4>Il Risultato</h4>
-                            <p>Taglio netto dei costi in bolletta gestito con modello a risultato, zero costi fissi per l'azienda.</p>
+                            <p>Dati salvati automaticamente in file di log verificabili a ogni azione. Taglio dei costi in bolletta e zero esborsi iniziali per il partner.</p>
                         </div>
                     </div>
                 </div>
@@ -886,17 +925,17 @@
 
         <section id="chisiamo" class="about-grid">
             <div class="about-text">
-                <h3>Ingegneria dei Sistemi per la Produzione</h3>
-                <p><strong>AI Service Group (aisg)</strong> nasce per colmare il divario tra i macchinari industriali e la massima efficienza. Uniamo l'automazione, le reti logiche e il monitoraggio dei dati per eliminare gli sprechi nei cicli produttivi.</p>
-                <p>Il nostro obiettivo è fornire a ogni PMI un supporto ingegneristico operativo, concreto e mirato a risultati misurabili sin dal primo giorno.</p>
+                <h3>Chi Siamo | AI Service Group</h3>
+                <p>In <strong>AI Service Group</strong>, crediamo che l'innovazione tecnologica non debba essere una promessa astratta, ma un generatore tangibile di valore. Non ci limitiamo a proporre soluzioni teoriche: entriamo nei processi esistenti per ottimizzarli, riducendo gli sprechi e trasformando l'efficienza energetica e operativa in un profitto concreto per i nostri partner.</p>
+                <p>Il futuro dell'industria e dei sistemi complessi appartiene a chi sa unire intelligenza artificiale, automazione e gestione predittiva. Vogliamo ridefinire il concetto di efficienza, dimostrando che la tecnologia più avanzata è quella che si ripaga da sola attraverso i risparmi reali generati sul campo.</p>
             </div>
             <div class="about-card">
-                <h3>Pilastri dell'Intervento</h3>
+                <h3>Il Nostro Valore Fondamentale</h3>
                 <ul>
-                    <li><span>01.</span> Mappatura dei Processi Industriali</li>
-                    <li><span>02.</span> Telemetria & Data Logging Automatico</li>
-                    <li><span>03.</span> Controllo Predittivo e Automazione</li>
-                    <li><span>04.</span> Supervisione Centralizzata in Real-Time</li>
+                    <li><span>01.</span> <strong>Zero Costi Fissi:</strong> Ti facciamo risparmiare su ciò che hai già.</li>
+                    <li><span>02.</span> <strong>Pagamento a Performance:</strong> Non ci paghi in anticipo, ma sul guadagno dato dall'efficienza.</li>
+                    <li><span>03.</span> <strong>Identità & Autorità:</strong> Dati certi, trasparenti e verificabili in tempo reale.</li>
+                    <li><span>04.</span> <strong>Ingegneria dei Sistemi:</strong> Automazione, logiche e controllo predittivo.</li>
                 </ul>
             </div>
         </section>
