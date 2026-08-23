@@ -219,7 +219,6 @@
             margin: 0 auto;
         }
 
-        /* SEZIONE MODELLO A RISULTATO */
         .model-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -418,6 +417,104 @@
             text-decoration: underline;
         }
 
+        /* SEZIONI LEGALI (PRIVACY / COOKIE) */
+        .legal-section {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            text-align: left;
+        }
+
+        .legal-section h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .legal-section h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .legal-section p, .legal-section ul {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .legal-section ul {
+            padding-left: 1.5rem;
+        }
+
+        .legal-section li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* COOKIE BANNER */
+        #cookieBanner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.2rem 2rem;
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            border-top: 2px solid var(--accent);
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+        }
+
+        #cookieBanner p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin: 0;
+        }
+
+        #cookieBanner a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .cookie-btn {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.3s;
+        }
+
+        .cookie-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .cookie-btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .cookie-btn-secondary:hover {
+            border-color: var(--white);
+        }
+
         footer {
             background: var(--primary);
             color: #94a3b8;
@@ -428,11 +525,37 @@
             margin-top: 5rem;
         }
 
+        .footer-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
         /* MEDIA QUERIES */
         @media (max-width: 992px) {
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+            #cookieBanner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .cookie-buttons {
+                width: 100%;
+                justify-content: flex-end;
             }
         }
 
@@ -485,14 +608,8 @@
                 padding: 3rem 1.2rem;
             }
 
-            .contact-section {
+            .contact-section, .legal-section {
                 padding: 2.5rem 1.2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .about-card, .card, .model-card {
-                padding: 1.5rem;
             }
         }
     </style>
@@ -508,6 +625,7 @@
                     <li><a href="#modello" data-i18n="nav_model" onclick="closeMenu()">Il Modello</a></li>
                     <li><a href="#chisiamo" data-i18n="nav_about" onclick="closeMenu()">Chi Siamo</a></li>
                     <li><a href="#ambiti" data-i18n="nav_sectors" onclick="closeMenu()">Ambiti</a></li>
+                    <li><a href="#privacy" data-i18n="nav_privacy" onclick="closeMenu()">Privacy & Cookie</a></li>
                     <li><a href="#contatti" class="nav-cta" data-i18n="nav_contact" onclick="closeMenu()">Richiedi Audit</a></li>
                 </ul>
                 <div class="lang-selector">
@@ -596,7 +714,34 @@
             </div>
         </section>
 
-        <section id="contatti">
+        <!-- SEZIONE PRIVACY E COOKIE POLICY -->
+        <section id="privacy" style="margin-top: 5rem;">
+            <div class="section-header">
+                <h2 data-i18n="privacy_heading">Informativa Privacy e Cookie Policy</h2>
+                <p data-i18n="privacy_sub">Trasparenza e tutela dei dati personali ai sensi del GDPR (Regolamento UE 2016/679).</p>
+            </div>
+
+            <div class="legal-section">
+                <h3 data-i18n="p_sec1_title">1. Titolare del Trattamento</h3>
+                <p data-i18n="p_sec1_text">Il Titolare del trattamento dei dati è AI Service Group (aisg), contattabile all'indirizzo email: <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>, con dominio di riferimento <strong>aiservicegroup.it</strong>.</p>
+
+                <h3 data-i18n="p_sec2_title">2. Dati Raccolti e Finalità</h3>
+                <p data-i18n="p_sec2_text">I dati personali raccolti tramite il modulo di contatto (Nome, Azienda, Email, Messaggio) vengono trattati esclusivamente per:</p>
+                <ul data-i18n="p_sec2_list">
+                    <li>Rispondere alle richieste di analisi tecnica o audit preliminare avanzate dall'utente.</li>
+                    <li>Gestire le comunicazioni commerciali e di consulenza industriale inerenti ai servizi offerti.</li>
+                </ul>
+                <p data-i18n="p_sec2_text2">I dati non saranno ceduti a terzi né diffusi, e saranno conservati per il tempo strettamente necessario a evadere le richieste.</p>
+
+                <h3 data-i18n="p_sec3_title">3. Cookie Policy</h3>
+                <p data-i18n="p_sec3_text">Questo sito utilizza esclusivamente cookie tecnici necessari al corretto funzionamento della piattaforma (es. preferenza della lingua). Non vengono utilizzati cookie di profilazione o tracciamento pubblicitario di terze parti.</p>
+
+                <h3 data-i18n="p_sec4_title">4. Diritti dell'Interessato</h3>
+                <p data-i18n="p_sec4_text">In qualità di utente, hai il diritto in qualunque momento di ottenere la conferma dell'esistenza dei tuoi dati, conoscerne il contenuto e l'origine, verificarne l'esattezza o chiederne l'integrazione, l'aggiornamento oppure la rettifica o la cancellazione scrivendo a <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>.</p>
+            </div>
+        </section>
+
+        <section id="contatti" style="margin-top: 5rem;">
             <div class="contact-section">
                 <div class="section-header" style="margin-bottom: 2rem;">
                     <h2 data-i18n="contact_heading">Parla con i nostri ingegneri</h2>
@@ -629,8 +774,20 @@
 
     </main>
 
+    <!-- BANNER COOKIE -->
+    <div id="cookieBanner">
+        <p data-i18n="cookie_banner_text">Questo sito utilizza solo cookie tecnici per garantire la migliore esperienza di navigazione. <a href="#privacy" onclick="closeMenu()">Leggi l'informativa</a>.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-secondary" onclick="acceptCookies()" data-i18n="cookie_btn_ok">Accetta</button>
+        </div>
+    </div>
+
     <footer>
         <p data-i18n="footer_text">&copy; 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it</p>
+        <div class="footer-links">
+            <a href="#privacy" data-i18n="footer_privacy">Privacy Policy</a>
+            <a href="#privacy" data-i18n="footer_cookies">Cookie Policy</a>
+        </div>
     </footer>
 
     <script>
@@ -645,6 +802,18 @@
                 navMenu.classList.remove('active');
             }
         }
+
+        function acceptCookies() {
+            const banner = document.getElementById('cookieBanner');
+            banner.style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                document.getElementById('cookieBanner').style.display = 'none';
+            }
+        });
 
         function handleFormSubmit(event) {
             event.preventDefault();
@@ -662,6 +831,7 @@
                 nav_model: "Il Modello",
                 nav_about: "Chi Siamo",
                 nav_sectors: "Ambiti",
+                nav_privacy: "Privacy",
                 nav_contact: "Richiedi Audit",
                 hero_badge: "Ottimizzazione Industriale a Rischio Zero",
                 hero_title: "Ottimizziamo i tuoi macchinari esistenti.<br><span>Paghi solo sul risparmio generato.</span>",
@@ -691,6 +861,18 @@
                 sec2_desc: "Integrazione di logiche di controllo per sincronizzare macchinari isolati e ridurre i tempi morti di lavorazione.",
                 sec3_title: "Tracciabilità e Telemetria dei Dati",
                 sec3_desc: "Sviluppo di sistemi di log automatici per registrare in tempo reale i parametri operativi e verificare l'efficacia del sistema.",
+                privacy_heading: "Informativa Privacy e Cookie Policy",
+                privacy_sub: "Trasparenza e tutela dei dati personali ai sensi del GDPR (Regolamento UE 2016/679).",
+                p_sec1_title: "1. Titolare del Trattamento",
+                p_sec1_text: "Il Titolare del trattamento dei dati è AI Service Group (aisg), contattabile all'indirizzo email: <a href='mailto:info@aiservicegroup.it' class='email-link'>info@aiservicegroup.it</a>, con dominio di riferimento <strong>aiservicegroup.it</strong>.",
+                p_sec2_title: "2. Dati Raccolti e Finalità",
+                p_sec2_text: "I dati personali raccolti tramite il modulo di contatto (Nome, Azienda, Email, Messaggio) vengono trattati esclusivamente per:",
+                p_sec2_list: "<li>Rispondere alle richieste di analisi tecnica o audit preliminare avanzate dall'utente.</li><li>Gestire le comunicazioni commerciali e di consulenza industriale inerenti ai servizi offerti.</li>",
+                p_sec2_text2: "I dati non saranno ceduti a terzi né diffusi, e saranno conservati per il tempo strettamente necessario a evadere le richieste.",
+                p_sec3_title: "3. Cookie Policy",
+                p_sec3_text: "Questo sito utilizza esclusivamente cookie tecnici necessari al corretto funzionamento della piattaforma (es. preferenza della lingua). Non vengono utilizzati cookie di profilazione o tracciamento pubblicitario di terze parti.",
+                p_sec4_title: "4. Diritti dell'Interessato",
+                p_sec4_text: "In qualità di utente, hai il diritto in qualunque momento di ottenere la conferma dell'esistenza dei tuoi dati, conoscerne il contenuto e l'origine, verificarne l'esattezza o chiederne l'integrazione, l'aggiornamento oppure la rettifica o la cancellazione scrivendo a <a href='mailto:info@aiservicegroup.it' class='email-link'>info@aiservicegroup.it</a>.",
                 contact_heading: "Parla con i nostri ingegneri",
                 contact_desc: "Vuoi analizzare le inefficienze della tua produzione a rischio zero? Scrivici per un primo confronto tecnico.",
                 form_name: "Nome e Cognome / Azienda",
@@ -699,13 +881,18 @@
                 form_btn: "Richiedi Analisi Preliminare",
                 form_success: "Messaggio inviato con successo! Ti risponderemo presto.",
                 email_direct_text: "Preferisci scrivere direttamente? Contattaci via email:",
-                footer_text: "© 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it"
+                cookie_banner_text: "Questo sito utilizza solo cookie tecnici per garantire la migliore esperienza di navigazione.",
+                cookie_btn_ok: "Capito",
+                footer_text: "© 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it",
+                footer_privacy: "Privacy Policy",
+                footer_cookies: "Cookie Policy"
             },
             en: {
                 title: "AI Service Group | Performance-Based Industrial Energy Efficiency",
                 nav_model: "The Model",
                 nav_about: "About Us",
                 nav_sectors: "Domains",
+                nav_privacy: "Privacy",
                 nav_contact: "Request Audit",
                 hero_badge: "Zero-Risk Industrial Optimization",
                 hero_title: "We optimize your existing machinery.<br><span>You only pay for the savings generated.</span>",
@@ -735,6 +922,18 @@
                 sec2_desc: "Integration of control logic to synchronize isolated machinery and reduce processing downtime.",
                 sec3_title: "Data Traceability & Telemetry",
                 sec3_desc: "Development of automated log systems to record real-time operational parameters and verify system effectiveness.",
+                privacy_heading: "Privacy Policy & Cookie Statement",
+                privacy_sub: "Transparency and protection of personal data pursuant to the GDPR (EU Regulation 2016/679).",
+                p_sec1_title: "1. Data Controller",
+                p_sec1_text: "The Data Controller is AI Service Group (aisg), contactable at the email address: <a href='mailto:info@aiservicegroup.it' class='email-link'>info@aiservicegroup.it</a>, referencing the domain <strong>aiservicegroup.it</strong>.",
+                p_sec2_title: "2. Data Collected and Purposes",
+                p_sec2_text: "Personal data collected via the contact form (Name, Company, Email, Message) is processed exclusively for:",
+                p_sec2_list: "<li>Responding to requests for technical analysis or preliminary audits submitted by the user.</li><li>Managing commercial communications and industrial consulting services offered.</li>",
+                p_sec2_text2: "Data will not be disclosed to third parties and will be kept strictly for the time necessary to fulfill the requests.",
+                p_sec3_title: "3. Cookie Policy",
+                p_sec3_text: "This site uses only technical cookies strictly necessary for the proper functioning of the platform (e.g., language preference). No profiling or third-party advertising cookies are used.",
+                p_sec4_title: "4. User Rights",
+                p_sec4_text: "As a user, you have the right at any time to obtain confirmation of the existence of your data, verify its accuracy, or request its update, rectification, or deletion by writing to <a href='mailto:info@aiservicegroup.it' class='email-link'>info@aiservicegroup.it</a>.",
                 contact_heading: "Talk to Our Engineers",
                 contact_desc: "Want to analyze your production inefficiencies at zero risk? Write to us for an initial technical consultation.",
                 form_name: "Full Name / Company",
@@ -743,7 +942,11 @@
                 form_btn: "Request Preliminary Analysis",
                 form_success: "Message sent successfully! We will get back to you soon.",
                 email_direct_text: "Prefer writing directly? Contact us via email:",
-                footer_text: "© 2026 AI Service Group (aisg) - All rights reserved. | aiservicegroup.it"
+                cookie_banner_text: "This site uses only technical cookies to ensure the best browsing experience.",
+                cookie_btn_ok: "Got it",
+                footer_text: "© 2026 AI Service Group (aisg) - All rights reserved. | aiservicegroup.it",
+                footer_privacy: "Privacy Policy",
+                footer_cookies: "Cookie Policy"
             }
         };
 
