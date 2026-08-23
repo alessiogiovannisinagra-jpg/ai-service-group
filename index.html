@@ -398,6 +398,13 @@
             margin-bottom: 5rem;
         }
 
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
         .about-text h3 {
             font-size: 1.8rem;
             color: var(--primary);
@@ -409,80 +416,6 @@
             color: var(--text-muted);
             margin-bottom: 1.2rem;
             font-size: 1.02rem;
-        }
-
-        .about-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02);
-            border-top: 4px solid var(--accent);
-        }
-
-        .about-card h3 {
-            font-size: 1.25rem;
-            color: var(--primary);
-            margin-bottom: 1.2rem;
-            font-weight: 700;
-        }
-
-        .about-card ul {
-            list-style: none;
-        }
-
-        .about-card li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 500;
-            color: var(--primary);
-            font-size: 0.95rem;
-        }
-
-        .about-card li:last-child {
-            border-bottom: none;
-        }
-
-        .about-card li span {
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .grid-sectors {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border);
-            border-top: 4px solid var(--accent);
-            transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
-            border-top-width: 6px;
-        }
-
-        .card h3 {
-            margin-bottom: 1rem;
-            color: var(--primary);
-            font-size: 1.35rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
         }
 
         .contact-section {
@@ -841,7 +774,7 @@
         </section>
 
         <!-- IMPIANTI ESISTENTI VS NUOVA PRODUZIONE -->
-        <section id="soluzioni">
+        <section id="soluzioni-scenarios">
             <div class="section-header">
                 <h2>In quale fase si trova la tua azienda?</h2>
                 <p>Che tu debba correggere le inefficienze di una linea attiva o progettare un sistema da zero, copriamo l'intero ciclo ingegneristico.</p>
@@ -871,7 +804,8 @@
                 </div>
             </div>
         </section>
-        <!-- NUOVA SEZIONE SERVIZI & SOLUZIONI INNOVATIVE -->
+
+        <!-- SEZIONE SERVIZI & SOLUZIONI INNOVATIVE -->
         <section id="soluzioni">
             <div class="section-header">
                 <h2>Soluzioni Impiantistiche di Nuova Generazione</h2>
@@ -879,21 +813,18 @@
             </div>
 
             <div class="model-grid">
-                <!-- Servizio 1 -->
                 <div class="model-card highlight">
                     <div class="step-num">01</div>
                     <h3>Digital Twin & Controllo Predittivo</h3>
                     <p>Realizziamo repliche virtuali in tempo reale dei tuoi macchinari industriali. Simuliamo i comportamenti operativi per anticipare le anomalie, ottimizzare i cicli di lavoro e tagliare i consumi energetici superflui prima che impattino sulla produzione.</p>
                 </div>
 
-                <!-- Servizio 2 -->
                 <div class="model-card">
                     <div class="step-num">02</div>
                     <h3>Edge Telemetry & Data Logging</h3>
                     <p>Infrastrutture di monitoraggio intelligenti che registrano automaticamente ogni parametro operativo su registri sicuri (es. file di log strutturati). Dati trasparenti e verificabili in tempo reale per certificare matematicamente ogni singolo kilowattora risparmiato.</p>
                 </div>
 
-                <!-- Servizio 3 -->
                 <div class="model-card">
                     <div class="step-num">03</div>
                     <h3>Revamping & Performance Model</h3>
@@ -902,67 +833,109 @@
             </div>
         </section>
 
-        <!-- SEZIONE PROGETTI & CASI STUDIO ARRICCHITA CON DATI REALI -->
+        <!-- SEZIONE PROGETTI & CASI STUDIO (ENERGY BRAIN & OMNIA) -->
         <section id="progetti">
             <div class="section-header">
                 <h2>Progetti & Casi Studio</h2>
-                <p>La dimostrazione concreta basata su log di telemetria reali. Verifichiamo ogni singolo kilowattora risparmiato.</p>
+                <p>Le nostre architetture di punta messe alla prova sul campo. Tracciabilità e riscontro numerico garantiti da registri automatici.</p>
             </div>
 
             <div class="projects-grid">
+                <!-- Case Study 1: Energy Brain -->
                 <div class="project-card">
                     <div class="project-header">
                         <div>
-                            <span class="project-tag">Settore Imballaggi & Plastica</span>
-                            <h3>Ottimizzazione Energetica Linea Estrusione (Caso Pilota)</h3>
+                            <span class="project-tag">Energy Brain | Core System</span>
+                            <h3>Energy Brain: Gestione Predittiva e Ottimizzazione Energetica</h3>
                         </div>
                     </div>
-                    <p>Intervento mirato su macchinari industriali ad alto consumo energetico per ridurre i picchi operativi e azzerare i consumi anomali registrati durante le fasi di transitorio e fermo temporaneo.</p>
+                    <p>Piattaforma di controllo intelligente progettata per analizzare in tempo reale i carichi impiantistici, identificare i picchi di consumo anomali e regolare i cicli operativi per massimizzare il risparmio energetico.</p>
                     
-                    <!-- Dati Reali & Metriche Verificabili -->
                     <div class="project-metrics">
                         <div class="metric-item">
-                            <h5>Riduzione Picchi</h5>
-                            <p>-24.5% kW</p>
+                            <h5>Target Efficienza</h5>
+                            <p>Controllo Attivo KW</p>
                         </div>
                         <div class="metric-item">
-                            <h5>Tracciabilità</h5>
-                            <p>Logging su CSV Real-Time</p>
+                            <h5>Registrazione</h5>
+                            <p>Log Automatico su CSV</p>
                         </div>
                         <div class="metric-item">
-                            <h5>Rischio Imprenditore</h5>
-                            <p>Zero (Pagamento su Risparmio)</p>
+                            <h5>Modello</h5>
+                            <p>Performance-Based</p>
                         </div>
                     </div>
 
                     <div class="project-details">
                         <div class="project-col">
-                            <h4>Il Problema</h4>
-                            <p>Consumi elevati e costanti sugli estrusori e tempi morti non tracciati durante i cambi formato, con evidenti sprechi in bolletta.</p>
+                            <h4>L'Obiettivo</h4>
+                            <p>Eliminare gli sprechi energetici nascosti nei transitori di lavoro e azzerare i consumi superflui durante i momenti di fermo macchina.</p>
                         </div>
                         <div class="project-col">
-                            <h4>L'Intervento</h4>
-                            <p>Integrazione di moduli di telemetria, logiche di controllo predittivo e sistema di data logging automatico sul pannello di controllo.</p>
+                            <h4>L'Integrazione</h4>
+                            <p>Algoritmi di supervisione energetica applicati direttamente sull'infrastruttura esistente con zero impatto sui flussi produttivi primari.</p>
                         </div>
                         <div class="project-col">
-                            <h4>Il Risultato</h4>
-                            <p>Dati salvati automaticamente in file di log verificabili a ogni azione. Taglio dei costi in bolletta e zero esborsi iniziali per il partner.</p>
+                            <h4>Il Valore</h4>
+                            <p>Dati certi e verificabili salvati a ogni azione eseguita nel pannello di controllo, fornendo una prova inattaccabile del risparmio.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2: Omnia -->
+                <div class="project-card" style="border-left-color: var(--primary);">
+                    <div class="project-header">
+                        <div>
+                            <span class="project-tag" style="background: rgba(15, 23, 42, 0.1); color: var(--primary);">Omnia | Supervisione Globale</span>
+                            <h3>Omnia: Controllo Centralizzato e Automazione di Processo</h3>
+                        </div>
+                    </div>
+                    <p>Infrastruttura di supervisione olistica pensata per coordinare e sincronizzare sistemi complessi, unendo la telemetria edge, l'interfaccia HMI personalizzata e la logica di automazione avanzata.</p>
+                    
+                    <div class="project-metrics">
+                        <div class="metric-item">
+                            <h5>Architettura</h5>
+                            <p>Supervisione Real-Time</p>
+                        </div>
+                        <div class="metric-item">
+                            <h5>Affidabilità</h5>
+                            <p>Telemetria Strutturata</p>
+                        </div>
+                        <div class="metric-item">
+                            <h5>Integrazione</h5>
+                            <p>Impianti & Linee Attive</p>
+                        </div>
+                    </div>
+
+                    <div class="project-details">
+                        <div class="project-col">
+                            <h4>L'Obiettivo</h4>
+                            <p>Superare la frammentazione dei macchinari isolati offrendo un pannello di controllo centralizzato, intuitivo e reattivo.</p>
+                        </div>
+                        <div class="project-col">
+                            <h4>L'Integrazione</h4>
+                            <p>Unificazione dei flussi di dati operativi con salvataggio automatico in file di log dedicati per ogni sessione di lavoro.</p>
+                        </div>
+                        <div class="project-col">
+                            <h4>Il Valore</h4>
+                            <p>Massima trasparenza operativa, riduzione dei tempi morti di gestione e controllo totale dei parametri di impianto.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- SEZIONE CHI SIAMO -->
         <section id="chisiamo" class="about-grid">
-  <div class="about-image">
-    <img src="IMG_7744.jpeg" alt="Descrizione dell'immagine">
-  </div>
-  <div class="about-text">
-    <h3>Chi Siamo | AI Service Group</h3>
-    <p>In <strong>AI Service Group</strong>, crediamo che l'innovazione tecnologica non debba essere una promessa astratta, ma un generatore tangibile di valore. Non ci limitiamo a proporre soluzioni teoriche: entriamo nei processi esistenti per ottimizzarli, riducendo gli sprechi e trasformando l'efficienza energetica e operativa in un profitto concreto per i nostri partner.</p>
-    <p>Il futuro dell'industria e dei sistemi complessi appartiene a chi sa unire intelligenza artificiale, automazione e gestione predittiva. Vogliamo ridefinire il concetto di efficienza, dimostrando che la tecnologia più avanzata è quella che si ripaga da sola attraverso i risparmi reali generati sul campo.</p>
-  </div>
-</section>
+            <div class="about-image">
+                <img src="IMG_7744.jpeg" alt="AI Service Group Team & Impianti">
+            </div>
+            <div class="about-text">
+                <h3>Chi Siamo | AI Service Group</h3>
+                <p>In <strong>AI Service Group</strong>, crediamo che l'innovazione tecnologica non debba essere una promessa astratta, ma un generatore tangibile di valore. Non ci limitiamo a proporre soluzioni teoriche: entriamo nei processi esistenti per ottimizzarli, riducendo gli sprechi e trasformando l'efficienza energetica e operativa in un profitto concreto per i nostri partner.</p>
+                <p>Il futuro dell'industria e dei sistemi complessi appartiene a chi sa unire intelligenza artificiale, automazione e gestione predittiva. Vogliamo ridefinire il concetto di efficienza, dimostrando che la tecnologia più avanzata è quella che si ripaga da sola attraverso i risparmi reali generati sul campo.</p>
+            </div>
+        </section>
 
         <section id="contatti" style="margin-top: 5rem;">
             <div class="contact-section">
