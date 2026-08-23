@@ -259,7 +259,6 @@
             font-size: 0.95rem;
         }
 
-        /* NUOVA SEZIONE: IMPIANTI ESISTENTI VS NUOVI IMPIANTI */
         .scenarios-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -473,40 +472,68 @@
             text-decoration: underline;
         }
 
-        .legal-section {
+        /* TENDINA PRIVACY (ACCORDION) */
+        .dropdown-container {
+            max-width: 900px;
+            margin: 4rem auto 0 auto;
+        }
+
+        .legal-dropdown {
             background: var(--white);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 3rem;
-            max-width: 900px;
-            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
-            text-align: left;
         }
 
-        .legal-section h3 {
+        .legal-dropdown summary {
+            padding: 1.2rem 2rem;
+            font-weight: 600;
             color: var(--primary);
-            font-size: 1.4rem;
-            margin-top: 2rem;
-            margin-bottom: 0.8rem;
+            cursor: pointer;
+            outline: none;
+            background: var(--white);
+            transition: background 0.3s;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .legal-section h3:first-of-type {
+        .legal-dropdown summary:hover {
+            background: var(--bg-light);
+        }
+
+        .legal-content {
+            padding: 2.5rem;
+            border-top: 1px solid var(--border);
+            text-align: left;
+            background: var(--white);
+        }
+
+        .legal-content h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .legal-content h3:first-of-type {
             margin-top: 0;
         }
 
-        .legal-section p, .legal-section ul {
+        .legal-content p, .legal-content ul {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
+            font-size: 0.92rem;
+            margin-bottom: 0.8rem;
         }
 
-        .legal-section ul {
-            padding-left: 1.5rem;
+        .legal-content ul {
+            padding-left: 1.4rem;
         }
 
-        .legal-section li {
-            margin-bottom: 0.4rem;
+        .legal-content li {
+            margin-bottom: 0.3rem;
         }
 
         #cookieBanner {
@@ -535,6 +562,7 @@
         #cookieBanner a {
             color: var(--accent);
             text-decoration: underline;
+            cursor: pointer;
         }
 
         .cookie-buttons {
@@ -591,6 +619,7 @@
             color: #94a3b8;
             text-decoration: none;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         .footer-links a:hover {
@@ -661,7 +690,7 @@
                 padding: 3rem 1.2rem;
             }
 
-            .contact-section, .legal-section, .scenario-card {
+            .contact-section, .scenario-card {
                 padding: 2.5rem 1.2rem;
             }
         }
@@ -675,11 +704,10 @@
             <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
             <div class="nav-right" id="navMenu">
                 <ul class="nav-links">
-                    <li><a href="#modello">Il Modello</a></li>
-                    <li><a href="#soluzioni">Soluzioni</a></li>
-                    <li><a href="#chisiamo">Chi Siamo</a></li>
-                    <li><a href="#privacy">Privacy & Cookie</a></li>
-                    <li><a href="#contatti" class="nav-cta">Richiedi Audit</a></li>
+                    <li><a href="#modello" onclick="closeMenu()">Il Modello</a></li>
+                    <li><a href="#soluzioni" onclick="closeMenu()">Soluzioni</a></li>
+                    <li><a href="#chisiamo" onclick="closeMenu()">Chi Siamo</a></li>
+                    <li><a href="#contatti" class="nav-cta" onclick="closeMenu()">Richiedi Audit</a></li>
                 </ul>
                 <div class="lang-selector">
                     <select id="languageSelect" onchange="changeLanguage(this.value)" aria-label="Language Selector">
@@ -726,7 +754,7 @@
             </div>
         </section>
 
-        <!-- NUOVA SEZIONE: IMPIANTI ESISTENTI VS NUOVA PRODUZIONE -->
+        <!-- IMPIANTI ESISTENTI VS NUOVA PRODUZIONE -->
         <section id="soluzioni">
             <div class="section-header">
                 <h2>In quale fase si trova la tua azienda?</h2>
@@ -799,32 +827,6 @@
             </div>
         </section>
 
-        <section id="privacy" style="margin-top: 5rem;">
-            <div class="section-header">
-                <h2>Informativa Privacy e Cookie Policy</h2>
-                <p>Trasparenza e tutela dei dati personali ai sensi del GDPR (Regolamento UE 2016/679).</p>
-            </div>
-
-            <div class="legal-section">
-                <h3>1. Titolare del Trattamento</h3>
-                <p>Il Titolare del trattamento dei dati è AI Service Group (aisg), contattabile all'indirizzo email: <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>, con dominio di riferimento <strong>aiservicegroup.it</strong>.</p>
-
-                <h3>2. Dati Raccolti e Finalità</h3>
-                <p>I dati personali raccolti tramite il modulo di contatto (Nome, Azienda, Email, Messaggio) vengono trattati esclusivamente per:</p>
-                <ul>
-                    <li>Rispondere alle richieste di analisi tecnica o audit preliminare avanzate dall'utente.</li>
-                    <li>Gestire le comunicazioni commerciali e di consulenza industriale inerenti ai servizi offerti.</li>
-                </ul>
-                <p>I dati non saranno ceduti a terzi né diffusi, e saranno conservati per il tempo strettamente necessario a evadere le richieste.</p>
-
-                <h3>3. Cookie Policy</h3>
-                <p>Questo sito utilizza esclusivamente cookie tecnici necessari al corretto funzionamento della piattaforma (es. preferenza della lingua). Non vengono utilizzati cookie di profilazione o tracciamento pubblicitario di terze parti.</p>
-
-                <h3>4. Diritti dell'Interessato</h3>
-                <p>In qualità di utente, hai il diritto in qualunque momento di ottenere la conferma dell'esistenza dei tuoi dati, conoscerne il contenuto e l'origine, verificarne l'esattezza o chiederne l'integrazione, l'aggiornamento oppure la rettifica o la cancellazione scrivendo a <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>.</p>
-            </div>
-        </section>
-
         <section id="contatti" style="margin-top: 5rem;">
             <div class="contact-section">
                 <div class="section-header" style="margin-bottom: 2rem;">
@@ -856,10 +858,35 @@
             </div>
         </section>
 
+        <!-- TENDINA PRIVACY E COOKIE POLICY -->
+        <div class="dropdown-container" id="privacy-section">
+            <details class="legal-dropdown" id="legalDropdown">
+                <summary>🔒 Informativa Privacy e Cookie Policy (GDPR)</summary>
+                <div class="legal-content">
+                    <h3>1. Titolare del Trattamento</h3>
+                    <p>Il Titolare del trattamento dei dati è AI Service Group (aisg), contattabile all'indirizzo email: <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>, con dominio di riferimento <strong>aiservicegroup.it</strong>.</p>
+
+                    <h3>2. Dati Raccolti e Finalità</h3>
+                    <p>I dati personali raccolti tramite il modulo di contatto (Nome, Azienda, Email, Messaggio) vengono trattati esclusivamente per:</p>
+                    <ul>
+                        <li>Rispondere alle richieste di analisi tecnica o audit preliminare avanzate dall'utente.</li>
+                        <li>Gestire le comunicazioni commerciali e di consulenza industriale inerenti ai servizi offerti.</li>
+                    </ul>
+                    <p>I dati non saranno ceduti a terzi né diffusi, e saranno conservati per il tempo strettamente necessario a evadere le richieste.</p>
+
+                    <h3>3. Cookie Policy</h3>
+                    <p>Questo sito utilizza esclusivamente cookie tecnici necessari al corretto funzionamento della piattaforma (es. preferenza della lingua). Non vengono utilizzati cookie di profilazione o tracciamento pubblicitario di terze parti.</p>
+
+                    <h3>4. Diritti dell'Interessato</h3>
+                    <p>In qualità di utente, hai il diritto in qualunque momento di ottenere la conferma dell'esistenza dei tuoi dati, conoscerne il contenuto e l'origine, verificarne l'esattezza o chiederne l'integrazione, l'aggiornamento oppure la rettifica o la cancellazione scrivendo a <a href="mailto:info@aiservicegroup.it" class="email-link">info@aiservicegroup.it</a>.</p>
+                </div>
+            </details>
+        </div>
+
     </main>
 
     <div id="cookieBanner">
-        <p>Questo sito utilizza solo cookie tecnici per garantire la migliore esperienza di navigazione. <a href="#privacy" onclick="closeMenu()">Leggi l'informativa</a>.</p>
+        <p>Questo sito utilizza solo cookie tecnici per garantire la migliore esperienza di navigazione. <a onclick="openPrivacy()">Leggi l'informativa</a>.</p>
         <div class="cookie-buttons">
             <button class="cookie-btn cookie-btn-secondary" onclick="acceptCookies()">Capito</button>
         </div>
@@ -868,8 +895,7 @@
     <footer>
         <p>&copy; 2026 AI Service Group (aisg) - Tutti i diritti riservati. | aiservicegroup.it</p>
         <div class="footer-links">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#privacy">Cookie Policy</a>
+            <a onclick="openPrivacy()">Privacy & Cookie Policy</a>
         </div>
     </footer>
 
@@ -884,6 +910,12 @@
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
             }
+        }
+
+        function openPrivacy() {
+            const dropdown = document.getElementById('legalDropdown');
+            dropdown.open = true;
+            document.getElementById('privacy-section').scrollIntoView({ behavior: 'smooth' });
         }
 
         function acceptCookies() {
