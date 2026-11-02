@@ -1,214 +1,195 @@
 <!DOCTYPE html>
-<html lang="it" style="scroll-behavior: smooth;">
+<html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AISG | AI & Automazione per l'Efficienza Aziendale</title>
-    <meta name="description" content="Sviluppo di modelli AI, automazione dei processi, digital twin, smart manufacturing ed energy management per far crescere le aziende.">
+    <title>AI Service Group | VDC, Digital Twin & Industrial Automation</title>
+    <!-- Tailwind CSS per un design moderno e responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0f1d',
+                            card: '#111827',
+                            accent: '#3b82f6',
+                            glow: '#60a5fa'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Google Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-nav {
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #090d16; color: #f8fafc; overflow-x: hidden;">
+<body class="bg-brand-dark text-gray-100 antialiased selection:bg-brand-accent selection:text-white">
 
-    <header style="position: fixed; top: 0; left: 0; width: 100%; background: rgba(9, 13, 22, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(51, 65, 85, 0.4); z-index: 1000; box-sizing: border-box;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
-            <a href="#" style="font-size: 1.5rem; font-weight: 900; color: #ffffff; text-decoration: none; letter-spacing: -0.5px;">
-                AISG<span style="color: #38bdf8;">.</span>
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                <span class="w-3 h-3 bg-brand-accent rounded-full inline-block animate-pulse"></span>
+                AISG <span class="text-xs font-normal text-gray-400 border border-gray-700 px-2 py-0.5 rounded">VDC & Digital Twin</span>
             </a>
-            <nav style="display: flex; gap: 30px; align-items: center;">
-                <a href="#services" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Soluzioni</a>
-                <a href="#sectors" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Settori</a>
-                <a href="#method" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Metodo</a>
-                <a href="#about" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Chi Siamo</a>
-                <a href="mailto:info@aiservicegroup.it" style="background-color: #38bdf8; color: #090d16; padding: 10px 20px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; transition: opacity 0.2s;">Contattaci</a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#vision" class="hover:text-white transition">Visione</a>
+                <a href="#services" class="hover:text-white transition">Soluzioni</a>
+                <a href="#tech" class="hover:text-white transition">Stack Tecnologico</a>
+                <a href="#contact" class="bg-brand-accent text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition shadow-lg shadow-blue-500/20">Contattaci</a>
             </nav>
         </div>
     </header>
 
-    <section style="position: relative; padding: 180px 20px 120px 20px; text-align: center; background: linear-gradient(135deg, #090d16 0%, #0f172a 100%); overflow: hidden;">
-        <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 700px; height: 350px; background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, rgba(15,23,42,0) 70%); pointer-events: none; z-index: 1;"></div>
-
-        <div style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;">
-            <div style="display: inline-flex; align-items: center; background-color: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 6px 18px; border-radius: 30px; margin-bottom: 25px;">
-                <span style="width: 8px; height: 8px; background-color: #38bdf8; border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 8px #38bdf8;"></span>
-                <span style="color: #38bdf8; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">AI SERVICE GROUP</span>
-            </div>
-            
-            <h1 style="font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 900; margin: 0 0 25px 0; color: #ffffff; letter-spacing: -1px; line-height: 1.1;">
-                Modelli AI, Automazione e Ingegneria dei Sistemi
-            </h1>
-            
-            <p style="font-size: 1.2rem; color: #94a3b8; max-width: 750px; margin: 0 auto 40px auto; line-height: 1.6;">
-                In AI Service Group sviluppiamo sistemi avanzati per ottimizzare i processi industriali, la gestione energetica e l'efficienza aziendale con dati verificabili.
-            </p>
-
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="#services" style="background-color: #38bdf8; color: #090d16; padding: 15px 30px; border-radius: 10px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4); transition: transform 0.2s;">Scopri le Soluzioni</a>
-                <a href="mailto:info@aiservicegroup.it" style="background-color: transparent; color: #ffffff; border: 1px solid #334155; padding: 15px 30px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: background-color 0.2s;">Parla con un Ingegnere</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" style="padding: 100px 20px; background-color: #0f172a; position: relative;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            
-            <div style="text-align: center; margin-bottom: 70px;">
-                <span style="color: #38bdf8; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">Tecnologia & Algoritmi</span>
-                <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; margin: 15px 0 20px 0; color: #ffffff; letter-spacing: -0.5px;">Le Nostre Soluzioni Software & AI</h2>
-                <p style="font-size: 1.15rem; color: #94a3b8; max-width: 750px; margin: 0 auto; line-height: 1.6;">Dall'elaborazione dei dati predittivi fino alla plancia di comando e all'automazione operativa.</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;">
-                
-                <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.8); backdrop-filter: blur(10px); border-radius: 16px; padding: 40px 30px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);">
-                    <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(56, 189, 248, 0.05) 100%); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                    </div>
-                    <h3 style="font-size: 1.35rem; font-weight: 700; margin: 0 0 15px 0; color: #ffffff;">Modelli Predittivi & Forecasting</h3>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0 0 20px 0;">Algoritmi basati su serie storiche per anticipare trend, volumi di vendita, consumi energetici o fabbisogno di magazzino.</p>
-                    <ul style="list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(51, 65, 85, 0.6); padding-top: 15px;">
-                        <li style="margin-bottom: 8px; display: flex; align-items: center; color: #cbd5e1; font-size: 0.9rem;"><span style="color: #38bdf8; font-weight: bold; margin-right: 8px;">•</span> Previsione della domanda e dei flussi</li>
-                        <li style="display: flex; align-items: center; color: #cbd5e1; font-size: 0.9rem;"><span style="color: #38bdf8; font-weight: bold; margin-right: 8px;">•</span> Ottimizzazione delle scorte e dei carichi</li>
-                    </ul>
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden border-b border-gray-800/60">
+        <!-- Effetto sfondo luminoso -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-brand-glow text-xs font-medium mb-6">
+                    Ingegneria dei Sistemi & Infrastrutture del Futuro
                 </div>
-
-                <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.8); backdrop-filter: blur(10px); border-radius: 16px; padding: 40px 30px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);">
-                    <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(56, 189, 248, 0.05) 100%); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                    </div>
-                    <h3 style="font-size: 1.35rem; font-weight: 700; margin: 0 0 15px 0; color: #ffffff;">Automazione dei Processi (BPA)</h3>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0 0 20px 0;">Integrazione intelligente di flussi operativi e API per azzerare le attività manuali ripetitive e connettere i software aziendali.</p>
-                    <ul style="list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(51, 65, 85, 0.6); padding-top: 15px;">
-                        <li style="margin-bottom: 8px; display: flex; align-items: center; color: #cbd5e1; font-size: 0.9rem;"><span style="color: #38bdf8; font-weight: bold; margin-right: 8px;">•</span> Workflow automation intelligenti</li>
-                        <li style="display: flex; align-items: center; color: #cbd5e1; font-size: 0.9rem;"><span style="color: #38bdf8; font-weight: bold; margin-right: 8px;">•</span> Eliminazione errori di data entry</li>
-                    </ul>
-                </div>
-
-                <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.8); backdrop-filter: blur(10px); border-radius: 16px; padding: 40px 30px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);">
-                    <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(56, 189, 248, 0.05) 100%); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    </div>
-                    <h3 style="font-size: 1.35rem; font-weight: 700; margin: 0 0 15px 0; color: #ffffff;">Digital Twin & Simulazione</h3>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0 0 20px 0;">Repliche virtuali di impianti, edifici o processi per testare scenari "what-if" e validare le strategie prima dell'applicazione reale.</p>
-                    <ul style="list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(51, 65, 85, 0.6); padding-top: 15px;">
-                        <li style="margin-bottom: 8px; display: flex; align-items: center; color: #cbd5e1; font-size: 0.9rem;"><span style="color: #38bdf8; font-weight: bold; margin-right: 8px;">•</span> Simulazione dinamica dei processi</li>
-                        <li style="display: flex; align-items: center; color: #cbd5e1; font-size: 0.9rem;"><span style="color: #38bdf8; font-weight: bold; margin-right: 8px;">•</span> Massimizzazione dell'efficienza energetica</li>
-                    </ul>
-                </div>
-
-                <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.8); backdrop-filter: blur(10px); border-radius: 16px; padding: 40px 30px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);">
-                    <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(56, 189, 248, 0.05) 100%); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                    </div>
-                    <h3 style="font-size: 1.35rem; font-weight: 700; margin: 0 0 15px 0; color: #ffffff;">Interfacce HMI & Dashboard Custom</h3>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0 0 20px 0;">Plance di comando e dashboard interattive su misura per monitorare i dati in tempo reale e controllare l'operatività aziendale.</p>
-                    <ul style="list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(51, 65, 85, 0.6); padding-top: 15px;">
-                        <li style="margin-bottom: 8px; display: flex; align-items: center; color: #cbd5e1; font-size: 0.9rem;"><span style="color: #38bdf8; font-weight: bold; margin-right: 8px;">•</span> Monitoraggio dati live</li>
-                        <li style="display: flex; align-items: center; color: #cbd5e1; font-size: 0.9rem;"><span style="color: #38bdf8; font-weight: bold; margin-right: 8px;">•</span> UX/UI intuitiva per il management</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="sectors" style="padding: 100px 20px; background-color: #090d16; border-top: 1px solid rgba(51, 65, 85, 0.4); border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            
-            <div style="text-align: center; margin-bottom: 70px;">
-                <span style="color: #38bdf8; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">Campi di Applicazione</span>
-                <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; margin: 15px 0 20px 0; color: #ffffff; letter-spacing: -0.5px;">I Nostri Settori Industriali</h2>
-                <p style="font-size: 1.15rem; color: #94a3b8; max-width: 750px; margin: 0 auto; line-height: 1.6;">Soluzioni ingegneristiche avanzate integrate nei contesti più complessi e ad alto contenuto tecnologico.</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;">
-                
-                <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 16px; padding: 25px; display: flex; flex-direction: column;">
-                    <div style="width: 100%; height: 160px; border-radius: 10px; overflow: hidden; margin-bottom: 15px; background: #1e293b;">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Smart Manufacturing" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0 0 10px 0; line-height: 1.3;">Smart Manufacturing</h3>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">Progettazione, programmazione e avviamento di linee di produzione intelligenti, celle robotizzate (bracci antropomorfi) e macchine utensili CNC.</p>
-                </div>
-
-                <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 16px; padding: 25px; display: flex; flex-direction: column;">
-                    <div style="width: 100%; height: 160px; border-radius: 10px; overflow: hidden; margin-bottom: 15px; background: #1e293b;">
-                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80" alt="Energy Management" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0 0 10px 0; line-height: 1.3;">Energy Management</h3>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">Gestione avanzata di impianti di produzione energetica (tradizionale e rinnovabile), sistemi di accumulo, cabine di trasformazione e algoritmi predittivi per i carichi.</p>
-                </div>
-
-                <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 16px; padding: 25px; display: flex; flex-direction: column;">
-                    <div style="width: 100%; height: 160px; border-radius: 10px; overflow: hidden; margin-bottom: 15px; background: #1e293b;">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Building Automation" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0 0 10px 0; line-height: 1.3;">Building Automation & Smart Complex</h3>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">Sistemi intelligenti per il controllo integrato di edifici commerciali o industriali: gestione HVAC, illuminazione adattiva, sicurezza e monitoraggio consumi.</p>
-                </div>
-
-                <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 16px; padding: 25px; display: flex; flex-direction: column;">
-                    <div style="width: 100%; height: 160px; border-radius: 10px; overflow: hidden; margin-bottom: 15px; background: #1e293b;">
-                        <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80" alt="Advanced Robotics" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0 0 10px 0; line-height: 1.3;">Robotics systems</h3>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">Sviluppo di logiche di navigazione, sistemi di percezione, modellistica e controllo per robot mobili, bracci intelligenti e veicoli a guida autonoma (AGV/AMR).</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="method" style="padding: 100px 20px; background: linear-gradient(135deg, #090d16 0%, #0f172a 100%); border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
-        <div style="max-width: 1000px; margin: 0 auto;">
-            
-            <div style="text-align: center; margin-bottom: 60px;">
-                <span style="color: #38bdf8; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">Architettura & Solida Ingegneria</span>
-                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 800; margin: 15px 0 20px 0; color: #ffffff;">Il Nostro Metodo di Lavoro</h2>
-                <p style="font-size: 1.1rem; color: #94a3b8; max-width: 750px; margin: 0 auto; line-height: 1.6;">
-                    Qualunque sia il settore o il problema (che si tratti di prevedere i consumi di un edificio, i flussi di cassa, i guasti di un macchinario o le scorte di un magazzino), dal punto di vista ingegneristico e dello sviluppo software la struttura di fondo è la stessa:
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+                    Dal controllo di processo al <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Digital Twin</span> infrastrutturale.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
+                    AI Service Group unisce l'ingegneria dell'automazione, il Virtual Design and Construction (VDC) e la modellazione dinamica per ottimizzare grandi progetti civili, commerciali e industriali.
                 </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#services" class="bg-brand-accent text-white font-medium px-8 py-3.5 rounded-xl hover:bg-blue-600 transition text-center shadow-lg shadow-blue-500/25">
+                        Esplora le Soluzioni
+                    </a>
+                    <a href="mailto:info@aiservicegroup.it" class="bg-gray-800/80 hover:bg-gray-800 text-gray-200 font-medium px-8 py-3.5 rounded-xl border border-gray-700 transition text-center">
+                        info@aiservicegroup.it
+                    </a>
+                </div>
             </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
-                
-                <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 14px; padding: 35px 30px;">
-                    <div style="font-size: 2rem; font-weight: 900; color: #38bdf8; margin-bottom: 15px;">01</div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0 0 12px 0;">Raccolta e Logging dei Dati</h3>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">Acquisizione e salvataggio strutturato dei dati storici, tramite file di log dedicati o database ottimizzati.</p>
-                </div>
-
-                <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 14px; padding: 35px 30px;">
-                    <div style="font-size: 2rem; font-weight: 900; color: #38bdf8; margin-bottom: 15px;">02</div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0 0 12px 0;">Modello Numerico / Predittivo</h3>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">Sviluppo di algoritmi dedicati all'elaborazione di serie storiche, tabelle e flussi numerici complessi anziché parole.</p>
-                </div>
-
-                <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 14px; padding: 35px 30px;">
-                    <div style="font-size: 2rem; font-weight: 900; color: #38bdf8; margin-bottom: 15px;">03</div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0 0 12px 0;">Azione Automatica</h3>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">Esecuzione immediata di risposte basate sull'output: attivazione di allarmi, ottimizzazione dei processi o comandi operativi.</p>
-                </div>
-
-            </div>
-
         </div>
     </section>
 
-    <section id="about" style="padding: 100px 20px; background-color: #090d16;">
-        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-            <h2 style="font-size: 2.25rem; font-weight: 800; color: #ffffff; margin-bottom: 25px;">Chi Siamo</h2>
-            <p style="font-size: 1.15rem; color: #94a3b8; line-height: 1.8; margin-bottom: 40px;">
-                In AI Service Group sviluppiamo sistemi di Intelligenza Artificiale e Automazione progettati per ottimizzare l'operatività, eliminare gli sprechi e incrementare l'efficienza aziendale.<br><br>
-                Uniamo competenze di ingegneria dell'automazione e sviluppo software per guidare la transizione digitale e industriale verso il futuro.
-            </p>
-            <a href="mailto:info@aiservicegroup.it" style="background-color: #38bdf8; color: #090d16; padding: 16px 32px; border-radius: 10px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);">Inizia il Tuo Progetto</a>
+    <!-- VISION / ABOUT -->
+    <section id="vision" class="py-24 bg-gray-950/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-3">Approccio Sistemico</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Oltre la modellazione geometrica: diamo vita ai dati.</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Un'infrastruttura moderna non è solo un disegno tridimensionale, ma un sistema complesso fatto di flussi, sensori, logiche di controllo e variabili temporali. 
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        Integriamo il rigore dell'ingegneria dell'automazione con i flussi VDC e BIM per prevenire criticità in cantiere, ottimizzare la logistica complessa e trasformare le opere in sistemi intelligenti e monitorati in tempo reale.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-brand-card p-6 rounded-2xl border border-gray-800">
+                        <div class="text-3xl font-bold text-brand-glow mb-2">VDC & 4D</div>
+                        <div class="text-sm text-gray-400">Pianificazione temporale e coordinamento geometrico avanzato per grandi cantieri.</div>
+                    </div>
+                    <div class="bg-brand-card p-6 rounded-2xl border border-gray-800">
+                        <div class="text-3xl font-bold text-brand-glow mb-2">IoT & SCADA</div>
+                        <div class="text-sm text-gray-400">Telemetria e acquisizione dati di campo sincronizzate sui modelli digitali.</div>
+                    </div>
+                    <div class="bg-brand-card p-6 rounded-2xl border border-gray-800">
+                        <div class="text-3xl font-bold text-brand-glow mb-2">Digital Twin</div>
+                        <div class="text-sm text-gray-400">Gemelli digitali attivi per la gestione predittiva e l'efficienza energetica.</div>
+                    </div>
+                    <div class="bg-brand-card p-6 rounded-2xl border border-gray-800">
+                        <div class="text-3xl font-bold text-brand-glow mb-2">Logistica</div>
+                        <div class="text-sm text-gray-400">Simulazione dei flussi operativi e movimentazione risorse in spazi complessi.</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer style="background-color: #05080e; border-top: 1px solid rgba(51, 65, 85, 0.4); padding: 40px 20px; text-align: center;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 15px;">
-            <div style="font-size: 1.25rem; font-weight: 800; color: #ffffff;">AISG<span style="color: #38bdf8;">.</span></div>
-            <p style="color: #64748b; font-size: 0.9rem; margin: 0;">&copy; 2026 AI Service Group (aiservicegroup.it). Tutti i diritti riservati.</p>
-            <p style="color: #64748b; font-size: 0.9rem; margin: 0;">Contatti: <a href="mailto:info@aiservicegroup.it" style="color: #38bdf8; text-decoration: none;">info@aiservicegroup.it</a></p>
+    <!-- CORE SERVICES -->
+    <section id="services" class="py-24 border-t border-gray-800/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-3">Aree di Intervento</h2>
+                <h3 class="text-3xl font-bold text-white">Soluzioni ingegneristiche integrate</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Servizio 1 -->
+                <div class="bg-brand-card p-8 rounded-2xl border border-gray-800 hover:border-brand-accent/50 transition group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-brand-glow mb-6 group-hover:scale-110 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">VDC & Infrastrutture</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Coordinamento multidisciplinare, gestione modelli informativi e risoluzione preventiva delle interferenze per grandi opere civili, commerciali ed edifici complessi.
+                    </p>
+                </div>
+
+                <!-- Servizio 2 -->
+                <div class="bg-brand-card p-8 rounded-2xl border border-gray-800 hover:border-brand-accent/50 transition group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-brand-glow mb-6 group-hover:scale-110 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Digital Twin & Telemetria</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Sviluppo di architetture di controllo in tempo reale che collegano i dati di campo (IoT, sensori, SCADA) agli ambienti di visualizzazione tridimensionale.
+                    </p>
+                </div>
+
+                <!-- Servizio 3 -->
+                <div class="bg-brand-card p-8 rounded-2xl border border-gray-800 hover:border-brand-accent/50 transition group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-brand-glow mb-6 group-hover:scale-110 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Logistica & Simulazione 4D</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Pianificazione temporale dei flussi di cantiere, simulazione della movimentazione di materiali e mezzi pesanti per massimizzare l'efficienza operativa.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="tech" class="py-20 bg-gray-950/50 border-t border-gray-800/60">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-3">Competenze & Strumenti</h2>
+            <h3 class="text-2xl font-bold text-white mb-10">Ingegneria di controllo e sviluppo software</h3>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2 rounded-lg bg-brand-card border border-gray-800 text-gray-300 text-sm">MATLAB / Simulink</span>
+                <span class="px-4 py-2 rounded-lg bg-brand-card border border-gray-800 text-gray-300 text-sm">Python / C</span>
+                <span class="px-4 py-2 rounded-lg bg-brand-card border border-gray-800 text-gray-300 text-sm">BIM & OpenBIM (IFC)</span>
+                <span class="px-4 py-2 rounded-lg bg-brand-card border border-gray-800 text-gray-300 text-sm">IoT & OPC-UA / MQTT</span>
+                <span class="px-4 py-2 rounded-lg bg-brand-card border border-gray-800 text-gray-300 text-sm">Sistemi SCADA / BMS</span>
+                <span class="px-4 py-2 rounded-lg bg-brand-card border border-gray-800 text-gray-300 text-sm">Simulazione 4D/5D</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact" class="bg-gray-950 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+                <div class="text-xl font-bold text-white mb-2">AI Service Group</div>
+                <p class="text-gray-400 text-sm">Ingegneria dell'Automazione, VDC e Digital Twin.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center gap-6 text-sm">
+                <a href="mailto:info@aiservicegroup.it" class="text-brand-glow hover:underline font-medium">info@aiservicegroup.it</a>
+                <span class="text-gray-600 hidden sm:inline">|</span>
+                <span class="text-gray-400">aiservicegroup.it</span>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-gray-900 text-center text-xs text-gray-600">
+            &copy; 2026 AI Service Group. Tutti i diritti riservati.
         </div>
     </footer>
 
