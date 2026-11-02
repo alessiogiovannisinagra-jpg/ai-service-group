@@ -57,7 +57,7 @@
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
                 <a href="#framework" class="hover:text-brand transition-colors">Framework 4-Step</a>
                 <a href="#architettura" class="hover:text-brand transition-colors">Architettura</a>
-                <a href="#sicurezza" class="hover:text-brand transition-colors">Sicurezza & IT/OT</a>
+                <a href="#servizi" class="hover:text-brand transition-colors">Sicurezza & IT/OT</a>
                 <a href="#contatti" class="hover:text-brand transition-colors">Contatti</a>
             </nav>
 
@@ -216,59 +216,166 @@
     </section>
 
     <!-- ARCHITECTURE & SECURITY HIGHLIGHT -->
-    <section id="sicurezza" class="py-24 relative overflow-hidden">
+    <section id="servizi" class="py-24 relative overflow-hidden">
+       
+                 <!-- SERVIZI / OFFERS SECTION (INTERACTIVE) -->
+    <section id="servizi" class="py-24 relative bg-dark-800/30">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="text-brand font-mono text-xs font-bold uppercase tracking-widest mb-3 block">INGEGNERIA DEI SISTEMI</span>
-                    <h2 class="text-3xl font-bold text-white tracking-tight mb-6">Controllo, Sicurezza ed Efficienza a 360 Gradi</h2>
-                    <p class="text-slate-400 mb-6 leading-relaxed">
-                        Un'infrastruttura critica moderna non può prescindere da una rigorosa separazione e protezione dei livelli operativi. AISG integra standard industriali avanzati per blindare ogni singolo nodo della rete di campo.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 mt-1 font-mono font-bold">01</div>
-                            <div>
-                                <h4 class="text-white font-semibold mb-1">Resilienza Cibernetica IT/OT</h4>
-                                <p class="text-sm text-slate-400">Protezione attiva contro intrusioni esterne sui PLC e sui dispositivi di campo attraverso segmentazione di rete avanzata.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 mt-1 font-mono font-bold">02</div>
-                            <div>
-                                <h4 class="text-white font-semibold mb-1">Tracciabilità Verificabile</h4>
-                                <p class="text-sm text-slate-400">Archiviazione strutturata di ogni evento di telemetria per analisi forensi e certificazioni di conformità energetica e strutturale.</p>
-                            </div>
-                        </div>
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand font-mono text-xs font-bold uppercase tracking-widest mb-3 block">CORE OFFERINGS & MARKET DEMAND</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">I Nostri Servizi Industriali</h2>
+                <p class="text-slate-400 mt-4">Clicca su ciascun servizio per esplorare le specifiche tecniche, l'architettura di sistema e il valore operativo.</p>
+            </div>
+
+            <!-- GRID DEI SERVIZI -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+                
+                <!-- SERVIZIO 1 -->
+                <div onclick="toggleServiceDetail('service-1')" class="glass-card p-8 rounded-3xl border border-white/10 hover:border-brand/50 transition-all group cursor-pointer relative overflow-hidden">
+                    <div class="absolute top-4 right-4 text-xs font-mono text-slate-500 group-hover:text-brand transition-colors">[ 01 ]</div>
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6 group-hover:scale-110 group-hover:bg-brand group-hover:text-white transition-all">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
+                        <span>Digital Twin & VDC</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-hover:text-brand transition-transform duration-300" id="icon-service-1"></i>
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Sviluppo di gemelli digitali geolocalizzati (BIM/GIS) integrati a flussi IoT in tempo reale per le grandi opere.</p>
+                    
+                    <!-- Dettaglio Espandibile -->
+                    <div id="detail-service-1" class="hidden mt-6 pt-6 border-t border-white/10 text-xs text-slate-300 space-y-2 animate-fadeIn">
+                        <p><strong class="text-brand">Stack Tecnologico:</strong> BIM, GIS, WebGL, MQTT.</p>
+                        <p><strong class="text-brand">Target:</strong> Infrastrutture critiche, Smart Cities, ponti e gallerie.</p>
+                        <p><strong class="text-brand">Vantaggio:</strong> Monitoraggio geometrico e strutturale millimetrico in tempo reale.</p>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-3xl border border-white/10 font-mono text-xs">
-                    <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/10 text-slate-400">
-                        <span class="flex items-center space-x-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                            <span class="text-white font-bold">AISG // SYSTEM_LOG_ROUTER</span>
-                        </span>
-                        <span>SECURE_MODE</span>
+                <!-- SERVIZIO 2 -->
+                <div onclick="toggleServiceDetail('service-2')" class="glass-card p-8 rounded-3xl border border-white/10 hover:border-brand/50 transition-all group cursor-pointer relative overflow-hidden">
+                    <div class="absolute top-4 right-4 text-xs font-mono text-slate-500 group-hover:text-brand transition-colors">[ 02 ]</div>
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6 group-hover:scale-110 group-hover:bg-brand group-hover:text-white transition-all">
+                        <i class="fa-solid fa-shield-halved"></i>
                     </div>
-                    <div class="space-y-3 text-slate-300">
-                        <div class="p-3 rounded-lg bg-dark-900 border border-white/5">
-                            <span class="text-brand">[INFRASTRUCTURE_CORE]:</span> Digital Twin instance loaded successfully.
-                        </div>
-                        <div class="p-3 rounded-lg bg-dark-900 border border-white/5">
-                            <span class="text-emerald-400">[IT/OT_GATEWAY]:</span> MQTT broker active. Secure tunnel established.
-                        </div>
-                        <div class="p-3 rounded-lg bg-dark-900 border border-white/5">
-                            <span class="text-brand">[PREDICTIVE_ENGINE]:</span> Running stress-test scenario #04 (Peak Load).
-                        </div>
-                        <div class="p-3 rounded-lg bg-dark-900 border border-white/5">
-                            <span class="text-emerald-400">[STATUS]:</span> Zero anomalies detected. Feedback loop operational.
-                        </div>
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
+                        <span>Cybersecurity IT/OT</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-hover:text-brand transition-transform duration-300" id="icon-service-2"></i>
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Messa in sicurezza delle architetture SCADA/PLC e segmentazione avanzata delle reti di campo.</p>
+                    
+                    <div id="detail-service-2" class="hidden mt-6 pt-6 border-t border-white/10 text-xs text-slate-300 space-y-2 animate-fadeIn">
+                        <p><strong class="text-brand">Stack Tecnologico:</strong> OPC UA, Firewalls industriali, VPN di campo.</p>
+                        <p><strong class="text-brand">Target:</strong> Impianti di produzione, reti idriche e energetiche.</p>
+                        <p><strong class="text-brand">Vantaggio:</strong> Protezione attiva contro intrusioni e isolamento dei nodi critici.</p>
                     </div>
                 </div>
+
+                <!-- SERVIZIO 3 -->
+                <div onclick="toggleServiceDetail('service-3')" class="glass-card p-8 rounded-3xl border border-white/10 hover:border-brand/50 transition-all group cursor-pointer relative overflow-hidden">
+                    <div class="absolute top-4 right-4 text-xs font-mono text-slate-500 group-hover:text-brand transition-colors">[ 03 ]</div>
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6 group-hover:scale-110 group-hover:bg-brand group-hover:text-white transition-all">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
+                        <span>Manutenzione Predittiva</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-hover:text-brand transition-transform duration-300" id="icon-service-3"></i>
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Algoritmi di machine learning per l'analisi dello stress strutturale e azzeramento dei fermi.</p>
+                    
+                    <div id="detail-service-3" class="hidden mt-6 pt-6 border-t border-white/10 text-xs text-slate-300 space-y-2 animate-fadeIn">
+                        <p><strong class="text-brand">Stack Tecnologico:</strong> Python, Modelli ML, Edge Telemetry.</p>
+                        <p><strong class="text-brand">Target:</strong> Macchinari industriali, turbine, infrastrutture sotto carico.</p>
+                        <p><strong class="text-brand">Vantaggio:</strong> Passaggio dalla manutenzione reattiva alla previsione del guasto.</p>
+                    </div>
+                </div>
+
+                <!-- SERVIZIO 4 -->
+                <div onclick="toggleServiceDetail('service-4')" class="glass-card p-8 rounded-3xl border border-white/10 hover:border-brand/50 transition-all group cursor-pointer relative overflow-hidden">
+                    <div class="absolute top-4 right-4 text-xs font-mono text-slate-500 group-hover:text-brand transition-colors">[ 04 ]</div>
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6 group-hover:scale-110 group-hover:bg-brand group-hover:text-white transition-all">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
+                        <span>Energy Brain & Smart City</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-hover:text-brand transition-transform duration-300" id="icon-service-4"></i>
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Monitoraggio dei consumi e data logging strutturato per la certificazione dei risparmi energetici.</p>
+                    
+                    <div id="detail-service-4" class="hidden mt-6 pt-6 border-t border-white/10 text-xs text-slate-300 space-y-2 animate-fadeIn">
+                        <p><strong class="text-brand">Stack Tecnologico:</strong> Smart Meters, CSV/SQL Loggers, Dashboard API.</p>
+                        <p><strong class="text-brand">Target:</strong> Edifici pubblici, reti di illuminazione, complessi industriali.</p>
+                        <p><strong class="text-brand">Vantaggio:</strong> Tracciabilità verificabile dei risparmi energetici ed economici.</p>
+                    </div>
+                </div>
+
+                <!-- SERVIZIO 5 -->
+                <div onclick="toggleServiceDetail('service-5')" class="glass-card p-8 rounded-3xl border border-white/10 hover:border-brand/50 transition-all group cursor-pointer relative overflow-hidden">
+                    <div class="absolute top-4 right-4 text-xs font-mono text-slate-500 group-hover:text-brand transition-colors">[ 05 ]</div>
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6 group-hover:scale-110 group-hover:bg-brand group-hover:text-white transition-all">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
+                        <span>SCADA & HMI Custom</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-hover:text-brand transition-transform duration-300" id="icon-service-5"></i>
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Progettazione di cruscotti operativi 3D/4D e pannelli di controllo customizzati per la governance.</p>
+                    
+                    <div id="detail-service-5" class="hidden mt-6 pt-6 border-t border-white/10 text-xs text-slate-300 space-y-2 animate-fadeIn">
+                        <p><strong class="text-brand">Stack Tecnologico:</strong> HTML5/JS, WebSockets, SCADA Software.</p>
+                        <p><strong class="text-brand">Target:</strong> Sale controllo centralizzate, centri di comando.</p>
+                        <p><strong class="text-brand">Vantaggio:</strong> Interfacce utente intuitive e reattive per la gestione dei flussi.</p>
+                    </div>
+                </div>
+
+                <!-- SERVIZIO 6 -->
+                <div onclick="toggleServiceDetail('service-6')" class="glass-card p-8 rounded-3xl border border-white/10 hover:border-brand/50 transition-all group cursor-pointer relative overflow-hidden">
+                    <div class="absolute top-4 right-4 text-xs font-mono text-slate-500 group-hover:text-brand transition-colors">[ 06 ]</div>
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6 group-hover:scale-110 group-hover:bg-brand group-hover:text-white transition-all">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
+                        <span>Audit & Data Governance</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-hover:text-brand transition-transform duration-300" id="icon-service-6"></i>
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Generazione automatica di report tecnici e storicizzazione immutabile dei log di sistema.</p>
+                    
+                    <div id="detail-service-6" class="hidden mt-6 pt-6 border-t border-white/10 text-xs text-slate-300 space-y-2 animate-fadeIn">
+                        <p><strong class="text-brand">Stack Tecnologico:</strong> Automated CSV loggers, Audit pipelines.</p>
+                        <p><strong class="text-brand">Target:</strong> Collaudi, enti di certificazione, direzione lavori.</p>
+                        <p><strong class="text-brand">Vantaggio:</strong> Dati storici certificati pronti per qualsiasi verifica normativa.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+
+    <!-- SCRIPT PER L'INTERATTIVITÀ DEI SERVIZI -->
+    <script>
+        function toggleServiceDetail(id) {
+            const detail = document.getElementById('detail-' + id);
+            const icon = document.getElementById('icon-' + id);
+            
+            // Chiudi tutti gli altri aperti (opzionale, per pulizia)
+            for (let i = 1; i <= 6; i++) {
+                const el = document.getElementById('detail-service-' + i);
+                const ic = document.getElementById('icon-service-' + i);
+                if ('detail-' + id !== 'detail-service-' + i && el && !el.classList.contains('hidden')) {
+                    el.classList.add('hidden');
+                    ic.classList.remove('rotate-180', 'text-brand');
+                }
+            }
+
+            // Toggle del servizio cliccato
+            if (detail.classList.contains('hidden')) {
+                detail.classList.remove('hidden');
+                icon.classList.add('rotate-180', 'text-brand');
+            } else {
+                detail.classList.add('hidden');
+                icon.classList.remove('rotate-180', 'text-brand');
+            }
+        }
+    </script>
+
 
     <!-- FOOTER / CONTACT CTA -->
     <section id="contatti" class="py-20 bg-dark-800/80 border-t border-white/10">
