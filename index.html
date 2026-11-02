@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Service Group | Digital Twin per Infrastrutture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#090D16',
+                            800: '#0F1624',
+                            700: '#1B263B',
+                            600: '#27374D',
+                        },
+                        brand: {
+                            DEFAULT: '#0066FF',
+                            light: '#3B82F6',
+                            glow: 'rgba(0, 102, 255, 0.25)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(15, 22, 36, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-accent {
+            box-shadow: 0 0 40px -10px rgba(0, 102, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-slate-100 font-sans antialiased selection:bg-brand selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-brand flex items-center justify-center text-white font-bold font-mono text-xl shadow-lg shadow-brand/30">
+                    AI
+                </div>
+                <div>
+                    <span class="text-lg font-bold tracking-tight text-white block leading-none">AISG</span>
+                    <span class="text-xs text-slate-400 font-mono">AI SERVICE GROUP</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#framework" class="hover:text-brand transition-colors">Framework 4-Step</a>
+                <a href="#architettura" class="hover:text-brand transition-colors">Architettura</a>
+                <a href="#sicurezza" class="hover:text-brand transition-colors">Sicurezza & IT/OT</a>
+                <a href="#contatti" class="hover:text-brand transition-colors">Contatti</a>
+            </nav>
+
+            <div>
+                <a href="mailto:info@aiservicegroup.it" class="hidden sm:inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-brand/10 border border-brand/30 text-brand font-semibold text-sm hover:bg-brand hover:text-white transition-all duration-300">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>info@aiservicegroup.it</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,102,255,0.12),transparent_50%)] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-mono font-semibold mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+                    <span>INDUSTRIAL DIGITAL TWIN INFRASTRUCTURE</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+                    Controllo, Sicurezza ed Efficienza a <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-cyan-400">360 Gradi</span> per le Infrastrutture.
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-400 mb-10 leading-relaxed">
+                    Progettiamo e sviluppiamo modelli di Digital Twin avanzati per il monitoraggio predittivo, la convergenza IT/OT e la gestione autonoma delle grandi opere e delle smart city.
+                </p>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#framework" class="px-8 py-4 rounded-xl bg-brand text-white font-semibold text-center hover:bg-blue-600 transition-all shadow-lg shadow-brand/25 flex items-center justify-center space-x-2">
+                        <span>Esplora il Modello a 4 Passi</span>
+                        <i class="fa-solid fa-arrow-down text-xs"></i>
+                    </a>
+                    <a href="mailto:info@aiservicegroup.it" class="px-8 py-4 rounded-xl glass-card text-slate-200 font-semibold text-center hover:bg-white/5 transition-all border border-white/10 flex items-center justify-center space-x-2">
+                        <span>Richiedi una Consulenza</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- KEY STATS STRIP -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 pt-12 border-t border-white/10">
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="text-3xl font-extrabold text-white font-mono mb-1">01 / 04</div>
+                    <div class="text-sm font-semibold text-brand mb-2">As-Built & IoT Acquisition</div>
+                    <p class="text-sm text-slate-400">Modellazione geometrica BIM/GIS integrata a flussi di sensoristica continua in tempo reale.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="text-3xl font-extrabold text-white font-mono mb-1">02 / 04</div>
+                    <div class="text-sm font-semibold text-brand mb-2">IT/OT Convergence</div>
+                    <p class="text-sm text-slate-400">Architetture di rete blindate con protocolli standardizzati MQTT/OPC UA ed Edge Computing.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="text-3xl font-extrabold text-white font-mono mb-1">03 & 04</div>
+                    <div class="text-sm font-semibold text-brand mb-2">Predictive & Closed-Loop</div>
+                    <p class="text-sm text-slate-400">Simulazioni what-if, manutenzione predittiva basata su ML e governance attiva dei processi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4-STEP FRAMEWORK SECTION -->
+    <section id="framework" class="py-24 bg-dark-800/50 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand font-mono text-xs font-bold uppercase tracking-widest mb-3 block">METODOLOGIA RIGOROSA</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Il Modello di Digital Twin in 4 Passi</h2>
+                <p class="text-slate-400 mt-4">Un approccio ingegneristico strutturato per garantire affidabilità totale, resilienza cibernetica e ottimizzazione continua.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- STEP 1 -->
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-brand/50 transition-all">
+                    <div class="absolute top-0 right-0 p-8 text-6xl font-extrabold text-white/5 font-mono group-hover:text-brand/10 transition-colors">01</div>
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-6 text-xl">
+                        <i class="fa-solid fa-cube"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Acquisizione Dati e Modellazione As-Built</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        La base fisica dell'infrastruttura viene digitalizzata con precisione millimetrica e monitorata costantemente per catturare ogni variazione strutturale o ambientale.
+                    </p>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Integrazione modelli BIM e rilievi GIS/fotogrammetrici</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Sensoristica IoT distribuita (carichi, vibrazioni, flussi)</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Data logging strutturato e storicizzazione immutabile</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-brand/50 transition-all">
+                    <div class="absolute top-0 right-0 p-8 text-6xl font-extrabold text-white/5 font-mono group-hover:text-brand/10 transition-colors">02</div>
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-6 text-xl">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Integrazione e Architettura di Controllo</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Il sistema nervoso dell'infrastruttura: convoglia flussi di dati massicci in un'architettura di rete sicura, reattiva e priva di colli di bottiglia.
+                    </p>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Netta segmentazione e convergenza reti IT/OT</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Middleware di comunicazione MQTT e OPC UA</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Filtraggio locale ed elaborazione Edge Computing</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- STEP 3 -->
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-brand/50 transition-all">
+                    <div class="absolute top-0 right-0 p-8 text-6xl font-extrabold text-white/5 font-mono group-hover:text-brand/10 transition-colors">03</div>
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-6 text-xl">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Simulazione, Analisi Predittiva e "What-If"</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Il cervello analitico del gemello digitale anticipa le criticità, stimando l'usura dei componenti ed eseguendo stress-test virtuali in totale sicurezza.
+                    </p>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Modelli dinamici e matematici di comportamento strutturale</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Manutenzione predittiva orientata all'azzeramento dei fermi</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Simulazione di eventi estremi e carichi straordinari</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- STEP 4 -->
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-brand/50 transition-all">
+                    <div class="absolute top-0 right-0 p-8 text-6xl font-extrabold text-white/5 font-mono group-hover:text-brand/10 transition-colors">04</div>
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-6 text-xl">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Chiusura del Loop e Governance Attiva</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Trasforma il monitoraggio passivo in controllo operativo attivo, abilitando risposte automatizzate, cruscotti decisionali e conformità normativa.
+                    </p>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Cruscotti operativi unificati (Dashboard 3D/4D)</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Feedback loop per automazione di contromisure e flussi</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand text-xs"></i>
+                            <span>Reporting automatizzato per audit e conformità</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ARCHITECTURE & SECURITY HIGHLIGHT -->
+    <section id="sicurezza" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-brand font-mono text-xs font-bold uppercase tracking-widest mb-3 block">INGEGNERIA DEI SISTEMI</span>
+                    <h2 class="text-3xl font-bold text-white tracking-tight mb-6">Controllo, Sicurezza ed Efficienza a 360 Gradi</h2>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Un'infrastruttura critica moderna non può prescindere da una rigorosa separazione e protezione dei livelli operativi. AISG integra standard industriali avanzati per blindare ogni singolo nodo della rete di campo.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 mt-1 font-mono font-bold">01</div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Resilienza Cibernetica IT/OT</h4>
+                                <p class="text-sm text-slate-400">Protezione attiva contro intrusioni esterne sui PLC e sui dispositivi di campo attraverso segmentazione di rete avanzata.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 mt-1 font-mono font-bold">02</div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Tracciabilità Verificabile</h4>
+                                <p class="text-sm text-slate-400">Archiviazione strutturata di ogni evento di telemetria per analisi forensi e certificazioni di conformità energetica e strutturale.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border border-white/10 font-mono text-xs">
+                    <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/10 text-slate-400">
+                        <span class="flex items-center space-x-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-white font-bold">AISG // SYSTEM_LOG_ROUTER</span>
+                        </span>
+                        <span>SECURE_MODE</span>
+                    </div>
+                    <div class="space-y-3 text-slate-300">
+                        <div class="p-3 rounded-lg bg-dark-900 border border-white/5">
+                            <span class="text-brand">[INFRASTRUCTURE_CORE]:</span> Digital Twin instance loaded successfully.
+                        </div>
+                        <div class="p-3 rounded-lg bg-dark-900 border border-white/5">
+                            <span class="text-emerald-400">[IT/OT_GATEWAY]:</span> MQTT broker active. Secure tunnel established.
+                        </div>
+                        <div class="p-3 rounded-lg bg-dark-900 border border-white/5">
+                            <span class="text-brand">[PREDICTIVE_ENGINE]:</span> Running stress-test scenario #04 (Peak Load).
+                        </div>
+                        <div class="p-3 rounded-lg bg-dark-900 border border-white/5">
+                            <span class="text-emerald-400">[STATUS]:</span> Zero anomalies detected. Feedback loop operational.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT CTA -->
+    <section id="contatti" class="py-20 bg-dark-800/80 border-t border-white/10">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Pronto a digitalizzare la tua infrastruttura?</h2>
+            <p class="text-slate-400 max-w-xl mx-auto mb-8">
+                Contattaci per definire un'architettura su misura basata sul nostro modello di Digital Twin a 4 passi.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:info@aiservicegroup.it" class="px-8 py-4 rounded-xl bg-brand text-white font-semibold hover:bg-blue-600 transition-all shadow-lg shadow-brand/30 flex items-center space-x-3">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>info@aiservicegroup.it</span>
+                </a>
+            </div>
+            <div class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-mono">
+                <div>&copy; 2026 AI Service Group (AISG). Tutti i diritti riservati.</div>
+                <div class="mt-4 sm:mt-0">aiservicegroup.it</div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
