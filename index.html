@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Service Group | Digital Twin per Infrastrutture</title>
+    <title>AI Service Group | Digital Twin per Grandi Opere, Porti, Aeroporti e ferrovie</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -13,10 +13,10 @@
                 extend: {
                     colors: {
                         dark: {
-                            900: '#090D16',
-                            800: '#0F1624',
-                            700: '#1B263B',
-                            600: '#27374D',
+                            900: '#070A10',
+                            800: '#0C111D',
+                            700: '#151C2C',
+                            600: '#1E293B',
                         },
                         brand: {
                             DEFAULT: '#0066FF',
@@ -34,12 +34,12 @@
     </script>
     <style>
         .glass-card {
-            background: rgba(15, 22, 36, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(12, 17, 29, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
         }
         .glow-accent {
-            box-shadow: 0 0 40px -10px rgba(0, 102, 255, 0.3);
+            box-shadow: 0 0 50px -10px rgba(0, 102, 255, 0.2);
         }
     </style>
 </head>
@@ -49,20 +49,23 @@
     <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-brand flex items-center justify-center text-white font-bold font-mono text-xl shadow-lg shadow-brand/30">
+                    AI
+                </div>
                 <div>
+                    <span class="text-lg font-bold tracking-tight text-white block leading-none">AISG</span>
                     <span class="text-xs text-slate-400 font-mono">AI SERVICE GROUP</span>
                 </div>
             </div>
             
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                <a href="#framework" class="hover:text-brand transition-colors">Il Nostro Metodo</a>
-                <a href="#Cosa Facciamo" class="hover:text-brand transition-colors">Cosa Facciamo</a>
-                <a href="#servizi" class="hover:text-brand transition-colors">Perchè Sceglierci</a>
-                <a href="#contatti" class="hover:text-brand transition-colors">Contatti</a>
+                <a href="#soluzione" class="hover:text-brand transition-colors">Il Focus</a>
+                <a href="#framework" class="hover:text-brand transition-colors">Il Metodo a 4 Passi</a>
+                <a href="#vantaggi" class="hover:text-brand transition-colors">Perché AISG</a>
             </nav>
 
             <div>
-                <a href="mailto:info@aiservicegroup.it" class="hidden sm:inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-brand/10 border border-brand/30 text-brand font-semibold text-sm hover:bg-brand hover:text-white transition-all duration-300">
+                <a href="mailto:info@aiservicegroup.it" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-brand/10 border border-brand/30 text-brand font-semibold text-sm hover:bg-brand hover:text-white transition-all duration-300">
                     <i class="fa-regular fa-envelope"></i>
                     <span>info@aiservicegroup.it</span>
                 </a>
@@ -70,40 +73,116 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,102,255,0.12),transparent_50%)] pointer-events-none"></div>
+    <!-- HERO SECTION: TRASPORTI & GRANDI OPERE -->
+    <section class="relative pt-36 pb-24 md:pt-48 md:pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,102,255,0.15),transparent_50%)] pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="max-w-3xl">
                 <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-mono font-semibold mb-6">
                     <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
-                    <span>INDUSTRIAL DIGITAL TWIN INFRASTRUCTURE</span>
+                    <span>DIGITAL TWIN PER PORTI, AEROPORTI, FERROVIE E GRANDI OPERE</span>
                 </div>
                 <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
-                    Controllo, Sicurezza ed Efficienza a <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-cyan-400">360 Gradi</span> per le Infrastrutture.
+                    Controllo e sicurezza per i <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-cyan-400">Nodi di Trasporto e le Grandi Opere</span>.
                 </h1>
-                <p class="text-lg sm:text-xl text-slate-400 mb-10 leading-relaxed">
-                    Progettiamo e sviluppiamo modelli di Digital Twin avanzati per il monitoraggio predittivo, la convergenza IT/OT e la gestione autonoma delle grandi opere e delle smart city.
+                <p class="text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed">
+                    Progettiamo ecosistemi digitali avanzati per porti, aeroporti, reti ferroviarie, ponti e progetti urbani. Trasformiamo le infrastrutture critiche in reti intelligenti, predittive e monitorate in tempo reale.
                 </p>
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="#framework" class="px-8 py-4 rounded-xl bg-brand text-white font-semibold text-center hover:bg-blue-600 transition-all shadow-lg shadow-brand/25 flex items-center justify-center space-x-2">
-                        <span>Esplora il Modello a 4 Passi</span>
+                        <span>Scopri il Modello a 4 Passi</span>
                         <i class="fa-solid fa-arrow-down text-xs"></i>
                     </a>
                     <a href="mailto:info@aiservicegroup.it" class="px-8 py-4 rounded-xl glass-card text-slate-200 font-semibold text-center hover:bg-white/5 transition-all border border-white/10 flex items-center justify-center space-x-2">
-                        <span>Richiedi una Consulenza</span>
+                        <span>Contatta il Team Tecnico</span>
                     </a>
                 </div>
             </div>
-                
 
-    <!-- 4-STEP FRAMEWORK SECTION -->
-    <section id="framework" class="py-24 bg-dark-800/50 relative border-t border-white/5">
+            <!-- KEY ASSETS STRIP (PORTI, AEROPORTI, FERROVIE, GRANDI OPERE) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 pt-12 border-t border-white/10 text-center md:text-left">
+                <div class="glass-card p-5 rounded-2xl">
+                    <div class="text-brand font-mono text-xs font-bold mb-1">// ASSET 01</div>
+                    <div class="text-white font-bold text-base">Porti & Terminal Logistici</div>
+                </div>
+                <div class="glass-card p-5 rounded-2xl">
+                    <div class="text-brand font-mono text-xs font-bold mb-1">// ASSET 02</div>
+                    <div class="text-white font-bold text-base">Aeroporti & Hub Aviation</div>
+                </div>
+                <div class="glass-card p-5 rounded-2xl">
+                    <div class="text-brand font-mono text-xs font-bold mb-1">// ASSET 03</div>
+                    <div class="text-white font-bold text-base">Reti Ferroviarie & Linee</div>
+                </div>
+                <div class="glass-card p-5 rounded-2xl">
+                    <div class="text-brand font-mono text-xs font-bold mb-1">// ASSET 04</div>
+                    <div class="text-white font-bold text-base">Grandi Opere & Smart City</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IL PROBLEMA & LA SOLUZIONE -->
+    <section id="soluzione" class="py-24 bg-dark-800/50 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-brand font-mono text-xs font-bold uppercase tracking-widest mb-3 block">IL VALORE STRATEGICO</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-6">
+                        Governance centralizzata per i nodi nevralgici della mobilità.
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed mb-6">
+                        La gestione di porti, aeroporti e linee ferroviarie richiede un controllo assoluto sui flussi operativi e sull'integrità strutturale. Un'interruzione in questi nodi genera impatti economici a catena.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8">
+                        In <strong class="text-white">AISG</strong> uniamo modellazione BIM/GIS, sensoristica IoT distribuita e intelligenza predittiva per offrire sale comandi unificate capaci di blindare la sicurezza informatica (IT/OT) e azzerare i fermi operativi.
+                    </p>
+                    <div class="flex items-center space-x-6 text-sm font-mono text-slate-300">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-shield text-brand"></i>
+                            <span>Cybersecurity IT/OT</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-train text-brand"></i>
+                            <span>Transport Intelligence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOX LIVE LOG -->
+                <div class="glass-card p-8 rounded-3xl border border-white/10 font-mono text-xs shadow-2xl">
+                    <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/10 text-slate-400">
+                        <span class="flex items-center space-x-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-white font-bold">AISG // TRANSPORT_HUB_ROUTER</span>
+                        </span>
+                        <span>LIVE_STREAM</span>
+                    </div>
+                    <div class="space-y-3 text-slate-300">
+                        <div class="p-3 rounded-xl bg-dark-900 border border-white/5">
+                            <span class="text-brand">[RAIL_LINE_09]:</span> Track geometry telemetry nominal. Zero thermal stress.
+                        </div>
+                        <div class="p-3 rounded-xl bg-dark-900 border border-white/5">
+                            <span class="text-emerald-400">[AIRPORT_RUNWAY]:</span> Surface friction and lighting grid operational.
+                        </div>
+                        <div class="p-3 rounded-xl bg-dark-900 border border-white/5">
+                            <span class="text-brand">[PORT_TERMINAL]:</span> Crane load cycles and dock stress telemetry stable.
+                        </div>
+                        <div class="p-3 rounded-xl bg-dark-900 border border-white/5">
+                            <span class="text-emerald-400">[SYSTEM_STATUS]:</span> Closed-loop governance active. Full compliance.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IL MODELLO A 4 PASSI -->
+    <section id="framework" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand font-mono text-xs font-bold uppercase tracking-widest mb-3 block">METODOLOGIA RIGOROSA</span>
+                <span class="text-brand font-mono text-xs font-bold uppercase tracking-widest mb-3 block">METODOLOGIA INGEGNERISTICA RIGOROSA</span>
                 <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Il Modello di Digital Twin in 4 Passi</h2>
-                <p class="text-slate-400 mt-4">Un approccio ingegneristico strutturato per garantire affidabilità totale, resilienza cibernetica e ottimizzazione continua.</p>
+                <p class="text-slate-400 mt-4">Un'architettura end-to-end pensata per porti, aeroporti, ferrovie e grandi infrastrutture.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -116,21 +195,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Acquisizione Dati e Modellazione As-Built</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        La base fisica dell'infrastruttura viene digitalizzata con precisione millimetrica e monitorata costantemente per catturare ogni variazione strutturale o ambientale.
+                        Digitalizzazione geolocalizzata dei nodi di trasporto attraverso modelli BIM, GIS e sensoristica IoT distribuita per monitorare binari, banchine, piste e strutture.
                     </p>
-                    <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Integrazione modelli BIM e rilievi GIS/fotogrammetrici</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Sensoristica IoT distribuita (carichi, vibrazioni, flussi)</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Data logging strutturato e storicizzazione immutabile</span>
-                        </li>
+                    <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                        <li>> Integrazione BIM e GIS per reti estese</li>
+                        <li>> Sensori IoT di campo (vibrazioni, carichi, flussi)</li>
+                        <li>> Data logging strutturato e immutabile</li>
                     </ul>
                 </div>
 
@@ -140,23 +210,14 @@
                     <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-6 text-xl">
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Integrazione e Architettura di Controllo</h3>
+                    <h3 class="text-xl font-bold text-white mb-3">Integrazione e Architettura IT/OT</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Il sistema nervoso dell'infrastruttura: convoglia flussi di dati massicci in un'architettura di rete sicura, reattiva e priva di colli di bottiglia.
+                        Blindatura delle reti operative ferroviarie, aeroportuali e portuali. Netta separazione IT/OT per prevenire attacchi cibernetici e garantire protocolli MQTT/OPC UA stabili.
                     </p>
-                    <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Netta segmentazione e convergenza reti IT/OT</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Middleware di comunicazione MQTT e OPC UA</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Filtraggio locale ed elaborazione Edge Computing</span>
-                        </li>
+                    <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                        <li>> Segmentazione avanzata delle reti di controllo</li>
+                        <li>> Middleware MQTT / OPC UA sicuro</li>
+                        <li>> Edge Computing per elaborazione locale dei dati</li>
                     </ul>
                 </div>
 
@@ -166,23 +227,14 @@
                     <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-6 text-xl">
                         <i class="fa-solid fa-brain"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Simulazione, Analisi Predittiva e "What-If"</h3>
+                    <h3 class="text-xl font-bold text-white mb-3">Simulazione, What-If e Predizione</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Il cervello analitico del gemello digitale anticipa le criticità, stimando l'usura dei componenti ed eseguendo stress-test virtuali in totale sicurezza.
+                        Il cervello analitico: esegue stress-test operativi e simulazioni di traffico straordinario o eventi critici stimando l'usura dei componenti prima del guasto.
                     </p>
-                    <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Modelli dinamici e matematici di comportamento strutturale</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Manutenzione predittiva orientata all'azzeramento dei fermi</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Simulazione di eventi estremi e carichi straordinari</span>
-                        </li>
+                    <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                        <li>> Modelli dinamici di comportamento strutturale e logistico</li>
+                        <li>> Manutenzione predittiva orientata all'azzeramento dei fermi</li>
+                        <li>> Analisi di scenario what-if in totale sicurezza</li>
                     </ul>
                 </div>
 
@@ -194,154 +246,60 @@
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Chiusura del Loop e Governance Attiva</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Trasforma il monitoraggio passivo in controllo operativo attivo, abilitando risposte automatizzate, cruscotti decisionali e conformità normativa.
+                        Cruscotti operativi unificati (Dashboard 3D/4D) per i gestori dei hub, attivazione automatica di contromisure in emergenza e report per audit e standard di trasporto.
                     </p>
-                    <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Cruscotti operativi unificati (Dashboard 3D/4D)</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Feedback loop per automazione di contromisure e flussi</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-check text-brand text-xs"></i>
-                            <span>Reporting automatizzato per audit e conformità</span>
-                        </li>
+                    <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                        <li>> Dashboard di supervisione centralizzata</li>
+                        <li>> Feedback loop per automazione operativa e sicurezza</li>
+                        <li>> Tracciabilità verificabile per collaudi e normative</li>
                     </ul>
                 </div>
 
             </div>
         </div>
     </section>
-    
-            <!-- COSA FACCIAMO SECTION (PROFESSIONAL GRADE) -->
-    <section id= "Cosa Facciamo" class="py-24 relative bg-dark-800/40 border-t border-white/5">
+
+    <!-- PERCHÉ SCEGLIERCI -->
+    <section id="vantaggi" class="py-24 bg-dark-800/50 relative border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                
-                <!-- COLONNA TESTUALE -->
-                <div>
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-brand/10 border border-brand/20 text-brand text-xs font-mono font-semibold mb-6">
-                        <span>CORE COMPETENCY & SYSTEM ENGINEERING</span>
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-6">
-                        Ingegneria dei Sistemi e Digitalizzazione delle Infrastrutture
-                    </h2>
-                    <p class="text-slate-300 text-base leading-relaxed mb-6">
-                        In <strong class="text-white">AI Service Group (AISG)</strong> operiamo come partner tecnologico di alto profilo per la progettazione, lo sviluppo e la governance di ecosistemi digitali orientati al controllo di grandi opere, reti tecnologiche e asset critici.
-                    </p>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-8">
-                        Integriamo metodologie avanzate di system integration, modellazione strutturale e intelligenza artificiale per trasformare infrastrutture complesse in sistemi resilienti, autonomi e monitorabili in tempo reale.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-medium text-slate-200">
-                        <div class="flex items-center space-x-3 p-4 rounded-xl bg-dark-900/80 border border-white/10">
-                            <i class="fa-solid fa-cube text-brand"></i>
-                            <span>Digital Twin & VDC</span>
-                        </div>
-                        <div class="flex items-center space-x-3 p-4 rounded-xl bg-dark-900/80 border border-white/10">
-                            <i class="fa-solid fa-shield-halved text-brand"></i>
-                            <span>Cybersecurity IT/OT</span>
-                        </div>
-                        <div class="flex items-center space-x-3 p-4 rounded-xl bg-dark-900/80 border border-white/10">
-                            <i class="fa-solid fa-chart-line text-brand"></i>
-                            <span>Manutenzione Predittiva</span>
-                        </div>
-                        <div class="flex items-center space-x-3 p-4 rounded-xl bg-dark-900/80 border border-white/10">
-                            <i class="fa-solid fa-desktop text-brand"></i>
-                            <span>Supervisione SCADA / HMI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- COLONNA TECNICA / BOX STRUTTURATO -->
-                <div class="glass-card p-8 sm:p-10 rounded-3xl border border-white/10 relative overflow-hidden shadow-2xl">
-                    <div class="absolute top-0 right-0 p-8 text-8xl font-extrabold text-white/[0.03] font-mono pointer-events-none">AISG</div>
-                    
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center space-x-3">
-                        <span class="w-2.5 h-2.5 rounded-full bg-brand animate-pulse"></span>
-                        <span>Architettura d'Integrazione End-to-End</span>
-                    </h3>
-                    <p class="text-sm text-slate-400 leading-relaxed mb-6">
-                        Garantiamo un presidio tecnologico completo su tutti i livelli della filiera: dalla sensoristica di campo (IoT/OT) fino ai sistemi di supervisione centralizzati e alla rendicontazione dei KPI di sostenibilità ed efficienza.
-                    </p>
-
-                    <div class="p-5 rounded-2xl bg-dark-900 border border-white/10 font-mono text-xs text-slate-300 space-y-2.5">
-                        <div class="text-brand font-bold tracking-wider">// SYSTEM_CORE_SPECIFICATION</div>
-                        <div class="text-slate-400">> Convergenza nativa tra domini IT e reti OT industriali</div>
-                        <div class="text-slate-400">> Storicizzazione immutabile dei log di telemetria e audit</div>
-                        <div class="text-slate-400">> Simulazione di scenari critici e stress-test strutturali</div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-       <!-- SEZIONE PERCHÉ SCEGLIERCI -->
-         <section id="servizi" class="py-24 bg-dark-800/50 relative border-t border-white/5">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(0,102,255,0.08),transparent_50%)] pointer-events-none"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <!-- HEADER SEZIONE -->
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand font-mono text-xs font-bold uppercase tracking-widest mb-3 block">VANTAGGIO COMPETITIVO & ROI</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Perché Scegliere AISG</h2>
-                <p class="text-slate-400 mt-4">Non forniamo semplici software, ma architetture ingegneristiche progettate per azzerare i rischi operativi e proteggere il capitale investito.</p>
+                <span class="text-brand font-mono text-xs font-bold uppercase tracking-widest mb-3 block">ROI E VALORE STRATEGICO</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Perché i Gestori di Infrastrutture Scelgono AISG</h2>
+                <p class="text-slate-400 mt-4">Soluzioni ingegneristiche progettate per proteggere la continuità d'esercizio dei nodi di trasporto critici.</p>
             </div>
 
-            <!-- GRIGLIA MOTIVI -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- PUNTO 1 -->
-                <div class="glass-card p-8 rounded-3xl border border-white/10 hover:border-brand/50 transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6 group-hover:bg-brand group-hover:text-white transition-all">
+                <div class="glass-card p-8 rounded-3xl border border-white/10">
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Da Reattiva a Predittiva</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">
-                        Azzeriamo i fermi impianto imprevisti. I nostri modelli anticipano l'usura e i carichi critici, permettendoti di intervenire prima del guasto con un impatto immediato sul ROI.
-                    </p>
+                    <h3 class="text-lg font-bold text-white mb-2">Continuità Operativa h24</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Azzeriamo i fermi imprevisti su binari, banchine e piste, garantendo flussi logistici ininterrotti e sicuri.</p>
                 </div>
-
-                <!-- PUNTO 2 -->
-                <div class="glass-card p-8 rounded-3xl border border-white/10 hover:border-brand/50 transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6 group-hover:bg-brand group-hover:text-white transition-all">
+                <div class="glass-card p-8 rounded-3xl border border-white/10">
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6">
                         <i class="fa-solid fa-microchip"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Integrazione Legacy (No Rip-and-Replace)</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">
-                        Non devi rifare l'impianto da zero. Sviluppiamo gateway e middleware capaci di dialogare con i PLC, i sensori e l'hardware esistente, valorizzando gli investimenti passati.
-                    </p>
+                    <h3 class="text-lg font-bold text-white mb-2">Integrazione Legacy Sostenibile</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Colleghiamo i sensori, i PLC e i sistemi di segnalamento esistenti attraverso gateway dedicati, senza rifare gli impianti da zero.</p>
                 </div>
-
-                <!-- PUNTO 3 -->
-                <div class="glass-card p-8 rounded-3xl border border-white/10 hover:border-brand/50 transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6 group-hover:bg-brand group-hover:text-white transition-all">
+                <div class="glass-card p-8 rounded-3xl border border-white/10">
+                    <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl mb-6">
                         <i class="fa-solid fa-file-shield"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Tracciabilità e Conformità Totale</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">
-                        Ogni evento di telemetria e consumo viene storicizzato in log strutturati e immutabili. Dati certi e verificabili pronti per audit, collaudi e certificazioni di sostenibilità.
-                    </p>
+                    <h3 class="text-lg font-bold text-white mb-2">Conformità e Audit Certificati</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Log di sistema immutabili e storicizzati per rispondere puntualmente alle rigide normative sui trasporti e sulla sicurezza.</p>
                 </div>
-
             </div>
         </div>
     </section>
-    
-
-
 
     <!-- FOOTER / CONTACT CTA -->
-    <section id="contatti" class="py-20 bg-dark-800/80 border-t border-white/10">
+    <section class="py-20 bg-dark-900 border-t border-white/10">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-white mb-4">Pronto a digitalizzare la tua infrastruttura?</h2>
+            <h2 class="text-3xl font-bold text-white mb-4">Pronto a digitalizzare un porto, un aeroporto o una rete ferroviaria?</h2>
             <p class="text-slate-400 max-w-xl mx-auto mb-8">
-                Contattaci per definire un'architettura su misura basata sul nostro modello di Digital Twin a 4 passi.
+                Contattaci per definire l'architettura Digital Twin su misura per la tua infrastruttura di trasporto.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="mailto:info@aiservicegroup.it" class="px-8 py-4 rounded-xl bg-brand text-white font-semibold hover:bg-blue-600 transition-all shadow-lg shadow-brand/30 flex items-center space-x-3">
@@ -351,7 +309,7 @@
             </div>
             <div class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-mono">
                 <div>&copy; 2026 AI Service Group (AISG). Tutti i diritti riservati.</div>
-                <div class="mt-4 sm:mt-0">aiservicegroup.it</div>
+                <div class="mt-4 sm:mt-0">aiservicegroup.it // Porti, Aeroporti, Ferrovie & Grandi Opere</div>
             </div>
         </div>
     </section>
