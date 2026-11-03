@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Service Group | Industrial Automation & Digital Twins</title>
+    <!-- Google Fonts & FontAwesome per le icone -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --accent-glow: rgba(37, 99, 235, 0.2);
+            --bg-light: #f8fafc;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn-cta {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 10rem 2rem 6rem;
+            background: radial-gradient(circle at top right, var(--accent-glow), transparent 40%), var(--bg-light);
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--border-color);
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* --- SECTIONS COMMON --- */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        /* --- CHI SIAMO & COME LAVORIAMO --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .features-list i {
+            color: var(--accent);
+            background: var(--accent-glow);
+            padding: 0.6rem;
+            border-radius: 50%;
+        }
+
+        .workflow-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--accent);
+            color: var(--white);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .step-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* --- COSA FACCIAMO (SOLUZIONI / PRODOTTI) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-tag {
+            display: inline-block;
+            background: var(--bg-light);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* --- STRATEGIA DI MERCATO & VALUE PROPOSITION --- */
+        .strategy-section {
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+        }
+
+        .strategy-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .strategy-header h2 {
+            color: var(--white);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .strategy-header p {
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .strategy-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .strategy-item i {
+            color: #60a5fa;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .strategy-item h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .strategy-item p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-info {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media(max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .footer-container {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            .footer-info {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">AISG<span>.design</span></a>
+            <ul class="nav-links">
+                <li><a href="#chi-siamo">Chi Siamo</a></li>
+                <li><a href="#cosa-facciamo">Cosa Facciamo</a></li>
+                <li><a href="#strategia">Strategia</a></li>
+                <li><a href="#contatti" class="btn-cta">Contattaci</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Ingegneria dei Sistemi, <span>Digital Twin</span> e Automazione Avanzata</h1>
+            <p>Progettiamo architetture intelligenti e gemelli digitali industriali per trasformare i dati di impianto in decisioni strategiche, efficienza energetica e manutenzione predittiva.</p>
+            <div class="hero-buttons">
+                <a href="#cosa-facciamo" class="btn-cta">Scopri le Soluzioni</a>
+                <a href="#chi-siamo" class="btn-outline">Il Nostro Metodo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHI SIAMO & COME LAVORIAMO -->
+    <section id="chi-siamo">
+        <div class="section-header">
+            <h2>Chi Siamo & Come Lavoriamo</h2>
+            <p>Un approccio rigoroso basato sui principi dell'ingegneria dell'automazione e orientato a risolvere i reali problemi operativi delle aziende.</p>
+        </div>
+        
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Fondati sull'ingegneria, guidati dall'innovazione</h3>
+                <p><strong>AI Service Group (AISG)</strong> unisce le competenze sistemistiche dell'ingegneria industriale con lo sviluppo software avanzato. Aiutiamo aziende manifatturiere e gestori di infrastrutture a colmare il divario tra il mondo fisico (OT) e quello digitale (IT).</p>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-check"></i> Rigore metodologico e modellazione basata su primi principi</li>
+                    <li><i class="fa-solid fa-check"></i> Integrazione nativa OT/IT (PLC, SCADA, Cloud)</li>
+                    <li><i class="fa-solid fa-check"></i> Soluzioni sartoriali e scalabili</li>
+                </ul>
+            </div>
+            
+            <div class="workflow-box">
+                <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Il Nostro Metodo di Lavoro</h3>
+                <div class="workflow-steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>Assessment & Readiness Audit</h4>
+                            <p>Analizziamo i processi e i flussi di dati esistenti per individuare i colli di bottiglia e le aree di spreco energetico.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>Progettazione del Digital Twin</h4>
+                            <p>Sviluppiamo modelli virtuali predittivi e interfacce HMI/SCADA custom mirate all'obiettivo.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>Deployment & Managed Services</h4>
+                            <p>Mettiamo in campo la soluzione con un approccio agile, garantendo supporto continuo e ottimizzazione.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COSA FACCIAMO (SOLUZIONI / PRODOTTI) -->
+    <section id="cosa-facciamo" style="background-color: var(--bg-light); max-width: 100%; padding-left: 2rem; padding-right: 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header">
+                <h2>Cosa Facciamo: Le Nostre Soluzioni</h2>
+                <p>Tecnologie core sviluppate per l'efficienza industriale, la simulazione e la gestione intelligente degli asset.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>Energy Brain</h3>
+                    <p>Sistemi di monitoraggio e simulazione dei flussi energetici orientati alla transizione green e all'abbattimento dei costi in bolletta.</p>
+                    <span class="service-tag">Energy Management</span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3>AI Smart Hub</h3>
+                    <p>Integrazione avanzata OT/IT per connettere macchinari di campo, raccogliere telemetria ed alimentare modelli predittivi in tempo reale.</p>
+                    <span class="service-tag">Industrial IoT</span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-city"></i></div>
+                    <h3>Omnia Infrastructure</h3>
+                    <p>Gemelli digitali dedicati ad asset complessi, impianti di produzione e grandi infrastrutture per il monitoraggio strutturale e la sicurezza.</p>
+                    <span class="service-tag">Digital Twins</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRATEGIA DI MERCATO -->
+    <section id="strategia">
+        <div class="strategy-section">
+            <div class="strategy-header">
+                <h2>Strategia di Mercato & Posizionamento</h2>
+                <p>Come creiamo valore tangibile per i nostri partner industriali e infrastrutturali.</p>
+            </div>
+            <div class="strategy-grid">
+                <div class="strategy-item">
+                    <i class="fa-solid fa-crosshairs"></i>
+                    <h4>Approccio "Problem-First"</h4>
+                    <p>Non vendiamo software astratti, ma partiamo dai problemi reali del cliente: fermi macchina, inefficienze e costi di manutenzione.</p>
+                </div>
+                <div class="strategy-item">
+                    <i class="fa-solid fa-rocket"></i>
+                    <h4>Pilota a Basso Rischio (PoC)</h4>
+                    <p>Validiamo il ritorno sull'investimento con progetti pilota mirati su singole linee o asset critici prima di scalare l'architettura.</p>
+                </div>
+                <div class="strategy-item">
+                    <i class="fa-solid fa-handshake"></i>
+                    <h4>Modello Ibrido e Scalabile</h4>
+                    <p
