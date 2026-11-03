@@ -270,7 +270,7 @@
             color: var(--text-light);
         }
 
-        /* --- COSA FACCIAMO (SOLUZIONI / PRODOTTI) --- */
+        /* --- COSA FACCIAMO & PROGETTI (GRID) --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -312,68 +312,12 @@
 
         .service-tag {
             display: inline-block;
-            background: var(--bg-light);
+            background: var(--accent-glow);
             color: var(--accent);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
-        }
-
-        /* --- STRATEGIA DI MERCATO & VALUE PROPOSITION --- */
-        .strategy-section {
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 20px;
-            padding: 4rem 3rem;
-            margin: 4rem auto;
-            max-width: 1200px;
-        }
-
-        .strategy-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .strategy-header h2 {
-            color: var(--white);
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .strategy-header p {
-            color: #94a3b8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .strategy-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-        }
-
-        .strategy-item i {
-            color: #60a5fa;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .strategy-item h4 {
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .strategy-item p {
-            color: #94a3b8;
-            font-size: 0.9rem;
         }
 
         /* --- FOOTER --- */
@@ -450,7 +394,7 @@
             <ul class="nav-links">
                 <li><a href="#chi-siamo">Chi Siamo</a></li>
                 <li><a href="#cosa-facciamo">Cosa Facciamo</a></li>
-                <li><a href="#strategia">Strategia</a></li>
+                <li><a href="#i-nostri-progetti">Progetti</a></li>
                 <li><a href="#contatti" class="btn-cta">Contattaci</a></li>
             </ul>
         </div>
@@ -515,7 +459,7 @@
         </div>
     </section>
 
-                       <!-- COSA FACCIAMO (METODO E APPLICAZIONE UNIVERSALE) -->
+    <!-- COSA FACCIAMO (METODO E APPLICAZIONE UNIVERSALE) -->
     <section id="cosa-facciamo" style="background-color: var(--bg-light); max-width: 100%; padding-left: 2rem; padding-right: 2rem;">
         <div style="max-width: 1200px; margin: 0 auto;">
             <div class="section-header">
@@ -525,84 +469,102 @@
 
             <div class="services-grid">
                 <!-- Card 1: Structural & Asset Health Monitoring -->
-                <div class="service-card" style="background: var(--white); border: 1px solid var(--border-color); border-radius: 12px; padding: 2.5rem; transition: all 0.3s ease;">
-                    <div class="service-icon" style="font-size: 2rem; color: var(--accent); margin-bottom: 1.5rem;"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
                     <h3>Monitoraggio e Integrità degli Asset</h3>
                     <p>Integrazione di reti di sensori distribuiti (inclinometri, accelerometri, misuratori di stress e fibra ottica) per rilevare carichi, vibrazioni e anomalie strutturali o meccaniche in tempo reale.</p>
                     <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
                         <img src="omnia-infrastructure.jpg" alt="Monitoraggio integrità asset" style="width: 100%; height: auto; display: block;">
                     </div>
-                    <span class="service-tag" style="margin-top: 1rem; display: inline-block; background: var(--accent-glow); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Health Monitoring</span>
+                    <span class="service-tag" style="margin-top: 1rem; display: inline-block;">Health Monitoring</span>
                 </div>
 
                 <!-- Card 2: Digital Twin & 3D Modeling -->
-                <div class="service-card" style="background: var(--white); border: 1px solid var(--border-color); border-radius: 12px; padding: 2.5rem; transition: all 0.3s ease;">
-                    <div class="service-icon" style="font-size: 2rem; color: var(--accent); margin-bottom: 1.5rem;"><i class="fa-solid fa-cube"></i></div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-cube"></i></div>
                     <h3>Gemelli Digitali & VDC</h3>
                     <p>Modellazione virtuale avanzata per replicare digitalmente il comportamento fisico e geometrico dell'impianto o della struttura, permettendo simulazioni accurate e virtual commissioning.</p>
                     <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
                         <img src="smart-hub.jpg" alt="Gemelli digitali e VDC" style="width: 100%; height: auto; display: block;">
                     </div>
-                    <span class="service-tag" style="margin-top: 1rem; display: inline-block; background: var(--accent-glow); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Digital Twins</span>
+                    <span class="service-tag" style="margin-top: 1rem; display: inline-block;">Digital Twins</span>
                 </div>
 
                 <!-- Card 3: Telemetria e Reti IoT OT/IT -->
-                <div class="service-card" style="background: var(--white); border: 1px solid var(--border-color); border-radius: 12px; padding: 2.5rem; transition: all 0.3s ease;">
-                    <div class="service-icon" style="font-size: 2rem; color: var(--accent); margin-bottom: 1.5rem;"><i class="fa-solid fa-network-wired"></i></div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-network-wired"></i></div>
                     <h3>Telemetria e Integrazione OT/IT</h3>
                     <p>Connessione nativa di macchinari eterogenei e dispositivi di campo. Raccolta dati ad alta frequenza, log transazionali sicuri e dashboard di supervisione unificate.</p>
                     <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
                         <img src="energy-brain.jpg" alt="Telemetria e IoT industriale" style="width: 100%; height: auto; display: block;">
                     </div>
-                    <span class="service-tag" style="margin-top: 1rem; display: inline-block; background: var(--accent-glow); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Industrial IoT</span>
+                    <span class="service-tag" style="margin-top: 1rem; display: inline-block;">Industrial IoT</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- I NOSTRI PROGETTI (APPLICAZIONI MULTI-SETTORE) -->
+    <section id="i-nostri-progetti">
+        <div class="section-header">
+            <h2>I Nostri Progetti: Il Metodo in Azione</h2>
+            <p>Esempi di applicazione scalabile della nostra architettura tecnologica su diverse tipologie di asset strategici.</p>
+        </div>
 
-
-        <!-- COSA FACCIAMO (METODO E APPLICAZIONE UNIVERSALE) -->
-    <section id="cosa-facciamo" style="background-color: var(--bg-light); max-width: 100%; padding-left: 2rem; padding-right: 2rem;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-header">
-                <h2>Cosa Facciamo: Ingegneria dei Dati e Automazione</h2>
-                <p>Un framework tecnologico scalabile progettato per connettere macchinari, monitorare asset complessi e abilitare la gestione predittiva in ogni settore industriale e civile.</p>
+        <div class="services-grid">
+            <!-- Progetto 1: Infrastruttura Civile (Ponte) -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-bridge"></i></div>
+                <h3>Monitoraggio Viadotti e Ponti</h3>
+                <p>Applicazione del nostro sistema di sensori e telemetria edge per il controllo continuo della stabilità strutturale e la prevenzione del degrado su grandi luci.</p>
+                <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
+                    <img src="omnia-infrastructure.jpg" alt="Monitoraggio ponte" style="width: 100%; height: auto; display: block;">
+                </div>
+                <span class="service-tag" style="margin-top: 1rem; display: inline-block;">Settore: Civile / Infrastrutture</span>
             </div>
 
-            <div class="services-grid">
-                <!-- Card 1: Structural & Asset Health Monitoring -->
-                <div class="service-card" style="background: var(--white); border: 1px solid var(--border-color); border-radius: 12px; padding: 2.5rem; transition: all 0.3s ease;">
-                    <div class="service-icon" style="font-size: 2rem; color: var(--accent); margin-bottom: 1.5rem;"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3>Monitoraggio e Integrità degli Asset</h3>
-                    <p>Integrazione di reti di sensori distribuiti (inclinometri, accelerometri, misuratori di stress e fibra ottica) per rilevare carichi, vibrazioni e anomalie strutturali o meccaniche in tempo reale.</p>
-                    <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
-                        <img src="omnia-infrastructure.jpg" alt="Monitoraggio integrità asset" style="width: 100%; height: auto; display: block;">
-                    </div>
-                    <span class="service-tag" style="margin-top: 1rem; display: inline-block; background: var(--accent-glow); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Health Monitoring</span>
+            <!-- Progetto 2: Fabbrica / Impianto Industriale -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-industry"></i></div>
+                <h3>Smart Factory & Linee di Produzione</h3>
+                <p>Integrazione OT/IT su macchine automatiche e banchi di prova per il monitoraggio dei flussi energetici e la manutenzione predittiva dei componenti critici.</p>
+                <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
+                    <img src="smart-hub.jpg" alt="Automazione fabbrica" style="width: 100%; height: auto; display: block;">
                 </div>
+                <span class="service-tag" style="margin-top: 1rem; display: inline-block;">Settore: Manifatturiero</span>
+            </div>
 
-                <!-- Card 2: Digital Twin & 3D Modeling -->
-                <div class="service-card" style="background: var(--white); border: 1px solid var(--border-color); border-radius: 12px; padding: 2.5rem; transition: all 0.3s ease;">
-                    <div class="service-icon" style="font-size: 2rem; color: var(--accent); margin-bottom: 1.5rem;"><i class="fa-solid fa-cube"></i></div>
-                    <h3>Gemelli Digitali & VDC</h3>
-                    <p>Modellazione virtuale avanzata per replicare digitalmente il comportamento fisico e geometrico dell'impianto o della struttura, permettendo simulazioni accurate e virtual commissioning.</p>
-                    <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
-                        <img src="smart-hub.jpg" alt="Gemelli digitali e VDC" style="width: 100%; height: auto; display: block;">
-                    </div>
-                    <span class="service-tag" style="margin-top: 1rem; display: inline-block; background: var(--accent-glow); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Digital Twins</span>
+            <!-- Progetto 3: Infrastruttura Portuale / Marittima -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-ship"></i></div>
+                <h3>Terminal Portuali & Banchine</h3>
+                <p>Supervisione georeferenziata delle banchine e degli impianti di movimentazione, con telemetria distribuita per la sicurezza e l'efficienza logistica portuale.</p>
+                <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
+                    <img src="energy-brain.jpg" alt="Infrastruttura portuale" style="width: 100%; height: auto; display: block;">
                 </div>
-
-                <!-- Card 3: Telemetria e Reti IoT OT/IT -->
-                <div class="service-card" style="background: var(--white); border: 1px solid var(--border-color); border-radius: 12px; padding: 2.5rem; transition: all 0.3s ease;">
-                    <div class="service-icon" style="font-size: 2rem; color: var(--accent); margin-bottom: 1.5rem;"><i class="fa-solid fa-network-wired"></i></div>
-                    <h3>Telemetria e Integrazione OT/IT</h3>
-                    <p>Connessione nativa di macchinari eterogenei e dispositivi di campo. Raccolta dati ad alta frequenza, log transazionali sicuri e dashboard di supervisione unificate.</p>
-                    <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
-                        <img src="energy-brain.jpg" alt="Telemetria e IoT industriale" style="width: 100%; height: auto; display: block;">
-                    </div>
-                    <span class="service-tag" style="margin-top: 1rem; display: inline-block; background: var(--accent-glow); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Industrial IoT</span>
-                </div>
+                <span class="service-tag" style="margin-top: 1rem; display: inline-block;">Settore: Marittimo / Logistica</span>
             </div>
         </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <a href="#" class="footer-logo">AISG<span>.design</span></a>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Industrial Automation & Digital Twin Architecture.</p>
+            </div>
+            <div class="footer-info">
+                <p><strong>Contatti diretti:</strong></p>
+                <p>Email: <a href="mailto:info@aiservicegroup.it" style="color: #60a5fa; text-decoration: none;">info@aiservicegroup.it</a></p>
+                <p>Dominio: <a href="https://www.aiservicegroup.it" target="_blank" style="color: #60a5fa; text-decoration: none;">aiservicegroup.it</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AI Service Group. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
