@@ -459,48 +459,68 @@
         </div>
     </section>
 
-    <!-- COSA FACCIAMO (METODO E APPLICAZIONE UNIVERSALE) -->
-    <section id="cosa-facciamo" style="background-color: var(--bg-light); max-width: 100%; padding-left: 2rem; padding-right: 2rem;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-header">
-                <h2>Cosa Facciamo: Ingegneria dei Dati e Automazione</h2>
-                <p>Un framework tecnologico scalabile progettato per connettere macchinari, monitorare asset complessi e abilitare la gestione predittiva in ogni settore industriale e civile.</p>
-            </div>
+        <!-- COSA FACCIAMO & IL METODO A 4 PASSI -->
+    <section id="cosa-facciamo" style="max-width: 1200px; margin: 0 auto; padding: 6rem 2rem;">
+        <div class="section-header">
+            <h2>Il Nostro Metodo: Ingegneria Applicata in 4 Passi</h2>
+            <p>Un framework universale e scalabile per qualsiasi tipologia di struttura, impianto o infrastruttura, volto a trasformare i dati fisici in valore predittivo.</p>
+        </div>
 
-            <div class="services-grid">
-                <!-- Card 1: Structural & Asset Health Monitoring -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3>Monitoraggio e Integrità degli Asset</h3>
-                    <p>Integrazione di reti di sensori distribuiti (inclinometri, accelerometri, misuratori di stress e fibra ottica) per rilevare carichi, vibrazioni e anomalie strutturali o meccaniche in tempo reale.</p>
-                    <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
-                        <img src="omnia-infrastructure.jpg" alt="Monitoraggio integrità asset" style="width: 100%; height: auto; display: block;">
-                    </div>
-                    <span class="service-tag" style="margin-top: 1rem; display: inline-block;">Health Monitoring</span>
-                </div>
-
-                <!-- Card 2: Digital Twin & 3D Modeling -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-cube"></i></div>
-                    <h3>Gemelli Digitali & VDC</h3>
-                    <p>Modellazione virtuale avanzata per replicare digitalmente il comportamento fisico e geometrico dell'impianto o della struttura, permettendo simulazioni accurate e virtual commissioning.</p>
-                    <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
-                        <img src="smart-hub.jpg" alt="Gemelli digitali e VDC" style="width: 100%; height: auto; display: block;">
-                    </div>
-                    <span class="service-tag" style="margin-top: 1rem; display: inline-block;">Digital Twins</span>
-                </div>
-
-                <!-- Card 3: Telemetria e Reti IoT OT/IT -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-network-wired"></i></div>
-                    <h3>Telemetria e Integrazione OT/IT</h3>
-                    <p>Connessione nativa di macchinari eterogenei e dispositivi di campo. Raccolta dati ad alta frequenza, log transazionali sicuri e dashboard di supervisione unificate.</p>
-                    <div style="margin-top: 1rem; border-radius: 8px; overflow: hidden;">
-                        <img src="energy-brain.jpg" alt="Telemetria e IoT industriale" style="width: 100%; height: auto; display: block;">
-                    </div>
-                    <span class="service-tag" style="margin-top: 1rem; display: inline-block;">Industrial IoT</span>
+        <!-- Layout fluido senza griglie a card separate -->
+        <div style="display: flex; flex-direction: column; gap: 2rem; position: relative; max-width: 900px; margin: 0 auto;">
+            
+            <!-- Passo 1 -->
+            <div style="display: flex; gap: 2rem; align-items: flex-start; background: var(--bg-light); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 12px; transition: all 0.3s ease;">
+                <div style="background: var(--accent); color: var(--white); min-width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 800; flex-shrink: 0; box-shadow: 0 4px 14px var(--accent-glow);">01</div>
+                <div>
+                    <h3 style="font-size: 1.4rem; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                        <i class="fa-solid fa-magnifying-glass-chart" style="color: var(--accent);"></i> Assessment & Audit di Campo
+                    </h3>
+                    <p style="color: var(--text-light); font-size: 1rem; line-height: 1.7;">
+                        Analizziamo l'asset esistente (sia esso un impianto manifatturiero, un edificio, un porto o un'opera civile) mappando i flussi di dati, i punti critici, le aree soggette a usura e i potenziali sprechi energetici o strutturali.
+                    </p>
                 </div>
             </div>
+
+            <!-- Passo 2 -->
+            <div style="display: flex; gap: 2rem; align-items: flex-start; background: var(--bg-light); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 12px; transition: all 0.3s ease;">
+                <div style="background: var(--accent); color: var(--white); min-width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 800; flex-shrink: 0; box-shadow: 0 4px 14px var(--accent-glow);">02</div>
+                <div>
+                    <h3 style="font-size: 1.4rem; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                        <i class="fa-solid fa-network-wired" style="color: var(--accent);"></i> Architettura IoT & Telemetria Edge
+                    </h3>
+                    <p style="color: var(--text-light); font-size: 1rem; line-height: 1.7;">
+                        Installiamo gateway locali e reti di sensori distribuiti (inclinometri, accelerometri, misuratori di stress o flussi energetici) per raccogliere telemetria ad alta frequenza e log transazionali in tempo reale, senza interferire con i processi operativi.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Passo 3 -->
+            <div style="display: flex; gap: 2rem; align-items: flex-start; background: var(--bg-light); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 12px; transition: all 0.3s ease;">
+                <div style="background: var(--accent); color: var(--white); min-width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 800; flex-shrink: 0; box-shadow: 0 4px 14px var(--accent-glow);">03</div>
+                <div>
+                    <h3 style="font-size: 1.4rem; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                        <i class="fa-solid fa-cube" style="color: var(--accent);"></i> Modellazione & Digital Twin
+                    </h3>
+                    <p style="color: var(--text-light); font-size: 1rem; line-height: 1.7;">
+                        Integriamo i dati di campo con modelli geometrici e strutturali avanzati (BIM/GIS o CAD), realizzando un gemello digitale interattivo che replica fedelmente il comportamento fisico dell'asset per simulazioni e analisi predittive.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Passo 4 -->
+            <div style="display: flex; gap: 2rem; align-items: flex-start; background: var(--bg-light); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 12px; transition: all 0.3s ease;">
+                <div style="background: var(--accent); color: var(--white); min-width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 800; flex-shrink: 0; box-shadow: 0 4px 14px var(--accent-glow);">04</div>
+                <div>
+                    <h3 style="font-size: 1.4rem; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                        <i class="fa-solid fa-chart-line" style="color: var(--accent);"></i> Monitoraggio Continuo & Manutenzione Predittiva
+                    </h3>
+                    <p style="color: var(--text-light); font-size: 1rem; line-height: 1.7;">
+                        Forniamo dashboard di controllo unificate (HMI/SCADA e cloud) per la supervisione h24, con sistemi di allerta automatica in caso di anomalie, garantendo la massima sicurezza e continuità operativa nel lungo periodo.
+                    </p>
+                </div>
+            </div>
+
         </div>
     </section>
 
