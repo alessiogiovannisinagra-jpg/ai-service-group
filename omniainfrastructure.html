@@ -3,480 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omnia Infrastructure | AI Service Group</title>
-    <!-- Google Fonts & FontAwesome per le icone -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>AI Service Group | Riduzione Costi Energetici nell'Imbottigliamento</title>
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #2563eb;
-            --accent-glow: rgba(37, 99, 235, 0.2);
-            --bg-light: #f8fafc;
-            --text-main: #334155;
-            --text-light: #64748b;
-            --white: #ffffff;
-            --border-color: #e2e8f0;
+            --bg-color: #0b1329; /* Blu notte coerente con il tuo sito */
+            --card-bg: #111c38;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #1e293b;
+            --accent: #38bdf8;
+            --success: #22c55e;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            scroll-behavior: smooth;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background-color: var(--white);
+            background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
+            padding-bottom: 5rem;
         }
 
-        /* --- HEADER --- */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 2rem;
+            padding: 1.25rem 6%;
+            background: rgba(11, 19, 41, 0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #ffffff;
             letter-spacing: -0.5px;
+            text-decoration: none;
         }
 
         .logo span {
             color: var(--accent);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .btn-cta {
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.7rem 1.5rem;
+        .nav-contact {
+            background: var(--accent);
+            color: var(--bg-color);
+            padding: 0.5rem 1.25rem;
             border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 14px var(--accent-glow);
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-2px);
-            opacity: 0.95;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            padding: 10rem 2rem 6rem;
-            background: radial-gradient(circle at top right, var(--accent-glow), transparent 40%), var(--bg-light);
-            text-align: center;
-        }
-
-        .hero-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .badge-solution {
-            display: inline-block;
-            background: var(--accent-glow);
-            color: var(--accent);
-            padding: 0.4rem 1rem;
-            border-radius: 30px;
             font-size: 0.85rem;
             font-weight: 700;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .nav-contact:hover {
+            opacity: 0.9;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 3.5rem auto 0;
+            padding: 0 5%;
+        }
+
+        .breadcrumb {
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .hero h1 span {
             color: var(--accent);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- SECTIONS COMMON --- */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.3rem;
             font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .section-header p {
-            color: var(--text-light);
-            font-size: 1.05rem;
-        }
-
-        /* --- VALUE PROPOSITION / PROBLEM VS SOLUTION --- */
-        .grid-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .content-block h3 {
-            font-size: 1.6rem;
-            color: var(--primary);
+            letter-spacing: 1px;
             margin-bottom: 1rem;
         }
 
-        .content-block p {
-            color: var(--text-light);
+        h1 {
+            font-size: 2.2rem;
+            line-height: 1.25;
+            color: #ffffff;
+            font-weight: 800;
             margin-bottom: 1.5rem;
         }
 
-        .check-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
         }
 
-        .check-list li {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .check-list i {
-            color: var(--accent);
-            background: var(--accent-glow);
-            padding: 0.6rem;
-            border-radius: 50%;
-        }
-
-        /* --- TECHNICAL SPECIFICATIONS CARDS --- */
-        .specs-section {
-            background-color: var(--bg-light);
-            max-width: 100%;
-            padding: 6rem 2rem;
-        }
-
-        .specs-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        /* Scheda Dati Sintetici */
         .specs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
         }
 
-        .spec-card {
-            background: var(--white);
-            border: 1px solid var(--border-color);
+        .spec-item label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .spec-item span {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        /* Sezioni del Report */
+        .report-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .report-section h2 {
+            font-size: 1.35rem;
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+            padding-left: 0.75rem;
+        }
+
+        .report-section p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            color: #ffffff;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Box Call to Action Finale */
+        .cta-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 2.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .spec-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-        }
-
-        .spec-icon {
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-        }
-
-        .spec-card h3 {
-            font-size: 1.25rem;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-        }
-
-        .spec-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* --- CALL TO ACTION BOX --- */
-        .cta-banner {
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 20px;
-            padding: 4rem 3rem;
             text-align: center;
-            max-width: 1200px;
-            margin: 4rem auto;
+            margin-top: 4rem;
         }
 
-        .cta-banner h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: var(--white);
+        .cta-box h3 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
         }
 
-        .cta-banner p {
-            color: #94a3b8;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            font-size: 1.05rem;
+        .cta-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 550px;
+            margin: 0 auto 1.5rem;
         }
 
-        .btn-light {
-            background-color: var(--white);
-            color: var(--primary);
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-color);
             padding: 0.8rem 2rem;
             border-radius: 6px;
-            text-decoration: none;
             font-weight: 700;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-light:hover {
-            background-color: var(--bg-light);
-            transform: translateY(-2px);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background: #020617;
-            color: #94a3b8;
-            padding: 4rem 2rem 2rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .footer-logo {
-            color: var(--white);
-            font-size: 1.3rem;
-            font-weight: 800;
             text-decoration: none;
+            transition: opacity 0.2s;
         }
 
-        .footer-logo span {
-            color: var(--accent);
+        .btn-primary:hover {
+            opacity: 0.9;
         }
 
-        .footer-info {
-            text-align: right;
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 2rem auto 0;
+        footer {
+            max-width: 800px;
+            margin: 4rem auto 0;
+            padding: 0 5%;
             text-align: center;
+            color: var(--text-muted);
             font-size: 0.85rem;
-            color: #64748b;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
         }
-
-        /* --- RESPONSIVE --- */
-        @media(max-width: 768px) {
-            .grid-2col {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            .nav-links {
-                display: none;
-            }
-            .footer-container {
-                flex-direction: column;
-                gap: 1.5rem;
-                text-align: center;
-            }
-            .footer-info {
-                text-align: center;
-            }
-        }
+        footer a { color: var(--accent); text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">AISG<span>.design</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
-                <li><a href="index.html#cosa-facciamo">Soluzioni</a></li>
-                <li><a href="#contatti" class="btn-cta">Richiedi Assessment</a></li>
-            </ul>
-        </div>
+        <a href="index.html" class="logo">AI SERVICE <span>GROUP</span></a>
+        <a href="mailto:info@aiservicegroup.it?subject=Richiesta%20Analisi%20Costi%20Energetici" class="nav-contact">Parla con un Ingegnere</a>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-container">
-            <span class="badge-solution">VDC & Infrastructure Digital Twins</span>
-            <h1>Omnia Infrastructure: Gemelli Digitali per <span>Grandi Opere e Asset</span></h1>
-            <p>Piattaforme di monitoraggio strutturale (SHM) e gestione del ciclo di vita per infrastrutture complesse, hub logistici e reti territoriali.</p>
-            <a href="#contatti" class="btn-cta" style="padding: 0.9rem 2rem; font-size: 1rem;">Richiedi una Consulenza</a>
-        </div>
-    </section>
+    <main class="article-container">
+        
+        <div class="breadcrumb">Report Operativo / Ottimizzazione Energetica</div>
+        
+        <h1>Come abbiamo ridotto i costi energetici di un’azienda di imbottigliamento senza toccare gli impianti</h1>
+        
+        <p class="subtitle">Analisi tecnica di un intervento di telemetria e supervisione non invasiva applicato su una linea di produzione a ciclo continuo nella provincia di Palermo.</p>
 
-    <!-- IL PROBLEMA E LA SOLUZIONE -->
-    <section>
-        <div class="section-header">
-            <h2>Sicurezza e Controllo su Vasta Scala</h2>
-            <p>Le grandi opere e le infrastrutture civili richiedono un monitoraggio continuo nel corso di decenni per prevenire criticità strutturali e ottimizzare la manutenzione.</p>
-        </div>
-
-        <div class="grid-2col">
-            <div class="content-block">
-                <h3>Dalla gestione reattiva alla predizione strutturale</h3>
-                <p>Intervenire solo a guasto avvenuto su ponti, viadotti o impianti complessi comporta costi elevatissimi e rischi per la sicurezza pubblica.</p>
-                <p><strong>Omnia Infrastructure</strong> unisce i modelli informativi dell'opera con reti IoT distribuite per monitorare in tempo reale le sollecitazioni meccaniche e l'affaticamento dei materiali.</p>
+        <!-- Scheda Sintetica -->
+        <div class="specs-grid">
+            <div class="spec-item">
+                <label>Settore</label>
+                <span>Imbottigliamento & Beverage</span>
             </div>
+            <div class="spec-item">
+                <label>Ubicazione Impianto</label>
+                <span>Zona Industriale (PA)</span>
+            </div>
+            <div class="spec-item">
+                <label>Problema Principale</label>
+                <span>Picchi di potenza occulti</span>
+            </div>
+            <div class="spec-item">
+                <label>Soluzione Applicata</label>
+                <span>Telemetria Edge non invasiva</span>
+            </div>
+        </div>
+
+        <!-- Contenuto dell'Articolo -->
+        <div class="report-section">
+            <h2>1. Il contesto operativo</h2>
+            <p>Nel settore del beverage e dell'imbottigliamento, la continuità operativa durante i periodi di massimo carico stagionale è un fattore critico. Gli impianti lavorano su turni prolungati e la gestione dei costi fissi legati all'energia elettrica rappresenta una delle voci più pesanti sui margini di bilancio dello stabilimento.</p>
+            <p>In questo specifico caso, l'azienda registrava bollette mensili sproporzionate rispetto ai volumi effettivi di prodotto imbottigliato, pur non riscontrando malfunzionamenti evidenti o blocchi meccanici totali delle linee.</p>
+        </div>
+
+        <div class="report-section">
+            <h2>2. L'analisi del problema</h2>
+            <p>Attraverso un'analisi preliminare condotta dai nostri tecnici, è emerso che il problema non risiedeva nel consumo base dei macchinari, ma nei <strong>picchi di potenza attiva</strong> concentrati in determinati momenti della giornata.</p>
+            <p>L'avviamento simultaneo dei motori principali della linea, unito ai cicli dei compressori e dei gruppi ausiliari, generava picchi di richiesta energetica istantanea molto elevati. Questa dinamica faceva schizzare verso l'alto il profilo di consumo, attivando penali contrattuali e penalizzando l'efficienza complessiva (OEE) senza che il plant manager avesse una visibilità in tempo reale del fenomeno.</p>
+        </div>
+
+        <div class="report-section">
+            <h2>3. L'intervento ingegneristico (Zero modifiche hardware)</h2>
+            <p>La richiesta primaria della proprietà era tassativa: <em>nessun fermo prolungato della linea e nessuna sostituzione di quadri elettrici o PLC esistenti</em>.</p>
+            <p>Per rispondere a questo vincolo, AI Service Group ha implementato un sistema di acquisizione dati non invasivo:</p>
+            <p>Sono stati installati moduli di misura edge leggeri sui nodi di alimentazione principali, capaci di tracciare i profili dei kilowattora (kWh) e la frequenza dei transitori di carico in tempo reale. I dati sono stati convogliati su una dashboard web dedicata, accessibile direttamente dai tecnici di stabilimento via browser.</p>
+        </div>
+
+        <div class="report-section">
+            <h2>4. I risultati ottenuti</h2>
+            <p>La visibilità continua e granulare ha permesso al team di stabilimento di correggere le procedure operative di avvio e di scalare i carichi di lavoro in modo sequenziale anziché simultaneo.</p>
             
-            <div>
-                <ul class="check-list">
-                    <li><i class="fa-solid fa-check"></i> Structural Health Monitoring (SHM) continuo in tempo reale</li>
-                    <li><i class="fa-solid fa-check"></i> Integrazione nativa tra modelli BIM e dati geospaziali GIS</li>
-                    <li><i class="fa-solid fa-check"></i> Pianificazione automatica della manutenzione basata sull'usura reale</li>
-                    <li><i class="fa-solid fa-check"></i> Resilienza climatica e analisi di risposta a eventi estremi</li>
-                </ul>
+            <div class="highlight-box">
+                <p>Risultato: Azzeramento dei picchi di potenza anomali, calo diretto del costo energetico mensile sul profilo di fornitura e piena tracciabilità dei kilowattora per singolo lotto di produzione, senza aver modificato un solo componente dell'impianto esistente.</p>
             </div>
         </div>
-    </section>
 
-    <!-- SPECIFICHE TECNICHE -->
-    <div class="specs-section">
-        <div class="specs-container">
-            <div class="section-header">
-                <h2>Stack Tecnologico e Specifiche</h2>
-                <p>Soluzioni ingegneristiche progettate per asset a lunghissimo ciclo di vita.</p>
-            </div>
-
-            <div class="specs-grid">
-                <div class="spec-card">
-                    <div class="spec-icon"><i class="fa-solid fa-map-marked-alt"></i></div>
-                    <h3>Integrazione BIM + GIS</h3>
-                    <p>Fusione tra il dettaglio geometrico informativo dell'opera e il contesto territoriale reale per una georeferenziazione e navigazione avanzata dell'asset.</p>
-                </div>
-
-                <div class="spec-card">
-                    <div class="spec-icon"><i class="fa-solid fa-broadcast-tower"></i></div>
-                    <h3>IoT Distribuito & Sensoristica</h3>
-                    <p>Connessione con inclinometri, accelerometri, estensimetri e sensori in fibra ottica dislocati lungo l'infrastruttura con trasmissioni a lungo raggio.</p>
-                </div>
-
-                <div class="spec-card">
-                    <div class="spec-icon"><i class="fa-solid fa-chart-bar"></i></div>
-                    <h3>Dashboard di Asset Management</h3>
-                    <p>Cruscotti decisionali per gestori e direttori tecnici focalizzati sullo stato di degrado stimato, storico interventi e conformità normativa.</p>
-                </div>
-            </div>
+        <!-- Box CTA -->
+        <div class="cta-box">
+            <h3>I costi energetici pesano sui margini del tuo stabilimento?</h3>
+            <p>Discutiamo delle criticità dei tuoi macchinari per valutare un intervento di supervisione mirato e non invasivo.</p>
+            <a href="mailto:info@aiservicegroup.it?subject=Richiesta%20Analisi%20Costi%20Energetici" class="btn-primary">Richiedi un confronto tecnico</a>
         </div>
-    </div>
 
-    <!-- CALL TO ACTION FINALE -->
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-        <div class="cta-banner" id="contatti">
-            <h2>Gestisci grandi infrastrutture o asset complessi?</h2>
-            <p>Scopri come implementare un sistema di monitoraggio strutturale e digital twin calibrato sulle specificità della tua opera.</p>
-            <a href="mailto:info@aiservicegroup.it" class="btn-light">Contatta gli Ingegneri AISG</a>
-        </div>
-    </div>
+    </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-container">
-            <div>
-                <a href="index.html" class="footer-logo">AISG<span>.design</span></a>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Industrial Automation & Digital Twin Architecture.</p>
-            </div>
-            <div class="footer-info">
-                <p><strong>Contatti diretti:</strong></p>
-                <p>Email: <a href="mailto:info@aiservicegroup.it" style="color: #60a5fa; text-decoration: none;">info@aiservicegroup.it</a></p>
-                <p>Dominio: <a href="https://www.aiservicegroup.it" target="_blank" style="color: #60a5fa; text-decoration: none;">aiservicegroup.it</a></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 AI Service Group. Tutti i diritti riservati.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+    
