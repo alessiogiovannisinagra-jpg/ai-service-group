@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Twin & Control Room 3D | AI Service Group</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        industrial: {
+                            dark: '#0f172a',
+                            card: '#1e293b',
+                            accent: '#10b981', // Emerald green
+                            blue: '#3b82f6',
+                            muted: '#94a3b8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-industrial-dark text-slate-100 font-sans antialiased selection:bg-industrial-accent selection:text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-industrial-dark/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-industrial-accent flex items-center justify-center shadow-lg shadow-industrial-accent/20">
+                    <i class="fa-solid fa-cube text-slate-900 text-lg font-bold"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-white">AI<span class="text-industrial-accent">SERVICE GROUP</span></span>
+                    <span class="block text-[10px] text-industrial-muted tracking-widest uppercase">Digital Twin & Control Room 3D</span>
+                </div>
+            </div>
+            <a href="index.html" class="text-xs font-semibold text-slate-300 hover:text-white transition-colors bg-slate-800 px-4 py-2 rounded-lg border border-slate-700 flex items-center">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Torna al Sito Principale
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Control Room Interface -->
+    <main class="flex-grow pt-28 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex flex-col">
+        
+        <!-- Top Status Bar -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4 bg-industrial-card border border-slate-800 p-5 rounded-2xl shadow-xl">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xl">
+                    <i class="fa-solid fa-industry"></i>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <h1 class="text-lg font-bold text-white">Stabilimento Manifatturotiero &bull; Linea Principale VDC</h1>
+                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1.5"></span> LIVE FEED
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-0.5">Protocollo OPC UA attivo &bull; Latenza 18ms &bull; 24 Sub-sistemi censiti</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <div class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-center">
+                    <div id="twin-kpi-oee" class="text-sm font-extrabold text-industrial-accent">88.4%</div>
+                    <div class="text-[9px] text-slate-400 uppercase tracking-wider">OEE Globale</div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-center">
+                    <div id="twin-kpi-load" class="text-sm font-extrabold text-blue-400">184 kW</div>
+                    <div class="text-[9px] text-slate-400 uppercase tracking-wider">Carico Impianto</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Workspace Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-grow">
+            
+            <!-- Left & Center: 3D Twin Viewport & Interactive Assets (Col 1-8) -->
+            <div class="lg:col-span-8 flex flex-col space-y-6">
+                
+                <!-- 3D Viewport / Digital Twin Simulator Screen -->
+                <div class="bg-industrial-card border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl relative flex-grow flex flex-col justify-between min-h-[400px] overflow-hidden group">
+                    
+                    <!-- Viewport Top Toolbar -->
+                    <div class="flex justify-between items-center z-10 pb-4 border-b border-slate-800/80">
+                        <div class="flex items-center space-x-2 text-xs font-mono text-slate-400">
+                            <span class="text-blue-400 font-bold">VIEWPORT:</span> <span>ISO_METRIC_PROJECTION</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="switchView('overview')" id="btn-view-overview" class="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-industrial-accent border border-slate-700 transition-all">Panoramica Plant</button>
+                            <button onclick="switchView('thermal')" id="btn-view-thermal" class="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-all">Mappa Termica</button>
+                        </div>
+                    </div>
+
+                    <!-- Virtual Canvas / 3D Representation Area -->
+                    <div class="relative bg-industrial-dark rounded-xl border border-slate-800/80 p-8 my-4 flex-grow flex flex-col items-center justify-center text-center overflow-hidden">
+                        <!-- Grid Background -->
+                        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:2.5rem_2.5rem] opacity-25"></div>
+
+                        <!-- Central Interactive Nodes Visual Container -->
+                        <div id="viewport-content" class="relative z-10 max-w-md w-full">
+                            <div class="w-24 h-24 rounded-3xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-blue-500/10 animate-pulse">
+                                <i class="fa-solid fa-cube text-blue-400 text-4xl"></i>
+                            </div>
+                            <h3 id="viewport-title" class="text-xl font-bold text-white mb-2">Gemello Digitale Sincronizzato</h3>
+                            <p id="viewport-desc" class="text-slate-400 text-xs leading-relaxed mb-6">
+                                Seleziona un sottosistema dal pannello di controllo sottostante per analizzare la telemetria in tempo reale, i flussi energetici e lo stato dei cuscinetti.
+                            </p>
+                            
+                            <!-- Interactive Quick Selectors -->
+                            <div class="grid grid-cols-3 gap-3">
+                                <button onclick="selectAsset(1)" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl text-left transition-all group/btn">
+                                    <div class="text-[10px] text-slate-400 uppercase">Sub 01</div>
+                                    <div class="text-xs font-bold text-white group-hover/btn:text-industrial-accent">Nastro</div>
+                                </button>
+                                <button onclick="selectAsset(2)" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl text-left transition-all group/btn">
+                                    <div class="text-[10px] text-slate-400 uppercase">Sub 02</div>
+                                    <div class="text-xs font-bold text-white group-hover/btn:text-industrial-accent">Mandrino CNC</div>
+                                </button>
+                                <button onclick="selectAsset(3)" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 p-3 rounded-xl text-left transition-all group/btn">
+                                    <div class="text-[10px] text-slate-400 uppercase">Sub 03</div>
+                                    <div class="text-xs font-bold text-white group-hover/btn:text-industrial-accent">Compressore</div>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Viewport Bottom Info Bar -->
+                    <div class="flex justify-between items-center text-[11px] text-slate-400 pt-2 border-t border-slate-800/80">
+                        <span>Status: <strong class="text-emerald-400">Mesh 3D Operativa</strong></span>
+                        <span>Frequenza Campionamento: <strong class="text-slate-200">50 Hz</strong></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Right Column: Asset Telemetry & Simulation Controls (Col 9-12) -->
+            <div class="lg:col-span-4 flex flex-col space-y-6">
+                
+                <!-- Selected Asset Live Metrics Card -->
+                <div class="bg-industrial-card border border-slate-800 rounded-2xl p-6 shadow-xl">
+                    <h2 class="text-sm font-bold text-white mb-4 flex items-center justify-between">
+                        <span><i class="fa-solid fa-chart-line text-industrial-accent mr-2"></i> Telemetria Asset Selezionato</span>
+                        <span id="asset-badge-status" class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Regolare</span>
+                    </h2>
+
+                    <div id="asset-metrics-box" class="space-y-3 mb-6">
+                        <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl flex justify-between items-center">
+                            <span class="text-xs text-slate-400">Nome Componente</span>
+                            <span id="metric-name" class="text-xs font-bold text-white">Centro Lavorazione CNC</span>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl flex justify-between items-center">
+                            <span class="text-xs text-slate-400">Temperatura Cuscinetti</span>
+                            <span id="metric-temp" class="text-xs font-bold text-slate-200">48.5 °C</span>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl flex justify-between items-center">
+                            <span class="text-xs text-slate-400">Vibrazioni Rilevate</span>
+                            <span id="metric-vibe" class="text-xs font-bold text-slate-200">1.8 mm/s</span>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl flex justify-between items-center">
+                            <span class="text-xs text-slate-400">Assorbimento Energetico</span>
+                            <span id="metric-power" class="text-xs font-bold text-blue-400">42.2 kW</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Trigger Buttons -->
+                    <div class="space-y-2.5">
+                        <button onclick="simulateAssetAnomaly()" class="w-full bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-between">
+                            <span>Simula Anomalia Termica</span>
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </button>
+                        <button onclick="simulateEnergyOptimization()" class="w-full bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-between">
+                            <span>Ottimizza Consumi (-15%)</span>
+                            <i class="fa-solid fa-bolt"></i>
+                        </button>
+                        <button onclick="resetDemoSystem()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold py-2.5 px-4 rounded-xl transition-all text-center">
+                            Ripristina Parametri di Fabbrica
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Event Log Console -->
+                <div class="bg-industrial-card border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col flex-grow">
+                    <h2 class="text-sm font-bold text-white mb-3 flex items-center justify-between">
+                        <span><i class="fa-solid fa-terminal text-blue-400 mr-2"></i> Console Eventi IoT</span>
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    </h2>
+                    
+                    <div id="demo-console-log" class="bg-slate-900 border border-slate-800 rounded-xl p-3 font-mono text-[11px] text-slate-300 space-y-2 h-[140px] overflow-y-auto">
+                        <div class="text-slate-500">[14:22:00] Inizializzazione motore Digital Twin VDC.</div>
+                        <div class="text-emerald-400">[14:22:05] Connessione OPC UA stabilita con successo. Nessuna anomalia.</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-slate-400 text-xs">
+        &copy; 2026 AI Service Group (AISG) &bull; Piattaforma di Simulazione Ingegneristica.
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        let currentAsset = 2;
+
+        function logConsole(message, type = 'info') {
+            const container = document.getElementById('demo-console-log');
+            const time = new Date().toTimeString().split(' ')[0];
+            const div = document.createElement('div');
+            
+            let colorClass = 'text-slate-300';
+            if (type === 'warn') colorClass = 'text-amber-400';
+            if (type === 'error') colorClass = 'text-red-400';
+            if (type === 'success') colorClass = 'text-emerald-400';
+
+            div.className = colorClass;
+            div.textContent = `[${time}] ${message}`;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function selectAsset(id) {
+            currentAsset = id;
+            if (id === 1) {
+                document.getElementById('metric-name').textContent = "Nastro Trasportatore 01";
+                document.getElementById('metric-temp').textContent = "32.1 °C";
+                document.getElementById('metric-vibe').textContent = "1.1 mm/s";
+                document.getElementById('metric-power').textContent = "18.5 kW";
+                logConsole("Selezionato asset: Nastro Trasportatore 01. Telemetria nominale.");
+            } else if (id === 2) {
+                document.getElementById('metric-name').textContent = "Centro Lavorazione CNC";
+                document.getElementById('metric-temp').textContent = "48.5 °C";
+                document.getElementById('metric-vibe').textContent = "1.8 mm/s";
+                document.getElementById('metric-power').textContent = "42.2 kW";
+                logConsole("Selezionato asset: Centro Lavorazione CNC. Parametri stabili.");
+            } else if (id === 3) {
+                document.getElementById('metric-name').textContent = "Compressore Frigorifero";
+                document.getElementById('metric-temp').textContent = "55.0 °C";
+                document.getElementById('metric-vibe').textContent = "2.4 mm/s";
+                document.getElementById('metric-power').textContent = "64.0 kW";
+                logConsole("Selezionato asset: Compressore Frigorifero. Pressione 6.2 bar.");
+            }
+        }
+
+        function simulateAssetAnomaly() {
+            document.getElementById('asset-badge-status').textContent = "CRITICO / ALLARME";
+            document.getElementById('asset-badge-status').className = "text-[10px] px-2 py-0.5 rounded bg-red-500/20 text-red-400 border border-red-500/30";
+            
+            if (currentAsset === 2) {
+                document.getElementById('metric-temp').textContent = "86.4 °C (RISCHIO)";
+                document.getElementById('metric-temp').className = "text-xs font-bold text-red-400";
+            }
+            
+            document.getElementById('twin-kpi-oee').textContent = "72.1%";
+            document.getElementById('twin-kpi-oee').className = "text-sm font-extrabold text-red-400";
+
+            logConsole("ALLARME: Rilevato surriscaldamento critico sul sottosistema selezionato.", "error");
+            logConsole("Algoritmo predittivo: Rischio blocco imprevisto stimato tra 8 ore. Manutenzione raccomandata.", "warn");
+        }
+
+        function simulateEnergyOptimization() {
+            document.getElementById('twin-kpi-load').textContent = "156 kW (-15%)";
+            document.getElementById('twin-kpi-load').className = "text-sm font-extrabold text-emerald-400";
+            document.getElementById('metric-power').textContent = "35.8 kW (Ottimizzato)";
+            
+            logConsole("Ottimizzazione energetica applicata con successo sui carichi ausiliari.", "success");
+        }
+
+        function resetDemoSystem() {
+            currentAsset = 2;
+            document.getElementById('asset-badge-status').textContent = "Regolare";
+            document.getElementById('asset-badge-status').className = "text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+            
+            document.getElementById('metric-name').textContent = "Centro Lavorazione CNC";
+            document.getElementById('metric-temp').textContent = "48.5 °C";
+            document.getElementById('metric-temp').className = "text-xs font-bold text-slate-200";
+            document.getElementById('metric-vibe').textContent = "1.8 mm/s";
+            document.getElementById('metric-power').textContent = "42.2 kW";
+            
+            document.getElementById('twin-kpi-oee').textContent = "88.4%";
+            document.getElementById('twin-kpi-oee').className = "text-sm font-extrabold text-industrial-accent";
+            document.getElementById('twin-kpi-load').textContent = "184 kW";
+            document.getElementById('twin-kpi-load').className = "text-sm font-extrabold text-blue-400";
+
+            logConsole("Reset di sistema completato. Parametri nominali ripristinati.", "info");
+        }
+
+        function switchView(type) {
+            if (type === 'overview') {
+                document.getElementById('btn-view-overview').className = "px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-industrial-accent border border-slate-700 transition-all";
+                document.getElementById('btn-view-thermal').className = "px-3 py-1 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-all";
+                document.getElementById('viewport-title').textContent = "Gemello Digitale Sincronizzato";
+                logConsole("Vista commutata su: Panoramica Plant 3D.");
+            } else {
+                document.getElementById('btn-view-thermal').className = "px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-amber-400 border border-slate-700 transition-all";
+                document.getElementById('btn-view-overview').className = "px-3 py-1 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-all";
+                document.getElementById('viewport-title').textContent = "Mappa Termica & Stress Meccanico";
+                logConsole("Vista commutata su: Termografia in tempo reale.");
+            }
+        }
+    </script>
+</body>
+</html>
