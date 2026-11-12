@@ -1187,6 +1187,58 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     font-size:10px;
     line-height:1.6;
 }
+(function() {
+
+  const slider = document.getElementById('aisgSlider');
+
+  if (!slider || slider.dataset.initialized) return;
+  slider.dataset.initialized = 'true';
+
+  const slides = [...slider.querySelectorAll('.aisg-slide')];
+  const dots = [...slider.querySelectorAll('.aisg-dot')];
+  const current = slider.querySelector('#aisgCurrent');
+
+  const prev = slider.querySelector('#aisgPrev');
+  const next = slider.querySelector('#aisgNext');
+
+  let index = 0;
+  let startX = 0;
+
+  function showSlide(newIndex) {
+
+    index = (newIndex + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+
+    current.textContent = String(index + 1).padStart(2, '0');
+  }
+
+  next.addEventListener('click', () => showSlide(index + 1));
+  prev.addEventListener('click', () => showSlide(index - 1));
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => showSlide(i));
+  });
+
+  slider.addEventListener('touchstart', e => {
+    startX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  slider.addEventListener('touchend', e => {
+    const distance = e.changedTouches[0].screenX - startX;
+
+    if (Math.abs(distance) > 50) {
+      showSlide(distance < 0 ? index + 1 : index - 1);
+    }
+  }, { passive: true });
+
+})();
 
 /* FOOTER */
 
