@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#091725">
-<meta name="description" content="AISERVICEGROUP sviluppa AISG Building Intelligence, una piattaforma di simulazione e ottimizzazione intelligente per edifici industriali e logistici.">
-<title>AISERVICEGROUP | Intelligent Building Systems</title>
+<meta name="description" content="AISERVICEGROUP sviluppa soluzioni di ingegneria intelligente, automazione industriale, cybersecurity e AISG Building Intelligence.">
+
+<title>AISERVICEGROUP | Intelligent Engineering & Digital Infrastructure</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
 :root {
     --navy:#091725;
     --navy2:#102438;
@@ -29,7 +36,10 @@
     padding:0;
 }
 
-html { scroll-behavior:smooth; }
+html {
+    scroll-behavior:smooth;
+    scroll-padding-top:90px;
+}
 
 body {
     font-family:"DM Sans",sans-serif;
@@ -38,16 +48,30 @@ body {
     -webkit-font-smoothing:antialiased;
 }
 
-a { text-decoration:none; color:inherit; }
-button,input,select,textarea { font:inherit; }
-img { display:block; width:100%; height:100%; object-fit:cover; }
+a {
+    text-decoration:none;
+    color:inherit;
+}
+
+button,input,select,textarea {
+    font:inherit;
+}
+
+img {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
 .container {
     width:min(var(--max),calc(100% - 56px));
     margin:auto;
 }
 
-.section { padding:110px 0; }
+.section {
+    padding:110px 0;
+}
 
 .eyebrow {
     display:inline-flex;
@@ -99,7 +123,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     color:var(--navy);
 }
 
-/* HEADER */
+/* =====================================================
+   HEADER
+===================================================== */
 
 .header {
     position:absolute;
@@ -152,7 +178,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     color:#d2dce5;
 }
 
-.nav-links a:hover { color:white; }
+.nav-links a:hover {
+    color:white;
+}
 
 .nav-cta {
     padding:12px 17px;
@@ -168,7 +196,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     cursor:pointer;
 }
 
-/* HERO */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero {
     min-height:790px;
@@ -196,8 +226,17 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     position:absolute;
     inset:0;
     background:
-    linear-gradient(90deg,rgba(5,17,29,.98),rgba(5,17,29,.78) 48%,rgba(5,17,29,.2)),
-    linear-gradient(0deg,rgba(5,17,29,.5),transparent 50%);
+        linear-gradient(
+            90deg,
+            rgba(5,17,29,.98),
+            rgba(5,17,29,.78) 48%,
+            rgba(5,17,29,.2)
+        ),
+        linear-gradient(
+            0deg,
+            rgba(5,17,29,.5),
+            transparent 50%
+        );
 }
 
 .hero-content {
@@ -207,7 +246,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     max-width:850px;
 }
 
-.hero .eyebrow { color:#a9d9ed; }
+.hero .eyebrow {
+    color:#a9d9ed;
+}
 
 .hero h1 {
     font:600 clamp(48px,7.3vw,94px)/.99 "Manrope",sans-serif;
@@ -215,7 +256,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     margin:28px 0 25px;
 }
 
-.hero h1 span { color:var(--cyan); }
+.hero h1 span {
+    color:var(--cyan);
+}
 
 .hero-copy {
     font-size:16px;
@@ -245,7 +288,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     text-transform:uppercase;
 }
 
-/* INTRO STRIP */
+/* =====================================================
+   INTRO STRIP
+===================================================== */
 
 .intro-strip {
     background:#0d2031;
@@ -278,7 +323,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     text-transform:uppercase;
 }
 
-/* GENERAL SECTION HEAD */
+/* =====================================================
+   GENERAL SECTION HEAD
+===================================================== */
 
 .section-head {
     display:flex;
@@ -301,311 +348,238 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     font-size:14px;
 }
 
-/* AISG SOLUTIONS */
+/* =====================================================
+   AISG SOLUTIONS SLIDER
+===================================================== */
 
 .aisg-solutions {
-  background: #080e18;
-  color: #ffffff;
-  padding: 110px 7%;
-  font-family: inherit;
+    background:#080e18;
+    color:#ffffff;
+    padding:110px 7%;
+    font-family:inherit;
 }
 
 .aisg-solutions-header {
-  max-width: 1320px;
-  margin: 0 auto 45px;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 40px;
+    max-width:1320px;
+    margin:0 auto 45px;
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:40px;
 }
 
 .aisg-eyebrow {
-  display: block;
-  color: #69aaff;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  margin-bottom: 17px;
+    display:block;
+    color:#69aaff;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:17px;
 }
 
 .aisg-solutions-header h2 {
-  font-size: clamp(38px, 5vw, 60px);
-  line-height: 1;
-  letter-spacing: -2px;
-  margin: 0;
+    font:600 clamp(38px,5vw,60px)/1 "Manrope",sans-serif;
+    letter-spacing:-2px;
+    margin:0;
 }
 
 .aisg-solutions-header h2 span {
-  color: #69aaff;
+    color:#69aaff;
 }
 
 .aisg-solutions-header p {
-  max-width: 430px;
-  color: #9baabd;
-  font-size: 15px;
-  line-height: 1.8;
-  margin: 0;
+    max-width:430px;
+    color:#9baabd;
+    font-size:15px;
+    line-height:1.8;
+    margin:0;
 }
 
-/* SLIDER */
-
 .aisg-slider {
-  max-width: 1320px;
-  margin: auto;
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-  background: #101c2b;
+    max-width:1320px;
+    margin:auto;
+    position:relative;
+    overflow:hidden;
+    border-radius:16px;
+    background:#101c2b;
 }
 
 .aisg-slides {
-  position: relative;
-  min-height: 550px;
+    position:relative;
+    min-height:550px;
 }
 
 .aisg-slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  padding: 65px 8%;
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(5,12,23,.97) 0%,
-      rgba(5,12,23,.82) 42%,
-      rgba(5,12,23,.25) 100%
-    ),
-    var(--slide-bg);
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(1.025);
-  transition:
-    opacity .65s ease,
-    transform 1s ease,
-    visibility .65s;
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    padding:65px 8%;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(5,12,23,.97) 0%,
+            rgba(5,12,23,.82) 42%,
+            rgba(5,12,23,.25) 100%
+        ),
+        var(--slide-bg);
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.025);
+    transition:
+        opacity .65s ease,
+        transform 1s ease,
+        visibility .65s;
 }
 
 .aisg-slide.active {
-  position: relative;
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
+    position:relative;
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
 }
 
 .aisg-slide-content {
-  max-width: 570px;
-  position: relative;
-  z-index: 2;
+    max-width:570px;
+    position:relative;
+    z-index:2;
 }
 
 .aisg-slide-index {
-  display: block;
-  color: #75b5ff;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 27px;
+    display:block;
+    color:#75b5ff;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+    margin-bottom:27px;
 }
 
 .aisg-slide-content h3 {
-  font-size: clamp(40px, 5vw, 65px);
-  line-height: 1.04;
-  letter-spacing: -2px;
-  margin: 0 0 25px;
-  font-weight: 650;
+    font:650 clamp(40px,5vw,65px)/1.04 "Manrope",sans-serif;
+    letter-spacing:-2px;
+    margin:0 0 25px;
 }
 
 .aisg-slide-content p {
-  color: #bdc9d9;
-  font-size: 15px;
-  line-height: 1.85;
-  max-width: 490px;
-  margin: 0 0 27px;
+    color:#bdc9d9;
+    font-size:15px;
+    line-height:1.85;
+    max-width:490px;
+    margin:0 0 27px;
 }
 
 .aisg-slide-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-bottom: 35px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:35px;
 }
 
 .aisg-slide-tags span {
-  padding: 9px 13px;
-  border: 1px solid rgba(119,178,255,.3);
-  background: rgba(20,50,85,.35);
-  color: #d3e5ff;
-  border-radius: 30px;
-  font-size: 10px;
-  letter-spacing: .3px;
+    padding:9px 13px;
+    border:1px solid rgba(119,178,255,.3);
+    background:rgba(20,50,85,.35);
+    color:#d3e5ff;
+    border-radius:30px;
+    font-size:10px;
+    letter-spacing:.3px;
 }
 
 .aisg-slide-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #69aaff;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 650;
-  transition: gap .25s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:15px;
+    padding-bottom:10px;
+    border-bottom:1px solid #69aaff;
+    color:#ffffff;
+    font-size:13px;
+    font-weight:650;
+    transition:gap .25s ease;
 }
 
 .aisg-slide-link:hover {
-  gap: 24px;
+    gap:24px;
 }
 
 .aisg-slide-link span {
-  color: #69aaff;
-  font-size: 19px;
+    color:#69aaff;
+    font-size:19px;
 }
 
-/* NAVIGAZIONE */
-
 .aisg-slider-navigation {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 23px 35px;
-  background: #0c1625;
-  border-top: 1px solid rgba(255,255,255,.08);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:23px 35px;
+    background:#0c1625;
+    border-top:1px solid rgba(255,255,255,.08);
 }
 
 .aisg-slider-counter {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  color: #72849c;
-  font-size: 12px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:#72849c;
+    font-size:12px;
 }
 
 .aisg-slider-counter strong {
-  color: #ffffff;
-  font-size: 17px;
+    color:#ffffff;
+    font-size:17px;
 }
 
 .aisg-slider-progress {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
 .aisg-dot {
-  width: 24px;
-  height: 3px;
-  padding: 0;
-  border: 0;
-  background: #344358;
-  cursor: pointer;
-  transition: width .3s, background .3s;
+    width:24px;
+    height:3px;
+    padding:0;
+    border:0;
+    background:#344358;
+    cursor:pointer;
+    transition:width .3s,background .3s;
 }
 
 .aisg-dot.active {
-  width: 42px;
-  background: #69aaff;
+    width:42px;
+    background:#69aaff;
 }
 
 .aisg-slider-arrows {
-  display: flex;
-  gap: 9px;
+    display:flex;
+    gap:9px;
 }
 
 .aisg-slider-arrows button {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.2);
-  background: transparent;
-  color: #ffffff;
-  font-size: 19px;
-  cursor: pointer;
-  transition: background .25s, border-color .25s;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.2);
+    background:transparent;
+    color:#ffffff;
+    font-size:19px;
+    cursor:pointer;
+    transition:background .25s,border-color .25s;
 }
 
 .aisg-slider-arrows button:hover {
-  background: #1e3c60;
-  border-color: #69aaff;
+    background:#1e3c60;
+    border-color:#69aaff;
 }
 
-/* RESPONSIVE */
+/* =====================================================
+   BUILDING INTELLIGENCE
+===================================================== */
 
-@media(max-width: 768px) {
-
-  .aisg-solutions {
-    padding: 75px 5%;
-  }
-
-  .aisg-solutions-header {
-    display: block;
-    margin-bottom: 30px;
-  }
-
-  .aisg-solutions-header p {
-    margin-top: 20px;
-  }
-
-  .aisg-slides {
-    min-height: 520px;
-  }
-
-  .aisg-slide {
-    padding: 45px 27px;
-    background-image:
-      linear-gradient(
-        90deg,
-        rgba(5,12,23,.94),
-        rgba(5,12,23,.67)
-      ),
-      var(--slide-bg);
-  }
-
-  .aisg-slide-content h3 {
-    font-size: 43px;
-  }
-
-  .aisg-slider-navigation {
-    padding: 18px;
-  }
+.product {
+    background:var(--paper);
 }
-
-@media(max-width: 420px) {
-
-  .aisg-slides {
-    min-height: 540px;
-  }
-
-  .aisg-slide {
-    padding: 35px 22px;
-  }
-
-  .aisg-slide-content h3 {
-    font-size: 37px;
-  }
-
-  .aisg-slide-content p {
-    font-size: 13px;
-  }
-
-  .aisg-slider-navigation {
-    gap: 10px;
-  }
-
-  .aisg-dot {
-    width: 15px;
-  }
-
-  .aisg-dot.active {
-    width: 28px;
-  }
-}
-/* PRODUCT */
-
-.product { background:var(--paper); }
 
 .product-intro {
     display:grid;
@@ -621,7 +595,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     margin-top:18px;
 }
 
-.product-intro h2 span { color:var(--blue); }
+.product-intro h2 span {
+    color:var(--blue);
+}
 
 .product-intro p {
     font-size:14px;
@@ -646,13 +622,19 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
 .product-stage-image img {
     opacity:.48;
     filter:saturate(.7);
+    transition:opacity .3s;
 }
 
 .product-stage:after {
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(90deg,rgba(5,17,29,.97),rgba(5,17,29,.78) 48%,rgba(5,17,29,.12));
+    background:linear-gradient(
+        90deg,
+        rgba(5,17,29,.97),
+        rgba(5,17,29,.78) 48%,
+        rgba(5,17,29,.12)
+    );
 }
 
 .product-slide {
@@ -733,7 +715,7 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
 .carousel-count {
     font-size:11px;
     color:#c5d1da;
-    min-width:45px;
+    min-width:48px;
     text-align:center;
 }
 
@@ -757,9 +739,13 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     width:38px;
 }
 
-/* MARKETS */
+/* =====================================================
+   MARKETS
+===================================================== */
 
-.markets { background:white; }
+.markets {
+    background:white;
+}
 
 .market-carousel {
     display:grid;
@@ -782,13 +768,19 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     filter:saturate(.75);
 }
 
-.market-card:hover img { transform:scale(1.045); }
+.market-card:hover img {
+    transform:scale(1.045);
+}
 
 .market-card:after {
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(0deg,rgba(5,17,29,.94),rgba(5,17,29,.05) 75%);
+    background:linear-gradient(
+        0deg,
+        rgba(5,17,29,.94),
+        rgba(5,17,29,.05) 75%
+    );
 }
 
 .market-content {
@@ -799,7 +791,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     bottom:32px;
 }
 
-.market-content .eyebrow { color:#9bdce8; }
+.market-content .eyebrow {
+    color:#9bdce8;
+}
 
 .market-content h3 {
     font:600 36px "Manrope",sans-serif;
@@ -813,14 +807,18 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     max-width:420px;
 }
 
-/* COMBINED TECHNOLOGY & APPROACH */
+/* =====================================================
+   TECHNOLOGY & APPROACH
+===================================================== */
 
 .technology {
     background:#0a1927;
     color:white;
 }
 
-.technology .section-head p { color:#a7b6c3; }
+.technology .section-head p {
+    color:#a7b6c3;
+}
 
 .tech-intro {
     max-width:760px;
@@ -937,67 +935,13 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     background:var(--cyan);
 }
 
-.approach-heading {
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    gap:30px;
-    margin-top:92px;
-    margin-bottom:32px;
-    padding-top:55px;
-    border-top:1px solid rgba(255,255,255,.15);
+/* =====================================================
+   COMPANY
+===================================================== */
+
+.company {
+    background:white;
 }
-
-.approach-heading h3 {
-    font:600 clamp(30px,4vw,46px) "Manrope",sans-serif;
-    letter-spacing:-.05em;
-    margin-top:16px;
-}
-
-.approach-heading p {
-    max-width:390px;
-    color:#a7b6c3;
-    font-size:13px;
-    line-height:1.8;
-}
-
-.approach-carousel {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:1px;
-    background:rgba(255,255,255,.14);
-    border:1px solid rgba(255,255,255,.14);
-}
-
-.approach-card {
-    padding:27px 24px 30px;
-    background:#0a1927;
-    min-height:215px;
-    transition:background .25s;
-}
-
-.approach-card:hover { background:#112b40; }
-
-.approach-card span {
-    font-size:10px;
-    color:var(--cyan);
-    letter-spacing:.16em;
-}
-
-.approach-card h4 {
-    font:600 19px "Manrope",sans-serif;
-    margin:26px 0 10px;
-}
-
-.approach-card p {
-    color:#aebdca;
-    font-size:12px;
-    line-height:1.75;
-}
-
-/* COMPANY */
-
-.company { background:white; }
 
 .company-grid {
     display:grid;
@@ -1009,6 +953,7 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     position:relative;
     min-height:420px;
     background:#102438;
+    overflow:hidden;
 }
 
 .company-copy {
@@ -1040,7 +985,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     color:#47718d;
 }
 
-/* CONTACT FORM */
+/* =====================================================
+   CONTACT
+===================================================== */
 
 .contact {
     background:#0a1927;
@@ -1101,7 +1048,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     gap:9px;
 }
 
-.form-field.full { grid-column:1/-1; }
+.form-field.full {
+    grid-column:1/-1;
+}
 
 .form-field label {
     font-size:10px;
@@ -1179,7 +1128,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     display:none;
 }
 
-.form-status.visible { display:block; }
+.form-status.visible {
+    display:block;
+}
 
 .form-disclaimer {
     margin-top:17px;
@@ -1187,60 +1138,10 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     font-size:10px;
     line-height:1.6;
 }
-(function() {
 
-  const slider = document.getElementById('aisgSlider');
-
-  if (!slider || slider.dataset.initialized) return;
-  slider.dataset.initialized = 'true';
-
-  const slides = [...slider.querySelectorAll('.aisg-slide')];
-  const dots = [...slider.querySelectorAll('.aisg-dot')];
-  const current = slider.querySelector('#aisgCurrent');
-
-  const prev = slider.querySelector('#aisgPrev');
-  const next = slider.querySelector('#aisgNext');
-
-  let index = 0;
-  let startX = 0;
-
-  function showSlide(newIndex) {
-
-    index = (newIndex + slides.length) % slides.length;
-
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-
-    current.textContent = String(index + 1).padStart(2, '0');
-  }
-
-  next.addEventListener('click', () => showSlide(index + 1));
-  prev.addEventListener('click', () => showSlide(index - 1));
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => showSlide(i));
-  });
-
-  slider.addEventListener('touchstart', e => {
-    startX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  slider.addEventListener('touchend', e => {
-    const distance = e.changedTouches[0].screenX - startX;
-
-    if (Math.abs(distance) > 50) {
-      showSlide(distance < 0 ? index + 1 : index - 1);
-    }
-  }, { passive: true });
-
-})();
-
-/* FOOTER */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 .footer {
     background:#06111c;
@@ -1268,7 +1169,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     line-height:1.6;
 }
 
-/* REVEAL */
+/* =====================================================
+   REVEAL
+===================================================== */
 
 .reveal {
     opacity:0;
@@ -1281,11 +1184,19 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
     transform:none;
 }
 
-/* RESPONSIVE */
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
 @media(max-width:900px) {
-    .nav-links { gap:16px; }
-    .nav-links a:not(.nav-cta) { display:none; }
+
+    .nav-links {
+        gap:16px;
+    }
+
+    .nav-links a:not(.nav-cta) {
+        display:none;
+    }
 
     .product-intro,
     .contact-layout {
@@ -1293,21 +1204,73 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
         gap:30px;
     }
 
-    .section { padding:82px 0; }
-
-    .approach-carousel {
-        grid-template-columns:1fr 1fr;
+    .section {
+        padding:82px 0;
     }
 
-    .contact-layout { gap:45px; }
+    .contact-layout {
+        gap:45px;
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .aisg-solutions {
+        padding:75px 5%;
+    }
+
+    .aisg-solutions-header {
+        display:block;
+        margin-bottom:30px;
+    }
+
+    .aisg-solutions-header p {
+        margin-top:20px;
+    }
+
+    .aisg-slides {
+        min-height:520px;
+    }
+
+    .aisg-slide {
+        padding:45px 27px;
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(5,12,23,.94),
+                rgba(5,12,23,.67)
+            ),
+            var(--slide-bg);
+    }
+
+    .aisg-slide-content h3 {
+        font-size:43px;
+    }
+
+    .aisg-slider-navigation {
+        padding:18px;
+    }
+
 }
 
 @media(max-width:640px) {
-    .container { width:calc(100% - 36px); }
 
-    .nav { height:72px; }
-    .brand { font-size:15px; }
-    .menu-toggle { display:block; }
+    .container {
+        width:calc(100% - 36px);
+    }
+
+    .nav {
+        height:72px;
+    }
+
+    .brand {
+        font-size:15px;
+    }
+
+    .menu-toggle {
+        display:block;
+    }
 
     .nav-links {
         display:none;
@@ -1321,14 +1284,30 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
         align-items:stretch;
     }
 
-    .nav-links.open { display:flex; }
-    .nav-links a:not(.nav-cta) { display:block; padding:8px 0; }
+    .nav-links.open {
+        display:flex;
+    }
 
-    .hero { min-height:740px; }
-    .hero h1 { font-size:53px; }
-    .hero-copy { font-size:14px; }
+    .nav-links a:not(.nav-cta) {
+        display:block;
+        padding:8px 0;
+    }
 
-    .hero-foot { bottom:22px; }
+    .hero {
+        min-height:740px;
+    }
+
+    .hero h1 {
+        font-size:53px;
+    }
+
+    .hero-copy {
+        font-size:14px;
+    }
+
+    .hero-foot {
+        bottom:22px;
+    }
 
     .strip-inner {
         align-items:flex-start;
@@ -1336,17 +1315,26 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
         gap:10px;
     }
 
-    .section { padding:70px 0; }
+    .section {
+        padding:70px 0;
+    }
 
     .section-head {
         display:block;
         margin-bottom:30px;
     }
 
-    .section-head p { margin-top:18px; }
+    .section-head p {
+        margin-top:18px;
+    }
 
-    .product-stage { min-height:540px; }
-    .product-slide { padding:38px 25px 95px; }
+    .product-stage {
+        min-height:540px;
+    }
+
+    .product-slide {
+        padding:38px 25px 95px;
+    }
 
     .carousel-controls {
         right:20px;
@@ -1358,7 +1346,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
         grid-template-columns:1fr;
     }
 
-    .market-card { height:390px; }
+    .market-card {
+        height:390px;
+    }
 
     .tech-slide {
         grid-template-columns:1fr;
@@ -1366,38 +1356,86 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
         padding:30px 25px 90px;
     }
 
-    .tech-number { font-size:32px; }
-
-    .tech-carousel { min-height:420px; }
-
-    .approach-heading {
-        display:block;
-        margin-top:65px;
+    .tech-number {
+        font-size:32px;
     }
 
-    .approach-heading p { margin-top:15px; }
+    .tech-carousel {
+        min-height:420px;
+    }
 
-    .approach-carousel { grid-template-columns:1fr; }
+    .company-image {
+        min-height:300px;
+    }
 
-    .company-image { min-height:300px; }
-    .company-copy { padding:48px 26px; }
+    .company-copy {
+        padding:48px 26px;
+    }
 
-    .contact-form { padding:25px 19px; }
-    .form-grid { grid-template-columns:1fr; }
-    .form-field.full { grid-column:auto; }
+    .contact-form {
+        padding:25px 19px;
+    }
+
+    .form-grid {
+        grid-template-columns:1fr;
+    }
+
+    .form-field.full {
+        grid-column:auto;
+    }
 
     .footer-inner {
         align-items:flex-start;
         flex-direction:column;
     }
 
-    .footer-note { text-align:left; }
+    .footer-note {
+        text-align:left;
+    }
+
+}
+
+@media(max-width:420px) {
+
+    .aisg-slides {
+        min-height:540px;
+    }
+
+    .aisg-slide {
+        padding:35px 22px;
+    }
+
+    .aisg-slide-content h3 {
+        font-size:37px;
+    }
+
+    .aisg-slide-content p {
+        font-size:13px;
+    }
+
+    .aisg-slider-navigation {
+        gap:10px;
+    }
+
+    .aisg-dot {
+        width:15px;
+    }
+
+    .aisg-dot.active {
+        width:28px;
+    }
+
 }
 
 @media(prefers-reduced-motion:reduce) {
-    html { scroll-behavior:auto; }
 
-    *,*:before,*:after {
+    html {
+        scroll-behavior:auto;
+    }
+
+    *,
+    *:before,
+    *:after {
         animation-duration:.01ms!important;
         transition-duration:.01ms!important;
     }
@@ -1406,17 +1444,25 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
         opacity:1;
         transform:none;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header class="header">
+
     <div class="container nav">
 
         <a class="brand" href="#home">
             <span class="brand-mark">AI</span>
+
             <span>
                 AISERVICEGROUP
                 <small>INTELLIGENT BUILDING SYSTEMS</small>
@@ -1424,33 +1470,48 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
         </a>
 
         <nav class="nav-links" id="navLinks">
+
+            <a href="#solutions">Soluzioni</a>
             <a href="#building">Building Intelligence</a>
             <a href="#markets">Settori</a>
             <a href="#technology">Technology & R&D</a>
             <a href="#company">Azienda</a>
             <a class="nav-cta" href="#contact">CONTATTI ↗</a>
+
         </nav>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Apri menu">☰</button>
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Apri menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            ☰
+        </button>
 
     </div>
+
 </header>
 
 
 <main>
 
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="hero" id="home">
 
     <div class="hero-bg">
         <img
-        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=90"
-        alt="Architettura contemporanea">
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=90"
+            alt="Architettura contemporanea">
     </div>
 
     <div class="container hero-content">
 
         <span class="eyebrow">
-            Engineering intelligence · Digital building
+            Engineering intelligence · Digital infrastructure
         </span>
 
         <h1>
@@ -1466,145 +1527,228 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
         </p>
 
         <div class="hero-actions">
+
             <a class="btn btn-primary" href="#building">
                 SCOPRI AISG BUILDING INTELLIGENCE ↗
             </a>
 
+            <a class="btn btn-outline" href="#solutions">
+                LE NOSTRE SOLUZIONI
+            </a>
+
+        </div>
+
     </div>
+
+    <div class="container hero-foot">
+        <span>Engineering · Digital innovation</span>
+        <span>Italy · Technology development</span>
+    </div>
+
 </section>
 
-<!-- AISG | LE NOSTRE SOLUZIONI -->
-<section class="aisg-solutions" id="solutions">
-  <div class="aisg-solutions-header">
-    <div>
-      <span class="aisg-eyebrow">COSA FACCIAMO</span>
-      <h2>Le nostre <span>soluzioni.</span></h2>
-    </div>
-    <p>
-      Ingegneria intelligente e tecnologie digitali
-      per trasformare sistemi complessi e infrastrutture
-      in ambienti più efficienti, connessi e intelligenti.
-    </p>
-  </div>
-  <div class="aisg-slider" id="aisgSlider">
-    <div class="aisg-slides">
-      <!-- SLIDE 01 -->
-      <article class="aisg-slide active"
-        style="--slide-bg:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85')">
-        <div class="aisg-slide-content">
-          <span class="aisg-slide-index">01 / 04 — PIATTAFORMA PROPRIETARIA</span>
-          <h3>AISG Building<br>Intelligence</h3>
-          <p>
-            Intelligenza digitale applicata agli edifici
-            e alle infrastrutture complesse. Digital Twin,
-            intelligenza artificiale e analisi predittiva
-            in un'unica piattaforma integrata.
-          </p>
-          <div class="aisg-slide-tags">
-            <span>Digital Twin</span>
-            <span>Hybrid AI</span>
-            <span>Intelligenza Energetica</span>
-          </div>
-          <a href="/building-intelligence" class="aisg-slide-link">
-            Scopri la piattaforma <span>↗</span>
-          </a>
-        </div>
-      </article>
-      <!-- SLIDE 02 -->
-      <article class="aisg-slide"
-        style="--slide-bg:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=85')">
-        <div class="aisg-slide-content">
-          <span class="aisg-slide-index">02 / 04 — TECNOLOGIA INDUSTRIALE</span>
-          <h3>Industrial<br>Automation</h3>
-          <p>
-            Connessione e automazione di sistemi,
-            processi e impianti industriali attraverso
-            tecnologie avanzate di controllo,
-            supervisione e integrazione.
-          </p>
-          <div class="aisg-slide-tags">
-            <span>PLC & SCADA</span>
-            <span>Industrial IoT</span>
-            <span>Integrazione Sistemi</span>
-          </div>
-          <a href="/industrial-automation" class="aisg-slide-link">
-            Scopri la soluzione <span>↗</span>
-          </a>
-        </div>
-      </article>
-      <!-- SLIDE 03 -->
-      <article class="aisg-slide"
-        style="--slide-bg:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=85')">
-        <div class="aisg-slide-content">
-          <span class="aisg-slide-index">03 / 04 — SICUREZZA DIGITALE</span>
-          <h3>Industrial<br>Cybersecurity</h3>
-          <p>
-            Protezione degli ambienti industriali
-            attraverso strategie di cybersecurity
-            dedicate alle reti operative e alle
-            infrastrutture tecnologiche connesse.
-          </p>
-          <div class="aisg-slide-tags">
-            <span>Sicurezza OT</span>
-            <span>Protezione Reti</span>
-            <span>Analisi dei Rischi</span>
-          </div>
-          <a href="/industrial-cybersecurity" class="aisg-slide-link">
-            Scopri la soluzione <span>↗</span>
-          </a>
-        </div>
-      </article>
-      <!-- SLIDE 04 -->
-      <article class="aisg-slide"
-        style="--slide-bg:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000&q=85')">
-        <div class="aisg-slide-content">
-          <span class="aisg-slide-index">04 / 04 — INGEGNERIA</span>
-          <h3>Engineering &<br>Digital Integration</h3>
-          <p>
-            Competenze ingegneristiche e tecnologie
-            digitali per progettare, connettere e
-            sviluppare infrastrutture e sistemi
-            tecnologici complessi.
-          </p>
-          <div class="aisg-slide-tags">
-            <span>Ingegneria Digitale</span>
-            <span>Consulenza Tecnologica</span>
-            <span>Integrazione</span>
-          </div>
-          <a href="/engineering-integration" class="aisg-slide-link">
-            Scopri la soluzione <span>↗</span>
-          </a>
-        </div>
-      </article>
-    </div>
-    <!-- NAVIGAZIONE -->
-    <div class="aisg-slider-navigation">
-      <div class="aisg-slider-counter">
-        <strong id="aisgCurrent">01</strong>
-        <span>/</span>
-        <span>04</span>
-      </div>
-      <div class="aisg-slider-progress">
-        <button class="aisg-dot active" data-slide="0" aria-label="Diapositiva 1"></button>
-        <button class="aisg-dot" data-slide="1" aria-label="Diapositiva 2"></button>
-        <button class="aisg-dot" data-slide="2" aria-label="Diapositiva 3"></button>
-        <button class="aisg-dot" data-slide="3" aria-label="Diapositiva 4"></button>
-      </div>
-      <div class="aisg-slider-arrows">
-        <button id="aisgPrev" aria-label="Soluzione precedente">←</button>
-        <button id="aisgNext" aria-label="Soluzione successiva">→</button>
-      </div>
-    </div>
-  </div>
-</section>   
 
-<!-- AISG BUILDING INTELLIGENCE -->
+<!-- =====================================================
+     AISG SOLUTIONS
+===================================================== -->
+
+<section class="aisg-solutions" id="solutions">
+
+    <div class="aisg-solutions-header">
+
+        <div>
+            <span class="aisg-eyebrow">COSA FACCIAMO</span>
+            <h2>Le nostre <span>soluzioni.</span></h2>
+        </div>
+
+        <p>
+            Ingegneria intelligente e tecnologie digitali
+            per trasformare sistemi complessi e infrastrutture
+            in ambienti più efficienti, connessi e intelligenti.
+        </p>
+
+    </div>
+
+
+    <div class="aisg-slider" id="aisgSlider">
+
+        <div class="aisg-slides">
+
+            <article class="aisg-slide active"
+                style="--slide-bg:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85')">
+
+                <div class="aisg-slide-content">
+
+                    <span class="aisg-slide-index">
+                        01 / 04 — PIATTAFORMA PROPRIETARIA
+                    </span>
+
+                    <h3>AISG Building<br>Intelligence</h3>
+
+                    <p>
+                        Intelligenza digitale applicata agli edifici
+                        e alle infrastrutture complesse. Digital Twin,
+                        intelligenza artificiale e analisi predittiva
+                        in un'unica piattaforma integrata.
+                    </p>
+
+                    <div class="aisg-slide-tags">
+                        <span>Digital Twin</span>
+                        <span>Hybrid AI</span>
+                        <span>Intelligenza Energetica</span>
+                    </div>
+
+                    <a href="/building-intelligence" class="aisg-slide-link">
+                        Scopri la piattaforma <span>↗</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="aisg-slide"
+                style="--slide-bg:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=85')">
+
+                <div class="aisg-slide-content">
+
+                    <span class="aisg-slide-index">
+                        02 / 04 — TECNOLOGIA INDUSTRIALE
+                    </span>
+
+                    <h3>Industrial<br>Automation</h3>
+
+                    <p>
+                        Connessione e automazione di sistemi,
+                        processi e impianti industriali attraverso
+                        tecnologie avanzate di controllo,
+                        supervisione e integrazione.
+                    </p>
+
+                    <div class="aisg-slide-tags">
+                        <span>PLC & SCADA</span>
+                        <span>Industrial IoT</span>
+                        <span>Integrazione Sistemi</span>
+                    </div>
+
+                    <a href="/industrial-automation" class="aisg-slide-link">
+                        Scopri la soluzione <span>↗</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="aisg-slide"
+                style="--slide-bg:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=85')">
+
+                <div class="aisg-slide-content">
+
+                    <span class="aisg-slide-index">
+                        03 / 04 — SICUREZZA DIGITALE
+                    </span>
+
+                    <h3>Industrial<br>Cybersecurity</h3>
+
+                    <p>
+                        Protezione degli ambienti industriali
+                        attraverso strategie di cybersecurity
+                        dedicate alle reti operative e alle
+                        infrastrutture tecnologiche connesse.
+                    </p>
+
+                    <div class="aisg-slide-tags">
+                        <span>Sicurezza OT</span>
+                        <span>Protezione Reti</span>
+                        <span>Analisi dei Rischi</span>
+                    </div>
+
+                    <a href="/industrial-cybersecurity" class="aisg-slide-link">
+                        Scopri la soluzione <span>↗</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="aisg-slide"
+                style="--slide-bg:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000&q=85')">
+
+                <div class="aisg-slide-content">
+
+                    <span class="aisg-slide-index">
+                        04 / 04 — INGEGNERIA
+                    </span>
+
+                    <h3>Engineering &<br>Digital Integration</h3>
+
+                    <p>
+                        Competenze ingegneristiche e tecnologie
+                        digitali per progettare, connettere e
+                        sviluppare infrastrutture e sistemi
+                        tecnologici complessi.
+                    </p>
+
+                    <div class="aisg-slide-tags">
+                        <span>Ingegneria Digitale</span>
+                        <span>Consulenza Tecnologica</span>
+                        <span>Integrazione</span>
+                    </div>
+
+                    <a href="/engineering-integration" class="aisg-slide-link">
+                        Scopri la soluzione <span>↗</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="aisg-slider-navigation">
+
+            <div class="aisg-slider-counter">
+                <strong id="aisgCurrent">01</strong>
+                <span>/</span>
+                <span>04</span>
+            </div>
+
+            <div class="aisg-slider-progress">
+
+                <button class="aisg-dot active" data-slide="0" aria-label="Diapositiva 1"></button>
+                <button class="aisg-dot" data-slide="1" aria-label="Diapositiva 2"></button>
+                <button class="aisg-dot" data-slide="2" aria-label="Diapositiva 3"></button>
+                <button class="aisg-dot" data-slide="3" aria-label="Diapositiva 4"></button>
+
+            </div>
+
+            <div class="aisg-slider-arrows">
+
+                <button id="aisgPrev" aria-label="Soluzione precedente">←</button>
+                <button id="aisgNext" aria-label="Soluzione successiva">→</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AISG BUILDING INTELLIGENCE
+===================================================== -->
 
 <section class="section product" id="building">
 
     <div class="container">
 
         <div class="product-intro reveal">
+
             <div>
                 <span class="eyebrow">The core platform</span>
 
@@ -1620,6 +1764,7 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
                 per trasformare gli edifici in infrastrutture digitali
                 monitorabili, analizzabili e ottimizzabili.
             </p>
+
         </div>
 
 
@@ -1627,106 +1772,144 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
 
             <div class="product-stage-image">
                 <img
-                id="productImage"
-                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=85"
-                alt="Edificio contemporaneo">
+                    id="productImage"
+                    src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=85"
+                    alt="Rappresentazione architettonica di un edificio">
             </div>
 
 
             <article class="product-slide active">
+
                 <span class="slide-number">01 — DIGITAL TWIN</span>
+
                 <h3>Una rappresentazione digitale dell'edificio.</h3>
+
                 <p>
                     Un ambiente tridimensionale interattivo nel quale
                     rappresentare struttura architettonica, componenti,
                     impianti e sistemi tecnologici, creando una replica
                     digitale integrata dell'infrastruttura.
                 </p>
+
                 <span class="slide-link">Interactive 3D building model</span>
+
             </article>
 
 
             <article class="product-slide">
+
                 <span class="slide-number">02 — PHYSICAL SIMULATION</span>
+
                 <h3>Comprendere il comportamento dell'edificio.</h3>
+
                 <p>
                     Modelli matematici e fisici per analizzare
                     caratteristiche termiche, dispersioni, carichi,
                     temperature e dinamiche energetiche, simulando
                     differenti condizioni operative.
                 </p>
+
                 <span class="slide-link">Thermal & physical modelling</span>
+
             </article>
 
 
             <article class="product-slide">
+
                 <span class="slide-number">03 — IOT & SYSTEM INTEGRATION</span>
+
                 <h3>Connettere il mondo fisico a quello digitale.</h3>
+
                 <p>
                     Integrazione con sensori, sistemi BMS, impianti HVAC,
                     contatori energetici e dispositivi industriali.
                     Acquisizione e organizzazione dei dati per alimentare
                     il gemello digitale attraverso protocolli interoperabili.
                 </p>
+
                 <span class="slide-link">Connected building infrastructure</span>
+
             </article>
 
 
             <article class="product-slide">
+
                 <span class="slide-number">04 — HYBRID AI ENGINE</span>
+
                 <h3>La convergenza tra fisica e intelligenza artificiale.</h3>
+
                 <p>
                     Un'architettura Hybrid AI che combina modelli fisici,
                     analisi data-driven e algoritmi di machine learning
                     per interpretare il comportamento dell'edificio,
                     individuare anomalie e generare previsioni.
                 </p>
+
                 <span class="slide-link">Hybrid intelligence architecture</span>
+
             </article>
 
 
             <article class="product-slide">
+
                 <span class="slide-number">05 — PREDICTIVE MAINTENANCE</span>
+
                 <h3>Anticipare le criticità operative.</h3>
+
                 <p>
                     Analisi delle condizioni degli impianti, rilevamento
                     delle anomalie e identificazione di possibili
                     deterioramenti per supportare la pianificazione
                     degli interventi manutentivi.
                 </p>
+
                 <span class="slide-link">Condition & predictive analysis</span>
+
             </article>
 
 
             <article class="product-slide">
+
                 <span class="slide-number">06 — ENERGY OPTIMIZATION</span>
+
                 <h3>Ottimizzare consumi e prestazioni.</h3>
+
                 <p>
                     Analisi dei consumi, confronto tra scenari energetici
                     e valutazione di strategie operative per migliorare
                     l'efficienza degli impianti, contenere i costi
                     e ottimizzare le prestazioni dell'edificio.
                 </p>
+
                 <span class="slide-link">Energy performance optimization</span>
+
             </article>
 
 
             <article class="product-slide">
+
                 <span class="slide-number">07 — INTELLIGENT DECISION SUPPORT</span>
+
                 <h3>Dai dati alle decisioni operative.</h3>
+
                 <p>
                     Dashboard integrate, indicatori KPI, analisi dei costi,
                     report e raccomandazioni intelligenti per offrire
                     una visione completa delle prestazioni e supportare
                     decisioni tecniche e gestionali.
                 </p>
+
                 <span class="slide-link">Building intelligence & analytics</span>
+
             </article>
 
 
             <article class="product-slide">
+
                 <span class="slide-number">08 — CYBERSECURITY & DATA GOVERNANCE</span>
+
                 <h3>Proteggere l'infrastruttura digitale.</h3>
+
                 <p>
                     Un approccio alla sicurezza che considera
                     protezione dei dati, gestione degli accessi,
@@ -1734,19 +1917,26 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
                     e sicurezza delle comunicazioni tra sistemi digitali
                     e infrastrutture fisiche.
                 </p>
+
                 <span class="slide-link">Secure connected infrastructure</span>
+
             </article>
 
 
             <div class="carousel-controls">
+
                 <span class="carousel-count" id="productCount">01 / 08</span>
+
                 <button class="carousel-btn" id="productPrev" aria-label="Precedente">←</button>
                 <button class="carousel-btn" id="productNext" aria-label="Successiva">→</button>
+
             </div>
 
         </div>
 
+
         <div class="carousel-dots" id="productDots">
+
             <button class="dot active" aria-label="Slide 1"></button>
             <button class="dot" aria-label="Slide 2"></button>
             <button class="dot" aria-label="Slide 3"></button>
@@ -1755,6 +1945,7 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
             <button class="dot" aria-label="Slide 6"></button>
             <button class="dot" aria-label="Slide 7"></button>
             <button class="dot" aria-label="Slide 8"></button>
+
         </div>
 
     </div>
@@ -1762,13 +1953,16 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
 </section>
 
 
-<!-- MARKETS -->
+<!-- =====================================================
+     MARKETS
+===================================================== -->
 
 <section class="section markets" id="markets">
 
     <div class="container">
 
         <div class="section-head reveal">
+
             <div>
                 <span class="eyebrow">Focus markets</span>
                 <h2>Due contesti.<br>Una visione integrata.</h2>
@@ -1780,44 +1974,57 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
                 energia, impianti e continuità operativa sono strettamente
                 connessi.
             </p>
+
         </div>
 
 
         <div class="market-carousel">
 
             <article class="market-card">
+
                 <img
-                src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=85"
-                alt="Ambiente industriale"
-                loading="lazy">
+                    src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=85"
+                    alt="Ambiente industriale"
+                    loading="lazy">
 
                 <div class="market-content">
+
                     <span class="eyebrow">01 / Industrial</span>
+
                     <h3>Edifici industriali</h3>
+
                     <p>
                         Simulazione e analisi di sistemi tecnologici,
                         consumi energetici e prestazioni degli ambienti
                         produttivi.
                     </p>
+
                 </div>
+
             </article>
 
 
             <article class="market-card">
+
                 <img
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=85"
-                alt="Centro logistico"
-                loading="lazy">
+                    src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=85"
+                    alt="Centro logistico"
+                    loading="lazy">
 
                 <div class="market-content">
+
                     <span class="eyebrow">02 / Logistics</span>
+
                     <h3>Edifici logistici</h3>
+
                     <p>
                         Modellazione di magazzini e spazi logistici,
                         con attenzione a climatizzazione, ventilazione
                         e gestione energetica.
                     </p>
+
                 </div>
+
             </article>
 
         </div>
@@ -1827,13 +2034,16 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
 </section>
 
 
-<!-- TECHNOLOGY + APPROACH -->
+<!-- =====================================================
+     TECHNOLOGY & R&D
+===================================================== -->
 
 <section class="section technology" id="technology">
 
     <div class="container">
 
         <div class="section-head reveal">
+
             <div>
                 <span class="eyebrow">Technology, R&D & approach</span>
                 <h2>From engineering<br>to intelligence.</h2>
@@ -1844,6 +2054,7 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
                 ingegneristico che integra modellazione, intelligenza
                 artificiale, simulazione e ottimizzazione.
             </p>
+
         </div>
 
 
@@ -1855,15 +2066,16 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
         </p>
 
 
-        <!-- TECHNOLOGY CAROUSEL -->
-
         <div class="tech-carousel" aria-label="Tecnologie e architettura">
 
             <article class="tech-slide active">
+
                 <div class="tech-number">01</div>
+
                 <div>
                     <span class="tech-category">Digital modeling</span>
                     <h3>Physical Modeling</h3>
+
                     <p>
                         Modelli matematici e fisici semplificati
                         rappresentano il comportamento termico ed
@@ -1872,14 +2084,18 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
                         configurabile e ripetibile.
                     </p>
                 </div>
+
             </article>
 
 
             <article class="tech-slide">
+
                 <div class="tech-number">02</div>
+
                 <div>
                     <span class="tech-category">Artificial intelligence</span>
                     <h3>Hybrid AI Engine</h3>
+
                     <p>
                         Un'architettura che combina modelli fisici,
                         analisi statistica e algoritmi predittivi.
@@ -1888,14 +2104,18 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
                         dei metodi data-driven.
                     </p>
                 </div>
+
             </article>
 
 
             <article class="tech-slide">
+
                 <div class="tech-number">03</div>
+
                 <div>
                     <span class="tech-category">Simulation environment</span>
                     <h3>Simulation Engine</h3>
+
                     <p>
                         L'ambiente di simulazione consente di modificare
                         parametri, configurazioni e condizioni operative,
@@ -1903,14 +2123,18 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
                         di prestazione del modello.
                     </p>
                 </div>
+
             </article>
 
 
             <article class="tech-slide">
+
                 <div class="tech-number">04</div>
+
                 <div>
                     <span class="tech-category">Optimization</span>
                     <h3>Multi-Objective Optimization</h3>
+
                     <p>
                         Confronto di scenari rispetto a più obiettivi:
                         consumi, costi, comfort e manutenzione.
@@ -1918,14 +2142,18 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
                         ipotesi e ai vincoli definiti nel modello.
                     </p>
                 </div>
+
             </article>
 
 
             <article class="tech-slide">
+
                 <div class="tech-number">05</div>
+
                 <div>
                     <span class="tech-category">Predictive analysis</span>
                     <h3>Predictive Intelligence</h3>
+
                     <p>
                         Analisi di indicatori e andamenti simulati
                         per esplorare possibili criticità e scenari
@@ -1934,40 +2162,52 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
                         su dati operativi reali.
                     </p>
                 </div>
+
             </article>
 
 
             <div class="tech-controls">
+
                 <span class="tech-count" id="techCount">01 / 05</span>
+
                 <button class="tech-btn" id="techPrev" aria-label="Tecnologia precedente">←</button>
                 <button class="tech-btn" id="techNext" aria-label="Tecnologia successiva">→</button>
+
             </div>
 
         </div>
 
 
         <div class="tech-dots" id="techDots">
+
             <button class="tech-dot active" aria-label="Tecnologia 1"></button>
             <button class="tech-dot" aria-label="Tecnologia 2"></button>
             <button class="tech-dot" aria-label="Tecnologia 3"></button>
             <button class="tech-dot" aria-label="Tecnologia 4"></button>
             <button class="tech-dot" aria-label="Tecnologia 5"></button>
+
         </div>
+
+    </div>
 
 </section>
 
 
-<!-- COMPANY -->
+<!-- =====================================================
+     COMPANY
+===================================================== -->
 
 <section class="company" id="company">
 
     <div class="company-grid">
 
         <div class="company-image">
+
             <img
-            src="D493C07F-E279-4583-8F46-40D84EA35BFF.jpeg"
-            alt="Ambiente di lavoro contemporaneo"
-            loading="lazy">
+                src="D493C07F-E279-4583-8F46-40D84EA35BFF.jpeg"
+                alt="Ambiente di lavoro contemporaneo"
+                loading="lazy">
+
         </div>
 
 
@@ -1999,7 +2239,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
 </section>
 
 
-<!-- CONTACT FORM -->
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
 <section class="contact" id="contact">
 
@@ -2034,73 +2276,97 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
             <div class="form-grid">
 
                 <div class="form-field">
+
                     <label for="name">Nome e cognome *</label>
+
                     <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Il tuo nome"
-                    autocomplete="name"
-                    required>
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Il tuo nome"
+                        autocomplete="name"
+                        required>
+
                 </div>
 
 
                 <div class="form-field">
+
                     <label for="companyName">Azienda</label>
+
                     <input
-                    type="text"
-                    id="companyName"
-                    name="company"
-                    placeholder="Nome dell'azienda"
-                    autocomplete="organization">
+                        type="text"
+                        id="companyName"
+                        name="company"
+                        placeholder="Nome dell'azienda"
+                        autocomplete="organization">
+
                 </div>
 
 
                 <div class="form-field">
+
                     <label for="email">Email aziendale *</label>
+
                     <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="nome@azienda.it"
-                    autocomplete="email"
-                    required>
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="nome@azienda.it"
+                        autocomplete="email"
+                        required>
+
                 </div>
 
 
                 <div class="form-field">
+
                     <label for="subject">Argomento *</label>
+
                     <select id="subject" name="subject" required>
+
                         <option value="">Seleziona un argomento</option>
                         <option value="AISG Building Intelligence">AISG Building Intelligence</option>
                         <option value="Collaborazione tecnica">Collaborazione tecnica</option>
                         <option value="Industria e logistica">Industria e logistica</option>
                         <option value="Ricerca e sviluppo">Ricerca e sviluppo</option>
                         <option value="Altro">Altro</option>
+
                     </select>
+
                 </div>
 
 
                 <div class="form-field full">
+
                     <label for="message">Messaggio *</label>
+
                     <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Descrivi brevemente la tua richiesta..."
-                    required></textarea>
+                        id="message"
+                        name="message"
+                        placeholder="Descrivi brevemente la tua richiesta..."
+                        required></textarea>
+
                 </div>
 
             </div>
 
 
             <label class="form-consent">
-                <input type="checkbox" id="privacyConsent" required>
+
+                <input
+                    type="checkbox"
+                    id="privacyConsent"
+                    name="privacyConsent"
+                    required>
+
                 <span>
                     Dichiaro di aver letto l'informativa privacy e
                     acconsento al trattamento dei dati per la gestione
-                    della richiesta. Prima della pubblicazione, collegare
-                    questa dicitura alla reale informativa privacy.
+                    della richiesta.
+                    <a href="/privacy-policy">Leggi l'informativa privacy</a>.
                 </span>
+
             </label>
 
 
@@ -2126,7 +2392,9 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
 </main>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer class="footer">
 
@@ -2151,184 +2419,352 @@ img { display:block; width:100%; height:100%; object-fit:cover; }
 </footer>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-/* PRODUCT CAROUSEL */
+/* =====================================================
+   AISG SOLUTIONS SLIDER
+===================================================== */
 
-const productSlides =
-    [...document.querySelectorAll(".product-slide")];
+(function() {
 
-const productDots =
-    [...document.querySelectorAll("#productDots .dot")];
+    const slider = document.getElementById("aisgSlider");
 
-const productCount =
-    document.getElementById("productCount");
+    if (!slider || slider.dataset.initialized) return;
 
-const productImages = [
+    slider.dataset.initialized = "true";
 
-    "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=85",
+    const slides = [...slider.querySelectorAll(".aisg-slide")];
+    const dots = [...slider.querySelectorAll(".aisg-dot")];
 
-    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85",
+    const current = slider.querySelector("#aisgCurrent");
+    const prev = slider.querySelector("#aisgPrev");
+    const next = slider.querySelector("#aisgNext");
 
-    "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1800&q=85",
+    let index = 0;
+    let startX = 0;
 
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85",
+    function showSlide(newIndex) {
 
-    "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1800&q=85"
+        index = (newIndex + slides.length) % slides.length;
 
-];
+        slides.forEach((slide,i) => {
+            slide.classList.toggle("active",i === index);
+        });
 
-const productImage =
-    document.getElementById("productImage");
+        dots.forEach((dot,i) => {
+            dot.classList.toggle("active",i === index);
+        });
 
-let productIndex = 0;
+        current.textContent =
+            String(index + 1).padStart(2,"0");
 
-function showProduct(index) {
+    }
 
-    productIndex =
-        (index + productSlides.length) % productSlides.length;
+    next.addEventListener("click",() => showSlide(index + 1));
+    prev.addEventListener("click",() => showSlide(index - 1));
 
-    productSlides.forEach((slide,i) => {
-        slide.classList.toggle("active",i === productIndex);
+    dots.forEach((dot,i) => {
+        dot.addEventListener("click",() => showSlide(i));
     });
+
+    slider.addEventListener("touchstart",event => {
+        startX = event.changedTouches[0].screenX;
+    },{passive:true});
+
+    slider.addEventListener("touchend",event => {
+
+        const distance =
+            event.changedTouches[0].screenX - startX;
+
+        if (Math.abs(distance) > 50) {
+            showSlide(distance < 0 ? index + 1 : index - 1);
+        }
+
+    },{passive:true});
+
+})();
+
+
+/* =====================================================
+   BUILDING INTELLIGENCE CAROUSEL
+===================================================== */
+
+(function() {
+
+    const productSlides = [
+        ...document.querySelectorAll(".product-slide")
+    ];
+
+    const productDots = [
+        ...document.querySelectorAll("#productDots .dot")
+    ];
+
+    const productCount =
+        document.getElementById("productCount");
+
+    const productImage =
+        document.getElementById("productImage");
+
+    const prev =
+        document.getElementById("productPrev");
+
+    const next =
+        document.getElementById("productNext");
+
+    const productImages = [
+
+        "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=85",
+
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85",
+
+        "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1800&q=85",
+
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85",
+
+        "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1800&q=85",
+
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85",
+
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=85",
+
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=85"
+
+    ];
+
+    let index = 0;
+    let startX = 0;
+
+    function showProduct(newIndex) {
+
+        index = (newIndex + productSlides.length) % productSlides.length;
+
+        productSlides.forEach((slide,i) => {
+            slide.classList.toggle("active",i === index);
+        });
+
+        productDots.forEach((dot,i) => {
+            dot.classList.toggle("active",i === index);
+        });
+
+        productCount.textContent =
+            `${String(index + 1).padStart(2,"0")} / ${String(productSlides.length).padStart(2,"0")}`;
+
+        productImage.src = productImages[index];
+
+    }
+
+    prev.addEventListener("click",() => showProduct(index - 1));
+    next.addEventListener("click",() => showProduct(index + 1));
 
     productDots.forEach((dot,i) => {
-        dot.classList.toggle("active",i === productIndex);
+        dot.addEventListener("click",() => showProduct(i));
     });
 
-    productCount.textContent =
-        `${String(productIndex+1).padStart(2,"0")} / 05`;
+    const stage = document.querySelector(".product-stage");
 
-    productImage.src = productImages[productIndex];
+    stage.addEventListener("touchstart",event => {
+        startX = event.changedTouches[0].screenX;
+    },{passive:true});
 
-}
+    stage.addEventListener("touchend",event => {
 
-document.getElementById("productPrev")
-.addEventListener("click",() => showProduct(productIndex-1));
+        const distance =
+            event.changedTouches[0].screenX - startX;
 
-document.getElementById("productNext")
-.addEventListener("click",() => showProduct(productIndex+1));
+        if (Math.abs(distance) > 50) {
+            showProduct(distance < 0 ? index + 1 : index - 1);
+        }
 
-productDots.forEach((dot,i) => {
-    dot.addEventListener("click",() => showProduct(i));
-});
+    },{passive:true});
+
+})();
 
 
-/* TECHNOLOGY CAROUSEL */
+/* =====================================================
+   TECHNOLOGY CAROUSEL
+===================================================== */
 
-const techSlides =
-    [...document.querySelectorAll(".tech-slide")];
+(function() {
 
-const techDots =
-    [...document.querySelectorAll("#techDots .tech-dot")];
+    const techSlides = [
+        ...document.querySelectorAll(".tech-slide")
+    ];
 
-const techCount =
-    document.getElementById("techCount");
+    const techDots = [
+        ...document.querySelectorAll("#techDots .tech-dot")
+    ];
 
-let techIndex = 0;
+    const techCount =
+        document.getElementById("techCount");
 
-function showTech(index) {
+    const prev =
+        document.getElementById("techPrev");
 
-    techIndex =
-        (index + techSlides.length) % techSlides.length;
+    const next =
+        document.getElementById("techNext");
 
-    techSlides.forEach((slide,i) => {
-        slide.classList.toggle("active",i === techIndex);
-    });
+    let index = 0;
+    let startX = 0;
+
+    function showTech(newIndex) {
+
+        index = (newIndex + techSlides.length) % techSlides.length;
+
+        techSlides.forEach((slide,i) => {
+            slide.classList.toggle("active",i === index);
+        });
+
+        techDots.forEach((dot,i) => {
+            dot.classList.toggle("active",i === index);
+        });
+
+        techCount.textContent =
+            `${String(index + 1).padStart(2,"0")} / ${String(techSlides.length).padStart(2,"0")}`;
+
+    }
+
+    prev.addEventListener("click",() => showTech(index - 1));
+    next.addEventListener("click",() => showTech(index + 1));
 
     techDots.forEach((dot,i) => {
-        dot.classList.toggle("active",i === techIndex);
+        dot.addEventListener("click",() => showTech(i));
     });
 
-    techCount.textContent =
-        `${String(techIndex+1).padStart(2,"0")} / 05`;
+    const stage = document.querySelector(".tech-carousel");
 
-}
+    stage.addEventListener("touchstart",event => {
+        startX = event.changedTouches[0].screenX;
+    },{passive:true});
 
-document.getElementById("techPrev")
-.addEventListener("click",() => showTech(techIndex-1));
+    stage.addEventListener("touchend",event => {
 
-document.getElementById("techNext")
-.addEventListener("click",() => showTech(techIndex+1));
+        const distance =
+            event.changedTouches[0].screenX - startX;
 
-techDots.forEach((dot,i) => {
-    dot.addEventListener("click",() => showTech(i));
-});
+        if (Math.abs(distance) > 50) {
+            showTech(distance < 0 ? index + 1 : index - 1);
+        }
+
+    },{passive:true});
+
+})();
 
 
-/* MOBILE NAVIGATION */
+/* =====================================================
+   MOBILE NAVIGATION
+===================================================== */
 
-const menuToggle =
-    document.getElementById("menuToggle");
+(function() {
 
-const navLinks =
-    document.getElementById("navLinks");
+    const menuToggle =
+        document.getElementById("menuToggle");
 
-menuToggle.addEventListener("click",() => {
+    const navLinks =
+        document.getElementById("navLinks");
 
-    const open =
-        navLinks.classList.toggle("open");
+    menuToggle.addEventListener("click",() => {
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        String(open)
-    );
-
-    menuToggle.textContent =
-        open ? "×" : "☰";
-
-});
-
-navLinks.querySelectorAll("a").forEach(link => {
-
-    link.addEventListener("click",() => {
-
-        navLinks.classList.remove("open");
+        const open =
+            navLinks.classList.toggle("open");
 
         menuToggle.setAttribute(
             "aria-expanded",
-            "false"
+            String(open)
         );
 
-        menuToggle.textContent = "☰";
+        menuToggle.setAttribute(
+            "aria-label",
+            open ? "Chiudi menu" : "Apri menu"
+        );
+
+        menuToggle.textContent =
+            open ? "×" : "☰";
 
     });
 
-});
+    navLinks.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click",() => {
+
+            navLinks.classList.remove("open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Apri menu"
+            );
+
+            menuToggle.textContent = "☰";
+
+        });
+
+    });
+
+})();
 
 
-/* CONTACT FORM - FRONTEND DEMO */
+/* =====================================================
+   CONTACT FORM - FRONTEND DEMO
+===================================================== */
 
-const contactForm =
-    document.getElementById("contactForm");
+(function() {
 
-const formStatus =
-    document.getElementById("formStatus");
+    const contactForm =
+        document.getElementById("contactForm");
 
-contactForm.addEventListener("submit",event => {
+    const formStatus =
+        document.getElementById("formStatus");
 
-    event.preventDefault();
+    contactForm.addEventListener("submit",event => {
 
-    if(!contactForm.reportValidity()) {
+        event.preventDefault();
+
+        if (!contactForm.reportValidity()) {
+            return;
+        }
+
+        formStatus.textContent =
+            "Modulo compilato correttamente. L'invio sarà disponibile dopo il collegamento del servizio di gestione delle richieste.";
+
+        formStatus.classList.add("visible");
+
+    });
+
+})();
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+(function() {
+
+    const elements =
+        document.querySelectorAll(".reveal");
+
+    if (!("IntersectionObserver" in window)) {
+
+        elements.forEach(element => {
+            element.classList.add("visible");
+        });
+
         return;
+
     }
 
-    formStatus.textContent =
-        "Modulo compilato correttamente. L'invio sarà disponibile dopo il collegamento del servizio di gestione delle richieste.";
-
-    formStatus.classList.add("visible");
-
-});
-
-
-/* SCROLL REVEAL */
-
-const revealObserver =
-    new IntersectionObserver(entries => {
+    const revealObserver = new IntersectionObserver(entries => {
 
         entries.forEach(entry => {
 
-            if(entry.isIntersecting) {
+            if (entry.isIntersecting) {
 
                 entry.target.classList.add("visible");
 
@@ -2340,12 +2776,16 @@ const revealObserver =
 
     },{threshold:.12});
 
-document.querySelectorAll(".reveal").forEach(element => {
-    revealObserver.observe(element);
-});
+    elements.forEach(element => {
+        revealObserver.observe(element);
+    });
+
+})();
 
 
-/* FOOTER YEAR */
+/* =====================================================
+   FOOTER YEAR
+===================================================== */
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
