@@ -1,419 +1,1830 @@
+
 <!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulenza e Architetture Digital Twin | AI Service Group</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        industrial: {
-                            dark: '#0f172a',
-                            card: '#1e293b',
-                            accent: '#10b981', // Emerald green accent
-                            blue: '#3b82f6',
-                            muted: '#94a3b8'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#091725">
+<meta name="description" content="AISERVICEGROUP sviluppa AISG Building Intelligence, una piattaforma di simulazione e ottimizzazione intelligente per edifici industriali e logistici.">
+<title>AISERVICEGROUP | Intelligent Building Systems</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --navy:#091725;
+    --navy2:#102438;
+    --blue:#2d7ef7;
+    --cyan:#8dd9e9;
+    --white:#ffffff;
+    --paper:#f4f7fa;
+    --muted:#9aabba;
+    --max:1240px;
+}
+
+* {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+    font-family:"DM Sans",sans-serif;
+    color:var(--navy);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+}
+
+a { text-decoration:none; color:inherit; }
+button,input,select,textarea { font:inherit; }
+img { display:block; width:100%; height:100%; object-fit:cover; }
+
+.container {
+    width:min(var(--max),calc(100% - 56px));
+    margin:auto;
+}
+
+.section { padding:110px 0; }
+
+.eyebrow {
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+.eyebrow:before {
+    content:"";
+    width:26px;
+    height:1px;
+    background:currentColor;
+}
+
+.btn {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:13px;
+    padding:15px 21px;
+    border-radius:3px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.05em;
+    transition:.25s;
+}
+
+.btn-primary {
+    background:var(--blue);
+    color:white;
+}
+
+.btn-primary:hover {
+    background:#1768e5;
+    transform:translateY(-2px);
+}
+
+.btn-outline {
+    border:1px solid rgba(255,255,255,.4);
+    color:white;
+}
+
+.btn-outline:hover {
+    background:white;
+    color:var(--navy);
+}
+
+/* HEADER */
+
+.header {
+    position:absolute;
+    z-index:20;
+    top:0;
+    left:0;
+    right:0;
+    color:white;
+    border-bottom:1px solid rgba(255,255,255,.13);
+}
+
+.nav {
+    height:86px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font:800 18px "Manrope",sans-serif;
+    letter-spacing:.09em;
+}
+
+.brand-mark {
+    width:35px;
+    height:35px;
+    border:1px solid rgba(255,255,255,.65);
+    display:grid;
+    place-items:center;
+    font-size:12px;
+}
+
+.brand small {
+    display:block;
+    font:500 8px "DM Sans",sans-serif;
+    letter-spacing:.28em;
+    color:#a8bac8;
+    margin-top:3px;
+}
+
+.nav-links {
+    display:flex;
+    align-items:center;
+    gap:27px;
+    font-size:11px;
+    font-weight:600;
+    color:#d2dce5;
+}
+
+.nav-links a:hover { color:white; }
+
+.nav-cta {
+    padding:12px 17px;
+    border:1px solid rgba(255,255,255,.45);
+}
+
+.menu-toggle {
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height:790px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    color:white;
+    background:var(--navy);
+    overflow:hidden;
+}
+
+.hero-bg {
+    position:absolute;
+    inset:0;
+}
+
+.hero-bg img {
+    opacity:.42;
+    object-position:center;
+    filter:saturate(.7);
+}
+
+.hero:after {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(90deg,rgba(5,17,29,.98),rgba(5,17,29,.78) 48%,rgba(5,17,29,.2)),
+    linear-gradient(0deg,rgba(5,17,29,.5),transparent 50%);
+}
+
+.hero-content {
+    position:relative;
+    z-index:2;
+    padding-top:110px;
+    max-width:850px;
+}
+
+.hero .eyebrow { color:#a9d9ed; }
+
+.hero h1 {
+    font:600 clamp(48px,7.3vw,94px)/.99 "Manrope",sans-serif;
+    letter-spacing:-.07em;
+    margin:28px 0 25px;
+}
+
+.hero h1 span { color:var(--cyan); }
+
+.hero-copy {
+    font-size:16px;
+    line-height:1.8;
+    color:#c2ced8;
+    max-width:590px;
+    margin-bottom:34px;
+}
+
+.hero-actions {
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+}
+
+.hero-foot {
+    position:absolute;
+    z-index:2;
+    bottom:34px;
+    left:0;
+    right:0;
+    display:flex;
+    justify-content:space-between;
+    color:#a9b8c5;
+    font-size:10px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+}
+
+/* INTRO STRIP */
+
+.intro-strip {
+    background:#0d2031;
+    color:white;
+    padding:29px 0;
+}
+
+.strip-inner {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+}
+
+.strip-label {
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:#8fa4b5;
+}
+
+.strip-statement {
+    font:500 16px "Manrope",sans-serif;
+}
+
+.strip-tag {
+    font-size:10px;
+    color:var(--cyan);
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+/* GENERAL SECTION HEAD */
+
+.section-head {
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:36px;
+    margin-bottom:42px;
+}
+
+.section-head h2 {
+    font:600 clamp(34px,4.4vw,58px)/1.05 "Manrope",sans-serif;
+    letter-spacing:-.055em;
+    margin-top:18px;
+}
+
+.section-head p {
+    max-width:390px;
+    color:#657585;
+    line-height:1.75;
+    font-size:14px;
+}
+
+/* PRODUCT */
+
+.product { background:var(--paper); }
+
+.product-intro {
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:80px;
+    align-items:end;
+    margin-bottom:42px;
+}
+
+.product-intro h2 {
+    font:600 clamp(38px,5vw,66px)/1.02 "Manrope",sans-serif;
+    letter-spacing:-.06em;
+    margin-top:18px;
+}
+
+.product-intro h2 span { color:var(--blue); }
+
+.product-intro p {
+    font-size:14px;
+    line-height:1.85;
+    color:#617283;
+    max-width:470px;
+}
+
+.product-stage {
+    position:relative;
+    background:#0b1b2a;
+    overflow:hidden;
+    color:white;
+    min-height:510px;
+}
+
+.product-stage-image {
+    position:absolute;
+    inset:0;
+}
+
+.product-stage-image img {
+    opacity:.48;
+    filter:saturate(.7);
+}
+
+.product-stage:after {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg,rgba(5,17,29,.97),rgba(5,17,29,.78) 48%,rgba(5,17,29,.12));
+}
+
+.product-slide {
+    position:absolute;
+    z-index:2;
+    inset:0;
+    padding:58px 7%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    max-width:720px;
+    opacity:0;
+    transform:translateX(18px);
+    transition:.45s;
+    pointer-events:none;
+}
+
+.product-slide.active {
+    opacity:1;
+    transform:none;
+    pointer-events:auto;
+}
+
+.slide-number {
+    font-size:11px;
+    letter-spacing:.2em;
+    color:var(--cyan);
+    margin-bottom:24px;
+}
+
+.product-slide h3 {
+    font:600 clamp(34px,4.4vw,55px)/1.04 "Manrope",sans-serif;
+    letter-spacing:-.055em;
+    margin-bottom:19px;
+}
+
+.product-slide p {
+    font-size:14px;
+    line-height:1.8;
+    color:#c0ccd6;
+    max-width:450px;
+    margin-bottom:25px;
+}
+
+.slide-link {
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--cyan);
+}
+
+.carousel-controls {
+    position:absolute;
+    z-index:4;
+    right:38px;
+    bottom:32px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.carousel-btn {
+    width:42px;
+    height:42px;
+    border:1px solid rgba(255,255,255,.45);
+    background:transparent;
+    color:white;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.carousel-btn:hover {
+    background:white;
+    color:var(--navy);
+}
+
+.carousel-count {
+    font-size:11px;
+    color:#c5d1da;
+    min-width:45px;
+    text-align:center;
+}
+
+.carousel-dots {
+    display:flex;
+    gap:7px;
+    margin-top:25px;
+}
+
+.dot {
+    height:3px;
+    width:22px;
+    border:0;
+    background:rgba(9,23,37,.25);
+    padding:0;
+    cursor:pointer;
+}
+
+.dot.active {
+    background:var(--blue);
+    width:38px;
+}
+
+/* MARKETS */
+
+.markets { background:white; }
+
+.market-carousel {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.market-card {
+    height:450px;
+    position:relative;
+    overflow:hidden;
+    background:#0b1b2a;
+    color:white;
+}
+
+.market-card img {
+    position:absolute;
+    inset:0;
+    transition:transform .8s;
+    filter:saturate(.75);
+}
+
+.market-card:hover img { transform:scale(1.045); }
+
+.market-card:after {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(0deg,rgba(5,17,29,.94),rgba(5,17,29,.05) 75%);
+}
+
+.market-content {
+    position:absolute;
+    z-index:2;
+    left:34px;
+    right:34px;
+    bottom:32px;
+}
+
+.market-content .eyebrow { color:#9bdce8; }
+
+.market-content h3 {
+    font:600 36px "Manrope",sans-serif;
+    margin:16px 0 10px;
+}
+
+.market-content p {
+    font-size:13px;
+    line-height:1.7;
+    color:#d0d9e0;
+    max-width:420px;
+}
+
+/* COMBINED TECHNOLOGY & APPROACH */
+
+.technology {
+    background:#0a1927;
+    color:white;
+}
+
+.technology .section-head p { color:#a7b6c3; }
+
+.tech-intro {
+    max-width:760px;
+    color:#aebdca;
+    font-size:14px;
+    line-height:1.85;
+    margin-top:-18px;
+    margin-bottom:38px;
+}
+
+.tech-carousel {
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.16);
+    background:#0a1927;
+    min-height:355px;
+}
+
+.tech-slide {
+    position:absolute;
+    inset:0;
+    padding:42px 48px 80px;
+    display:grid;
+    grid-template-columns:100px 1fr;
+    gap:28px;
+    align-items:center;
+    opacity:0;
+    transform:translateX(18px);
+    transition:.4s;
+    pointer-events:none;
+}
+
+.tech-slide.active {
+    opacity:1;
+    transform:none;
+    pointer-events:auto;
+}
+
+.tech-number {
+    font:600 44px "Manrope",sans-serif;
+    color:var(--cyan);
+    letter-spacing:-.06em;
+}
+
+.tech-slide h3 {
+    font:600 clamp(27px,3.5vw,42px) "Manrope",sans-serif;
+    letter-spacing:-.045em;
+    margin-bottom:16px;
+}
+
+.tech-slide p {
+    font-size:14px;
+    line-height:1.85;
+    color:#afbfcb;
+    max-width:650px;
+}
+
+.tech-category {
+    display:block;
+    color:var(--cyan);
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:15px;
+}
+
+.tech-controls {
+    position:absolute;
+    z-index:3;
+    bottom:25px;
+    right:30px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.tech-count {
+    font-size:11px;
+    color:#c5d1da;
+    min-width:48px;
+    text-align:center;
+}
+
+.tech-btn {
+    width:38px;
+    height:38px;
+    border:1px solid rgba(255,255,255,.4);
+    color:white;
+    background:transparent;
+    cursor:pointer;
+}
+
+.tech-btn:hover {
+    background:white;
+    color:var(--navy);
+}
+
+.tech-dots {
+    display:flex;
+    gap:7px;
+    margin-top:20px;
+}
+
+.tech-dot {
+    width:22px;
+    height:3px;
+    border:0;
+    background:rgba(255,255,255,.3);
+    cursor:pointer;
+}
+
+.tech-dot.active {
+    width:38px;
+    background:var(--cyan);
+}
+
+.approach-heading {
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:30px;
+    margin-top:92px;
+    margin-bottom:32px;
+    padding-top:55px;
+    border-top:1px solid rgba(255,255,255,.15);
+}
+
+.approach-heading h3 {
+    font:600 clamp(30px,4vw,46px) "Manrope",sans-serif;
+    letter-spacing:-.05em;
+    margin-top:16px;
+}
+
+.approach-heading p {
+    max-width:390px;
+    color:#a7b6c3;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.approach-carousel {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.14);
+}
+
+.approach-card {
+    padding:27px 24px 30px;
+    background:#0a1927;
+    min-height:215px;
+    transition:background .25s;
+}
+
+.approach-card:hover { background:#112b40; }
+
+.approach-card span {
+    font-size:10px;
+    color:var(--cyan);
+    letter-spacing:.16em;
+}
+
+.approach-card h4 {
+    font:600 19px "Manrope",sans-serif;
+    margin:26px 0 10px;
+}
+
+.approach-card p {
+    color:#aebdca;
+    font-size:12px;
+    line-height:1.75;
+}
+
+/* COMPANY */
+
+.company { background:white; }
+
+.company-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:470px;
+}
+
+.company-image {
+    position:relative;
+    min-height:420px;
+    background:#102438;
+}
+
+.company-copy {
+    padding:60px 8%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.company-copy h2 {
+    font:600 clamp(35px,4vw,52px)/1.05 "Manrope",sans-serif;
+    letter-spacing:-.055em;
+    margin:20px 0;
+}
+
+.company-copy p {
+    font-size:14px;
+    line-height:1.9;
+    color:#647586;
+}
+
+.company-note {
+    margin-top:30px;
+    padding-top:22px;
+    border-top:1px solid rgba(9,23,37,.12);
+    font-size:10px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#47718d;
+}
+
+/* CONTACT FORM */
+
+.contact {
+    background:#0a1927;
+    color:white;
+    padding:105px 0;
+}
+
+.contact-layout {
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:85px;
+    align-items:start;
+}
+
+.contact-copy h2 {
+    font:600 clamp(38px,5vw,62px)/1.04 "Manrope",sans-serif;
+    letter-spacing:-.06em;
+    margin:20px 0;
+}
+
+.contact-copy p {
+    color:#aebdca;
+    font-size:14px;
+    line-height:1.9;
+    max-width:430px;
+}
+
+.contact-meta {
+    margin-top:40px;
+    padding-top:23px;
+    border-top:1px solid rgba(255,255,255,.15);
+    color:#8ed8e8;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+.contact-form {
+    padding:38px;
+    background:#102438;
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.form-heading {
+    font:600 23px "Manrope",sans-serif;
+    margin-bottom:28px;
+}
+
+.form-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px 18px;
+}
+
+.form-field {
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+.form-field.full { grid-column:1/-1; }
+
+.form-field label {
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#bdcbd6;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width:100%;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:2px;
+    color:white;
+    padding:14px;
+    font-size:13px;
+    outline:none;
+    transition:border .2s;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color:var(--cyan);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color:#8498a9;
+}
+
+.form-field select option {
+    color:#091725;
+}
+
+.form-field textarea {
+    min-height:135px;
+    resize:vertical;
+}
+
+.form-consent {
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin:22px 0;
+    color:#aebdca;
+    font-size:11px;
+    line-height:1.7;
+}
+
+.form-consent input {
+    margin-top:3px;
+    accent-color:var(--blue);
+}
+
+.form-consent a {
+    color:var(--cyan);
+    text-decoration:underline;
+}
+
+.form-submit {
+    border:0;
+    cursor:pointer;
+    width:100%;
+}
+
+.form-status {
+    margin-top:16px;
+    font-size:12px;
+    line-height:1.6;
+    color:var(--cyan);
+    display:none;
+}
+
+.form-status.visible { display:block; }
+
+.form-disclaimer {
+    margin-top:17px;
+    color:#8397a8;
+    font-size:10px;
+    line-height:1.6;
+}
+
+/* FOOTER */
+
+.footer {
+    background:#06111c;
+    color:#9eafbd;
+    padding:25px 0;
+}
+
+.footer-inner {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    font-size:10px;
+}
+
+.footer-brand {
+    font:800 13px "Manrope",sans-serif;
+    color:white;
+    letter-spacing:.1em;
+}
+
+.footer-note {
+    max-width:460px;
+    text-align:right;
+    line-height:1.6;
+}
+
+/* REVEAL */
+
+.reveal {
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .7s,transform .7s;
+}
+
+.reveal.visible {
+    opacity:1;
+    transform:none;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+    .nav-links { gap:16px; }
+    .nav-links a:not(.nav-cta) { display:none; }
+
+    .product-intro,
+    .contact-layout {
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .section { padding:82px 0; }
+
+    .approach-carousel {
+        grid-template-columns:1fr 1fr;
+    }
+
+    .contact-layout { gap:45px; }
+}
+
+@media(max-width:640px) {
+    .container { width:calc(100% - 36px); }
+
+    .nav { height:72px; }
+    .brand { font-size:15px; }
+    .menu-toggle { display:block; }
+
+    .nav-links {
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        right:0;
+        background:#091725;
+        padding:20px 24px;
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .nav-links.open { display:flex; }
+    .nav-links a:not(.nav-cta) { display:block; padding:8px 0; }
+
+    .hero { min-height:740px; }
+    .hero h1 { font-size:53px; }
+    .hero-copy { font-size:14px; }
+
+    .hero-foot { bottom:22px; }
+
+    .strip-inner {
+        align-items:flex-start;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .section { padding:70px 0; }
+
+    .section-head {
+        display:block;
+        margin-bottom:30px;
+    }
+
+    .section-head p { margin-top:18px; }
+
+    .product-stage { min-height:540px; }
+    .product-slide { padding:38px 25px 95px; }
+
+    .carousel-controls {
+        right:20px;
+        bottom:22px;
+    }
+
+    .market-carousel,
+    .company-grid {
+        grid-template-columns:1fr;
+    }
+
+    .market-card { height:390px; }
+
+    .tech-slide {
+        grid-template-columns:1fr;
+        gap:15px;
+        padding:30px 25px 90px;
+    }
+
+    .tech-number { font-size:32px; }
+
+    .tech-carousel { min-height:420px; }
+
+    .approach-heading {
+        display:block;
+        margin-top:65px;
+    }
+
+    .approach-heading p { margin-top:15px; }
+
+    .approach-carousel { grid-template-columns:1fr; }
+
+    .company-image { min-height:300px; }
+    .company-copy { padding:48px 26px; }
+
+    .contact-form { padding:25px 19px; }
+    .form-grid { grid-template-columns:1fr; }
+    .form-field.full { grid-column:auto; }
+
+    .footer-inner {
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .footer-note { text-align:left; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    html { scroll-behavior:auto; }
+
+    *,*:before,*:after {
+        animation-duration:.01ms!important;
+        transition-duration:.01ms!important;
+    }
+
+    .reveal {
+        opacity:1;
+        transform:none;
+    }
+}
+</style>
 </head>
-<body class="bg-industrial-dark text-slate-100 font-sans antialiased selection:bg-industrial-accent selection:text-slate-900">
 
-    <!-- Header & Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-industrial-dark/90 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-industrial-accent flex items-center justify-center shadow-lg shadow-industrial-accent/20">
-                    <i class="fa-solid fa-cube text-slate-900 text-lg font-bold"></i>
-                </div>
-                <div>
-                    <span class="text-xl font-extrabold tracking-tight text-white">AI<span class="text-industrial-accent">SERVICE GROUP</span></span>
-                    <span class="block text-[10px] text-industrial-muted tracking-widest uppercase">Automation Engineering Consulting</span>
-                </div>
-            </div>
+<body>
 
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#soluzioni" class="text-slate-300 hover:text-industrial-accent transition-colors">Servizi & Consulenza</a>
-                <a href="#metodo" class="text-slate-300 hover:text-industrial-accent transition-colors">Metodo</a>
-                <a href="#vantaggi" class="text-slate-300 hover:text-industrial-accent transition-colors">Perché AISG</a>
-                <a href="#contatti" class="bg-industrial-accent text-slate-900 font-semibold px-5 py-2.5 rounded-lg shadow-lg shadow-industrial-accent/20 hover:bg-emerald-400 transition-all">Richiedi un Audit</a>
-            </nav>
+<header class="header">
+    <div class="container nav">
 
-            <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
-        </div>
+        <a class="brand" href="#home">
+            <span class="brand-mark">AI</span>
+            <span>
+                AISERVICEGROUP
+                <small>INTELLIGENT BUILDING SYSTEMS</small>
+            </span>
+        </a>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-industrial-card border-b border-slate-800 px-4 pt-2 pb-4 space-y-3">
-            <a href="#soluzioni" class="block text-slate-300 hover:text-industrial-accent py-2">Servizi & Consulenza</a>
-            <a href="#metodo" class="block text-slate-300 hover:text-industrial-accent py-2">Metodo</a>
-            <a href="#vantaggi" class="block text-slate-300 hover:text-industrial-accent py-2">Perché AISG</a>
-            <a href="#contatti" class="block text-center bg-industrial-accent text-slate-900 font-semibold py-2.5 rounded-lg">Richiedi un Audit</a>
-        </div>
-    </header>
+        <nav class="nav-links" id="navLinks">
+            <a href="#building">Building Intelligence</a>
+            <a href="#markets">Settori</a>
+            <a href="#technology">Technology & R&D</a>
+            <a href="#company">Azienda</a>
+            <a class="nav-cta" href="#contact">CONTATTI ↗</a>
+        </nav>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden bg-gradient-to-b from-industrial-dark via-slate-900 to-industrial-dark">
-        <!-- Background Glow Effects -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-industrial-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Apri menu">☰</button>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center space-x-2 bg-slate-800/80 border border-slate-700 px-4 py-1.5 rounded-full text-xs font-semibold text-industrial-accent mb-6 backdrop-blur-sm">
-                <i class="fa-solid fa-compass-drafting"></i>
-                <span>CONSULENZA STRATEGICA DI AUTOMAZIONE</span>
-            </div>
-            
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight">
-                Progettiamo l'architettura digitale dei vostri impianti, <span class="bg-gradient-to-r from-blue-400 to-industrial-accent bg-clip-text text-transparent">senza fermare la produzione.</span>
-            </h1>
-            
-            <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
-                Supportiamo le aziende manifatturiere e di processo nella transizione verso l'Industria 4.0/5.0 attraverso audit di digital readiness, specifiche architetturali IoT/SCADA e strategie di Digital Twin.
-            </p>
+    </div>
+</header>
 
-            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contatti" class="inline-flex items-center justify-center bg-industrial-accent text-slate-900 font-bold px-8 py-4 rounded-xl shadow-xl shadow-industrial-accent/20 hover:bg-emerald-400 transition-all text-base">
-                    <span>Prenota un Audit Iniziale</span>
-                    <i class="fa-solid fa-arrow-right ml-2"></i>
-                </a>
-                <a href="#soluzioni" class="inline-flex items-center justify-center bg-slate-800/80 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-xl border border-slate-700 transition-all text-base">
-                    Scopri i Pacchetti di Consulenza
-                </a>
-            </div>
-    </section>
-    
-    <!-- INIZIO BLOCCO BANNER CTA DEMO INTERATTIVA -->
-<section class="py-16 bg-gradient-to-r from-industrial-dark via-slate-900 to-industrial-dark border-t border-slate-800 relative overflow-hidden">
-    <!-- Glow Effect di sfondo -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-industrial-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="bg-industrial-card border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
-            
-            <!-- Testo e descrizione -->
-            <div class="max-w-2xl text-center lg:text-left">
-                <div class="inline-flex items-center space-x-2 bg-industrial-accent/10 border border-industrial-accent/20 px-3 py-1 rounded-full text-xs font-semibold text-industrial-accent mb-4">
-                    <i class="fa-solid fa-play text-[10px]"></i>
-                    <span>SIMULATORE LIVE DISPONIBILE</span>
-                </div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
-                    Vuoi vedere come funziona una Control Room in tempo reale?
-                </h2>
-                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                    Accedi al nostro prototipo interattivo: sperimenta la telemetria di impianto, simula un'anomalia termica e testa gli algoritmi di predizione dei guasti direttamente sul campo.
-                </p>
-            </div>
+<main>
 
-            <!-- Pulsanti d'azione -->
-            <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto shrink-0">
-                <a href="demo.html" class="inline-flex items-center justify-center bg-industrial-accent hover:bg-emerald-400 text-slate-900 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-industrial-accent/20 text-base text-center">
-                    <span>Guarda la Demo</span>
-                    <i class="fa-solid fa-arrow-right ml-2"></i>
-                </a>
-            </div>
+<section class="hero" id="home">
 
-        </div>
+    <div class="hero-bg">
+        <img
+        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=90"
+        alt="Architettura contemporanea">
+    </div>
+
+    <div class="container hero-content">
+
+        <span class="eyebrow">
+            Engineering intelligence · Digital building
+        </span>
+
+        <h1>
+            Buildings.<br>
+            <span>Reimagined</span><br>
+            by intelligence.
+        </h1>
+
+        <p class="hero-copy">
+            Progettiamo nuove prospettive per la gestione degli edifici
+            attraverso simulazione, intelligenza artificiale e
+            ottimizzazione dei sistemi energetici e tecnologici.
+        </p>
+
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="#building">
+                SCOPRI AISG BUILDING INTELLIGENCE ↗
+            </a>
+
     </div>
 </section>
-<!-- FINE BLOCCO BANNER CTA DEMO INTERATTIVA -->
 
+<!-- AISG BUILDING INTELLIGENCE -->
 
-    <!-- Soluzioni / Servizi di Consulenza Section -->
-    <section id="soluzioni" class="py-24 bg-slate-900/40 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-industrial-accent mb-3">La Nostra Offerta</h2>
-                <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Pacchetti di consulenza ingegneristica scalabili</p>
-                <p class="mt-4 text-slate-400 text-base">Dalla diagnosi iniziale del livello di digitalizzazione alla stesura dei capitolati tecnici e alla direzione lavori.</p>
+<section class="section product" id="building">
+
+    <div class="container">
+
+        <div class="product-intro reveal">
+            <div>
+                <span class="eyebrow">The core platform</span>
+
+                <h2>
+                    AISG Building<br>
+                    <span>Intelligence.</span>
+                </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Tier 1 -->
-                <div class="bg-industrial-card border border-slate-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all group flex flex-col justify-between shadow-xl">
-                    <div>
-                        <div class="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold mb-4 border border-blue-500/20">TIER 1</div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Audit Energetico & Digital Readiness</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                            Un percorso d'ingresso agile per mappare lo stato attuale dell'impianto, individuare inefficienze energetiche e colli di bottiglia operativi, definendo le priorità d'investimento.
-                        </p>
-                        <ul class="space-y-2 text-sm text-slate-400 mb-6">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-industrial-accent mr-2"></i> Report di Digital Readiness</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-industrial-accent mr-2"></i> Gap Analysis & Energy Audit preliminare</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-industrial-accent mr-2"></i> Roadmap strategica con stima ROI</li>
-                        </ul>
-                    </div>
-                    <div class="pt-6 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-blue-400">
-                        <span>DIAGNOSI & STRATEGIA</span>
-                        <a href="#contatti" class="hover:underline flex items-center">Richiedi preventivo <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-
-                <!-- Tier 2 -->
-                <div class="bg-industrial-card border border-slate-800 rounded-2xl p-8 hover:border-industrial-accent/50 transition-all group flex flex-col justify-between shadow-xl relative">
-                    <div class="absolute -top-3 right-8 bg-industrial-accent text-slate-900 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Più Richiesto</div>
-                    <div>
-                        <div class="inline-block px-3 py-1 rounded-full bg-industrial-accent/10 text-industrial-accent text-xs font-bold mb-4 border border-industrial-accent/20">TIER 2</div>
-                        <h3 class="text-2xl font-bold text-white mb-3">System Architecture & IoT/SCADA Blueprint</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                            Progettazione ingegneristica completa della soluzione: definizione del capitolato tecnico, specifiche per la manutenzione predittiva e scelta della stack tecnologica vendor-neutral.
-                        </p>
-                        <ul class="space-y-2 text-sm text-slate-400 mb-6">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-industrial-accent mr-2"></i> Capitolato Tecnico e Schema Architetturale</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-industrial-accent mr-2"></i> Specifiche logiche per Manutenzione Predittiva</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-industrial-accent mr-2"></i> Selezione stack (OPC UA, MQTT, database)</li>
-                        </ul>
-                    </div>
-                    <div class="pt-6 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-industrial-accent">
-                        <span>PROGETTAZIONE ARCHITETTURALE</span>
-                        <a href="#contatti" class="hover:underline flex items-center">Richiedi preventivo <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-
-                <!-- Tier 3 -->
-                <div class="bg-industrial-card border border-slate-800 rounded-2xl p-8 hover:border-purple-500/50 transition-all group flex flex-col justify-between shadow-xl">
-                    <div>
-                        <div class="inline-block px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-bold mb-4 border border-purple-500/20">TIER 3</div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Digital Twin & VDC Integration Strategy</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                            Consulenza di alto livello focalizzata su modellazione virtuale, integrazione VDC/BIM per infrastrutture e supervisione tecnica (Owner's Engineer) durante l'esecuzione di terzi.
-                        </p>
-                        <ul class="space-y-2 text-sm text-slate-400 mb-6">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-industrial-accent mr-2"></i> Masterplan di Modellazione VDC/BIM</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-industrial-accent mr-2"></i> Prototipazione logica dei flussi Digital Twin</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-industrial-accent mr-2"></i> Direzione tecnica e supervisione di parte</li>
-                        </ul>
-                    </div>
-                    <div class="pt-6 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-purple-400">
-                        <span>ALTA CONSULENZA STRATEGICA</span>
-                        <a href="#contatti" class="hover:underline flex items-center">Richiedi preventivo <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-
-            </div>
+            <p>
+                Una piattaforma in sviluppo che unisce Digital Twin,
+                modelli fisici e intelligenza artificiale per esplorare
+                le prestazioni degli edifici, simulare scenari e
+                supportare decisioni più consapevoli.
+            </p>
         </div>
-    </section>
 
-    <!-- Metodo di Lavoro Section -->
-    <section id="metodo" class="py-24 bg-industrial-dark relative border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-industrial-accent mb-3">Il Nostro Metodo</h2>
-                <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Un approccio ingegneristico strutturato</p>
-                <p class="mt-4 text-slate-400 text-base">Dall'analisi dei processi industriali alla definizione delle specifiche, garantendo indipendenza tecnologica e rigore metodologico.</p>
+
+        <div class="product-stage">
+
+            <div class="product-stage-image">
+                <img
+                id="productImage"
+                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=85"
+                alt="Edificio contemporaneo">
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                
-                <!-- Step 1 -->
-                <div class="bg-industrial-card border border-slate-800 rounded-2xl p-8 relative">
-                    <div class="absolute -top-5 left-8 w-10 h-10 rounded-xl bg-blue-500 text-slate-900 font-extrabold flex items-center justify-center text-lg shadow-lg">1</div>
-                    <div class="mt-4">
-                        <h3 class="text-xl font-bold text-white mb-2">Analisi & Assessment</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Ascolto delle esigenze di impianto, audit dei sistemi OT/IT esistenti e individuazione dei reali margini di miglioramento energetico e di processo.
-                        </p>
-                    </div>
-                </div>
 
-                <!-- Step 2 -->
-                <div class="bg-industrial-card border border-slate-800 rounded-2xl p-8 relative">
-                    <div class="absolute -top-5 left-8 w-10 h-10 rounded-xl bg-industrial-accent text-slate-900 font-extrabold flex items-center justify-center text-lg shadow-lg">2</div>
-                    <div class="mt-4">
-                        <h3 class="text-xl font-bold text-white mb-2">Architettura & Ingegnerizzazione</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Stesura del blueprint tecnologico, scelta dei protocolli standard e progettazione logica dei flussi dati e dei modelli di digital twin.
-                        </p>
-                    </div>
-                </div>
+            <article class="product-slide active">
+                <span class="slide-number">01 — DIGITAL TWIN</span>
+                <h3>Una rappresentazione digitale dell'edificio.</h3>
+                <p>
+                    Un ambiente virtuale nel quale organizzare zone,
+                    componenti e sistemi, costruendo una vista integrata
+                    delle caratteristiche dell'edificio.
+                </p>
+                <span class="slide-link">Virtual building model</span>
+            </article>
 
-                <!-- Step 3 -->
-                <div class="bg-industrial-card border border-slate-800 rounded-2xl p-8 relative">
-                    <div class="absolute -top-5 left-8 w-10 h-10 rounded-xl bg-purple-500 text-white font-extrabold flex items-center justify-center text-lg shadow-lg">3</div>
-                    <div class="mt-4">
-                        <h3 class="text-xl font-bold text-white mb-2">Supervisione & Transfer</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Affiancamento tecnico nella fase di esecuzione affidata ai system integrator partner e trasferimento delle competenze al team interno.
-                        </p>
-                    </div>
-                </div>
 
+            <article class="product-slide">
+                <span class="slide-number">02 — ENERGY INTELLIGENCE</span>
+                <h3>Comprendere. Simulare. Ottimizzare.</h3>
+                <p>
+                    Analisi dei consumi e simulazione di scenari energetici
+                    per valutare l'effetto di differenti configurazioni
+                    e strategie di gestione.
+                </p>
+                <span class="slide-link">Energy performance simulation</span>
+            </article>
+
+
+            <article class="product-slide">
+                <span class="slide-number">03 — PREDICTIVE MAINTENANCE</span>
+                <h3>Anticipare le criticità operative.</h3>
+                <p>
+                    Modelli analitici e dati simulati per esplorare
+                    indicatori di degrado, anomalie e priorità
+                    manutentive, con logiche da validare su dati reali.
+                </p>
+                <span class="slide-link">Condition & risk analysis</span>
+            </article>
+
+
+            <article class="product-slide">
+                <span class="slide-number">04 — HYBRID AI ENGINE</span>
+                <h3>La convergenza tra fisica e intelligenza artificiale.</h3>
+                <p>
+                    Un approccio ibrido che combina modelli fisici
+                    semplificati, analisi data-driven e metodi predittivi
+                    in un ambiente di simulazione.
+                </p>
+                <span class="slide-link">Hybrid intelligence architecture</span>
+            </article>
+
+
+            <article class="product-slide">
+                <span class="slide-number">05 — OPTIMIZATION</span>
+                <h3>Scenari a confronto, decisioni più informate.</h3>
+                <p>
+                    Valutazione comparativa di strategie rispetto a
+                    obiettivi come consumi, costi, comfort e manutenzione,
+                    secondo i parametri del modello.
+                </p>
+                <span class="slide-link">Multi-objective scenario analysis</span>
+            </article>
+
+
+            <div class="carousel-controls">
+                <span class="carousel-count" id="productCount">01 / 05</span>
+                <button class="carousel-btn" id="productPrev" aria-label="Precedente">←</button>
+                <button class="carousel-btn" id="productNext" aria-label="Successiva">→</button>
             </div>
+
         </div>
-    </section>
 
-    <!-- Vantaggi Section -->
-    <section id="vantaggi" class="py-24 bg-slate-900/60 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-xs font-bold uppercase tracking-widest text-industrial-accent mb-3">Perché Affidarsi ad AISG</h2>
-                    <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-6">Competenza specialistica e visione indipendente</p>
-                    <p class="text-slate-300 text-base leading-relaxed mb-6">
-                        Invece di proporre soluzioni pacchettizzate e rigide, operiamo come consulenti di parte, focalizzandoci sul reale ritorno economico e sull'architettura più adatta alla struttura del vostro impianto.
+        <div class="carousel-dots" id="productDots">
+            <button class="dot active" aria-label="Slide 1"></button>
+            <button class="dot" aria-label="Slide 2"></button>
+            <button class="dot" aria-label="Slide 3"></button>
+            <button class="dot" aria-label="Slide 4"></button>
+            <button class="dot" aria-label="Slide 5"></button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MARKETS -->
+
+<section class="section markets" id="markets">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div>
+                <span class="eyebrow">Focus markets</span>
+                <h2>Due contesti.<br>Una visione integrata.</h2>
+            </div>
+
+            <p>
+                La prima direzione applicativa è focalizzata su edifici
+                industriali e logistici: ambienti complessi nei quali
+                energia, impianti e continuità operativa sono strettamente
+                connessi.
+            </p>
+        </div>
+
+
+        <div class="market-carousel">
+
+            <article class="market-card">
+                <img
+                src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=85"
+                alt="Ambiente industriale"
+                loading="lazy">
+
+                <div class="market-content">
+                    <span class="eyebrow">01 / Industrial</span>
+                    <h3>Edifici industriali</h3>
+                    <p>
+                        Simulazione e analisi di sistemi tecnologici,
+                        consumi energetici e prestazioni degli ambienti
+                        produttivi.
                     </p>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded-lg bg-industrial-accent/20 text-industrial-accent flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold">Approccio Vendor-Neutral</h4>
-                                <p class="text-sm text-slate-400">Nessun legame commerciale forzato con singoli produttori hardware o software; scegliamo ciò che serve davvero.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded-lg bg-industrial-accent/20 text-industrial-accent flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold">Riduzione del rischio d'investimento</h4>
-                                <p class="text-sm text-slate-400">Progettare prima di installare previene errori costosi e fermi di produzione non preventivati.</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+            </article>
 
-                <!-- Callout Box -->
-                <div class="bg-gradient-to-br from-industrial-card to-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-industrial-accent/10 rounded-full blur-3xl pointer-events-none"></div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Inizia con un Assessment</h3>
-                    <p class="text-sm text-slate-400 mb-6">Vuoi valutare la maturità digitale del tuo stabilimento o pianificare un progetto di control room?</p>
-                    
-                    <div class="space-y-4 mb-8">
-                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 flex justify-between items-center">
-                            <span class="text-sm text-slate-300">Formato dell'intervento</span>
-                            <span class="text-industrial-accent font-bold">A pacchetto (Fisso)</span>
-                        </div>
-                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 flex justify-between items-center">
-                            <span class="text-sm text-slate-300">Tempo medio di risposta</span>
-                            <span class="text-blue-400 font-bold">&lt; 24 ore</span>
-                        </div>
-                    </div>
 
-                    <a href="#contatti" class="block text-center w-full bg-industrial-accent hover:bg-emerald-400 text-slate-900 font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-industrial-accent/20">
-                        Richiedi Contatto con un Ingegnere
-                    </a>
+            <article class="market-card">
+                <img
+                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=85"
+                alt="Centro logistico"
+                loading="lazy">
+
+                <div class="market-content">
+                    <span class="eyebrow">02 / Logistics</span>
+                    <h3>Edifici logistici</h3>
+                    <p>
+                        Modellazione di magazzini e spazi logistici,
+                        con attenzione a climatizzazione, ventilazione
+                        e gestione energetica.
+                    </p>
                 </div>
-            </div>
+            </article>
+
         </div>
-    </section>
 
-    <!-- Contatti / Call to Action Section -->
-    <section id="contatti" class="py-24 bg-industrial-dark relative border-t border-slate-800">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-industrial-card border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    </div>
 
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">Discuti il tuo progetto con AISG</h2>
-                    <p class="text-slate-300 text-base">Compila il form per richiedere informazioni sui nostri pacchetti di consulenza o prenotare un colloquio tecnico preliminare.</p>
-                </div>
+</section>
 
-                <form onsubmit="event.preventDefault(); showSuccessMessage();" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Nome e Cognome *</label>
-                            <input type="text" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-industrial-accent transition-colors" placeholder="es. Mario Rossi">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Azienda *</label>
-                            <input type="text" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-industrial-accent transition-colors" placeholder="es. Manifattura Srl">
-                        </div>
-                    </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Email Aziendale *</label>
-                            <input type="email" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-industrial-accent transition-colors" placeholder="mario.rossi@azienda.it">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Telefono *</label>
-                            <input type="tel" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-industrial-accent transition-colors" placeholder="+39 333 1234567">
-                        </div>
-                    </div>
+<!-- TECHNOLOGY + APPROACH -->
 
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Interesse di Consulenza</label>
-                        <select class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-industrial-accent transition-colors">
-                            <option>Tier 1: Audit Energetico & Digital Readiness</option>
-                            <option>Tier 2: System Architecture & IoT/SCADA Blueprint</option>
-                            <option>Tier 3: Digital Twin & VDC Integration Strategy</option>
-                            <option>Altro / Consulenza su misura</option>
-                        </select>
-                    </div>
+<section class="section technology" id="technology">
 
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Messaggio o Esigenze di Impianto</label>
-                        <textarea rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-industrial-accent transition-colors" placeholder="Descrivi brevemente l'impianto o gli obiettivi di automazione..."></textarea>
-                    </div>
+    <div class="container">
 
-                    <button type="submit" class="w-full bg-industrial-accent hover:bg-emerald-400 text-slate-900 font-bold py-4 rounded-xl transition-all shadow-xl shadow-industrial-accent/20 text-base">
-                        Invia Richiesta di Consulenza
-                    </button>
-                </form>
-
-                <!-- Success Message Box -->
-                <div id="success-box" class="hidden mt-6 bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl text-center text-emerald-400 text-sm font-semibold">
-                    <i class="fa-solid fa-circle-check mr-2"></i> Richiesta inviata con successo! Un nostro ingegnere ti ricontatterà entro 24 ore.
-                </div>
+        <div class="section-head reveal">
+            <div>
+                <span class="eyebrow">Technology, R&D & approach</span>
+                <h2>From engineering<br>to intelligence.</h2>
             </div>
+
+            <p>
+                La tecnologia prende forma attraverso un percorso
+                ingegneristico che integra modellazione, intelligenza
+                artificiale, simulazione e ottimizzazione.
+            </p>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 py-12 text-slate-400 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-industrial-accent flex items-center justify-center">
-                    <i class="fa-solid fa-cube text-slate-900 text-xs font-bold"></i>
+
+        <p class="tech-intro reveal">
+            AISERVICEGROUP sviluppa un'architettura software orientata
+            alla rappresentazione digitale degli edifici e allo studio
+            delle loro prestazioni. Ogni componente concorre a costruire
+            un modello virtuale progressivamente più articolato.
+        </p>
+
+
+        <!-- TECHNOLOGY CAROUSEL -->
+
+        <div class="tech-carousel" aria-label="Tecnologie e architettura">
+
+            <article class="tech-slide active">
+                <div class="tech-number">01</div>
+                <div>
+                    <span class="tech-category">Digital modeling</span>
+                    <h3>Physical Modeling</h3>
+                    <p>
+                        Modelli matematici e fisici semplificati
+                        rappresentano il comportamento termico ed
+                        energetico dell'edificio. Le variabili
+                        interagiscono in un ambiente virtuale
+                        configurabile e ripetibile.
+                    </p>
                 </div>
-                <span class="text-white font-bold">AI Service Group (AISG)</span>
+            </article>
+
+
+            <article class="tech-slide">
+                <div class="tech-number">02</div>
+                <div>
+                    <span class="tech-category">Artificial intelligence</span>
+                    <h3>Hybrid AI Engine</h3>
+                    <p>
+                        Un'architettura che combina modelli fisici,
+                        analisi statistica e algoritmi predittivi.
+                        L'obiettivo è integrare la coerenza dei modelli
+                        ingegneristici con le capacità di analisi
+                        dei metodi data-driven.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="tech-slide">
+                <div class="tech-number">03</div>
+                <div>
+                    <span class="tech-category">Simulation environment</span>
+                    <h3>Simulation Engine</h3>
+                    <p>
+                        L'ambiente di simulazione consente di modificare
+                        parametri, configurazioni e condizioni operative,
+                        osservando come cambiano gli indicatori
+                        di prestazione del modello.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="tech-slide">
+                <div class="tech-number">04</div>
+                <div>
+                    <span class="tech-category">Optimization</span>
+                    <h3>Multi-Objective Optimization</h3>
+                    <p>
+                        Confronto di scenari rispetto a più obiettivi:
+                        consumi, costi, comfort e manutenzione.
+                        Le soluzioni vengono valutate in base alle
+                        ipotesi e ai vincoli definiti nel modello.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="tech-slide">
+                <div class="tech-number">05</div>
+                <div>
+                    <span class="tech-category">Predictive analysis</span>
+                    <h3>Predictive Intelligence</h3>
+                    <p>
+                        Analisi di indicatori e andamenti simulati
+                        per esplorare possibili criticità e scenari
+                        manutentivi. Le prestazioni predittive
+                        richiederanno successive validazioni
+                        su dati operativi reali.
+                    </p>
+                </div>
+            </article>
+
+
+            <div class="tech-controls">
+                <span class="tech-count" id="techCount">01 / 05</span>
+                <button class="tech-btn" id="techPrev" aria-label="Tecnologia precedente">←</button>
+                <button class="tech-btn" id="techNext" aria-label="Tecnologia successiva">→</button>
             </div>
-            <div class="text-xs text-slate-500">
-                &copy; 2026 AI Service Group. Tutti i diritti riservati. Consulenza in Ingegneria dell'Automazione.
-            </div>
-            <div class="flex space-x-6 text-slate-400">
-                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
-                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
-            </div>
+
         </div>
-    </footer>
 
-    <!-- Script for Mobile Menu and Success Alert -->
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        <div class="tech-dots" id="techDots">
+            <button class="tech-dot active" aria-label="Tecnologia 1"></button>
+            <button class="tech-dot" aria-label="Tecnologia 2"></button>
+            <button class="tech-dot" aria-label="Tecnologia 3"></button>
+            <button class="tech-dot" aria-label="Tecnologia 4"></button>
+            <button class="tech-dot" aria-label="Tecnologia 5"></button>
+        </div>
+
+</section>
+
+
+<!-- COMPANY -->
+
+<section class="company" id="company">
+
+    <div class="company-grid">
+
+        <div class="company-image">
+            <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85"
+            alt="Ambiente di lavoro contemporaneo"
+            loading="lazy">
+        </div>
+
+
+        <div class="company-copy">
+
+            <span class="eyebrow">About AISERVICEGROUP</span>
+
+            <h2>
+                Technology with an engineering mindset.
+            </h2>
+
+            <p>
+                AISERVICEGROUP nasce con l'obiettivo di sviluppare
+                soluzioni digitali per interpretare e migliorare
+                le prestazioni degli edifici. Il progetto unisce
+                competenze di automazione, modellazione e software
+                engineering, con una visione orientata alla ricerca
+                e all'innovazione applicata.
+            </p>
+
+            <div class="company-note">
+                Engineering · Digital innovation · Building intelligence
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT FORM -->
+
+<section class="contact" id="contact">
+
+    <div class="container contact-layout">
+
+        <div class="contact-copy">
+
+            <span class="eyebrow">Get in touch</span>
+
+            <h2>
+                Let's build a smarter future.
+            </h2>
+
+            <p>
+                AISERVICEGROUP è aperta a confronti tecnici,
+                collaborazioni e opportunità di approfondimento
+                sul progetto AISG Building Intelligence.
+                Raccontaci il tuo interesse.
+            </p>
+
+            <div class="contact-meta">
+                AISERVICEGROUP · Business & Technical Enquiries
+            </div>
+
+        </div>
+
+
+        <form class="contact-form" id="contactForm">
+
+            <h3 class="form-heading">Invia una richiesta</h3>
+
+            <div class="form-grid">
+
+                <div class="form-field">
+                    <label for="name">Nome e cognome *</label>
+                    <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Il tuo nome"
+                    autocomplete="name"
+                    required>
+                </div>
+
+
+                <div class="form-field">
+                    <label for="companyName">Azienda</label>
+                    <input
+                    type="text"
+                    id="companyName"
+                    name="company"
+                    placeholder="Nome dell'azienda"
+                    autocomplete="organization">
+                </div>
+
+
+                <div class="form-field">
+                    <label for="email">Email aziendale *</label>
+                    <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="nome@azienda.it"
+                    autocomplete="email"
+                    required>
+                </div>
+
+
+                <div class="form-field">
+                    <label for="subject">Argomento *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Seleziona un argomento</option>
+                        <option value="AISG Building Intelligence">AISG Building Intelligence</option>
+                        <option value="Collaborazione tecnica">Collaborazione tecnica</option>
+                        <option value="Industria e logistica">Industria e logistica</option>
+                        <option value="Ricerca e sviluppo">Ricerca e sviluppo</option>
+                        <option value="Altro">Altro</option>
+                    </select>
+                </div>
+
+
+                <div class="form-field full">
+                    <label for="message">Messaggio *</label>
+                    <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Descrivi brevemente la tua richiesta..."
+                    required></textarea>
+                </div>
+
+            </div>
+
+
+            <label class="form-consent">
+                <input type="checkbox" id="privacyConsent" required>
+                <span>
+                    Dichiaro di aver letto l'informativa privacy e
+                    acconsento al trattamento dei dati per la gestione
+                    della richiesta. Prima della pubblicazione, collegare
+                    questa dicitura alla reale informativa privacy.
+                </span>
+            </label>
+
+
+            <button type="submit" class="btn btn-primary form-submit">
+                INVIA RICHIESTA ↗
+            </button>
+
+
+            <p class="form-status" id="formStatus" role="status"></p>
+
+            <p class="form-disclaimer">
+                Modulo dimostrativo: l'invio effettivo delle richieste
+                sarà attivato dopo il collegamento a un backend
+                o a un servizio di gestione dei moduli.
+            </p>
+
+        </form>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="container footer-inner">
+
+        <div class="footer-brand">
+            AISERVICEGROUP
+        </div>
+
+        <div>
+            © <span id="year"></span> AISERVICEGROUP. All rights reserved.
+        </div>
+
+        <div class="footer-note">
+            AISG Building Intelligence è un progetto in sviluppo.
+            Le immagini sono illustrative; le funzionalità descritte
+            sono soggette a implementazione e validazione.
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* PRODUCT CAROUSEL */
+
+const productSlides =
+    [...document.querySelectorAll(".product-slide")];
+
+const productDots =
+    [...document.querySelectorAll("#productDots .dot")];
+
+const productCount =
+    document.getElementById("productCount");
+
+const productImages = [
+
+    "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=85",
+
+    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85",
+
+    "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1800&q=85",
+
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85",
+
+    "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1800&q=85"
+
+];
+
+const productImage =
+    document.getElementById("productImage");
+
+let productIndex = 0;
+
+function showProduct(index) {
+
+    productIndex =
+        (index + productSlides.length) % productSlides.length;
+
+    productSlides.forEach((slide,i) => {
+        slide.classList.toggle("active",i === productIndex);
+    });
+
+    productDots.forEach((dot,i) => {
+        dot.classList.toggle("active",i === productIndex);
+    });
+
+    productCount.textContent =
+        `${String(productIndex+1).padStart(2,"0")} / 05`;
+
+    productImage.src = productImages[productIndex];
+
+}
+
+document.getElementById("productPrev")
+.addEventListener("click",() => showProduct(productIndex-1));
+
+document.getElementById("productNext")
+.addEventListener("click",() => showProduct(productIndex+1));
+
+productDots.forEach((dot,i) => {
+    dot.addEventListener("click",() => showProduct(i));
+});
+
+
+/* TECHNOLOGY CAROUSEL */
+
+const techSlides =
+    [...document.querySelectorAll(".tech-slide")];
+
+const techDots =
+    [...document.querySelectorAll("#techDots .tech-dot")];
+
+const techCount =
+    document.getElementById("techCount");
+
+let techIndex = 0;
+
+function showTech(index) {
+
+    techIndex =
+        (index + techSlides.length) % techSlides.length;
+
+    techSlides.forEach((slide,i) => {
+        slide.classList.toggle("active",i === techIndex);
+    });
+
+    techDots.forEach((dot,i) => {
+        dot.classList.toggle("active",i === techIndex);
+    });
+
+    techCount.textContent =
+        `${String(techIndex+1).padStart(2,"0")} / 05`;
+
+}
+
+document.getElementById("techPrev")
+.addEventListener("click",() => showTech(techIndex-1));
+
+document.getElementById("techNext")
+.addEventListener("click",() => showTech(techIndex+1));
+
+techDots.forEach((dot,i) => {
+    dot.addEventListener("click",() => showTech(i));
+});
+
+
+/* MOBILE NAVIGATION */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+menuToggle.addEventListener("click",() => {
+
+    const open =
+        navLinks.classList.toggle("open");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        String(open)
+    );
+
+    menuToggle.textContent =
+        open ? "×" : "☰";
+
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click",() => {
+
+        navLinks.classList.remove("open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuToggle.textContent = "☰";
+
+    });
+
+});
+
+
+/* CONTACT FORM - FRONTEND DEMO */
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const formStatus =
+    document.getElementById("formStatus");
+
+contactForm.addEventListener("submit",event => {
+
+    event.preventDefault();
+
+    if(!contactForm.reportValidity()) {
+        return;
+    }
+
+    formStatus.textContent =
+        "Modulo compilato correttamente. L'invio sarà disponibile dopo il collegamento del servizio di gestione delle richieste.";
+
+    formStatus.classList.add("visible");
+
+});
+
+
+/* SCROLL REVEAL */
+
+const revealObserver =
+    new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                revealObserver.unobserve(entry.target);
+
+            }
+
         });
 
-        function showSuccessMessage() {
-            const successBox = document.getElementById('success-box');
-            successBox.classList.remove('hidden');
-            successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-    </script>
+    },{threshold:.12});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    revealObserver.observe(element);
+});
+
+
+/* FOOTER YEAR */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
 </body>
 </html>
