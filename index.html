@@ -348,16 +348,22 @@ img {
     font-size:14px;
 }
 
+
 /* =====================================================
    AISG SOLUTIONS SLIDER
+   AISERVICEGROUP — SERVICE PORTFOLIO
 ===================================================== */
 
 .aisg-solutions {
+    position:relative;
+    overflow:hidden;
     background:#080e18;
     color:#ffffff;
     padding:110px 7%;
     font-family:inherit;
 }
+
+/* HEADER */
 
 .aisg-solutions-header {
     max-width:1320px;
@@ -374,6 +380,7 @@ img {
     font-size:10px;
     font-weight:700;
     letter-spacing:3px;
+    text-transform:uppercase;
     margin-bottom:17px;
 }
 
@@ -388,20 +395,25 @@ img {
 }
 
 .aisg-solutions-header p {
-    max-width:430px;
+    max-width:450px;
     color:#9baabd;
     font-size:15px;
-    line-height:1.8;
+    line-height:1.85;
     margin:0;
 }
+
+/* SLIDER CONTAINER */
 
 .aisg-slider {
     max-width:1320px;
     margin:auto;
     position:relative;
     overflow:hidden;
+    isolation:isolate;
     border-radius:16px;
     background:#101c2b;
+    border:1px solid rgba(255,255,255,.06);
+    box-shadow:0 25px 80px rgba(0,0,0,.2);
 }
 
 .aisg-slides {
@@ -409,25 +421,33 @@ img {
     min-height:550px;
 }
 
+/* SLIDES */
+
 .aisg-slide {
     position:absolute;
     inset:0;
     display:flex;
     align-items:center;
     padding:65px 8%;
+
     background-image:
         linear-gradient(
             90deg,
-            rgba(5,12,23,.97) 0%,
-            rgba(5,12,23,.82) 42%,
-            rgba(5,12,23,.25) 100%
+            rgba(5,12,23,.98) 0%,
+            rgba(5,12,23,.90) 38%,
+            rgba(5,12,23,.62) 70%,
+            rgba(5,12,23,.30) 100%
         ),
         var(--slide-bg);
+
     background-size:cover;
     background-position:center;
+
     opacity:0;
     visibility:hidden;
+    pointer-events:none;
     transform:scale(1.025);
+
     transition:
         opacity .65s ease,
         transform 1s ease,
@@ -438,11 +458,14 @@ img {
     position:relative;
     opacity:1;
     visibility:visible;
+    pointer-events:auto;
     transform:scale(1);
 }
 
+/* SLIDE CONTENT */
+
 .aisg-slide-content {
-    max-width:570px;
+    max-width:590px;
     position:relative;
     z-index:2;
 }
@@ -452,7 +475,7 @@ img {
     color:#75b5ff;
     font-size:10px;
     font-weight:700;
-    letter-spacing:2px;
+    letter-spacing:2.5px;
     margin-bottom:27px;
 }
 
@@ -465,10 +488,12 @@ img {
 .aisg-slide-content p {
     color:#bdc9d9;
     font-size:15px;
-    line-height:1.85;
-    max-width:490px;
+    line-height:1.9;
+    max-width:500px;
     margin:0 0 27px;
 }
+
+/* SERVICE TAGS */
 
 .aisg-slide-tags {
     display:flex;
@@ -478,6 +503,8 @@ img {
 }
 
 .aisg-slide-tags span {
+    display:inline-flex;
+    align-items:center;
     padding:9px 13px;
     border:1px solid rgba(119,178,255,.3);
     background:rgba(20,50,85,.35);
@@ -485,7 +512,17 @@ img {
     border-radius:30px;
     font-size:10px;
     letter-spacing:.3px;
+    transition:
+        background .25s ease,
+        border-color .25s ease;
 }
+
+.aisg-slide-tags span:hover {
+    background:rgba(40,95,155,.35);
+    border-color:rgba(119,178,255,.65);
+}
+
+/* CTA LINK */
 
 .aisg-slide-link {
     display:inline-flex;
@@ -496,11 +533,13 @@ img {
     color:#ffffff;
     font-size:13px;
     font-weight:650;
-    transition:gap .25s ease;
+    text-decoration:none;
+    transition:gap .25s ease,color .25s ease;
 }
 
 .aisg-slide-link:hover {
     gap:24px;
+    color:#9bcaff;
 }
 
 .aisg-slide-link span {
@@ -508,14 +547,19 @@ img {
     font-size:19px;
 }
 
+/* NAVIGATION */
+
 .aisg-slider-navigation {
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:20px;
     padding:23px 35px;
     background:#0c1625;
     border-top:1px solid rgba(255,255,255,.08);
 }
+
+/* COUNTER */
 
 .aisg-slider-counter {
     display:flex;
@@ -523,16 +567,21 @@ img {
     gap:9px;
     color:#72849c;
     font-size:12px;
+    white-space:nowrap;
 }
 
 .aisg-slider-counter strong {
     color:#ffffff;
     font-size:17px;
+    font-weight:600;
 }
+
+/* PROGRESS */
 
 .aisg-slider-progress {
     display:flex;
     align-items:center;
+    justify-content:center;
     gap:8px;
 }
 
@@ -541,9 +590,12 @@ img {
     height:3px;
     padding:0;
     border:0;
+    border-radius:3px;
     background:#344358;
     cursor:pointer;
-    transition:width .3s,background .3s;
+    transition:
+        width .3s ease,
+        background .3s ease;
 }
 
 .aisg-dot.active {
@@ -551,12 +603,17 @@ img {
     background:#69aaff;
 }
 
+/* ARROWS */
+
 .aisg-slider-arrows {
     display:flex;
     gap:9px;
 }
 
 .aisg-slider-arrows button {
+    display:flex;
+    align-items:center;
+    justify-content:center;
     width:38px;
     height:38px;
     border-radius:50%;
@@ -565,12 +622,174 @@ img {
     color:#ffffff;
     font-size:19px;
     cursor:pointer;
-    transition:background .25s,border-color .25s;
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
 }
 
 .aisg-slider-arrows button:hover {
     background:#1e3c60;
     border-color:#69aaff;
+    transform:translateY(-2px);
+}
+
+/* TABLET */
+
+@media (max-width:900px) {
+
+    .aisg-solutions {
+        padding:85px 5%;
+    }
+
+    .aisg-solutions-header {
+        align-items:flex-start;
+        flex-direction:column;
+        gap:22px;
+    }
+
+    .aisg-solutions-header p {
+        max-width:600px;
+    }
+
+    .aisg-slides {
+        min-height:530px;
+    }
+
+    .aisg-slide {
+        padding:55px 7%;
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width:600px) {
+
+    .aisg-solutions {
+        padding:70px 5%;
+    }
+
+    .aisg-solutions-header {
+        margin-bottom:30px;
+        gap:18px;
+    }
+
+    .aisg-solutions-header h2 {
+        font-size:39px;
+        letter-spacing:-1.5px;
+    }
+
+    .aisg-solutions-header p {
+        font-size:13px;
+        line-height:1.8;
+    }
+
+    .aisg-slider {
+        border-radius:12px;
+    }
+
+    .aisg-slides {
+        min-height:590px;
+    }
+
+    .aisg-slide {
+        align-items:flex-end;
+        padding:45px 25px;
+
+        background-image:
+            linear-gradient(
+                0deg,
+                rgba(5,12,23,.99) 0%,
+                rgba(5,12,23,.93) 52%,
+                rgba(5,12,23,.50) 100%
+            ),
+            var(--slide-bg);
+
+        background-position:center;
+    }
+
+    .aisg-slide-content {
+        max-width:100%;
+    }
+
+    .aisg-slide-index {
+        margin-bottom:20px;
+        font-size:9px;
+    }
+
+    .aisg-slide-content h3 {
+        font-size:39px;
+        letter-spacing:-1.5px;
+        margin-bottom:18px;
+    }
+
+    .aisg-slide-content p {
+        font-size:13px;
+        line-height:1.8;
+        margin-bottom:22px;
+    }
+
+    .aisg-slide-tags {
+        gap:7px;
+        margin-bottom:27px;
+    }
+
+    .aisg-slide-tags span {
+        padding:8px 10px;
+        font-size:9px;
+    }
+
+    .aisg-slider-navigation {
+        padding:18px 16px;
+        gap:12px;
+    }
+
+    .aisg-slider-counter {
+        gap:6px;
+        font-size:10px;
+    }
+
+    .aisg-slider-counter strong {
+        font-size:15px;
+    }
+
+    .aisg-slider-progress {
+        gap:5px;
+    }
+
+    .aisg-dot {
+        width:13px;
+    }
+
+    .aisg-dot.active {
+        width:25px;
+    }
+
+    .aisg-slider-arrows {
+        gap:6px;
+    }
+
+    .aisg-slider-arrows button {
+        width:33px;
+        height:33px;
+        font-size:16px;
+    }
+
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion:reduce) {
+
+    .aisg-slide,
+    .aisg-slide-link,
+    .aisg-dot,
+    .aisg-slider-arrows button,
+    .aisg-slide-tags span {
+        transition:none !important;
+    }
+
 }
 
 /* =====================================================
@@ -1548,8 +1767,10 @@ img {
 </section>
 
 
+
 <!-- =====================================================
      AISG SOLUTIONS
+     AISERVICEGROUP — SERVICE PORTFOLIO
 ===================================================== -->
 
 <section class="aisg-solutions" id="solutions">
@@ -1562,9 +1783,10 @@ img {
         </div>
 
         <p>
-            Ingegneria intelligente e tecnologie digitali
-            per trasformare sistemi complessi e infrastrutture
-            in ambienti più efficienti, connessi e intelligenti.
+            Ingegneria, automazione e tecnologie digitali
+            per edifici, impianti e infrastrutture complesse.
+            Progettiamo soluzioni per migliorare controllo,
+            integrazione e prestazioni operative.
         </p>
 
     </div>
@@ -1574,34 +1796,140 @@ img {
 
         <div class="aisg-slides">
 
+
+            <!-- 01 — BUILDING INTELLIGENCE -->
+
             <article class="aisg-slide active"
                 style="--slide-bg:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85')">
 
                 <div class="aisg-slide-content">
-                 
 
-<article class="aisg-slide"
+                    <span class="aisg-slide-index">
+                        01 / 04 — BUILDING INTELLIGENCE
+                    </span>
+
+                    <h3>Building<br>Intelligence</h3>
+
+                    <p>
+                        Digitalizzazione e monitoraggio degli edifici
+                        attraverso piattaforme intelligenti, Digital
+                        Twin e integrazione di dispositivi e sistemi.
+                        Trasformiamo i dati degli impianti in
+                        informazioni utili per il controllo operativo.
+                    </p>
+
+                    <div class="aisg-slide-tags">
+                        <span>Digital Twin</span>
+                        <span>Building Monitoring</span>
+                        <span>IoT Integration</span>
+                    </div>
+
+                    <a href="/aisg" class="aisg-slide-link">
+                        Scopri la soluzione <span>↗</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- 02 — BUILDING AUTOMATION -->
+
+            <article class="aisg-slide"
                 style="--slide-bg:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=85')">
 
                 <div class="aisg-slide-content">
 
                     <span class="aisg-slide-index">
-                        01 / 03 — TECNOLOGIA INDUSTRIALE
+                        02 / 04 — BUILDING AUTOMATION
+                    </span>
+
+                    <h3>Building<br>Automation</h3>
+
+                    <p>
+                        Integrazione e supervisione degli impianti
+                        tecnologici degli edifici. Mettiamo in
+                        comunicazione sistemi BMS, HVAC e dispositivi
+                        per favorire una gestione coordinata
+                        delle infrastrutture.
+                    </p>
+
+                    <div class="aisg-slide-tags">
+                        <span>BMS & HVAC</span>
+                        <span>System Integration</span>
+                        <span>Building Control</span>
+                    </div>
+
+                    <a href="/building-automation" class="aisg-slide-link">
+                        Scopri la soluzione <span>↗</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- 03 — ENERGY MANAGEMENT -->
+
+            <article class="aisg-slide"
+                style="--slide-bg:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=2000&q=85')">
+
+                <div class="aisg-slide-content">
+
+                    <span class="aisg-slide-index">
+                        03 / 04 — ENERGY & PERFORMANCE
+                    </span>
+
+                    <h3>Energy &<br>Performance</h3>
+
+                    <p>
+                        Monitoraggio dei consumi energetici e analisi
+                        delle prestazioni degli impianti. Supportiamo
+                        l'individuazione delle inefficienze e la
+                        valutazione delle opportunità di ottimizzazione
+                        attraverso dati e indicatori operativi.
+                    </p>
+
+                    <div class="aisg-slide-tags">
+                        <span>Energy Monitoring</span>
+                        <span>Performance Analysis</span>
+                        <span>Efficiency</span>
+                    </div>
+
+                    <a href="/energy-management" class="aisg-slide-link">
+                        Scopri la soluzione <span>↗</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- 04 — INDUSTRIAL AUTOMATION & CYBERSECURITY -->
+
+            <article class="aisg-slide"
+                style="--slide-bg:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=85')">
+
+                <div class="aisg-slide-content">
+
+                    <span class="aisg-slide-index">
+                        04 / 04 — INDUSTRIAL TECHNOLOGY
                     </span>
 
                     <h3>Industrial<br>Automation</h3>
 
                     <p>
-                        Connessione e automazione di sistemi,
-                        processi e impianti industriali attraverso
-                        tecnologie avanzate di controllo,
-                        supervisione e integrazione.
+                        Integrazione, supervisione e automazione
+                        dei sistemi industriali, con attenzione
+                        alla sicurezza delle reti operative e
+                        alla protezione delle infrastrutture
+                        tecnologiche connesse.
                     </p>
 
                     <div class="aisg-slide-tags">
                         <span>PLC & SCADA</span>
                         <span>Industrial IoT</span>
-                        <span>Integrazione Sistemi</span>
+                        <span>OT Cybersecurity</span>
                     </div>
 
                     <a href="/industrial-automation" class="aisg-slide-link">
@@ -1613,73 +1941,10 @@ img {
             </article>
 
 
-            <article class="aisg-slide"
-                style="--slide-bg:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=85')">
-
-                <div class="aisg-slide-content">
-
-                    <span class="aisg-slide-index">
-                      02 / 03  — SICUREZZA DIGITALE
-                    </span>
-
-                    <h3>Industrial<br>Cybersecurity</h3>
-
-                    <p>
-                        Protezione degli ambienti industriali
-                        attraverso strategie di cybersecurity
-                        dedicate alle reti operative e alle
-                        infrastrutture tecnologiche connesse.
-                    </p>
-
-                    <div class="aisg-slide-tags">
-                        <span>Sicurezza OT</span>
-                        <span>Protezione Reti</span>
-                        <span>Analisi dei Rischi</span>
-                    </div>
-
-                    <a href="/industrial-cybersecurity" class="aisg-slide-link">
-                        Scopri la soluzione <span>↗</span>
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="aisg-slide"
-                style="--slide-bg:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000&q=85')">
-
-                <div class="aisg-slide-content">
-
-                    <span class="aisg-slide-index">
-                        03 / 03 — INGEGNERIA
-                    </span>
-
-                    <h3>Engineering &<br>Digital Integration</h3>
-
-                    <p>
-                        Competenze ingegneristiche e tecnologie
-                        digitali per progettare, connettere e
-                        sviluppare infrastrutture e sistemi
-                        tecnologici complessi.
-                    </p>
-
-                    <div class="aisg-slide-tags">
-                        <span>Ingegneria Digitale</span>
-                        <span>Consulenza Tecnologica</span>
-                        <span>Integrazione</span>
-                    </div>
-
-                    <a href="/engineering-integration" class="aisg-slide-link">
-                        Scopri la soluzione <span>↗</span>
-                    </a>
-
-                </div>
-
-            </article>
-
         </div>
 
+
+        <!-- SLIDER NAVIGATION -->
 
         <div class="aisg-slider-navigation">
 
@@ -1691,17 +1956,41 @@ img {
 
             <div class="aisg-slider-progress">
 
-                <button class="aisg-dot active" data-slide="0" aria-label="Diapositiva 1"></button>
-                <button class="aisg-dot" data-slide="1" aria-label="Diapositiva 2"></button>
-                <button class="aisg-dot" data-slide="2" aria-label="Diapositiva 3"></button>
-                <button class="aisg-dot" data-slide="3" aria-label="Diapositiva 4"></button>
+                <button
+                    class="aisg-dot active"
+                    data-slide="0"
+                    aria-label="Building Intelligence">
+                </button>
+
+                <button
+                    class="aisg-dot"
+                    data-slide="1"
+                    aria-label="Building Automation">
+                </button>
+
+                <button
+                    class="aisg-dot"
+                    data-slide="2"
+                    aria-label="Energy and Performance Management">
+                </button>
+
+                <button
+                    class="aisg-dot"
+                    data-slide="3"
+                    aria-label="Industrial Automation and Cybersecurity">
+                </button>
 
             </div>
 
             <div class="aisg-slider-arrows">
 
-                <button id="aisgPrev" aria-label="Soluzione precedente">←</button>
-                <button id="aisgNext" aria-label="Soluzione successiva">→</button>
+                <button id="aisgPrev" aria-label="Soluzione precedente">
+                    ←
+                </button>
+
+                <button id="aisgNext" aria-label="Soluzione successiva">
+                    →
+                </button>
 
             </div>
 
@@ -1710,9 +1999,6 @@ img {
     </div>
 
 </section>
-
-
-
 <!-- =====================================================
      AISG BUILDING INTELLIGENCE
 ===================================================== -->
