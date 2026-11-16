@@ -8,9 +8,11 @@
 <meta name="description" content="AISERVICEGROUP sviluppa soluzioni di ingegneria, automazione industriale, energia e infrastrutture intelligenti.">
 <title>AISERVICEGROUP | Intelligent Engineering</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<style>
 :root {
     --bg: #071522;
     --bg2: #0b1d2d;
@@ -267,20 +269,7 @@ header.scrolled {
     background: rgba(56,196,220,.12);
 }
 
-.hero-bottom {
-    position: absolute;
-    bottom: 35px;
-    left: 6%;
-    right: 6%;
-    display: flex;
-    justify-content: space-between;
-    color: #8094a5;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-/* INTRO */
+/* INTRO STRIP */
 
 .intro-strip {
     background: #0d2234;
@@ -313,7 +302,7 @@ header.scrolled {
     line-height: 1.5;
 }
 
-/* AREAS */
+/* BUSINESS AREAS */
 
 .areas {
     background: var(--bg);
@@ -437,6 +426,8 @@ header.scrolled {
     margin-right: 12px;
 }
 
+/* CAROUSELS */
+
 .carousel {
     position: relative;
     min-width: 0;
@@ -476,8 +467,9 @@ header.scrolled {
     border-radius: 50%;
     right: -60px;
     top: 65px;
-    box-shadow: 0 0 0 30px rgba(56,196,220,.025),
-                0 0 0 60px rgba(56,196,220,.02);
+    box-shadow:
+        0 0 0 30px rgba(56,196,220,.025),
+        0 0 0 60px rgba(56,196,220,.02);
 }
 
 .slide-top,
@@ -545,7 +537,7 @@ header.scrolled {
     border-color: var(--cyan);
 }
 
-/* PLATFORM */
+/* BUILDING INTELLIGENCE PLATFORM */
 
 .platform {
     background: #0d2234;
@@ -554,11 +546,19 @@ header.scrolled {
 }
 
 .platform-banner {
-    padding: 55px;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 45px;
+    align-items: center;
+    padding: 50px;
     border: 1px solid rgba(56,196,220,.25);
     background:
         radial-gradient(circle at 90% 20%, rgba(20,118,168,.3), transparent 38%),
         #0a1b2a;
+}
+
+.platform-content {
+    min-width: 0;
 }
 
 .platform-banner h2 {
@@ -566,6 +566,7 @@ header.scrolled {
     font-size: clamp(36px, 5vw, 58px);
     margin: 20px 0;
     letter-spacing: -2px;
+    line-height: 1.1;
 }
 
 .platform-banner p {
@@ -573,7 +574,86 @@ header.scrolled {
     max-width: 750px;
     line-height: 1.9;
     font-size: 14px;
+    margin-bottom: 15px;
 }
+
+/* PLATFORM BUTTON */
+
+.platform-actions {
+    margin-top: 28px;
+}
+
+.platform-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    padding: 14px 20px;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.platform-button:hover {
+    background: var(--cyan);
+    color: var(--bg);
+}
+
+.platform-button span {
+    font-size: 18px;
+}
+
+/* PLATFORM IMAGE */
+
+.platform-image {
+    position: relative;
+    width: 100%;
+    height: 430px;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(56,196,220,.3);
+    background: #0c293b;
+}
+
+.platform-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.platform-image-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 35px 25px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: linear-gradient(
+        transparent,
+        rgba(5,20,31,.95)
+    );
+}
+
+.platform-image-caption span {
+    color: var(--cyan);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.platform-image-caption strong {
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+}
+
+/* PLATFORM FEATURES */
 
 .platform-grid {
     display: grid;
@@ -605,7 +685,14 @@ header.scrolled {
     color: var(--muted);
 }
 
-/* APPROACH */
+.platform-disclaimer {
+    color: #91a5b5;
+    font-size: 11px;
+    line-height: 1.8;
+    margin-top: 22px;
+}
+
+/* TECHNOLOGY */
 
 .approach {
     background: var(--bg);
@@ -793,7 +880,7 @@ footer {
     transform: translateY(0);
 }
 
-/* RESPONSIVE */
+/* TABLET */
 
 @media (max-width: 900px) {
     .nav-links {
@@ -808,6 +895,16 @@ footer {
         gap: 35px;
     }
 
+    .platform-banner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 35px;
+    }
+
+    .platform-image {
+        height: 380px;
+    }
+
     .platform-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -817,6 +914,8 @@ footer {
         gap: 40px;
     }
 }
+
+/* MOBILE */
 
 @media (max-width: 700px) {
     .container {
@@ -870,11 +969,6 @@ footer {
         letter-spacing: -2px;
     }
 
-    .hero-bottom {
-        font-size: 8px;
-        gap: 15px;
-    }
-
     .intro-grid {
         grid-template-columns: 1fr;
         gap: 22px;
@@ -905,11 +999,15 @@ footer {
     }
 
     .platform-banner {
-        padding: 30px 24px;
+        padding: 28px 22px;
+    }
+
+    .platform-image {
+        height: 300px;
     }
 
     .platform-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .approach-grid {
@@ -936,9 +1034,15 @@ footer {
     }
 }
 
+/* SMALL MOBILE */
+
 @media (max-width: 390px) {
     .platform-grid {
         grid-template-columns: 1fr;
+    }
+
+    .platform-image {
+        height: 250px;
     }
 
     .hero-actions {
@@ -949,23 +1053,21 @@ footer {
     .btn {
         text-align: center;
     }
-    .platform-image {
-    position: relative;
-    width: 100%;
-    height: 460px;
-    overflow: hidden;
-    background: #0c293b;
 }
 
-.platform-image img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
 }
 </style>
 </head>
@@ -982,8 +1084,10 @@ footer {
             <small>INTELLIGENT ENGINEERING</small>
         </a>
 
-        <button class="menu-toggle" id="menuToggle"
-                aria-label="Apri menu" aria-expanded="false">
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Apri menu"
+                aria-expanded="false">
             ☰
         </button>
 
@@ -1018,9 +1122,15 @@ footer {
             </h1>
 
             <p>
-                AISERVICEGROUP è una realtà tecnologica e ingegneristica specializzata nella progettazione e nello sviluppo di piattaforme software proprietarie.
-                
-                Operiamo nei settori dell'automazione industriale, dell'energia e della gestione delle infrastrutture, sviluppando tecnologie intelligenti per rispondere a esigenze concrete e contribuire all'evoluzione dei sistemi e delle infrastrutture.
+                AISERVICEGROUP è una realtà tecnologica e ingegneristica
+                specializzata nella progettazione e nello sviluppo
+                di piattaforme software proprietarie.
+
+                Operiamo nei settori dell'automazione industriale,
+                dell'energia e della gestione delle infrastrutture,
+                sviluppando tecnologie intelligenti per rispondere
+                a esigenze concrete e contribuire all'evoluzione
+                dei sistemi e delle infrastrutture.
             </p>
 
             <div class="hero-actions">
@@ -1069,8 +1179,6 @@ footer {
 
     <div class="container">
 
-        <!-- MAIN PRESENTATION -->
-
         <div class="platform-banner reveal">
 
             <div class="platform-content">
@@ -1086,8 +1194,8 @@ footer {
 
                 <p>
                     Le infrastrutture generano continuamente informazioni.
-                    AISG Building Intelligence nasce per trasformarle in
-                    conoscenza operativa e strumenti concreti di gestione.
+                    AISG Building Intelligence nasce per trasformarle
+                    in conoscenza operativa e strumenti concreti di gestione.
                 </p>
 
                 <p>
@@ -1099,23 +1207,19 @@ footer {
                 </p>
 
                 <div class="platform-actions">
-
                     <a href="/building-intelligence" class="platform-button">
                         Explore the platform
                         <span>→</span>
                     </a>
-
                 </div>
 
             </div>
-
-            <!-- TEMPORARY IMAGE -->
 
             <div class="platform-image">
 
                 <img
                     src="1038EBF4-8D6B-4519-8A08-87509C287BA2.png"
-                    alt="AISG Building Intelligence - Digital infrastructure management"
+                    alt="AISG Building Intelligence"
                     loading="lazy"
                 >
 
@@ -1134,78 +1238,53 @@ footer {
         <div class="platform-grid">
 
             <article class="platform-feature reveal">
-
                 <span>01 / ENERGY</span>
-
                 <h3>Energy Intelligence</h3>
-
                 <p>
                     Analisi dei consumi e delle prestazioni energetiche
                     per individuare inefficienze e opportunità
                     di ottimizzazione delle risorse.
                 </p>
-
             </article>
 
-
             <article class="platform-feature reveal">
-
                 <span>02 / SYSTEMS</span>
-
                 <h3>Integrated Systems</h3>
-
                 <p>
                     Integrazione e organizzazione delle informazioni
                     provenienti da impianti, dispositivi e sensori
                     attraverso un'architettura digitale unificata.
                 </p>
-
             </article>
 
-
             <article class="platform-feature reveal">
-
                 <span>03 / MONITORING</span>
-
                 <h3>Operational Intelligence</h3>
-
                 <p>
                     Acquisizione e analisi dei dati operativi per
                     comprendere il comportamento delle infrastrutture,
                     individuare anomalie e supportare le decisioni.
                 </p>
-
             </article>
 
-
             <article class="platform-feature reveal">
-
                 <span>04 / DIGITAL</span>
-
                 <h3>Digital Twin Infrastructure</h3>
-
                 <p>
                     Una rappresentazione digitale coordinata
                     dell'infrastruttura per integrare informazioni,
                     sistemi e processi di gestione in un unico ambiente.
                 </p>
-
             </article>
 
         </div>
 
-
-        <!-- DEVELOPMENT DISCLAIMER -->
-
-        <p class="platform-disclaimer"
-           style="color:#91a5b5;font-size:11px;line-height:1.8;margin-top:22px;">
-
+        <p class="platform-disclaimer">
             AISG Building Intelligence è attualmente in fase di
             sviluppo. Le funzionalità e le caratteristiche
             descritte rappresentano gli obiettivi progettuali
             della piattaforma e sono soggette a implementazione
             e validazione.
-
         </p>
 
     </div>
@@ -1331,7 +1410,6 @@ footer {
                             <span class="slide-number">01 / 03</span>
                             <div class="slide-symbol">⌘</div>
                         </div>
-
                         <div class="slide-bottom">
                             <h3>Control Systems</h3>
                             <p>
@@ -1346,7 +1424,6 @@ footer {
                             <span class="slide-number">02 / 03</span>
                             <div class="slide-symbol">◈</div>
                         </div>
-
                         <div class="slide-bottom">
                             <h3>System Integration</h3>
                             <p>
@@ -1361,7 +1438,6 @@ footer {
                             <span class="slide-number">03 / 03</span>
                             <div class="slide-symbol">⌬</div>
                         </div>
-
                         <div class="slide-bottom">
                             <h3>Industrial Security</h3>
                             <p>
@@ -1390,7 +1466,7 @@ footer {
 </section>
 
 
-<!-- ENERGY -->
+<!-- ENERGY SYSTEMS -->
 
 <section class="section sector" id="energy">
 
@@ -1432,7 +1508,6 @@ footer {
                             <span class="slide-number">01 / 03</span>
                             <div class="slide-symbol">ϟ</div>
                         </div>
-
                         <div class="slide-bottom">
                             <h3>Energy Monitoring</h3>
                             <p>
@@ -1447,7 +1522,6 @@ footer {
                             <span class="slide-number">02 / 03</span>
                             <div class="slide-symbol">◉</div>
                         </div>
-
                         <div class="slide-bottom">
                             <h3>Energy Analytics</h3>
                             <p>
@@ -1462,7 +1536,6 @@ footer {
                             <span class="slide-number">03 / 03</span>
                             <div class="slide-symbol">⌁</div>
                         </div>
-
                         <div class="slide-bottom">
                             <h3>System Optimization</h3>
                             <p>
@@ -1533,7 +1606,6 @@ footer {
                             <span class="slide-number">01 / 03</span>
                             <div class="slide-symbol">⌂</div>
                         </div>
-
                         <div class="slide-bottom">
                             <h3>Building Systems</h3>
                             <p>
@@ -1548,7 +1620,6 @@ footer {
                             <span class="slide-number">02 / 03</span>
                             <div class="slide-symbol">◫</div>
                         </div>
-
                         <div class="slide-bottom">
                             <h3>Connected Infrastructure</h3>
                             <p>
@@ -1563,7 +1634,6 @@ footer {
                             <span class="slide-number">03 / 03</span>
                             <div class="slide-symbol">⌗</div>
                         </div>
-
                         <div class="slide-bottom">
                             <h3>Digital Intelligence</h3>
                             <p>
@@ -1590,8 +1660,6 @@ footer {
     </div>
 
 </section>
-
-
 
 
 <!-- TECHNOLOGY -->
@@ -1796,18 +1864,32 @@ const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
 menuToggle.addEventListener("click", () => {
+
     const isOpen = navLinks.classList.toggle("open");
 
     menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Chiudi menu" : "Apri menu"
+    );
+
     menuToggle.textContent = isOpen ? "×" : "☰";
+
 });
 
 document.querySelectorAll(".nav-links a").forEach(link => {
+
     link.addEventListener("click", () => {
+
         navLinks.classList.remove("open");
+
         menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Apri menu");
+
         menuToggle.textContent = "☰";
+
     });
+
 });
 
 
@@ -1817,12 +1899,12 @@ document.querySelectorAll("[data-carousel]").forEach(carousel => {
 
     const track = carousel.querySelector(".carousel-track");
     const slides = Array.from(track.children);
+
     const counter = carousel.querySelector(".carousel-counter");
     const previous = carousel.querySelector(".prev");
     const next = carousel.querySelector(".next");
 
     let currentIndex = 0;
-
     const total = slides.length;
 
     function updateCarousel() {
@@ -1832,24 +1914,32 @@ document.querySelectorAll("[data-carousel]").forEach(carousel => {
 
         counter.textContent =
             `${String(currentIndex + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+
     }
 
     next.addEventListener("click", () => {
+
         currentIndex = (currentIndex + 1) % total;
         updateCarousel();
+
     });
 
     previous.addEventListener("click", () => {
+
         currentIndex = (currentIndex - 1 + total) % total;
         updateCarousel();
+
     });
 
-    /* Touch support */
+
+    /* TOUCH SUPPORT */
 
     let touchStart = 0;
 
     track.addEventListener("touchstart", event => {
+
         touchStart = event.changedTouches[0].screenX;
+
     }, { passive: true });
 
     track.addEventListener("touchend", event => {
@@ -1866,6 +1956,7 @@ document.querySelectorAll("[data-carousel]").forEach(carousel => {
             }
 
             updateCarousel();
+
         }
 
     }, { passive: true });
@@ -1882,8 +1973,10 @@ const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
 
         if (entry.isIntersecting) {
+
             entry.target.classList.add("visible");
             observer.unobserve(entry.target);
+
         }
 
     });
