@@ -1,983 +1,1186 @@
 
 
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080d18">
-  <meta name="description" content="AISERVICEGROUP progetta e sviluppa software, piattaforme digitali e soluzioni tecnologiche su misura per aziende e organizzazioni.">
-  <title>AISERVICEGROUP | Software & Digital Solutions</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #080d18;
-      --bg-soft: #0d1422;
-      --surface: #111b2b;
-      --surface-light: #172338;
-      --text: #f3f6fc;
-      --muted: #9ba8bb;
-      --blue: #6c9dff;
-      --blue-bright: #8ab2ff;
-      --line: rgba(255,255,255,.10);
-      --max: 1160px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "DM Sans", sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, input, textarea, select {
-      font: inherit;
-    }
-
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 48px));
-      margin: auto;
-    }
-
-    .eyebrow {
-      color: var(--blue-bright);
-      font-family: "DM Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .section {
-      padding: 110px 0;
-    }
-
-    .section-heading {
-      max-width: 720px;
-      margin-bottom: 52px;
-    }
-
-    .section-heading h2 {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(32px, 5vw, 52px);
-      line-height: 1.12;
-      letter-spacing: -2px;
-      margin: 18px 0;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      max-width: 610px;
-      font-size: 16px;
-    }
-
-    .highlight {
-      color: var(--blue-bright);
-    }
-
-    /* NAVIGATION */
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(8,13,24,.88);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .navbar {
-      height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: "Manrope", sans-serif;
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: -.6px;
-    }
-
-    .logo-symbol {
-      width: 34px;
-      height: 34px;
-      border: 1px solid rgba(108,157,255,.6);
-      border-radius: 9px;
-      display: grid;
-      place-items: center;
-      color: var(--blue-bright);
-      font-family: "DM Mono", monospace;
-      font-size: 15px;
-      background: rgba(108,157,255,.08);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #b8c3d3;
-      font-size: 13px;
-      transition: .2s;
-    }
-
-    .nav-links a:hover {
-      color: white;
-    }
-
-    .nav-cta {
-      background: var(--blue);
-      color: #07101e !important;
-      padding: 11px 18px;
-      border-radius: 6px;
-      font-weight: 700;
-    }
-
-    .nav-cta:hover {
-      background: var(--blue-bright);
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: 0;
-      color: white;
-      font-size: 27px;
-      cursor: pointer;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 760px;
-      padding: 170px 0 100px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 650px;
-      height: 650px;
-      right: -180px;
-      top: 30px;
-      background: radial-gradient(circle, rgba(54,105,201,.20), transparent 68%);
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      align-items: center;
-      gap: 70px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(44px, 6.3vw, 76px);
-      line-height: 1.04;
-      letter-spacing: -4px;
-      margin: 24px 0;
-      max-width: 700px;
-    }
-
-    .hero-copy {
-      color: #aeb9ca;
-      font-size: 17px;
-      line-height: 1.8;
-      max-width: 550px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 36px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 21px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 14px;
-      border: 1px solid transparent;
-      transition: .2s;
-      cursor: pointer;
-    }
-
-    .button-primary {
-      background: var(--blue);
-      color: #07101e;
-    }
-
-    .button-primary:hover {
-      background: var(--blue-bright);
-      transform: translateY(-2px);
-    }
-
-    .button-secondary {
-      border-color: var(--line);
-      color: white;
-    }
-
-    .button-secondary:hover {
-      background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.25);
-    }
-
-    .hero-note {
-      margin-top: 30px;
-      color: #718096;
-      font-size: 12px;
-    }
-
-    /* HERO VISUAL */
-
-    .architecture {
-      border: 1px solid rgba(130,165,220,.20);
-      border-radius: 13px;
-      padding: 24px;
-      background: linear-gradient(145deg, rgba(21,35,56,.96), rgba(10,17,30,.98));
-      box-shadow: 0 30px 100px rgba(0,0,0,.25);
-      position: relative;
-    }
-
-    .architecture-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 25px;
-    }
-
-    .architecture-top span:first-child {
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 1.4px;
-      color: #aebbd0;
-    }
-
-    .status {
-      color: #8ec9ad;
-      font-size: 10px;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .status::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      background: #62c99b;
-      border-radius: 50%;
-    }
-
-    .architecture-title {
-      font-family: "Manrope", sans-serif;
-      font-size: 20px;
-      margin-bottom: 7px;
-    }
-
-    .architecture-description {
-      color: #8796ac;
-      font-size: 12px;
-      margin-bottom: 24px;
-    }
-
-    .architecture-flow {
-      display: grid;
-      gap: 12px;
-    }
-
-    .flow-box {
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.025);
-      border-radius: 8px;
-      padding: 15px 17px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .flow-box.main {
-      border-color: rgba(108,157,255,.45);
-      background: rgba(108,157,255,.08);
-    }
-
-    .flow-label {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
-
-    .flow-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 7px;
-      background: rgba(108,157,255,.13);
-      color: var(--blue-bright);
-      display: grid;
-      place-items: center;
-      font-size: 16px;
-    }
-
-    .flow-label strong {
-      display: block;
-      font-size: 12px;
-    }
-
-    .flow-label small {
-      display: block;
-      color: #8291a7;
-      font-size: 10px;
-      margin-top: 2px;
-    }
-
-    .flow-arrow {
-      color: var(--blue);
-      font-size: 17px;
-    }
-
-    .architecture-bottom {
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid var(--line);
-      margin-top: 22px;
-      padding-top: 16px;
-      color: #8492a8;
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-      letter-spacing: .5px;
-    }
-
-    /* INTRO STRIP */
-
-    .intro-strip {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.018);
-    }
-
-    .intro-strip-inner {
-      min-height: 105px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .intro-strip p {
-      color: #b6c1d1;
-      font-size: 14px;
-    }
-
-    .intro-strip strong {
-      color: white;
-    }
-
-    .strip-label {
-      color: var(--blue-bright);
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      white-space: nowrap;
-    }
-
-    /* SERVICES */
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .service-card {
-      padding: 29px;
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
-      border-radius: 9px;
-      min-height: 260px;
-      transition: .25s;
-    }
-
-    .service-card:hover {
-      border-color: rgba(108,157,255,.5);
-      transform: translateY(-4px);
-      background: #101b2d;
-    }
-
-    .service-icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 8px;
-      background: rgba(108,157,255,.10);
-      color: var(--blue-bright);
-      font-size: 19px;
-      margin-bottom: 25px;
-    }
-
-    .service-card h3 {
-      font-family: "Manrope", sans-serif;
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .service-link {
-      display: inline-block;
-      color: var(--blue-bright);
-      font-size: 12px;
-      font-weight: 700;
-      margin-top: 22px;
-    }
-
-    /* CUSTOM DEVELOPMENT */
-
-    .custom-section {
-      background: #0d1523;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .custom-grid {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 90px;
-      align-items: center;
-    }
-
-    .custom-copy h2 {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(34px, 4.5vw, 53px);
-      letter-spacing: -2px;
-      line-height: 1.12;
-      margin: 20px 0;
-    }
-
-    .custom-copy p {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 25px;
-    }
-
-    .custom-points {
-      display: grid;
-      gap: 17px;
-    }
-
-    .custom-point {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .check {
-      color: var(--blue-bright);
-      font-size: 17px;
-      margin-top: 1px;
-    }
-
-    .custom-point strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 3px;
-    }
-
-    .custom-point span {
-      color: #8f9db0;
-      font-size: 12px;
-    }
-
-    .custom-panel {
-      padding: 32px;
-      border-radius: 11px;
-      background: #101c2e;
-      border: 1px solid rgba(108,157,255,.22);
-    }
-
-    .custom-panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 26px;
-    }
-
-    .custom-panel-header strong {
-      font-family: "Manrope", sans-serif;
-      font-size: 17px;
-    }
-
-    .custom-panel-header span {
-      color: var(--blue-bright);
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-    }
-
-    .custom-step {
-      display: flex;
-      gap: 17px;
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .step-number {
-      color: var(--blue-bright);
-      font-family: "DM Mono", monospace;
-      font-size: 12px;
-      padding-top: 2px;
-    }
-
-    .custom-step strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    .custom-step p {
-      color: #8f9db0;
-      font-size: 12px;
-    }
-
-    /* PROCESS */
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .process-item {
-      border-top: 1px solid rgba(108,157,255,.55);
-      padding-top: 20px;
-    }
-
-    .process-item .number {
-      color: var(--blue-bright);
-      font-family: "DM Mono", monospace;
-      font-size: 11px;
-    }
-
-    .process-item h3 {
-      font-family: "Manrope", sans-serif;
-      font-size: 17px;
-      margin: 17px 0 10px;
-    }
-
-    .process-item p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    /* CTA BAND */
-
-    .cta-band {
-      padding: 75px 0;
-      background: linear-gradient(110deg, #152c4e, #101c30);
-      border-top: 1px solid rgba(108,157,255,.20);
-      border-bottom: 1px solid rgba(108,157,255,.20);
-    }
-
-    .cta-band-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-
-    .cta-band h2 {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(28px, 4vw, 42px);
-      letter-spacing: -1.5px;
-      line-height: 1.2;
-      max-width: 650px;
-    }
-
-    .cta-band p {
-      color: #b3c2d8;
-      font-size: 14px;
-      margin-top: 12px;
-    }
-
-    /* CONTACT */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 80px;
-    }
-
-    .contact-info h2 {
-      font-family: "Manrope", sans-serif;
-      font-size: 42px;
-      letter-spacing: -2px;
-      line-height: 1.15;
-      margin: 18px 0;
-    }
-
-    .contact-info > p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 35px;
-    }
-
-    .contact-detail {
-      padding: 17px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .contact-detail small {
-      display: block;
-      color: #7f8da2;
-      font-size: 10px;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-
-    .contact-detail a {
-      font-size: 14px;
-      color: var(--blue-bright);
-    }
-
-    .contact-form {
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 32px;
-    }
-
-    .form-heading {
-      margin-bottom: 25px;
-    }
-
-    .form-heading h3 {
-      font-family: "Manrope", sans-serif;
-      font-size: 21px;
-      margin-bottom: 5px;
-    }
-
-    .form-heading p {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .field {
-      margin-bottom: 17px;
-    }
-
-    .field label {
-      display: block;
-      color: #c3ccda;
-      font-size: 12px;
-      margin-bottom: 8px;
-    }
-
-    .field input,
-    .field textarea,
-    .field select {
-      width: 100%;
-      background: #0a1220;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 5px;
-      color: white;
-      padding: 13px;
-      outline: none;
-      font-size: 13px;
-      transition: .2s;
-    }
-
-    .field input:focus,
-    .field textarea:focus,
-    .field select:focus {
-      border-color: var(--blue);
-    }
-
-    .field textarea {
-      min-height: 125px;
-      resize: vertical;
-    }
-
-    .field select option {
-      background: #101b2b;
-    }
-
-    .form-submit {
-      width: 100%;
-      border: 0;
-      margin-top: 5px;
-    }
-
-    .form-note {
-      color: #718096;
-      font-size: 10px;
-      margin-top: 13px;
-      line-height: 1.6;
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 35px 0;
-      background: #070b13;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .footer-copy {
-      color: #718096;
-      font-size: 11px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 22px;
-      color: #a2adbd;
-      font-size: 11px;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .custom-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-
-      .hero {
-        padding-top: 145px;
-      }
-
-      .hero-grid {
-        max-width: 680px;
-      }
-
-      .architecture {
-        max-width: 600px;
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 35px;
-      }
-
-      .custom-grid {
-        gap: 40px;
-      }
-
-      .contact-grid {
-        gap: 35px;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .container {
-        width: min(100% - 36px, var(--max));
-      }
-
-      .navbar {
-        height: 70px;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        padding: 24px;
-        background: #0b1220;
-        border-bottom: 1px solid var(--line);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 22px;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        font-size: 14px;
-      }
-
-      .nav-cta {
-        text-align: center;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 130px 0 70px;
-      }
-
-      .hero h1 {
-        font-size: 46px;
-        letter-spacing: -2.7px;
-      }
-
-      .hero-copy {
-        font-size: 15px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .hero-actions .button {
-        width: 100%;
-      }
-
-      .architecture {
-        padding: 18px;
-      }
-
-      .section {
-        padding: 75px 0;
-      }
-
-      .section-heading {
-        margin-bottom: 35px;
-      }
-
-      .services-grid,
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-card {
-        min-height: auto;
-      }
-
-      .intro-strip-inner {
-        padding: 25px 0;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .custom-panel,
-      .contact-form {
-        padding: 22px;
-      }
-
-      .cta-band-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .cta-band .button {
-        width: 100%;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .footer-links {
-        flex-wrap: wrap;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f6f8">
+<meta name="description" content="AISERVICEGROUP sviluppa software e piattaforme digitali su misura. Dall'idea alla progettazione, fino alla realizzazione della tua soluzione tecnologica.">
+<title>AISERVICEGROUP — We build what you need</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f5f6f8;
+  --white: #ffffff;
+  --ink: #111827;
+  --muted: #687386;
+  --blue: #315ee8;
+  --blue-dark: #2046c8;
+  --navy: #101a2b;
+  --line: #e3e6ec;
+  --soft-blue: #edf1ff;
+  --max: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: min(var(--max), calc(100% - 64px));
+  margin: auto;
+}
+
+.mono {
+  font-family: "DM Mono", monospace;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--blue);
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 23px;
+  height: 1px;
+  background: currentColor;
+}
+
+.section {
+  padding: 112px 0;
+}
+
+.section-title {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(36px, 5vw, 57px);
+  line-height: 1.1;
+  letter-spacing: -2.8px;
+  font-weight: 700;
+}
+
+.section-description {
+  color: var(--muted);
+  max-width: 600px;
+  font-size: 15px;
+  line-height: 1.85;
+  margin-top: 20px;
+}
+
+.blue {
+  color: var(--blue);
+}
+
+/* NAVIGATION */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(245,246,248,.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(17,24,39,.07);
+}
+
+.navbar {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -.6px;
+}
+
+.brand-symbol {
+  width: 35px;
+  height: 35px;
+  background: var(--ink);
+  color: white;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #596477;
+  font-size: 12px;
+  font-weight: 600;
+  transition: color .2s;
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+.nav-links .nav-button {
+  padding: 12px 19px;
+  color: white;
+  background: var(--blue);
+  border-radius: 5px;
+}
+
+.nav-links .nav-button:hover {
+  background: var(--blue-dark);
+  color: white;
+}
+
+.menu-button {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 25px;
+  color: var(--ink);
+}
+
+/* HERO */
+
+.hero {
+  padding: 165px 0 105px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -220px;
+  top: 100px;
+  width: 680px;
+  height: 680px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(49,94,232,.10), transparent 68%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  align-items: center;
+  gap: 75px;
+}
+
+.hero h1 {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(48px, 6.3vw, 78px);
+  line-height: 1.02;
+  letter-spacing: -5px;
+  max-width: 720px;
+  margin: 26px 0;
+}
+
+.hero-text {
+  max-width: 540px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 21px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .2s;
+  border: 1px solid transparent;
+}
+
+.button-primary {
+  background: var(--blue);
+  color: white;
+}
+
+.button-primary:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+}
+
+.button-link {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.button-link span {
+  color: var(--blue);
+  margin-left: 5px;
+}
+
+.hero-caption {
+  margin-top: 45px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: #8993a2;
+  font-size: 11px;
+  letter-spacing: .3px;
+}
+
+/* HERO PROJECT VISUAL */
+
+.visual {
+  position: relative;
+  background: var(--navy);
+  min-height: 440px;
+  padding: 28px;
+  border-radius: 8px;
+  color: white;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(18,31,53,.15);
+}
+
+.visual::before {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.08);
+  right: -120px;
+  top: -150px;
+  box-shadow: 0 0 0 35px rgba(255,255,255,.018),
+              0 0 0 70px rgba(255,255,255,.018);
+}
+
+.visual-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.visual-label {
+  font-family: "DM Mono", monospace;
+  color: #a6b4cc;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.visual-status {
+  font-size: 9px;
+  color: #8ed9b6;
+}
+
+.visual-heading {
+  margin-top: 58px;
+  position: relative;
+  z-index: 1;
+}
+
+.visual-heading h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  max-width: 330px;
+}
+
+.visual-heading p {
+  color: #9ba9be;
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+.visual-diagram {
+  display: grid;
+  grid-template-columns: 1fr 32px 1fr;
+  align-items: center;
+  margin-top: 42px;
+  position: relative;
+  z-index: 1;
+}
+
+.diagram-column {
+  display: grid;
+  gap: 10px;
+}
+
+.diagram-card {
+  min-height: 61px;
+  padding: 11px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  border-radius: 5px;
+}
+
+.diagram-card.active {
+  background: rgba(75,113,255,.18);
+  border-color: rgba(112,145,255,.65);
+}
+
+.diagram-card small {
+  color: #94a3b8;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.diagram-card strong {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.diagram-center {
+  text-align: center;
+  color: #83a1ff;
+  font-size: 19px;
+}
+
+.visual-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 28px;
+  right: 28px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 13px;
+  display: flex;
+  justify-content: space-between;
+  color: #8190a8;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+}
+
+/* TRUST STRIP */
+
+.trust-strip {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: white;
+}
+
+.trust-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
+  gap: 25px;
+}
+
+.trust-inner p {
+  font-size: 13px;
+  color: #667184;
+}
+
+.trust-inner strong {
+  color: var(--ink);
+}
+
+.trust-tag {
+  color: var(--blue);
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+}
+
+/* PROBLEM / SOLUTION */
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 90px;
+}
+
+.problem-intro {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+}
+
+.problem-intro .section-title {
+  margin-top: 22px;
+}
+
+.problem-list {
+  border-top: 1px solid var(--line);
+}
+
+.problem-item {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 18px;
+  padding: 25px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.problem-number {
+  color: var(--blue);
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  padding-top: 4px;
+}
+
+.problem-item h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.problem-item p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* SERVICES */
+
+.services-section {
+  background: white;
+}
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 55px;
+}
+
+.services-header .section-description {
+  max-width: 390px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.service-card {
+  min-height: 275px;
+  padding: 29px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  transition: background .2s;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  background: #f6f8ff;
+}
+
+.service-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 31px;
+}
+
+.service-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 7px;
+  background: var(--soft-blue);
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+}
+
+.service-index {
+  color: #a2aaba;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+}
+
+.service-card h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.85;
+  flex: 1;
+}
+
+.service-card a {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 22px;
+}
+
+/* CUSTOM PROJECT */
+
+.custom-section {
+  background: var(--navy);
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.custom-section::after {
+  content: "CUSTOM";
+  position: absolute;
+  right: -30px;
+  bottom: -70px;
+  color: rgba(255,255,255,.025);
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 190px;
+  letter-spacing: -12px;
+  pointer-events: none;
+}
+
+.custom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.custom-copy .section-title {
+  margin-top: 22px;
+}
+
+.custom-copy p {
+  color: #aab6c8;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-top: 23px;
+  max-width: 480px;
+}
+
+.custom-points {
+  margin-top: 30px;
+  display: grid;
+  gap: 17px;
+}
+
+.custom-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.custom-point .check {
+  color: #91adff;
+  font-size: 16px;
+}
+
+.custom-point strong {
+  display: block;
+  font-size: 13px;
+}
+
+.custom-point span {
+  display: block;
+  color: #91a0b5;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.project-card {
+  background: #17243a;
+  border: 1px solid rgba(255,255,255,.11);
+  padding: 29px;
+  border-radius: 7px;
+}
+
+.project-card-head {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  padding-bottom: 19px;
+  margin-bottom: 15px;
+}
+
+.project-card-head strong {
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+}
+
+.project-card-head span {
+  color: #9ab0ff;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+}
+
+.project-step {
+  display: flex;
+  gap: 18px;
+  padding: 19px 0;
+  border-bottom: 1px solid rgba(255,255,255,.09);
+}
+
+.project-step:last-child {
+  border-bottom: 0;
+}
+
+.project-step .num {
+  color: #91adff;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+}
+
+.project-step h4 {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.project-step p {
+  color: #99a7ba;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* PROCESS */
+
+.process-header {
+  margin-bottom: 58px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.process-item {
+  border-top: 2px solid var(--line);
+  padding-top: 21px;
+  transition: border-color .2s;
+}
+
+.process-item:hover {
+  border-color: var(--blue);
+}
+
+.process-item .number {
+  color: var(--blue);
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+}
+
+.process-item h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  margin: 17px 0 9px;
+}
+
+.process-item p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+/* CTA */
+
+.cta-section {
+  padding: 85px 0;
+  background: var(--soft-blue);
+}
+
+.cta-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.cta-inner h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -2px;
+  max-width: 700px;
+}
+
+.cta-inner p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+/* CONTACT */
+
+.contact-section {
+  background: white;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 85px;
+}
+
+.contact-copy h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(36px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin: 22px 0;
+}
+
+.contact-copy > p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+  max-width: 400px;
+}
+
+.contact-email {
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.contact-email small {
+  display: block;
+  color: #929cac;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-size: 9px;
+  margin-bottom: 8px;
+}
+
+.contact-email a {
+  color: var(--blue);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.contact-form {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 32px;
+  border-radius: 7px;
+}
+
+.form-header {
+  margin-bottom: 27px;
+}
+
+.form-header h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 21px;
+}
+
+.form-header p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.field {
+  margin-bottom: 17px;
+}
+
+.field label {
+  display: block;
+  color: #475366;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #dfe3e9;
+  background: white;
+  color: var(--ink);
+  border-radius: 4px;
+  outline: none;
+  font-size: 12px;
+  transition: border-color .2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--blue);
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #a1aab7;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 5px 0 19px;
+  color: #778294;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.consent input {
+  margin-top: 3px;
+}
+
+.form-submit {
+  width: 100%;
+  border: 0;
+}
+
+.form-note {
+  color: #8993a2;
+  font-size: 10px;
+  margin-top: 13px;
+  line-height: 1.6;
+}
+
+.form-success {
+  display: none;
+  padding: 13px;
+  background: #e8f5ed;
+  color: #23633e;
+  font-size: 12px;
+  margin-top: 15px;
+  border-radius: 4px;
+}
+
+/* FOOTER */
+
+.footer {
+  background: #0e1727;
+  color: white;
+  padding: 55px 0 25px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 45px;
+}
+
+.footer-brand p {
+  color: #9aa8bc;
+  font-size: 12px;
+  margin-top: 17px;
+  max-width: 320px;
+  line-height: 1.8;
+}
+
+.footer-columns {
+  display: flex;
+  gap: 75px;
+}
+
+.footer-column h4 {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  color: #8292aa;
+  letter-spacing: 1.3px;
+  margin-bottom: 17px;
+}
+
+.footer-column a {
+  display: block;
+  color: #c0c9d7;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.footer-column a:hover {
+  color: #9ab0ff;
+}
+
+.footer-bottom {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  display: flex;
+  justify-content: space-between;
+  color: #8290a5;
+  font-size: 10px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 950px) {
+  .hero-grid,
+  .problem-grid,
+  .custom-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .hero-grid {
+    max-width: 760px;
+  }
+
+  .visual {
+    max-width: 650px;
+  }
+
+  .problem-intro {
+    position: static;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 38px;
+  }
+}
+
+@media(max-width: 650px) {
+  .container {
+    width: calc(100% - 36px);
+  }
+
+  .navbar {
+    height: 70px;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 25px 22px;
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 21px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links .nav-button {
+    text-align: center;
+  }
+
+  .hero {
+    padding: 125px 0 70px;
+  }
+
+  .hero h1 {
+    font-size: 49px;
+    letter-spacing: -3px;
+  }
+
+  .hero-text {
+    font-size: 14px;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .visual {
+    min-height: 430px;
+    padding: 20px;
+  }
+
+  .visual-footer {
+    left: 20px;
+    right: 20px;
+  }
+
+  .visual-diagram {
+    grid-template-columns: 1fr 22px 1fr;
+  }
+
+  .diagram-card {
+    padding: 9px;
+  }
+
+  .diagram-card strong {
+    font-size: 9px;
+  }
+
+  .trust-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 25px 0;
+    gap: 10px;
+  }
+
+  .section {
+    padding: 75px 0;
+  }
+
+  .section-title {
+    font-size: 39px;
+    letter-spacing: -2px;
+  }
+
+  .services-header {
+    display: block;
+  }
+
+  .services-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: 245px;
+  }
+
+  .custom-section::after {
+    font-size: 100px;
+    bottom: -20px;
+  }
+
+  .project-card {
+    padding: 21px;
+  }
+
+  .cta-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cta-inner .button {
+    width: 100%;
+  }
+
+  .contact-form {
+    padding: 21px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .footer-columns {
+    gap: 45px;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 9px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header>
+<header class="header">
   <div class="container navbar">
-    <a href="#home" class="logo" aria-label="AISERVICEGROUP homepage">
-      <span class="logo-symbol">A.</span>
+    <a href="#home" class="brand">
+      <span class="brand-symbol">A.</span>
       <span>AISERVICEGROUP</span>
     </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Apri menu" aria-expanded="false">☰</button>
+    <button class="menu-button" id="menuButton" aria-label="Apri menu" aria-expanded="false">☰</button>
 
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#servizi">Competenze</a></li>
-        <li><a href="#metodo">Metodo</a></li>
-        <li><a href="#azienda">Approccio</a></li>
-        <li><a href="#contatti" class="nav-cta">Parliamo del progetto ↗</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#approccio">Approccio</a></li>
+        <li><a href="#metodo">Come lavoriamo</a></li>
+        <li><a href="#contatti" class="nav-button">Parliamo del tuo progetto ↗</a></li>
       </ul>
     </nav>
   </div>
@@ -985,502 +1188,579 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="container hero-grid">
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
 
-      <div>
-        <div class="eyebrow">Software engineering · Digital solutions</div>
+    <div>
+      <div class="eyebrow">Software engineering & digital solutions</div>
 
-        <h1>
-          La tecnologia giusta per le <span class="highlight">tue idee.</span>
-        </h1>
+      <h1>
+        We build<br>
+        what <span class="blue">you need.</span>
+      </h1>
 
-        <p class="hero-copy">
-          Progettiamo e sviluppiamo software, piattaforme digitali e sistemi
-          tecnologici su misura. Partiamo dalle tue esigenze e costruiamo
-          soluzioni pensate per il tuo modo di lavorare.
-        </p>
+      <p class="hero-text">
+        Sviluppiamo software e piattaforme digitali progettati intorno
+        alle tue esigenze. Diamo forma alle idee, trasformiamo i processi
+        in strumenti digitali e realizziamo soluzioni tecnologiche personalizzate.
+      </p>
 
-        <div class="hero-actions">
-          <a href="#contatti" class="button button-primary">
-            Raccontaci il tuo progetto <span>↗</span>
-          </a>
-
-          <a href="#servizi" class="button button-secondary">
-            Scopri cosa possiamo realizzare
-          </a>
-        </div>
-
-        <p class="hero-note">
-          Dall'idea alla soluzione operativa. Un progetto alla volta.
-        </p>
+      <div class="hero-actions">
+        <a href="#contatti" class="button button-primary">
+          Raccontaci il tuo progetto <span>↗</span>
+        </a>
+        <a href="#servizi" class="button-link">
+          Esplora le nostre competenze <span>→</span>
+        </a>
       </div>
 
-      <div class="architecture">
-        <div class="architecture-top">
-          <span>PROJECT ARCHITECTURE</span>
-          <span class="status">Custom development</span>
-        </div>
-
-        <h3 class="architecture-title">Una soluzione. Costruita intorno a te.</h3>
-        <p class="architecture-description">
-          Ogni progetto nasce da esigenze, processi e obiettivi specifici.
-        </p>
-
-        <div class="architecture-flow">
-
-          <div class="flow-box">
-            <div class="flow-label">
-              <div class="flow-icon">◎</div>
-              <div>
-                <strong>Le tue esigenze</strong>
-                <small>Obiettivi e processi aziendali</small>
-              </div>
-            </div>
-            <span class="flow-arrow">↓</span>
-          </div>
-
-          <div class="flow-box">
-            <div class="flow-label">
-              <div class="flow-icon">⌘</div>
-              <div>
-                <strong>Progettazione</strong>
-                <small>Architettura e funzionalità</small>
-              </div>
-            </div>
-            <span class="flow-arrow">↓</span>
-          </div>
-
-          <div class="flow-box main">
-            <div class="flow-label">
-              <div class="flow-icon">▧</div>
-              <div>
-                <strong>Sviluppo su misura</strong>
-                <small>Software e piattaforme digitali</small>
-              </div>
-            </div>
-            <span class="flow-arrow">↓</span>
-          </div>
-
-          <div class="flow-box">
-            <div class="flow-label">
-              <div class="flow-icon">↗</div>
-              <div>
-                <strong>Soluzione operativa</strong>
-                <small>Test, rilascio ed evoluzione</small>
-              </div>
-            </div>
-            <span class="flow-arrow">✓</span>
-          </div>
-
-        </div>
-
-        <div class="architecture-bottom">
-          <span>AISERVICEGROUP</span>
-          <span>ENGINEERED FOR YOUR NEEDS</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- INTRO -->
-  <section class="intro-strip">
-    <div class="container intro-strip-inner">
-      <p><strong>Non devi adattarti a un software standard.</strong> Possiamo progettare un software che si adatti al tuo lavoro.</p>
-      <span class="strip-label">CUSTOM SOFTWARE DEVELOPMENT</span>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="section" id="servizi">
-    <div class="container">
-
-      <div class="section-heading">
-        <div class="eyebrow">Cosa realizziamo</div>
-        <h2>Soluzioni digitali per <span class="highlight">esigenze reali.</span></h2>
-        <p>
-          Sviluppiamo strumenti tecnologici che rispondono a problemi concreti:
-          dalla gestione dei processi aziendali alla realizzazione di piattaforme
-          digitali complete.
-        </p>
-      </div>
-
-      <div class="services-grid">
-
-        <article class="service-card">
-          <div class="service-icon">⌘</div>
-          <h3>Software su misura</h3>
-          <p>
-            Applicazioni progettate per automatizzare attività, gestire dati,
-            semplificare processi e rispondere a esigenze specifiche.
-          </p>
-          <a href="#contatti" class="service-link">Sviluppa la tua soluzione ↗</a>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon">▦</div>
-          <h3>Piattaforme digitali</h3>
-          <p>
-            Portali web, gestionali, dashboard e applicazioni personalizzate
-            per organizzare servizi, informazioni e attività.
-          </p>
-          <a href="#contatti" class="service-link">Progetta la tua piattaforma ↗</a>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon">⌁</div>
-          <h3>Automazione e integrazione</h3>
-          <p>
-            Sistemi software che collegano applicazioni, dispositivi e processi
-            per ridurre attività manuali e migliorare l'efficienza.
-          </p>
-          <a href="#contatti" class="service-link">Descrivi il tuo processo ↗</a>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon">◫</div>
-          <h3>Dati e business intelligence</h3>
-          <p>
-            Strumenti per raccogliere, organizzare e interpretare i dati,
-            trasformandoli in informazioni utili alle decisioni.
-          </p>
-          <a href="#contatti" class="service-link">Valuta il tuo progetto ↗</a>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon">✳</div>
-          <h3>Integrazione AI</h3>
-          <p>
-            Funzionalità basate sull'intelligenza artificiale integrate
-            nei processi e nelle applicazioni, quando portano un vantaggio concreto.
-          </p>
-          <a href="#contatti" class="service-link">Esplora le possibilità ↗</a>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon">◇</div>
-          <h3>Consulenza e progettazione</h3>
-          <p>
-            Analisi tecnica, definizione dei requisiti e progettazione
-            dell'architettura per trasformare un'esigenza in un progetto realizzabile.
-          </p>
-          <a href="#contatti" class="service-link">Parliamone insieme ↗</a>
-        </article>
-
+      <div class="hero-caption">
+        AISERVICEGROUP / ENGINEERING IDEAS INTO DIGITAL SOLUTIONS
       </div>
     </div>
-  </section>
 
-  <!-- CUSTOM DEVELOPMENT -->
-  <section class="section custom-section" id="azienda">
-    <div class="container custom-grid">
-
-      <div class="custom-copy">
-        <div class="eyebrow">Un approccio diverso</div>
-
-        <h2>Il tuo progetto non deve entrare in un <span class="highlight">modello predefinito.</span></h2>
-
-        <p>
-          Ogni organizzazione ha processi, obiettivi e necessità differenti.
-          Per questo non partiamo da un catalogo di prodotti da adattare:
-          partiamo dal problema che vuoi risolvere.
-        </p>
-
-        <div class="custom-points">
-          <div class="custom-point">
-            <span class="check">✓</span>
-            <div>
-              <strong>Progettazione personalizzata</strong>
-              <span>Funzionalità e architettura definite in base alle tue esigenze.</span>
-            </div>
-          </div>
-
-          <div class="custom-point">
-            <span class="check">✓</span>
-            <div>
-              <strong>Un progetto, un percorso dedicato</strong>
-              <span>Obiettivi, priorità e sviluppo definiti insieme.</span>
-            </div>
-          </div>
-
-          <div class="custom-point">
-            <span class="check">✓</span>
-            <div>
-              <strong>Possibilità di evoluzione</strong>
-              <span>Soluzioni progettate per poter crescere nel tempo.</span>
-            </div>
-          </div>
-        </div>
+    <div class="visual">
+      <div class="visual-top">
+        <span class="visual-label">CUSTOM SOFTWARE ARCHITECTURE</span>
+        <span class="visual-status">● PROJECT-DRIVEN</span>
       </div>
 
-      <div class="custom-panel">
-        <div class="custom-panel-header">
-          <strong>Come nasce una soluzione</strong>
-          <span>PROJECT FLOW / 04</span>
-        </div>
-
-        <div class="custom-step">
-          <span class="step-number">01</span>
-          <div>
-            <strong>Ascoltiamo la tua esigenza</strong>
-            <p>Comprendiamo il problema, il contesto e il risultato che vuoi ottenere.</p>
-          </div>
-        </div>
-
-        <div class="custom-step">
-          <span class="step-number">02</span>
-          <div>
-            <strong>Definiamo la soluzione</strong>
-            <p>Individuiamo funzionalità, tecnologie, priorità e complessità.</p>
-          </div>
-        </div>
-
-        <div class="custom-step">
-          <span class="step-number">03</span>
-          <div>
-            <strong>Sviluppiamo il progetto</strong>
-            <p>Realizziamo il software attraverso un percorso di sviluppo concordato.</p>
-          </div>
-        </div>
-
-        <div class="custom-step">
-          <span class="step-number">04</span>
-          <div>
-            <strong>Testiamo e perfezioniamo</strong>
-            <p>Verifichiamo il funzionamento e valutiamo le successive evoluzioni.</p>
-          </div>
-        </div>
+      <div class="visual-heading">
+        <h3>Una piattaforma costruita per il tuo modo di lavorare.</h3>
+        <p>Ogni progetto parte da una necessità specifica.</p>
       </div>
 
-    </div>
-  </section>
+    
 
-  <!-- PROCESS -->
-  <section class="section" id="metodo">
-    <div class="container">
+<!-- STRIP -->
+<section class="trust-strip">
+  <div class="container trust-inner">
+    <p><strong>Non cerchiamo di venderti un prodotto standard.</strong> Progettiamo la soluzione che serve al tuo progetto.</p>
+    <span class="trust-tag">BUILT AROUND YOUR NEEDS</span>
+  </div>
+</section>
 
-      <div class="section-heading">
-        <div class="eyebrow">Il nostro metodo</div>
-        <h2>Dal problema alla <span class="highlight">soluzione.</span></h2>
-        <p>
-          Un processo chiaro, con passaggi definiti e confronto durante
-          lo sviluppo del progetto.
-        </p>
-      </div>
+<!-- APPROCCIO -->
+<section class="section" id="approccio">
+  <div class="container problem-grid">
 
-      <div class="process-grid">
-
-        <div class="process-item">
-          <span class="number">01 / ANALISI</span>
-          <h3>Comprendere</h3>
-          <p>Analizziamo le tue necessità, i processi coinvolti e gli obiettivi da raggiungere.</p>
-        </div>
-
-        <div class="process-item">
-          <span class="number">02 / PROGETTAZIONE</span>
-          <h3>Disegnare</h3>
-          <p>Definiamo la struttura della soluzione e le funzionalità da realizzare.</p>
-        </div>
-
-        <div class="process-item">
-          <span class="number">03 / SVILUPPO</span>
-          <h3>Costruire</h3>
-          <p>Trasformiamo il progetto in un sistema software concreto e verificabile.</p>
-        </div>
-
-        <div class="process-item">
-          <span class="number">04 / EVOLUZIONE</span>
-          <h3>Migliorare</h3>
-          <p>Testiamo la soluzione e pianifichiamo eventuali miglioramenti e sviluppi.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-band">
-    <div class="container cta-band-inner">
-      <div>
-        <h2>Hai un'idea, un problema o un processo da migliorare?</h2>
-        <p>Raccontaci cosa vorresti realizzare. Valutiamo insieme il progetto.</p>
-      </div>
-
-      <a href="#contatti" class="button button-primary">
-        Inizia una conversazione ↗
+    <div class="problem-intro">
+      <div class="eyebrow">Il nostro approccio</div>
+      <h2 class="section-title">
+        La tua esigenza è il <span class="blue">punto di partenza.</span>
+      </h2>
+      <p class="section-description">
+        Spesso gli strumenti disponibili non rispondono completamente
+        a ciò che un'organizzazione deve fare. È qui che entra in gioco
+        lo sviluppo personalizzato.
+      </p>
+      <a href="#contatti" class="button button-primary" style="margin-top:28px">
+        Parliamo della tua idea ↗
       </a>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section class="section" id="contatti">
-    <div class="container contact-grid">
+    <div class="problem-list">
 
-      <div class="contact-info">
-        <div class="eyebrow">Contattaci</div>
-        <h2>Parliamo del tuo <span class="highlight">progetto.</span></h2>
+      <article class="problem-item">
+        <span class="problem-number">01</span>
+        <div>
+          <h3>Hai bisogno di una piattaforma dedicata?</h3>
+          <p>
+            Progettiamo applicazioni web e piattaforme con funzionalità
+            definite in base alle tue necessità operative.
+          </p>
+        </div>
+      </article>
 
+      <article class="problem-item">
+        <span class="problem-number">02</span>
+        <div>
+          <h3>Vuoi digitalizzare un processo?</h3>
+          <p>
+            Realizziamo strumenti software per organizzare attività,
+            ridurre operazioni manuali e rendere i flussi più efficienti.
+          </p>
+        </div>
+      </article>
+
+      <article class="problem-item">
+        <span class="problem-number">03</span>
+        <div>
+          <h3>Hai dati che non riesci a valorizzare?</h3>
+          <p>
+            Sviluppiamo sistemi di raccolta, gestione e visualizzazione
+            dei dati per supportare l'analisi e le decisioni.
+          </p>
+        </div>
+      </article>
+
+      <article class="problem-item">
+        <span class="problem-number">04</span>
+        <div>
+          <h3>Devi collegare sistemi diversi?</h3>
+          <p>
+            Progettiamo integrazioni tra applicazioni, servizi digitali,
+            dispositivi e infrastrutture tecnologiche.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="section services-section" id="servizi">
+  <div class="container">
+
+    <div class="services-header">
+      <div>
+        <div class="eyebrow">Competenze</div>
+        <h2 class="section-title" style="margin-top:20px">
+          Cosa possiamo <span class="blue">sviluppare.</span>
+        </h2>
+      </div>
+
+      <p class="section-description">
+        Dalle applicazioni dedicate alle architetture software più articolate.
+        Ogni soluzione viene definita in funzione del progetto.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <article class="service-card" data-service="Software personalizzato">
+        <div class="service-card-top">
+          <span class="service-icon">⌘</span>
+          <span class="service-index">01 / SOFTWARE</span>
+        </div>
+        <h3>Software su misura</h3>
         <p>
-          Non serve avere già un progetto tecnico definito.
-          Spiegaci cosa vorresti ottenere: il primo passo è capire insieme
-          quale soluzione può fare al caso tuo.
+          Applicazioni e strumenti digitali progettati per esigenze
+          specifiche, attività operative e processi aziendali.
         </p>
+        <a href="#contatti">Richiedi un progetto ↗</a>
+      </article>
 
-        <div class="contact-detail">
-          <small>Email</small>
-          <a href="mailto:info@aiservicegroup.it">info@aiservicegroup.it</a>
+      <article class="service-card" data-service="Piattaforma digitale">
+        <div class="service-card-top">
+          <span class="service-icon">▦</span>
+          <span class="service-index">02 / PLATFORMS</span>
+        </div>
+        <h3>Piattaforme digitali</h3>
+        <p>
+          Portali, dashboard, gestionali e applicazioni web con
+          interfacce e funzionalità personalizzate.
+        </p>
+        <a href="#contatti">Richiedi un progetto ↗</a>
+      </article>
+
+      <article class="service-card" data-service="Automazione e integrazione">
+        <div class="service-card-top">
+          <span class="service-icon">⌁</span>
+          <span class="service-index">03 / AUTOMATION</span>
+        </div>
+        <h3>Automazione e integrazione</h3>
+        <p>
+          Collegamento tra sistemi, applicazioni e dispositivi.
+          Automazione di flussi e processi digitali.
+        </p>
+        <a href="#contatti">Richiedi un progetto ↗</a>
+      </article>
+
+      <article class="service-card" data-service="Data intelligence">
+        <div class="service-card-top">
+          <span class="service-icon">◫</span>
+          <span class="service-index">04 / DATA</span>
+        </div>
+        <h3>Data intelligence</h3>
+        <p>
+          Raccolta, elaborazione e visualizzazione dei dati attraverso
+          strumenti di analisi e sistemi informativi.
+        </p>
+        <a href="#contatti">Richiedi un progetto ↗</a>
+      </article>
+
+      <article class="service-card" data-service="Integrazione AI">
+        <div class="service-card-top">
+          <span class="service-icon">✳</span>
+          <span class="service-index">05 / AI</span>
+        </div>
+        <h3>Integrazione AI</h3>
+        <p>
+          Integrazione di funzionalità intelligenti in applicazioni
+          e processi, quando sono adatte al problema da risolvere.
+        </p>
+        <a href="#contatti">Richiedi un progetto ↗</a>
+      </article>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM -->
+<section class="section custom-section">
+  <div class="container custom-grid">
+
+    <div class="custom-copy">
+      <div class="eyebrow" style="color:#9ab0ff">Custom development</div>
+
+      <h2 class="section-title">
+        Non adattiamo le tue idee a un software. <span style="color:#9ab0ff">Lo sviluppiamo per te.</span>
+      </h2>
+
+      <p>
+        Una piattaforma personalizzata può partire da un'esigenza molto
+        semplice oppure da un progetto tecnologico articolato.
+        Definiamo insieme cosa serve davvero e costruiamo la soluzione
+        con un percorso di sviluppo dedicato.
+      </p>
+
+      <div class="custom-points">
+        <div class="custom-point">
+          <span class="check">✓</span>
+          <div>
+            <strong>Funzionalità personalizzate</strong>
+            <span>Solo ciò che serve al progetto.</span>
+          </div>
         </div>
 
-        <div class="contact-detail">
-          <small>Attività</small>
-          <span>Software engineering & digital solutions</span>
+        <div class="custom-point">
+          <span class="check">✓</span>
+          <div>
+            <strong>Architettura progettata sul contesto</strong>
+            <span>Una struttura tecnica definita in base agli obiettivi.</span>
+          </div>
         </div>
 
-        <div class="contact-detail">
-          <small>Modalità di collaborazione</small>
-          <span>Progetti personalizzati</span>
+        <div class="custom-point">
+          <span class="check">✓</span>
+          <div>
+            <strong>Sviluppo progressivo</strong>
+            <span>Possibilità di aggiungere nuove funzionalità nel tempo.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-head">
+        <strong>Il percorso del progetto</strong>
+        <span>PROJECT / 04</span>
+      </div>
+
+      <div class="project-step">
+        <span class="num">01</span>
+        <div>
+          <h4>Discovery</h4>
+          <p>Comprendiamo l'idea, le necessità e gli obiettivi del progetto.</p>
         </div>
       </div>
 
-      <form class="contact-form" id="projectForm">
-        <div class="form-heading">
-          <h3>Descrivici la tua idea</h3>
-          <p>Compila il modulo: prepareremo una richiesta da inviare via email.</p>
+      <div class="project-step">
+        <span class="num">02</span>
+        <div>
+          <h4>Architecture</h4>
+          <p>Definiamo funzionalità, struttura e tecnologie da utilizzare.</p>
         </div>
+      </div>
 
-        <div class="form-row">
-          <div class="field">
-            <label for="name">Nome e cognome *</label>
-            <input id="name" name="name" type="text" placeholder="Il tuo nome" required>
-          </div>
-
-          <div class="field">
-            <label for="company">Azienda / Organizzazione</label>
-            <input id="company" name="company" type="text" placeholder="Nome azienda">
-          </div>
+      <div class="project-step">
+        <span class="num">03</span>
+        <div>
+          <h4>Development</h4>
+          <p>Realizziamo il software e le funzionalità concordate.</p>
         </div>
+      </div>
 
-        <div class="form-row">
-          <div class="field">
-            <label for="email">Email *</label>
-            <input id="email" name="email" type="email" placeholder="nome@azienda.it" required>
-          </div>
+      <div class="project-step">
+        <span class="num">04</span>
+        <div>
+          <h4>Delivery & Evolution</h4>
+          <p>Verifichiamo il risultato e valutiamo le successive evoluzioni.</p>
+        </div>
+      </div>
+    </div>
 
-          <div class="field">
-            <label for="type">Cosa vorresti realizzare? *</label>
-            <select id="type" name="type" required>
-              <option value="">Seleziona un'opzione</option>
-              <option>Software personalizzato</option>
-              <option>Piattaforma web</option>
-              <option>Applicazione gestionale</option>
-              <option>Automazione e integrazione</option>
-              <option>Analisi e gestione dati</option>
-              <option>Integrazione AI</option>
-              <option>Consulenza e progettazione</option>
-              <option>Altro / Da definire</option>
-            </select>
-          </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="metodo">
+  <div class="container">
+
+    <div class="process-header">
+      <div class="eyebrow">Il metodo AISG</div>
+      <h2 class="section-title" style="margin-top:20px">
+        Un processo chiaro.<br><span class="blue">Un obiettivo condiviso.</span>
+      </h2>
+      <p class="section-description">
+        Ogni collaborazione segue un percorso definito.
+        Sai cosa stiamo progettando, perché lo stiamo facendo
+        e quale risultato vogliamo raggiungere.
+      </p>
+    </div>
+
+    <div class="process-grid">
+
+      <div class="process-item">
+        <span class="number">PHASE 01</span>
+        <h3>Ascolto e analisi</h3>
+        <p>Studiamo la necessità, il contesto operativo e il risultato desiderato.</p>
+      </div>
+
+      <div class="process-item">
+        <span class="number">PHASE 02</span>
+        <h3>Progettazione</h3>
+        <p>Definiamo requisiti, funzionalità, architettura e piano di sviluppo.</p>
+      </div>
+
+      <div class="process-item">
+        <span class="number">PHASE 03</span>
+        <h3>Realizzazione</h3>
+        <p>Sviluppiamo e verifichiamo progressivamente la soluzione.</p>
+      </div>
+
+      <div class="process-item">
+        <span class="number">PHASE 04</span>
+        <h3>Consegna ed evoluzione</h3>
+        <p>Valutiamo il risultato e le possibilità di miglioramento futuro.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div>
+      <h2>Il prossimo progetto digitale potrebbe iniziare da qui.</h2>
+      <p>Raccontaci cosa vorresti realizzare. Il primo confronto parte dalla tua idea.</p>
+    </div>
+    <a href="#contatti" class="button button-primary">Avvia un progetto ↗</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contatti">
+  <div class="container contact-grid">
+
+    <div class="contact-copy">
+      <div class="eyebrow">Let's work together</div>
+
+      <h2>Parliamo di ciò che vuoi <span class="blue">realizzare.</span></h2>
+
+      <p>
+        Hai bisogno di una piattaforma, di un software personalizzato
+        o vuoi capire come digitalizzare un'attività?
+        Descrivici la tua esigenza. Valuteremo insieme il percorso possibile.
+      </p>
+
+      <div class="contact-email">
+        <small>Scrivici direttamente</small>
+        <a href="mailto:info@aiservicegroup.it">info@aiservicegroup.it ↗</a>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <div class="form-header">
+        <h3>Inizia il tuo progetto</h3>
+        <p>Raccontaci brevemente cosa hai in mente.</p>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Nome e cognome *</label>
+          <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
         </div>
 
         <div class="field">
-          <label for="message">Descrivi brevemente il progetto *</label>
-          <textarea id="message" name="message" placeholder="Quale problema vuoi risolvere? Che cosa dovrebbe fare la soluzione?" required></textarea>
+          <label for="company">Azienda</label>
+          <input type="text" id="company" name="company" placeholder="Nome azienda">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="nome@email.it" required>
         </div>
 
-        <button type="submit" class="button button-primary form-submit">
-          Prepara la richiesta ↗
-        </button>
+        <div class="field">
+          <label for="service">Tipologia di progetto *</label>
+          <select id="service" name="service" required>
+            <option value="">Seleziona</option>
+            <option>Software personalizzato</option>
+            <option>Piattaforma digitale</option>
+            <option>Applicazione web</option>
+            <option>Automazione e integrazione</option>
+            <option>Data intelligence</option>
+            <option>Integrazione AI</option>
+            <option>Consulenza e progettazione</option>
+            <option>Non so ancora, vorrei confrontarmi</option>
+          </select>
+        </div>
+      </div>
 
-        <p class="form-note">
-          Il modulo apre il tuo programma email con la richiesta già compilata.
-          L'invio avviene dopo una tua conferma.
-        </p>
-      </form>
+      <div class="field">
+        <label for="budget">Hai già un budget indicativo?</label>
+        <select id="budget" name="budget">
+          <option value="">Preferisco parlarne</option>
+          <option>Da definire</option>
+          <option>Fino a 2.000 €</option>
+          <option>2.000 – 5.000 €</option>
+          <option>5.000 – 10.000 €</option>
+          <option>Oltre 10.000 €</option>
+        </select>
+      </div>
 
-    </div>
-  </section>
+      <div class="field">
+        <label for="message">Descrizione del progetto *</label>
+        <textarea id="message" name="message" placeholder="Quale problema vuoi risolvere? Che cosa dovrebbe fare il software?" required></textarea>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" id="privacy" required>
+        <span>Confermo di aver letto l'informativa sulla privacy e acconsento al trattamento dei dati per essere ricontattato.</span>
+      </label>
+
+      <button type="submit" class="button button-primary form-submit">
+        Prepara la richiesta ↗
+      </button>
+
+      <p class="form-note">
+        Il pulsante prepara un'email nel tuo programma di posta.
+        Potrai controllarla e confermare personalmente l'invio.
+      </p>
+
+      <div class="form-success" id="formSuccess">
+        La richiesta è stata preparata. Completa l'invio dal tuo programma email.
+      </div>
+    </form>
+
+  </div>
+</section>
 
 </main>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container footer-inner">
+<footer class="footer">
+  <div class="container">
 
-    <a href="#home" class="logo">
-      <span class="logo-symbol">A.</span>
-      <span>AISERVICEGROUP</span>
-    </a>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="brand">
+          <span class="brand-symbol">A.</span>
+          <span style="color:white">AISERVICEGROUP</span>
+        </a>
+        <p>
+          Software engineering and digital solutions.
+          Progettiamo e sviluppiamo tecnologia intorno alle esigenze reali.
+        </p>
+      </div>
 
-    <p class="footer-copy">
-      © <span id="year"></span> AISERVICEGROUP. Tutti i diritti riservati.
-    </p>
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>ESPLORA</h4>
+          <a href="#servizi">Competenze</a>
+          <a href="#approccio">Approccio</a>
+          <a href="#metodo">Metodo</a>
+        </div>
 
-    <div class="footer-links">
-      <a href="#servizi">Competenze</a>
-      <a href="#azienda">Approccio</a>
-      <a href="#contatti">Contatti</a>
-      <a href="mailto:info@aiservicegroup.it">Email ↗</a>
+        <div class="footer-column">
+          <h4>CONTATTI</h4>
+          <a href="mailto:info@aiservicegroup.it">Email</a>
+          <a href="#contatti">Nuovo progetto</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> AISERVICEGROUP</span>
+      <span>Software Engineering · Digital Solutions</span>
     </div>
 
   </div>
 </footer>
 
 <script>
-  // Mobile navigation
-  const menuToggle = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
 
-  menuToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.textContent = isOpen ? "×" : "☰";
+menuButton.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuButton.textContent = open ? "×" : "☰";
+  menuButton.setAttribute("aria-expanded", String(open));
+});
+
+document.querySelectorAll("#navLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuButton.textContent = "☰";
+    menuButton.setAttribute("aria-expanded", "false");
   });
+});
 
-  document.querySelectorAll("#navLinks a").forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.textContent = "☰";
-    });
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// I servizi selezionati precompilano la tipologia nel modulo.
+document.querySelectorAll(".service-card").forEach(card => {
+  card.addEventListener("click", event => {
+    if (event.target.closest("a")) {
+      const service = card.dataset.service;
+      const select = document.getElementById("service");
+
+      for (const option of select.options) {
+        if (option.text.toLowerCase().includes(service.toLowerCase())) {
+          select.value = option.value;
+          break;
+        }
+      }
+    }
   });
+});
 
-  // Dynamic year
-  document.getElementById("year").textContent = new Date().getFullYear();
+// Prepara un'email: non trasmette dati a un server.
+document.getElementById("contactForm").addEventListener("submit", event => {
+  event.preventDefault();
 
-  // Contact form: prepares an email in the visitor's email application
-  document.getElementById("projectForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+  const form = event.currentTarget;
 
-    if (!this.reportValidity()) return;
+  if (!form.reportValidity()) return;
 
-    const formData = new FormData(this);
+  const data = new FormData(form);
 
-    const name = formData.get("name");
-    const company = formData.get("company") || "Non specificata";
-    const email = formData.get("email");
-    const type = formData.get("type");
-    const message = formData.get("message");
+  const name = data.get("name");
+  const company = data.get("company") || "Non specificata";
+  const email = data.get("email");
+  const service = data.get("service");
+  const budget = data.get("budget") || "Da definire";
+  const message = data.get("message");
 
-    const subject = `Richiesta progetto - ${name}`;
+  const subject = `Richiesta progetto AISG - ${name}`;
 
-    const body = [
-      "Nuova richiesta dal sito AISERVICEGROUP",
-      "",
-      `Nome: ${name}`,
-      `Azienda: ${company}`,
-      `Email: ${email}`,
-      `Tipologia di progetto: ${type}`,
-      "",
-      "Descrizione:",
-      message
-    ].join("\n");
+  const body = [
+    "NUOVA RICHIESTA DAL SITO AISERVICEGROUP",
+    "",
+    `Nome: ${name}`,
+    `Azienda: ${company}`,
+    `Email: ${email}`,
+    `Progetto: ${service}`,
+    `Budget indicativo: ${budget}`,
+    "",
+    "Descrizione:",
+    message
+  ].join("\n");
 
-    const mailto = `mailto:info@aiservicegroup.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const mailto = "mailto:info@aiservicegroup.it"
+    + "?subject=" + encodeURIComponent(subject)
+    + "&body=" + encodeURIComponent(body);
 
-    window.location.href = mailto;
-  });
+  document.getElementById("formSuccess").style.display = "block";
+  window.location.href = mailto;
+});
 </script>
 
 </body>
